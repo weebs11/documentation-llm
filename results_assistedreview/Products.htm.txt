@@ -1,0 +1,244 @@
+
+Capabilities
+Relativity provides you with the necessary tools to tackle your e-discovery platform needs from beginning to end. Follow the links below to learn more about Relativity's standard and extend capabilities. 
+Standard Capabilities
+
+
+
+
+
+
+Legal Hold
+
+Legal Hold 
+
+Installing Legal Hold
+
+Adding legal hold settings
+
+Projects
+
+Preservation hold (Legacy)
+
+
+
+
+Collect
+
+Collect
+
+Installing Collect
+
+Collection
+
+Data sources
+
+Matters
+
+
+
+
+
+
+Processing
+
+Processing in Relativity
+
+Processing entities
+
+Password bank
+
+Processing profiles
+
+Processing sets
+
+Inventory
+
+
+
+
+Analytics & Assisted Review
+
+Analytics
+
+Assisted Review
+
+Clustering
+
+Email threading
+
+Language identification
+
+Structured analytics
+
+
+
+
+
+
+Production
+
+Production overview
+
+Imaging
+
+OCR
+
+Production sets
+
+Production data source
+
+Production placeholders
+
+Production console
+
+Production queue
+
+Branding queue
+
+
+
+
+Review
+
+Reviewing documents in Relativity
+
+Review Center
+
+Layouts
+
+Fields
+
+Choices
+
+Batches
+
+Pivot
+
+Mass operations
+
+Clients
+
+
+
+
+
+
+Supporting applications
+
+Case Dynamics
+
+Automated Workflows
+
+View more supporting applications
+
+
+
+
+Mobile
+
+RelativityOne's mobile experience 
+
+ Navigation
+
+Documents
+
+Offline
+
+
+
+
+
+
+
+Extend Capabilities
+The Extend products below are available to further extend the capabilities of your RelativityOne environment. (Note that these capabilities may have additional cost or licensing requirements.) 
+
+
+
+
+
+
+aiR for Privilege
+
+aiR for Privilege
+
+Installation and configuration
+
+Create a  project
+
+Perform annotations
+
+Privilege results
+
+
+
+
+Contracts
+
+Relativity Contracts
+
+Contracts OCR
+
+Analysis
+
+Compare
+
+Contracts Viewer
+
+Custom connectors
+
+
+
+
+
+
+Data Breach Response
+
+Data Breach Response
+
+Installation and configuration
+
+Ingest documents
+
+Run reports
+
+Review documents
+
+Project lead
+
+
+
+
+PI Detect
+
+PI Detect
+
+Installation and configuration
+
+Ingest documents
+
+Run reports
+
+Redact documents
+
+Review documents
+
+Project lead
+
+
+
+
+
+
+Translate
+
+Working with Relativity Translate
+
+
+
+ 
+
+
+
+

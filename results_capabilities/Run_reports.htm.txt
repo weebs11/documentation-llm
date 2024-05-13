@@ -1,0 +1,25 @@
+
+Run reports
+The Document Report provides Project Leads with a breakdown of each document within the dataset and the personal information found within that document. To run a report job follow the steps below, then see Document Report for more information on how to read the results.
+Note: Run the Incorporate Feedback pipeline before running a report job to make sure the Document Report has the most up to date information.
+
+Navigate to the PI Detect and Data Breach Response Application tab.
+Click Jobs.
+
+                Click New PI Job.
+
+                Enter a Name for the Job.            
+
+                Select Job Type as Personal Information – Report.
+
+                Select the applicable Data Setting.
+
+                Click Save. Once the job has been saved it will send data to the Personal Information project.
+
+                The job will be queued.Note: It can take several minutes to hours for a job to complete depending on how large the data set is. It can also take several minutes before an agent picks up the job. To see the most up to date job status, manually refresh the page.
+
+                Once the job transitions its status to Complete, navigate to the Document Report tab. See Document Report for more information on how to read the results.
+
+                Select a document report from the list to view all documents. 
+
+ 

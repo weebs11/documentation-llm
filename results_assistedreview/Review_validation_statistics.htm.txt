@@ -1,0 +1,71 @@
+
+Review validation statistics
+Review Center provides three metrics for evaluating your review coverage: elusion, richness, and recall. Together, these metrics can help you determine the state of your Review Center project. 
+Once you have insight into the accuracy and completeness of your relevant document set, you can make an educated decision about whether to stop the Review Center workflow or continue review.
+For instructions on how to run Project Validation, see Review validation.
+Defining elusion, richness, and recall
+Validation centers on the following statistics, and for all of these, it reports on confidence intervals:
+
+Elusion rate—the percentage of documents that are relevant but have yet to be coded. The rate is rounded to the nearest single digit (tenth of a percent).
+Richness—the percentage of relevant documents across the entire review. 
+Recall—the percentage of truly positive documents which were found by the review. 
+
+For both elusion and recall, a document is considered found if it was previously coded positive. Documents coded relevant after the start of the validation are not considered found for the purposes of validation. Documents coded outside of the queue still count toward elusion and against recall, and so do any responsive documents in the validation sample.
+In pattern recognition, information retrieval, and machine learning, recall is a performance metric that applies to data retrieved from a collection.
+Recall is based on relevance. Specifically, it is the fraction of relevant instances that were retrieved, as displayed in the following equation.
+
+
+
+For each of these metrics, the validation queue assumes that you will trust the human coding decisions over machine predictions, and that the prior coding decisions are correct. It does not second-guess human decisions.
+Note: Validation does not check for human error. We recommend that you conduct your own quality checks to make sure reviewers are coding consistently. 
+Validation metric calculations
+Validation divides the documents into groups based on two distinctions:
+
+Whether or not the document has been coded.
+Whether or not the document is relevant.
+
+Together, these distinctions yield four buckets:
+
+Coded not relevant—documents that have been coded but are not relevant.
+Coded relevant—documents that have been coded and are relevant.
+Coded relevant—documents that have not been coded and are not relevant.
+Uncoded, Relevant—documents that have not been coded and are not relevant.
+
+
+
+
+At the start of validation, the system knows exactly how many documents are in buckets 1 and 2. 
+
+Coded documents—have a positive or negative coding label.
+
+
+Uncoded documents—have not received a positive or negative coding label. This includes any documents that:have not been reviewed yet.are being reviewed at the moment the validation starts, but their coding has not been saved yet.were skipped.received a neutral coding label.
+
+The system also knows how many documents are in buckets 3 and 4 altogether, but not the precise breakdown between the two buckets. 
+You could find out by exhaustively coding the uncoded documents, but that’s time-consuming. Instead, review validation uses statistical estimation to find out approximately how many are in each bucket. This means that any statistics involving bucket 3 or 4 will include a confidence interval that indicates the degree of uncertainty about how close the estimate might be to the true value.
+Elusion rate
+This is the percentage of uncoded documents that are relevant.
+
+
+
+Review validation estimates this directly from the sample. It’s calculated as the number of documents in the validation sample that were coded relevant, divided by the size of the sample.
+Recall
+Recall is the number of documents that were coded relevant, divided by the total number of relevant documents, both coded and uncoded.
+
+
+
+To estimate this, review validation needs an estimate of how many documents are in bucket 4. It finds this by multiplying the elusion rate by the total number of uncoded documents.
+Richness
+This is the percentage of documents in the review that are relevant.
+
+
+
+Similar to recall, review validation estimates the number of documents in bucket 4 by multiplying the estimated elusion rate by the number of uncoded documents. This is only done for the top half of the formula. For the bottom half, review validation only needs to know the size of the review. The buckets are shown individually for illustration purposes.
+How the validation queue works
+Once you start validation, the system puts all sampled documents from buckets 3 and 4 into the queue for reviewers to code.
+ Documents coded during project validation do not switch buckets during the validation process. Documents that started in buckets 3 and 4 are still considered part of 3 and 4 until validation is complete. This allows the system to keep track of correct or incorrect predictions when calculating metrics, instead of lumping all coded documents in with those which were previously coded.
+Review Center reports statistics once all documents in the sample are reviewed. A document is considered reviewed if a reviewer has viewed the document in the Viewer and has clicked Save or Save and Next.
+How validation handles skipped and neutral documents
+We strongly recommend coding every document in the validation queue as relevant or non-relevant. Skipping documents or coding them neutral lowers the randomness of the random sampling, which introduces bias into the validation statistics. To counter this, Review Center gives conservative estimates. Each validation statistic counts a skipped or neutral document as an unwanted result.
+For statistics, review validation assumes that skipped and neutral documents in the validation sample are responsive. Doing this guards against systematically overestimating recall.
+In practice, this tends to raise the elusion and richness estimates, and lower the recall estimate.

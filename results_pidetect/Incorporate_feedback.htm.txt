@@ -1,0 +1,274 @@
+
+Incorporate feedback
+The Incorporate Feedback pipeline is a combination of machine stages that make predictions, perform calculations, curate machine output, and generate reports.
+Permissions
+Incorporate Feedback is only available for users assigned the role of Lead.
+Incorporate feedback pipeline stages
+
+
+
+
+
+
+Process
+Description
+Sub Stages
+
+
+
+
+Run Detectors 
+This process incorporates user feedback to train the machine learning models and then identifies personal information across non-reviewed documents by running all the PI detectors. User annotations on non-reviewed documents will be removed during this step and replaced by machine predictions. 
+
+
+Non-Spreadsheet detection Blocklisting 
+
+
+Unstructured PI Detection
+
+
+
+
+Detector Training 
+
+
+Overlap Removal 
+
+
+Native Annotation Mapping  
+
+
+
+
+Run Excel Detectors 
+This process incorporates user feedback to train the machine learning models and then identifies personal information across non-reviewed spreadsheet documents by running all PI detectors. 
+
+
+
+Spreadsheet Table and Header Detection
+
+
+Spreadsheet Column PI Detection
+
+
+Detects PI in Cells
+
+
+Applies Spreadsheet QC feedback
+
+
+
+
+
+Process Excel Detections 
+Collects all names and PI from spreadsheet documents and creates linkages between them. This must be done at least once to merge individuals and create the Notification Report. 
+ 
+
+
+Deduplicate Individuals 
+Merges duplicate individuals based on unique names and personal information. This process reduces the number of rows in the Notification Report. 
+
+
+
+Similar Name Clustering
+
+
+Address standardization
+
+
+Entity Normalization & Consolidation
+
+
+
+
+
+Generate Reports 
+Generates all the reports on the ‘Report Generation’ page. In particular, the Document Centric and Entity Centric Reports. 
+ 
+
+
+
+Navigating to incorporate feedback
+Navigate to the Incorporate Feedback tab on the left-side dashboard. Incorporate Feedback is used exclusively by the Project Lead to provide feedback to the model.
+Overview
+When Incorporate Feedback is running, the Overview tab shows information about in progress stages of the pipeline. When Incorporate Feedback is not running, it displays information about the last run. Information about previous runs of the Incorporate Feedback pipeline can be viewed by using the Select Round to View drop down. 
+The Overview tab has the following information:
+
+Status—the progress of the Incorporate Feedback pipeline as a whole. The pipeline status can be:In Progress—incorporate Feedback is running.Completed—incorporate Feedback has completed successfully.Completed with Failures—incorporate Feedback has completed with errors.
+Stage—the name of the pipeline stage.
+Start Time—the time a stage started running.
+End Time—the time a stage stopped running.
+Duration—the run time of a stage.
+Progress—an indicator of stage progress when Incorporate Feedback is running.
+Status—the status of a stage. Statuses can be:Not Started—the stage has not begun.Still Running—the stage is in the middle of processing.Completed—the stage has finished processing successfully.Completed with Failures—the stage has finished processing and some items encountered failures during processing.Failed—the stage has finished processing and many items encountered failures during processing, so the stage is considered to have failed.Skipped—the stage was not run.Interrupted—the stage was stopped in the middle of processing.
+
+In progress details
+The In Progress Details tab is only populated while running the pipeline. The information that appears  is dependent on what substages are running.
+Document based substages
+The following Incorporate Feedback stages process information on a document level:
+
+SPREADSHEET_REGEX
+Excel Tag Status Processing
+Generate Spreadsheet Linkages
+Overlap Removal
+PDF Annotation Generation
+Document Statistics
+Document Scoring
+Precision and Recall
+Document Indexing
+
+While these stages are running, the In Progress Details tab has the following information:
+
+Document ID—the ID of the document being processed
+Duration—the amount of time the document has been processing for
+
+Detector based substages
+The following Incorporate Feedback stages process information on a detector level:
+
+Detector Training
+Machine Learning Detection
+
+While running the detector based substages, the In Progress Details tab will contain the following information:
+
+Detector—the detector that is being run
+Duration—the amount of time the detector ran
+
+Blocklisting
+The Blocklisting substage processes individual items to blocklist. The In Progress Details tab will contain the following information when Blocklisting is running:
+
+Blocklist Items—the item to be blocklisted
+Duration—the amount of time the item was run
+
+Report based substages
+The Report Generation stage is responsible for generating the following reports:
+
+Document Report
+Entity Centric Report
+Reviewer Progress
+Unlinked PI Log
+Merge Reason
+
+The In Progress Details tab contains the following information while Report Generation is running:
+
+Report—the name of the report
+Duration—the amount of time the report was being processed for
+
+Document errors and non-document errors
+Document Errors
+The Document Errors tab shows documents that encountered errors while Incorporate Feedback was running, and what those errors are. For a detailed description of possible errors and flags and their resolutions, see the Documentation on Errors and Flags. The following information is displayed on this tab:
+
+Document ID—the ID of the impacted document.
+Document Flags—the error flag applied to the document during Incorporate Feedback.
+Error Message—the error message.
+Detection Stage—the stage that the document encountered the error.
+
+
+
+
+Non-document errors
+The Non-Document Errors tab shows errors that occurred during non-document-based processes. For a detailed description of possible errors and flags and their resolutions, see Errors and Flags. The following information shows on this tab:
+
+Error Type—the type of error that occurred.
+Error Message—the error message.
+Errored Item Name—the item that caused the error.
+
+
+
+
+Running the pipeline
+This section provides instructions for running the incorporate feedback pipeline and lists common use cases when running the pipeline.
+To run incorporate feedback:
+
+Click the Run Incorporate Feedback button.
+Select the processes to run.
+Click Yes to start the pipeline.
+
+Note: While Incorporate Feedback is in progress, you cannot change batches and documents. For this reason, you should only run the pipeline when review is not planned or occurring.
+Choosing stages to run
+On each run you can configure the pipeline to run all, or some, stages. 
+Note: Process Excel Detections and Deduplicate Individuals are responsible for consolidating individuals for the Entity Centric report in Data Breach projects. For Personal Information projects, you can skip these stages.
+Depending on what the goal of running the pipeline is, it may be helpful to only select some stages to run. Common use cases when running the pipeline include:
+Case 1: Running the pipeline for the first time
+
+
+                Run Detectors
+            
+
+                Run Excel Detectors
+            
+
+                Generate Reports
+            
+
+Case 2: Running the pipeline during QC review
+QC review primarily focuses on refining detectors and blocklisting false hits. During QC review, run the following stages only:
+
+Run Detectors
+Run Excel Detectors
+Generate Reports
+
+Case 3: Running the pipeline during review
+Just as in the QC process, you can refine detectors during Review. You can choose to run the same steps in Case 2 if you wish to make detector or blocklist updates during Review.
+If you wish to just generate updated versions of the Reviewer Progress or Document Report, run the following stage only:
+
+Generate Reports
+
+Stopping the pipeline
+You can stop Incorporate Feedback at any time while it is in progress. To stop the pipeline:
+
+
+                Select the Stop Pipeline button.
+
+                A modal will appear. Click Yes.
+            
+
+                To restart the pipeline, follow the instructions in Restarting the Pipeline.
+            
+
+Restarting the pipeline
+If a stage fails at any time while Incorporate Feedback is running or a user stops the pipeline, you can restart it. There are two ways to restart Incorporate Feedback:
+Using Retry Stage
+Using the Retry Stage functionality will only restart Incorporate Feedback from the selected stage. To use Retry Stage:
+
+
+                In the Actions column, open the ellipsis menu for the stage you want to retry.
+            
+
+                Click Retry Stage.
+
+Using Retry
+The option to Retry the entire pipeline appears when the whole pipeline has stopped due to failure. Clicking Retry here will restart the pipeline from the failed step.
+
+
+                Click the Retry button.
+
+                A modal will appear. Click Yes.
+            
+
+Troubleshooting
+The Progress indicator for a stage is not updating
+The progress bar may appear to hover at a certain percentage or near completion for a while. To further investigate: 
+
+
+Navigate to the In Progress Details tab.
+
+
+Observe the list of in-progress documents:
+
+
+If the list is updating with new documents, the stage is still in progress and will require more time to finish.
+
+
+If the pipeline is stuck on one document, proceed to step 3.
+
+
+
+
+Stop the pipeline. Reference Stopping the pipeline for instructions.
+
+
+Retry the stage. Reference Using Retry for instructions. If it fails again, please contact your project manager.
+
+
+The Incorporate Feedback pipeline is not starting
+ 

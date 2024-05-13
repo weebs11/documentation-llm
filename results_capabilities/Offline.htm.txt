@@ -1,0 +1,33 @@
+
+Offline
+Work offline with the RelativityOne mobile app for iOS. With the offline feature, you can choose a previously created saved search to download. The native files in the saved searches are converted to PDF files when downloaded. Once downloaded, the documents are securely stored and viewable without a connection.  There is a limit of 500 documents in a download.
+
+
+
+Note: This functionality is not available in RelativityOne Government environments.
+Security 
+Downloads are automatically wiped if the user has not authenticated in 30 days.  The user will see the download cell update to "Download Expired – Swipe to Delete" notifying them the download has been deleted from the app.
+In the event that administrators revoke a user's access to a given workspace, documents which originated from that workspace will be purged from the device.
+Permissions
+The user needs the Create PDF permission under the Object Security permissions enabled for the offline feature to be enabled in the app.
+
+
+
+Downloading a saved search or folder
+Downloads are available by using Saved Searches as the source.  Prior to downloading, ensure you’ve already set up a saved search on the web.
+Steps to download:
+
+Tap the Offline tab in the bottom tab bar.
+Tap + in the top right to start a new download.
+Select the saved search you want to download.
+Tap the download icon in the upper-right corner.A Confirm Download pop-up dialog opens. 
+Tap Download.Notes: Keep the app open for a quicker download.
+
+Viewing downloaded documents
+After the download completes, the download is available and can be selected in the offline tab. At the list level, you can see the name of the download, the date downloaded, and the size of the download. 
+Tap to view the downloaded documents.  When viewing an offline document, you can navigate doc to doc as well as search the text of the document.
+Note: You cannot make coding decisions while offline at this time.
+To delete a download simply swipe to reveal the delete option.  You cannot delete individual documents within a download.
+(Click to expand)
+
+

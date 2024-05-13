@@ -1,0 +1,14 @@
+
+RelativityOne Sandbox
+RelativityOne Sandbox refers to reusable RelativityOne environments that allow you to test SQL scripts, event handlers, API based applications, custom pages, and custom agents.
+Note: 
+
+RelativityOne Sandbox is not currently available for FedRAMP customers / government entities.
+Sandbox is a service that you must subscribe to. Please contact your Account Manager for more details.
+You should never put confidential data into Sandbox environments.
+Sandboxes do not come with a federated instance connection to their primary environment by default. If you need to set up a federated instance, see Federated instances .
+Sandbox and legacy sandbox instances are upgraded during the same time frame and will be on the same version of RelativityOne.
+
+
+Both sandbox and legacy sandbox instances will be upgraded month-to-month. Your users will have a unified login between their production instance and their Sandbox instance and be able to switch between instances easily.
+See RelativityOne Sandbox on the RelativityOne Platform site for more information.

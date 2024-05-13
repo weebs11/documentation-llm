@@ -1,0 +1,35 @@
+
+Building views for checked-out documents
+You can build views for checked-out documents to better assist users in keeping track of the documents they have checked out in a batch.
+Also see the following pages:
+
+Batches
+
+Assigning batches and checking batches in and out
+
+
+Build a checked-out documents view
+
+You can build views for a reviewer to see only their checked-out documents that either have not been reviewed yet or have already been reviewed. We recommend creating or designating a field for coding documents before completing these steps.
+
+Navigate to the Views tab.
+Click New View.
+Complete the required fields. See Views for more information.
+Click Conditions.
+Click the + Condition button.
+On the Add Condition - Select Field modal, select Batch from the list.
+Click the arrow next to the Batch button and select Batch::Assigned To from the list.
+Click on the operators drop-down menu and select is logged in user.
+Click Apply.
+Click the arrow next to the Batch button and select Batch::Status from the list.
+Click on the operators drop-down menu and select any of these.
+Select the In Progress option from the list and click the Move selected from left to right icon.
+Click Apply.
+Click the + Condition button.
+On the Add Condition - Select Field modal, select the field you use for coding decisions from the list. 
+Select is not set from the operators drop-down menu to create a view of unreviewed documents or select is set from the operators drop-down menu for a view of reviewed documents.
+Click Apply.
+Click Save.
+Optionally, repeat these steps and choose the alternate option for step 16 to create both an unreviewed and reviewed view for checked-out documents.
+
+ 

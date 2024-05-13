@@ -1,0 +1,457 @@
+
+
+Supported file types for processing
+Relativity supports many file types for processing. There are also some file types that are incompatible with the processing engine. Before processing your data,  note the supported and unsupported file types, as well as any caveats involved with processing those file types.
+Note: Data pulled from supported versus unsupported file types: Relativity only pulls limited metadata from unsupported file types. Data pulled from supported file types includes metadata, text, and embedded items.
+This page covers supported and unsupported file types. You can find additional supported file type details and considerations on the following pages:
+
+Google Workspace
+
+Microsoft
+
+Short message conversion for Slack
+
+Short message conversion for Microsoft Teams
+
+Other software support
+
+
+Supported file types
+Relativity supports the following file types and extensions for processing.
+Note: Renaming a file extension has little effect on how Relativity identifies the file type. When processing a file type, Relativity looks at the actual file properties, such as digital signature, regardless of the named extension. Relativity only uses the named extension as a tie-breaker if the actual file properties indicate multiple extensions.
+Note: Relativity may not support files created by unofficial third-party applications, such as a .pdf file created by an unknown third-party application. 
+
+
+
+
+
+File type
+Extensions
+
+
+
+
+Adobe files
+.pdf, .fm, .ps, .eps							Processing support for .xfa pdf, .pdf web forms, includes extraction of text, metadata, and imaging. Some workflows may require specific workarounds:
+									Native redactions are not currently supported. Workaround: Image the file first, then apply redactions.
+										The download PDF action, using the Natives file type, is not currently supported. Workaround: After selecting the PDF mass action, use either the Original Images or Produced Images file type or export the files as .pdfs using Import/Export.
+						Relativity performs Optical Character Recognition (OCR) on .pdf files during processing. Relativity handles a .pdf portfolio, which is an integrated .pdf unit containing multiple files, by extracting the metadata and associating it with the files contained in the portfolio.
+
+
+AppleDouble
+AppleDouble-encoded attachments in e-mails.
+
+
+CAD files
+.dxf, .dwg, 
+							.slddrw, .sldprt, .3dxml, .sldasm, .prtdot, .asmdot, .drwdot, 
+							.stl, . eprt, .easm, .edrw, .eprtx, .edrwx, .easmx
+						 The OCR output for processed CAD files can vary significantly.
+
+
+Compressed files
+
+							.7z, .zip, .tar, .gz, .bz2, .rar, .z, .cab, .alzip
+						For information on compressed files, see the Supported container types table.
+
+
+Database files
+.dbf
+							Relativity only supports .dbf 3 and .dbf 4 files.Relativity does not support the following 
+								database formats: VisualFoxProVisualFoxPro autoincrement enabledRelativity uses Microsoft Excel to extract text from 
+						.dbf file types. For details on .dbf file type handling, see Excel files.
+
+
+Email
+.pst, .ost, .nsf, .msg, .p7m, .p7s, .ics, .vcf, .mbox, .eml, .emlx, .tnef, . dbx, Bloomberg Mail .xml                                Original electronic email data (.eml file types) are parsed and stored inside a 
+									personal storage table (.pst files.) If the email contains embedded electronic email data, the email data				 is also parsed and stored in the personal storage table. The processing engine reads tables, properties, and rows to construct an 
+									.msg (Outlook message item) file from a .pst file. The .msg file format supports all rich metadata inside an email in a 
+						personal storage table. The original electronic email data is not preserved.S/MIME-encrypted and digitally-signed emails are supported.Even though the .emlx file type is supported, the following partial .emlx file extensions are not supported:.emlxpart.partial.emlxNote: There is a known file size limit of 200MB for Outlook file attachments. Relativity cannot process Outlook attachments that exceed the file size limit.
+
+
+EnCase
+e01, .ex01, .l01, .lx01
+						Processing supports .e01 and .ex01 files for the following operating and file systems:Windows—NTFS, FAT, ExFATMac—HFS+Linux (Ubuntu)—EXT2, EXT3, EXT4Deleted files that exist on an .e01 and .ex01 (disk) image file are skipped during processing, with the exception of recycle bin items, which are processed with limited metadata.Encrypted EnCase files are not supported. You must decrypt EnCase files prior to processing them.For details on .e01 file type handling, see Multi-part forensic files.
+
+
+Excel
+.xlsx, 
+							.xlsm, .xlsb, .xlam, .xltx, .xltm, .xls, .xlt, .xla, .xlm, 
+							.xlw, .uxdc
+						Excel version 2.0 through the current product version is supported. See Excel files.Note: If you save a Powerpoint or Excel document in pre-2007 format,  .PPT or .XLS files for example. and the document is read-only, we use the default known password to decrypt the document, regardless of whether or not the password exists in the Password Bank.
+
+
+Google Workspace
+For details, see Supported file types - Google Workspace.
+
+
+Hangul
+
+.hwp 
+Hangul word processing files 1997 up to 2010 are supported.
+
+
+
+HTML
+.html, .mht, .htm, .mhtml, .xhtm, .xhtml
+						Relativity extracts metadata and attachments from multipurpose internet mail (MIME) file formats such as .mht and .eml during processing.
+
+
+Image files
+.jpg, .jpeg, .ico, .bmp, .gif, .tiff, .tif, .jng, .koala, .lbm, .pbm, .iff, .pcd, . pcx, .pgm, .ppm, .ras, .targa, .tga, .wbmp, .psd, .cut, .xbm, .dds, .fax, .sgi, .png, .exf, . exif, .webp, .wdp
+
+
+JungUm Global
+
+						.gul
+
+
+OneNote
+
+
+								.one
+							
+
+During ingestion, Relativity extracts embedded items from OneNote files. 
+All child objects are extracted as separate documents.
+Text extraction takes place during discovery (and not OCR.)
+The Password Bank supports OneNote files.
+RelativityOne supports OneNote 2003+ and 2007+.
+
+
+
+
+OpenOffice
+.odc, .ods, .odt, .odp, .xps
+
+
+PowerPoint
+.pptx, .pptm, .ppsx, .ppsm, .potx, .potm, .ppt, .pps, .pot
+						PowerPoint 97 through the current product version is supported, including the dual-format 95/97 version.Modern Comments are supported with text extraction.Note: If you save a Powerpoint or Excel document in pre-2007 format,  .PPT or .XLS files for example. and the document is read-only, we use the default known password to decrypt the document, regardless of whether or not the password exists in the Password Bank.
+
+
+Publisher
+
+						.pub
+
+
+Project
+.mpp, .mpt, .mpd, .mpx 
+						Note: The text extracted from Project files is from the Gantt chart view and includes Task Notes.
+
+
+Short message
+
+							.rsmf
+						For details about short message use, metadata, and mapping, see Relativity's short message format.
+
+
+
+Slack workspace export
+
+
+Exported .json files contained in a .zip container
+For more information, see Short message conversion for Slack. 
+
+
+
+Text files
+Such as
+						.txt or .csv.Note: Processing supports any text file whose bytes are ASCII or Unicode text. Files are assumed to be in UTF8 if a Unicode BOM is not found. Files not in a Unicode format with characters outside the ASCII range may experience issues with text extraction.
+
+
+Vector files
+.svg, .svgz, .wmf, .plt, .emf, .snp, .hpgl, .hpg, .plo, .prn, .emz, .wmz
+
+
+Visio
+.vsd, .vdx, .vss, .vsx, .vst, .vsw, .vsdx, .vsdm
+							Visio is a separate installation per the Worker Manager server page.
+								You must have Office 2013 or Office 2016 installed in order to process .vsdx and .vsdm file extensions.
+						
+
+
+Word
+.docx, .docm, .dotx, .dotm, .doc, .dot, .rtf                             Word 2.0 through the current product version is supported, including templates.
+
+
+WordPerfect
+
+						.wpd, .wps 
+
+
+
+Note: Relativity currently does not support the extraction of embedded images or objects from Visio, Project, or OpenOffice files. In addition, Relativity never extracts any embedded objects or images that were added to any files as links. For a detailed list of the Office file extensions from which Relativity does and does not extract embedded objects and images, see Microsoft Office child extraction support.
+Note: If you use the Native text extraction method on the profile, Processing does not handle pre-2008 Microsoft Office files that have the Protected view enabled. You must use the Relativity text extraction method to process these files.
+Notable unsupported file types
+Processing does not support files created with the following programs and versions:
+
+
+
+
+
+Product category
+Product name and version
+
+
+
+
+DOS Word Processors
+
+
+DEC WPS Plus (.dx) Through 4.0 
+DEC WPS Plus (.wpl) Through 4.1 
+DisplayWrite 2 and 3 (.txt) All versions 
+DisplayWrite 4 and 5 Through Release 2.0 
+Enable 3.0, 4.0, and 4.5 
+First Choice Through 3.0 
+Framework 3.0 
+IBM Writing Assistant 1.01 
+Lotus Manuscript Version 2.0 
+MASS11 Versions through 8.0 
+MultiMate Versions through 4.0 
+Navy DIF All versions 
+Nota Bene Version 3.0 
+Office Writer Versions 4.0 through 6.0 
+PC-File Letter Versions through 5.0 
+PC-File+ Letter Versions through 3.0 
+PFS:Write Versions A, B, and C 
+Professional Write Versions through 2.1 
+Q&A Version 2.0 
+Samna Word IV+ Versions through Samna Word 
+SmartWare II Version 1.02 
+Sprint Versions through 1.0 
+Total Word Version 1.2 
+Volkswriter 3 and 4 Versions through 1.0 
+Wang PC (.iwp) Versions through 2.6 
+WordMARC Plus Versions through Composer 
+WordStar Versions through 7.0 
+WordStar 2000 Versions through 3.0 
+XyWrite Versions through III Plus
+
+
+
+
+Windows Word Processors
+
+
+Adobe FrameMaker (.mif) Version 6.0 
+JustSystems Ichitaro Versions 5.0, 6.0, 8.0, 13.0, 2004 
+JustWrite Versions through 3.0 
+Legacy Versions through 1.1 
+Lotus AMI/AMI Professional Versions through 3.1 
+Lotus Word Pro Millenium Versions 96 through Edition 9.6, text only 
+Novell Perfect Works Version 2.0 
+Professional Write Plus Version 1.0 
+Q&A Write Version 3.0 
+WordStar Version 1.0 
+
+
+
+
+Mac Word Processors
+MacWrite II Version 1.1
+
+
+Disk Images
+Symantec Ghost
+
+
+Encryption
+Pretty Good Privacy (PGP)
+
+
+HEIC
+High Efficiency Image Container
+
+
+Spreadsheets
+
+
+Enable Versions 3.0, 4.0, and 4.5 
+First Choice Versions through 3.0 
+Framework Version 3.0 
+Lotus 1-2-3 (DOS and Windows) Versions through 5.0 
+Lotus 1-2-3 (OS/2) Versions through 2.0 
+Lotus 1-2-3 Charts (DOS and Windows) Versions through 5.0 
+Lotus 1-2-3 for SmartSuite Versions 97 and Millennium 9.6 
+Lotus Symphony Versions 1.0, 1.1, and 2.0 
+Microsoft MultiPlan Version 4.0 
+Mosaic Twin Version 2.5 
+Novell Perfect Works Version 2.0 
+PFS: Professional Plan Version 1.0 
+Quattro Pro (DOS) Versions through 5.0 
+Quattro Pro (Windows) Versions through 12.0, X3 
+SmartWare II Version 1.02 
+SuperCalc 5 Version 4.0 
+VP Planner 3D Version 1.0
+
+
+
+
+
+In addition, Processing does not support the following files:
+
+Self-extracting .rar files
+Private mail certificate (.pem) files
+Apple i-Works suite (Pages, Numbers, Keynote)
+Apple Mail:.emlxpart.partial.emlxNote: The .emlxpart and .partial.emlx are distinct from the .emlx file extension, which is supported by processing.
+
+
+Audio/Video files .wav
+iCloud backup files
+Microsoft Access
+Microsoft Works
+Raw partition files:ISONTFSHFS
+
+Supported container file types
+The following file types can act as containers:
+
+
+
+
+
+File type
+Extensions
+
+
+
+
+Bloomberg
+
+							.xml
+						Relativity does not support Instant Bloomberg .xml files.
+
+
+Cabinet
+
+							.cab
+							Relativity does not support multi-part .cab files.
+						Relativity does not support Password Protected .cab files. 
+
+
+Compressed files
+
+							.7z, .zip, .tar, .gz, .bz2, .rar, .z, .cab, .alzip
+							For compressed container files, keep in mind the following:
+						Zip file containers do not store time zone information for the CreatedOn, LastModified, and LastAccessed fields. When extracting files, time stamps are only meaningful if you know the time zone in which the zip file container was created. Relativity extracts file metadata and updates the CreatedOn and LastModified fields if available. Otherwise, CreatedOn defaults to 1/1/1900, and LastModified reflects the worker's local time zone. The LastModified and LastAccessed fields will usually match.					When working with archives, there is no limit to the number of layers deep Processing goes to extract data. It extracts until there is no more data to be extracted. Inventory, however, only extracts data from first-level documents. For example, if you have a .zip file within a .zip file that contains an email with an attached Word document, Inventory only extracts up to the email. Additionally, .zip files within .zip files may impact performance.Note: Relativity does not support multi-part .zip, .tar, or .7z files.Note: Very large container files may impact processing speed. One workaround is to extract the files from the container and process them from a new processing set.
+
+
+EnCase
+
+						.e01, .l01, .lx01, .ex01
+
+
+AccessData Logical Image
+
+							.ad1
+						Relativity supports processing both single and multi-part non-encrypted .ad1 files. For encrypted .ad1 files, only single part files are supported. For multi-part .ad1 files, you must decrypt the files prior to processing. See Multi-part container for more information.
+
+
+iCalendar
+
+							.ics
+						For Outlook meeting invites, the email that is sent with the meeting invite (the .msg file) will have a sent date that reflects when the sender sent out the meeting request.  The resulting calendar file that is then added to the user's Outlook calendar (the .ics file) will not include a sent date, as the date doe not apply to the calendar file itself.
+
+
+Lotus Notes Database
+
+
+								.nsf
+							
+Relativity supports Lotus Notes version 10 and earlier.
+See Lotus Notes for more information.
+
+
+
+MBOX Email Store
+
+						.mbox                        .mbox is a standard format, in which case it does not matter whether you're using a Mac folder format or a Unix file format.
+
+
+Outlook Offline Storage
+
+							.ost
+						
+
+
+Outlook Mail Folder
+
+							.pst
+						Relativity assigns duplicate hash values to calendar invites, as it does with email messages and other documents.Relativity supports Teams data conversion to RSMF out of PST. See Short message conversion for Microsoft Teams for more information.
+
+
+Outlook Express Mail Folder
+
+						.dbx
+
+
+PDF Portfolio
+
+						.pdf 
+
+
+RAR
+						
+
+							.rar
+						You do not need to combine multi-part .rar files before processing them.See Password-protected .rar files for more information.
+
+
+ZIP
+See Compressed files.
+						
+
+
+
+Note: Container files do not store encoding information. Because of this, you may see garbled characters in the file names of children files processed from a container file (such as a .zip file) if the originating locale differs from the processed locale. For example, if the originating container file's locale is set to Russian, then processed on an instance set to US, the container's children files may have garbled characters.
+Container file types supported for the password bank
+The following container file types are supported by Relativity for Password Bank in Inventory.
+
+
+
+
+
+File type
+Extensions
+
+
+
+
+Compressed files
+
+						.7z, .alzip, .zip, .z, .bz2, .gz        
+
+
+Lotus Notes Database
+
+						.nsf
+
+
+PDF Portfolio
+
+						.pdf
+
+
+PST
+
+						.pst
+
+
+RAR
+
+						.rar
+
+
+
+Non-container file types supported for the password bank
+The Password Bank also supports the following non-container formats:
+
+.pdf
+Excel*
+Word*
+PowerPoint*
+S/MIME 
+.p7m
+
+* Except .drm files or custom encryption

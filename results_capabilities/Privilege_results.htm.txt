@@ -1,0 +1,286 @@
+
+Privilege results
+Upon the successful completion of the Populate Privilege Results step, the results will not immediately begin to populate in the workspace. There may be a delay of a few days between the completion of this step and when results begin to incrementally populate the workspace. The time taken for results to populate depends on the size of the dataset being analyzed. To check if the results have been populated, run a search that looks at Priv::Prediction is SET and Priv Project=[the name of the project you are running].
+Some results are populated to fields directly on the Document object, while others are populated to aiR for Privilege Document Results Object fields and then reflected onto the Document object through the multiple object Priv field. See all fields that are name spaced with "Priv::".
+Results will never be overwritten or updated after the completion of Populate Privilege Results.
+Result fields
+Following is a list of all the results fields that are populated:
+
+
+
+
+
+
+
+Field
+Field type
+Description
+Notes
+
+
+
+
+
+Priv
+
+
+
+Single result object
+Links the document to its corresponding aiR for Privilege Document Results object, which is used to reflect results onto the Document object via the Priv:: namespace.
+This field can be ignored.
+
+
+
+Priv Project
+
+
+
+Multiple object
+The project where this document was analyzed.
+ 
+
+
+
+Priv:: Prediction
+
+Single choice
+Whether a document is Privileged or Not Privileged.
+ 
+
+
+
+Priv::Category
+
+
+Single choice
+
+The category of privilege is dependent on the Record Type field set during General Settings. Documents with an Email record type will have the following Not Privileged Categories: 
+
+Not Privileged
+Junk Document
+
+Documents with an Email record type will have the following  Privileged Categories:
+
+Wholly Privileged
+Privilege
+Redaction
+Privileged Individual / No Privileged Content
+Uncertain 
+
+All other documents will have the following Not Privileged Categories:
+
+Not Privileged
+Junk Document
+
+All other documents will have the following Privileged Categories:
+
+ Attorney Involvement
+Related to Legal Matter
+Legalese / No Privileged Content
+Uncertain
+
+
+ 
+
+
+
+Priv::Rationale
+
+
+
+Long text
+A description for why the document received the decision it did.
+ 
+
+
+
+Priv::Considerations
+
+
+
+Long text
+	A description of what might change the AI’s decision.
+ 
+
+
+
+Priv::Citation
+
+
+
+Long text
+Excerpt from the Document which demonstrates the decision.
+ 
+
+
+
+Priv::Error Details
+
+
+
+Long text
+Contains error details for result level errors
+ 
+
+
+Priv::Log Description (Advanced Access)
+Long text
+Draft Privilege Log entry. 
+This functionality is currently in Advanced Access.  Only documents that have a Decision of Privileged and are not in the Category of Errored will receive a Log Description. 
+
+
+
+Priv Recipient Aliases (all email segments)
+
+Multiple object
+Lists all aliases who are recipients on an email. Includes all email segments.
+ 
+
+
+
+Priv Sender Aliases (all email segments)
+
+Multiple object
+Lists all entities who are senders on an email chain. Includes all email segments.
+ 
+
+
+
+Recipient Entities
+
+
+
+Multiple object
+Lists all entities who are recipients on an email
+ 
+
+
+
+Sender Entity
+
+
+
+Long text
+Lists the entity that is sending the email
+ 
+
+
+
+Priv::Family Size
+
+
+
+Whole number
+Number of documents included in the document’s family that were included in the privilege project
+ 
+
+
+
+Priv::Legal Recipient Aliases (all email segments)
+
+
+Long text
+List of all the Priv Conferring aliases’ UIDs who are recipients in the entire email chain
+UID is the unique identifier for entities and can appear as an entity’s email address, name, or unique string of characters.
+
+
+
+Priv::Legal Sender Aliases (all email segments)
+
+
+Long text
+List of all the Priv Conferring aliases’ UIDs who are senders in the entire email chain
+UID is the unique identifier for entities and can appear as an entity’s email address, name, or unique string of characters.
+
+
+
+Priv::Legal Recipient Aliases (top email segment)
+
+
+Long text
+List of all the Priv Conferring aliases’ UIDs who are recipients in the most recent email segment in an email chain
+UID is the unique identifier for entities and can appear as an entity’s email address, name, or unique string of characters.
+
+
+
+Priv::Legal Sender Aliases (top email segment)
+
+
+Long text
+List of the Priv Conferring alias UID who sent the most recent email segment in an email chain
+UID is the unique identifier for entities and can appear as an entity’s email address, name, or unique string of characters.
+
+
+
+Priv::Law Firm Domains (all email segments)
+
+
+Long text
+List of all the Priv Conferring law firms in the entire email chain
+ 
+
+
+
+Priv::Law Firm Domains (top email segment)
+
+
+Long text
+List of all the Priv Conferring law firms in the most recent email segment in an email chain
+ 
+
+
+
+Priv::Privilege Breaking Entities & Law Firm Domains
+
+
+Long text
+Lists all privilege breaker entities/law firm domains involved in an email chain. They are semicolon delimited.
+ 
+
+
+
+Priv::Third Party Domains (all email segments)
+
+Long text
+List of all the third-party domains in the entire email chain
+ 
+
+
+
+Priv::Third Party Domains (top email segment)
+
+
+Long text
+List of all third-party domains in the most recent email segment in an email chain
+ 
+
+
+
+Priv::# of Legal Recipient Aliases (all email segments)
+
+
+Whole number
+Number of legal recipient aliases on the entire email
+ 
+
+
+
+Priv::Percentage Legal Aliases (all email segments)
+
+
+Decimal
+Percentage of recipient aliases on the email who are legal
+ 
+
+
+
+Priv::# of Recipient Aliases (all email segments)
+
+
+Whole number
+Number of total aliases recipients on an email
+ 
+
+
+
+Note: Searching in the UI across direct document fields vs. those reflected from the aiR for Privilege Document Results object fields is a slightly different experience.

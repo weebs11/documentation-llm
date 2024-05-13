@@ -1,0 +1,126 @@
+
+ARM
+Use the ARM application  to archive and restore Relativity workspaces between Relativity installations or SQL Servers. 
+Note: If you are using RelativityOne to transfer or restore multiple or large workspaces, it is recommended to contact  Support.  The Support team can then consider any resource allocation that may be helpful to scale for any increased system use during the transfer and restoration process.
+Job types
+
+Archive—the archive function assesses a workspace’s primary and critical components and packages those components into an archive. This archive can serve multiple purposes that vary for each organization. For example, you can use this archive to migrate a workspace from one SQL Server to another.
+Restore—the restore function restores a fresh workspace in the target installation of Relativity using an archive created with ARM or a restored SQL database. This function is dependent upon the archive function. You can use this function to restore an existing workspace on a different server.
+
+ARM jobs are executed asynchronously by one or many agents. Multiple agents can work simultaneously to complete tasks for different jobs or can work on separate tasks for the same job.
+The ARM application uses a staging system that breaks up a job’s work into individual tasks. This staging system shows a job’s progress and gives you actionable information in the case of a job failure. You can see what went wrong, make adjustments, and then resume the job from where it left off.
+Stages are executed sequentially. However, the tasks in each stage can be completed simultaneously. If a task fails, the job halts progress in that stage, stores the progress, and then retries the tasks that did not complete.
+Security permissions
+By default, only system administrators can access ARM. However, you can grant users in other Relativity groups access to ARM using instance security permissions.  See Instance security for more information.
+The following minimum security permissions are required to use ARM.
+
+
+
+
+
+
+Object security
+Tab visibility
+Admin operations
+
+
+
+
+
+N/A
+
+
+ARM parent tab and all child tabs
+
+
+View Admin Repository
+
+
+
+
+Unsupported Relativity data
+ARM currently does not currently support the following:
+
+The Move operation for Processing data, Invariant stores, job metadata, and unpublished files.
+Collections data
+Cached files, this table is truncated.
+
+Considerations before using ARM
+General considerations
+Review the following prior to working with ARM:
+
+You should ensure that the case workspace is not actively being updated at the time of archiving to prevent inconsistencies in the interim between the archive and the restore.
+Note: While an archive operation is being performed, ARM will put a workspace into single user mode. This  closes any active connections to the database to prevent inconsistencies between the workspace being backed up and the workspace that is restored.
+
+
+For Relativity Server you can only restore a workspace to the same version of SQL Server or a higher version. This rule applies to both major and minor SQL version differences. SQL versioning is not an issue in RelativityOne. Customers can restore any workspace from Server to RelativityOne.
+
+Ensure that the following ports are open on your agent server running the ARM agents to successfully transfer data to RelativityOne: Outbound TCP 33001 and Outbound UDP 33001. For more information, contact Relativity Support.
+
+If a workspace that includes processing was archived prior to ARM 9.6.3.1479+   and the workspace is restored, processing cannot be run again. Instead, create a new workspace, use Integration Points to transfer the data  to that new workspace, and continue processing from there.
+
+For ARM archive, if the SQL server has a security certificate installed, the archive can only be restored to an SQL server with the same security certificate or to a database that has been encrypted before the restore process.
+
+
+Active learning considerations
+Review the following prior to working with active learning projects in ARM:
+
+When you archive an active learning project, the associated classification index is also archived.
+When restoring a workspace with an active learning project, map your users and permission groups. The users will still exist in the project, but you will need to manually add them back to the queue.
+ If you do not map your permission group, Relativity creates a permission group so the active learning project is still usable, but you must add reviewers to the group. 
+
+Analytics considerations
+Review the following prior to working with Analytics indexes in ARM:
+
+If you are moving to RelativityOne, you must migrate from a Relativity Server version 9.5.196.102 or above if you want to include Analytics data. If you do not need to restore the underlying Analytics Engine data, you can restore from older versions. 
+You can restore an archive from a version before 9.5.196.102, but the Analytics Engine data is not restored. You will need to rebuild your indexes or repopulate your structured staging areas and indexes from scratch.
+You cannot archive a workspace from RelativityOne to Relativity Server.
+
+ARM migrations using RelativityOne
+When using previously run structured analytics sets, email threading and textual near duplicate identification:
+
+
+                Field values are maintained in the migrated workspace, but those values are static from the previously run structured analytics sets.
+            
+For continuity, we recommend re-running a full build with the addition of any new data to a structured analytics set after migration.  This will ensure that all values are properly related across the entire data set.  If an incremental build is run, the previous values may not be correct in their relation to the new values.We recommend running a full build with the first new data set in RelativityOne after the workspace is migrated using ARM.  When future data is added, you can run an incremental build.
+
+When restoring Analytics archives with compression to RelativityOne, extract the Analytics index folder files from the ZIP file before restoring in ARM.
+dtSearch considerations
+Review the following prior to working with ARM:
+
+If your archived workspace contains dtSearch archives, the target workspace must have a dtSearch index.
+
+Processing data considerations
+Review the following prior to working with ARM:
+
+ARM archives with Processing must have been archived on version 9.5.196.102, ARM version 9.6.3.1479+, or higher in order to retain Processing functionality when restored into RelativityOne.
+If a workspace that includes Processing data was archived on a version earlier than Relativity 9.5.196.102, ARM version 9.6.3.1479+, and the workspace is restored to RelativityOne, Processing cannot resume in the workspace. This includes new Processing jobs and deduplication, Processing Set Retry, and Error retry of pre-existing jobs.
+
+
+If you are migrating Processing data in RelativityOne, the InvariantDatabaseServer instance setting must be added with the name of the primary Invariant SQL Server as its value and the InvariantFileShare instance setting must be added for each Invariant SQL Server in the environment, with the value set to the appropriate BCPPath.
+
+When migrating Processing sets using ARM, please consider these items: 
+
+You must have the Processing Migration Agent installed and enabled in order to restore processing data. If that agent is disabled, you will receive an error when you attempt to run the restore job.
+To restore processing data, the Temporary directory field on the Worker Manager Server object in Relativity associated with the workspace in which you are processing data must display the BCP path and a server name, not just local host.
+You should not have any processing jobs, such as inventory, discovery, or publish, running in the workspace you're archiving while performing the processing restore job.
+If you receive an authentication error during the restore job, verify that the IdentityServerURL entry in the Invariant AppSettings table contains a valid address with a fully qualified domain name.
+For any processing sets that you have restored but have not yet discovered, newly-created sets or sets that were inventoried only, make sure that the data source location, the Source Path field, is valid in the restored environment. If it is not valid, make sure to update that value for all of your data sources.
+
+Performance considerations for RelativityOne
+When using the ARM application to move your workspaces into RelativityOne, there are some special considerations to take into account that will help ensure your workspace is restored as efficiently as possible. Adhere to these guidelines when using ARM to move your cases into RelativityOne to achieve optimal performance.
+
+Before transferring an ARM archive into RelativityOne using Staging Explorer, unzip your ARM archive locally. Do not unzip data on the Utility Server in your RelativityOne instance.
+If your archive has a large number of repository files, you may want to use the "fast restore" workflow outlined below, which is recommended for large workspaces in RelativityOne. This will drastically improve the restore performance of your workspace into RelativityOne.
+
+
+Note: If your workspace has a large SQL database but few repository files, the “fast restore” workflow will not significantly increase the speed of the job.
+
+Follow the steps below to perform the "fast restore" workflow:
+
+Save your uncompressed ARM archive to the ARM folder that is nested inside of the file repository. It will have a format of \\files\T###\files\ARM.If you are restoring a workspace to a client domain, make sure you save the archive to the ARM folder that is nested within the client domain’s file repository. The file repository you configure for the workspace and the location that you restore the ARM archive from must match.
+
+
+Run your ARM restore job as normal.
+
+ 

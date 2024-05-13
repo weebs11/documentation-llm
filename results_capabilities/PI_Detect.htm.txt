@@ -1,0 +1,95 @@
+
+Personal Information (PI) Detect
+PI Detect is an AI-powered solution that identifies and redacts personal information. This product has a set of pre-trained detectors that use a combination of rules and machine learning models to identify the context and document structure to reduce false positives. The product automatically highlights all personal information that has been identified and generates a report called the Document Report.
+This product is available as a Relativity application (RAP) called PI Detect and Data Breach Response. The application can be installed into a review workspace that runs within a RelativityOne production environment. The data used for analysis never leaves the RelativityOne workspace, which aligns with security and compliance requirements defined in RelativityOne contracts.
+You can create a saved search with documents for PI Detect to analyze. A saved search Document Report will be published to the RelativityOne workspace that includes Personal Information identified at the document level and a set of redacted documents.
+
+Input—saved search with documents to be analyzed by PI Detect.
+Output—saved search Document Report published to RelativityOne workspace that includes Personal Information identified at the document level.Redacted set of documents
+
+Conceptual workflow
+The steps below illustrate high-level workflow steps for the PI Detect product.
+
+Upload documents into your environment using existing data transfer tools.
+Configure the PI Detect and Data Breach Response application into your environment.
+
+Start a new Personal information – Ingestion job and select the saved search of documents for review.
+Note: Documents should either be PDFs, a document with a file extension .pdf; or spreadsheets, a document with a file extension .xls, .xlsx, .xlsb, .xlam, .xltx, .xlsm, .csv, .tsv, .xlt, .xlm, .xla.
+
+
+                Navigate to the Privacy workflow tab to select the personal information detectors to use and add any custom detectors.            
+Run the AI pipeline across the document set by going to the Incorporate feedback icon within the Privacy workflow tab. Personal information identifications are automatically highlighted and a Document Report is generated.            
+
+                Review the document set and re-run the AI to incorporate any feedback from the review.           
+
+                Select documents to redact from the document list and run redactions.
+
+
+Note: The workflow steps involving your RelativityOne environment and your dedicated Personal Information environment all occur within your RelativityOne Authentication Boundary. Your data does not leave the RelativityOne Authentication Boundary unless you upload or download documents.
+Document requirements
+Size and file limitations for the PI Detect product are as follows:
+
+PI Detect supports up to 200GB of native data per workspace.      
+ Documents should be either:  PDFs, a document with a file extension .pdf; or Spreadsheets, a document with a file extension .xls, .xlsx, .xlsb, .xlam, .xltx, .xlsm, .csv, .tsv, .xlt, .xlm, .xla.Notes: As a prerequisite to running a Personal Information project, all documents must be either PDFs or spreadsheets. Documents that are not PDFs or spreadsheets should be run through PDF Conversion in RelativityOne first. See Ingest documents for more details.CSVs must be delimited by commas. No other delimiter is supported.
+   Extracted text files  should be provided for all document types. For PDFs, predictions cannot be accurately made without a proper extracted text file. 
+Note:  Customers can OCR in RelativityOne. See OCR for instructions.
+      Relativity is unable to support documents that meet one or more of the following criteria:      Password protected or opens with an error or warning.      Excel files older than Excel 95, v 7.0.Native spreadsheets greater than 40MBNative non-spreadsheets greater than 75MB
+
+Limitations
+The following are limitations to consider when using PI Detect:
+
+PI Detect cannot be run in a repository workspace.
+ A PI Detect project and a Data Breach Response project cannot be run in the same workspace.
+
+Getting started
+Within PI Detect, there are two main roles a person may have. 
+
+One section is for Reviewers who check documents to ensure the machine is accurately predicting what documents contain PI. They correct the machine's predictions when necessary and make sure all PI types are detected. 
+The other section is for Project Leads who work hands-on with the client to obtain a final work product that meets all their needs. PI Detect projects are largely customizable and require regular communication between a project lead and the client through e-mail, phone, and video calls. Project leads also work "behind the scenes" to organize batches of documents for reviewers, generate reports, and make sure quality control measures are in place.
+
+Together, project leads and reviewers make sure the client obtains an accurate list of documents containing PI.
+The product documentation for PI Detect is  divided into two major sections based on your role. 
+
+
+I am a Reviewer
+
+I am a Project Lead
+
+
+
+Frequently asked questions
+What is the differences between PI Detect and Redact?  
+
+PI Detect is an add-on product to your RelativityOne subscription. It uses AI-based personal information identification to dramatically reduce manual review and increase precision and recall. The product has pre-set and custom personal information identifiers available and learns based on context and inferred relationships of your organization, becoming more effective over time.
+
+
+Is there a job size limit for the PI Detect and Data Breach Response  application?    
+
+PI Detect supports up to 200GB of native data per workspace.
+
+
+
+What is the transfer rate? 
+
+Regardless of data set size, the PI Detect and Data Breach Response  application transfers documents in batches of 1000.
+
+
+
+Can I run multiple jobs simultaneously in the same workspace? 
+
+No. One job must complete prior to a subsequent job starting. If more than one job is submitted, the later-submitted job will be queued.
+
+
+
+What values are acceptable for FamilyRange? 
+
+FamilyRange can be either the range, REL-00000000-0001 - REL-00000000-0005, or a GroupID or GroupIdentifier.
+
+
+
+Custodian is a single-entry field. What do I do if I have many custodian values? 
+
+Custodian should be mapped to the primary custodian. Should additional custodians be required, please use a text field to list all non-primary custodians, and notify PI Detect of the field name.
+
+
+

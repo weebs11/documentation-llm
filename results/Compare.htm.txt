@@ -1,0 +1,33 @@
+
+Compare
+With Contracts Compare you can identify textual differences across sections or entire documents within your data set. You can export the analysis results as Excel or Word files that retain differences as highlights in Excel or Tracked Changes in Word.  
+
+If your document is not in Relativity yet, you can cut and paste your exemplar and compare other documents to this base document. 
+
+
+Contracts Compare includes the following capabilities:
+
+Preview a document before selecting it as the base document for comparison.
+
+Optionally paste a base document without adding a new document to Relativity.
+
+Similarity Scores generated in real time compared to the selected base document.
+
+Side-by-side red line comparison user interface.
+
+Mini-map for quick navigation, and a snapshot of similarities and differences.
+
+Red highlights on target documents does not exist in the target document, but does in the base document.
+
+Green highlights on target documents does not exist in the base document, but does in the target document.
+Export comparison results as Excel or Word files.
+Exported files include all Contracts  Compare metadata, including similarity scores and highlights or Tracked Changes.
+
+Compare requirements
+Following are requirements and considerations for using Contracts Compare. 
+Incompatible comparison types
+If you attempt to run Compare in these  scenarios, you will receive an error message:
+Section to Master Document—if your document list has at least one section and at least one Master Agreement, you'll be alerted that you can't use Contracts  Compare to compare sections to master documents, and vice versa.
+Non Contracts -Analyzed Documents—if your document list has at least one document that hasn't been through Contracts  analysis, you'll be alerted that you can't use Contracts  Compare for non-Contracts -analyzed documents.
+Whole agreement compare and Map Sections
+When you compare master agreements to other master agreements, the Map Sections workflow ensures all sections in the base contract best match the sections of your target contracts. This requires your contract's sections be accurately segmented using Contracts  Analysis. 

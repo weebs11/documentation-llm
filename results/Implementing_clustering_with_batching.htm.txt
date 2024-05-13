@@ -1,0 +1,63 @@
+
+
+Implementing clustering with batching
+If you have a large document review and limited time to complete it in, one approach is to cluster the documents by concept, then assign them to reviewers in batches. The following sets of steps explain how to:
+
+Create document clusters
+Batch documents to users according to the clusters
+
+Note: You must have an Analytics index in order to use clustering. For information on creating an Analytics index, see Analytics indexes.
+Creating clusters
+To create a new cluster:
+
+Select the Documents tab.
+Select the container in which the documents to cluster reside:Select the top-level folder in the Folder browser to choose from all workspace documents.Select a subfolder in the Folder browser to choose from a specific subset of workspace documents.
+Select one of the following mass operation options:Checked - requires you to select target documents using the document checkboxes.All - includes all documents in the selected container.These - includes items in the current returned set.
+Select Cluster from the mass actions drop-down menu.
+Click Go.
+Select Create New Cluster for the Mode setting.
+Enter a cluster name in the Name field.
+Select an Analytics index that contains the selected documents for the Analytics Index setting.
+Click Submit for Clustering.
+
+The Cluster Documents form also includes advanced options such as maximum hierarchy depth, minimum coherence, and generality. For details on advanced clustering options, see Clustering.
+New fields
+Creating a new cluster also creates the following new fields automatically:
+
+Multiple choice field with the naming convention Cluster :: clusterName—stores cluster node names.
+Decimal field with the naming convention Cluster :: clusterName :: Score—stores cluster score values.
+
+The multiple choice and decimal fields created for each cluster allow you to:
+
+Search for documents contained in a specific cluster.
+Use the score threshold as search or view criteria.
+Add a cluster to the choice tree with the multiple choice field.
+
+Creating batches from clusters
+In this scenario, the multiple choice field is the key ingredient in batching documents to reviewers based on clusters created by Analytics. The remaining steps only require the creation of a new saved search and a batch set in your workspace.
+Creating a new saved search
+To create a new saved search:
+
+Select the Documents tab.
+Select the Saved Searches browser.
+Click New Search.
+Configure the new saved search with the following:Type a name in the Name field.Add a new condition in the Conditions section with the following settings:Field - select the new cluster multi-choice field, Cluster :: clusterName.Operator - select is set.
+Add the Cluster :: clusterName field to the list of included fields in the Fields section. Leave the default included fields: Edit, File Icon, and Control Number.
+Click Save.
+
+Creating a new batch set
+To create a new batch set:
+
+Select the Batch Sets tab (Administration::Batch Sets).
+Click New Batch Set.
+Type a name in the Name field.
+In the Maximum Batch Size field, type a maximum number of documents to include in each batch.
+In the Batch Prefix field, type a batch numbering prefix such as CLS.
+Select the new saved search from the Batch Data Source drop-down menu.
+Select the Cluster :: clusterName field as the Batch Unit Field.
+Click Save.
+Click Create Batches on the Batch Set console.
+
+Assigning and coding
+After completing a brief set of steps to create document clusters with Analytics, and to create document batches based on the clusters, you are ready to assign the batches to reviewers.
+Since Analytics automatically clusters documents based on conceptual similarities, each batch may now potentially be bulk-coded with very little review effort from your review team.

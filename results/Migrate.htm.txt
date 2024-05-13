@@ -1,0 +1,71 @@
+
+Migrate
+Migrate is used to migrate large numbers of workspaces from Relativity Server to RelativityOne. Your data migration will be seamless and intuitive, allowing workspaces to be migrated in just a few clicks.
+Related topics:
+
+Migrate setup and configuration.
+Using Migrate (workflow).
+
+Permissions
+The following minimum security permissions are required to use Migrate.
+
+
+
+
+
+Tab visibility
+Admin operations
+
+
+
+
+
+
+
+Migrate
+
+
+
+
+
+
+Access Migrate
+
+
+View Admin Repository**
+
+
+
+
+
+
+Notes: 
+
+All permissions are set in Instance security.
+
+
+The ** indicates permissions needed for non-admin users only.
+
+
+Migrate best practices and considerations
+Consider the following when using Migrate:
+
+Migrate uses ARM APIs for archiving workspaces on Relativity Server and restoring workspaces from staging to RelativityOne. 
+Migrate “archive and restore jobs”  are visible in the ARM user interface. 
+
+ARM Agents will be shared between Migrate jobs and jobs created through the ARM user interface.
+
+
+Jobs created through either the ARM user interface or using Migrate will use the same BCP path (configured in Instance Settings).
+
+Refer to the ARM documentation for any performance considerations. 
+Migrate uses Transfer API (TAPI) with Data Movement Library (DML) for fast transferring ARM archives to RelativityOne Staging. DML does not require any special configuration, however it is more performant with 8-16 CPU for Relativity Agent(Core) rather than with 4 CPU. See Relativity system requirements (Required configurations for new deployments >> Tier 1 - Hardware requirements >> Relativity Agent(core)). 
+You cannot throttle Migrate in the software. The only way to do that is to limit bandwidth directly on agent server on which Migration Data Sender is running.
+Relativity Server instance can only be connected to one RelativityOne instance (i.e., you cannot connect multiple RelativityOne instances with a Relativity Server instance).
+Migrate (similar to ARM) is supported for client domains, but migrations can only be performed by a Relativity System Admin. Migrate cannot be used by a client domain administrator due to security restrictions.
+Only one migration job can be in progress at the same time, however one migration job can include multiple workspaces.
+Within one migration job multiple workspaces can be in progress at the same time. Specifically, there may be one archiving, one transferring and up to five restoring workspace simultaneously during the migration.
+
+For legacy fileshares, no single file in a workspace migration can be over 1TB in size. Typically, this would be the workspace database backup file. So, be sure to check the EDDSXXXX database size before starting the workspace migration.
+
+

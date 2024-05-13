@@ -1,0 +1,166 @@
+
+Customer-managed direct SQL access (CMDSA)
+Note: Direct SQL access is not included automatically with your RelativityOne subscription, and must be requested by contacting your customer success manager or implementation specialist.
+In addition to querying and manipulating data through Relativity's suite of API's, administrators and developers can extend the power of the Platform even further by directly querying the SQL database. This is an important aspect of the Platform that you may be accustomed to using in your Relativity Server deployment, and something you can also take advantage of in RelativityOne. You can run Relativity Scripts in your RelativityOne instance, and you can also run SQL scripts in SQL Server Management Studio (SSMS) directly against your Relativity databases. Direct SQL can be used for situations that require running custom reports, Relativity scripts, or running commands directly in SQL Server Management Studio against your RelativityOne database.
+You will be provided with one TenantAdmin account that you can use to create additional accounts with the limited permissions that you specify.
+Note: You do not receive access to the physical server, you are only able to access SQL via the SQL Management Studio. No additional infrastructure components (certificates, etc.) are required for the access - only the VPN connection and SQL Server Management Studio.
+The TenantAdmin account  will allow you to:
+
+Write SQL data
+Update and delete SQL data in workspace tables and invariant stores
+Create new users with limited permissions
+Query the EDDS and the Invariant databases
+
+A full description of the permissions available in these two accounts is detailed in  Database / server access by account. 
+See SQL tenant admin operational overview for more information on the operations that an CMDSA TenantAdmin can perform.
+Note: Please reach out to your customer success manager or implementation specialist if you have any questions or require permissions that are not granted by default.
+Accessing direct SQL
+To request direct SQL access, you can contact your Implementation Specialist, Customer Success Manager, or RelativityOne Support. 
+To connect to Direct SQL using SQL Server Management Studio: 
+
+Download the latest version of SQL Server Management Studio version (see Microsoft's SSMS download page) to the local machine or server that has the VPN connection.
+Connect to the GlobalProtect VPN. 
+Use the server name and credentials received from Support to connect to the primary SQL server using SQL Server Management Studio from your local machine. When connecting via SQL Server Management Studio, add the the following additional connection string parameters on the Additional Connection Parameters tab:multisubnetfailover=true;trustservercertificate=trueNote that the values are all lower case without spaces, and are separated by a semicolon.
+To access RelativityOne databases, refer to the SQL server coding considerations section in the RelativityOne developer considerations page on the Platform site. This page contains information on the following:Access to SQL servers and databasesSQL Server query resiliencyDirect SQL access and location considerations, including how to return a list of SQL instances and instance values
+
+Note: You are required to change the password on the first connection to your EDDS SQL Server instance and must manage these passwords internally. See SQL tenant admin operations overview on the Platform site.
+Note: Direct SQL Access is not supported on your Utility Server.
+Database / server access by account
+The following table describes the access level granted to the TenantAdmin account. The TenantAdmin may create additional users that all have permissions that fall within this domain of privileges. The TenantAdmin may not create additional users that have the rights to create users.
+
+
+
+
+
+
+Table /
+ Action
+
+
+Tenant Admin
+
+
+
+
+
+EDDSArchiving
+Read-only
+
+
+
+EDDS Database
+
+
+Read-only
+
+
+
+
+EDDSMetrics
+
+
+No
+ access
+
+
+
+
+Invariant Database
+
+
+Read-only
+
+
+
+
+Invariant Stores
+
+
+DML access (insert / read / update / delete) 
+
+
+
+
+Collections Database
+
+
+No
+ access
+
+
+
+
+Client use databases (_DB1, _DB2, _DB3) on EDDS and all distributed instances. See Client use databases.
+
+
+Full DDL / DML access, SQL DB user permission (insert / read / update / delete / execute) on tenant schema
+
+
+
+
+Stored Procedure Access (_DB1, _DB2, _DB3 ONLY)
+
+
+Tenant Schema only
+
+
+
+
+Stored Procedure Creation (_DB1, _DB2, _DB3 ONLY)
+
+
+Tenant Schema only
+
+
+
+
+Schema modifications (_DB1, _DB2, _DB3 ONLY)
+
+
+Tenant Schema only
+
+
+
+
+Workspace Database Tables
+
+
+DML access (insert / read / update / delete), DDL on EDDSDBO Schema only
+
+
+
+Create Logins
+TenantAdmin only
+
+
+
+Client use databases
+When considering storage options for your custom application, our recommendation is to utilize Relativity Dynamic Objects (RDO).  You can use Relativity Dynamic Objects (RDO) in place of custom tables, with instances of the RDO acting as rows and the RDO's fields as columns.  Unlike writing in SQL, the Object Manager service offers a supported API surface to interact with RDOs.  In the event that RDOs do not meet your application needs, we also offer client use databases.
+Client use databases (_DB1,_DB2,_DB3) are supplied in RelativityOne as an intermediary data staging location, or a housing location for SQL stored procedures. These databases are not part of any core component of Relativity. These databases do not contain data by default, are not used by the Relativity platform, and the data storage capacity is capped at 5GB.
+Common use cases include:
+
+You need to host several SQL stored procedures or functions for use across your RelativityOne instance.
+You have non-Relativity application configurations that need to be stored somewhere local to where your application runs.
+You need to create a temporary staging table for ETL type activities.
+You need to create a temporary central queue or data repository for an outside application that does not interact with any custom agents or objects.
+When using a Relativity Dynamic Object (RDO) is not feasible for reasons of portability or compatibility.
+
+Cases where a client use database is NOT supported:
+
+When the sought-after functionality would be better suited as an RDO.
+Permanent storage of large amounts of data. Data storage capacity of these databases is capped at 5 GB.
+You have data that depends upon multiple tables in a workspace or in EDDS and are able to store the data in a Relativity object.
+Permanent references to workspaces that may (at the moment) be on the same SQL instance. Database location in RelativityOne is ephemeral, the location of a database is subject to change.
+
+SQL tenant admin operational overview
+The following operations are available only to TenantAdmin accounts:
+
+Calling stored procedures as a tenant admin
+Creating a new user login
+Adding or changing user roles
+Changing a user password
+Enabling or disabling a user login
+
+
+Refer to the Tenant admin operational overview on the Platform site for more information on how to perform administration duties.
+

@@ -1,0 +1,95 @@
+
+Review Center
+Review Center is a review management tool that helps you build custom queues, use AI to prioritize relevant documents, and leverage a rich reporting dashboard to understand the state of your data and track productivity. With streamlined administrative features and flexible AI algorithms, you can tailor the review process to your needs.
+Some of Review Center's key features include:
+
+
+Templatization—set up best-practice structures ahead of time for easy re-use.
+
+
+Customizable queues—replace batch administration with queues based on saved searches.
+
+
+Powerful AI classifier—Review Center uses a new integrative learning classifier that provides even greater efficiency than previous AI classifiers.
+
+
+Clear progress reporting—a rich dashboard features timeline-based visualizations that show relevance rates and progress.
+
+
+See these related pages:
+
+Creating a Review Center queue
+
+Monitoring a Review Center queue
+
+Reviewing documents using Review Center
+
+Review Center security permissions
+
+
+Review Center overview
+Review Center enables administrators to build review queues from any saved search and choose the order in which the documents will be served up to reviewers. These queues can be ordered using either AI-powered relevance predictions, or custom sort conditions chosen by the admin. After the admin starts the queue, reviewers check out documents from a simple interface. The admin manages all queues, reporting, and progress charts from a central dashboard.
+For a guided video showing how to use Review Center, watch the Review Center: Getting Started on-demand training.
+
+
+Review Center workflow
+The basic steps to set up Review Center are:
+
+
+Install the application.
+
+
+Create a saved search containing the documents for review.
+
+
+Create any necessary fields.
+
+
+Create or customize a review queue template.
+
+
+After setup, create and manage the Review Center queue:
+
+
+Create a new queue from the template.
+
+
+Assign the reviewer group.
+
+
+Start the queue.
+
+
+Review documents.
+
+
+Monitor the queue using the Review Center dashboard.
+
+
+ After the admin enables the queue, reviewers log into a simple screen showing the queues assigned to them. For more detail on the reviewer's experience, see Reviewing documents using Review Center.
+For detailed instructions on setting up Review Center, see Creating a Review Center queue.
+Understanding the integrative learning classifier
+The integrative learning classifier used by Review Center's AI-powered queues is a scalable, secure, and efficient classification service that can support a variety of use cases and documents. It makes connections among concepts and decisions to serve up relevant documents to reviewers as early as possible.
+You do not need to create an Analytics index for Review Center queues. Instead, when you prepare or start an AI-driven queue, the classifier automatically runs in the background to manage documents.
+Because the classifier is language-agnostic, you can use Review Center for documents written in any language.
+Using Review Center versus batching
+Review Center offers many benefits over batched reviews, including:
+
+
+Built-in administrative reporting—track progress and manage reviews in a single spot.
+
+
+Time-saving templates—shorten queue creation to a few clicks by creating templates for common workflows.
+
+
+Streamlined assignment—permissions are simplified, and documents are checked out automatically as each reviewer advances.
+
+
+Simplified entry screen for reviewers—reviewers enter queues with one click and have fewer distractions than on the standard Documents tab.
+
+
+Easy to change—you can update queues at any time, whether to add documents or to try out AI-powered review. None of these changes interrupt reviewer access.
+
+
+If your organization uses custom reporting that requires a specific workflow, you may prefer to continue using batching for now. For other scenarios, though, users often find significant benefit in switching from batching to Review Center.
+For more information on the traditional batching workflow, see Batches.

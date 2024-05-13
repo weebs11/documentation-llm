@@ -1,0 +1,12 @@
+
+Perform annotations
+Certain pipeline steps require you to confirm the predictions made by the AI, which is called performing annotations. This increases the accuracy of the system and ensures privileged documents are not missed. 
+The aiR for Privilege Annotator user group must perform annotations. See Security permissions.
+ The following objects require annotation:
+
+Disclaimers 
+Spammers 
+Domains 
+Equivalent Domains 
+Entities 
+

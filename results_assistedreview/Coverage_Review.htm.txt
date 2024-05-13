@@ -1,0 +1,50 @@
+
+Running Coverage Review
+Coverage Review serves up documents that are optimal for training the model. The goal of Coverage Review is to quickly separate your documents into the positive choice and negative choice categories. Unlike Prioritized Review, which serves up the highest ranking documents, Coverage Review is intended for quick production use cases where you want to train the model as fast as possible.
+The documents that are served up during Coverage Review can be either relevant or non-relevant and are the most impactful to training the model. Coverage Review begins by serving the documents the model is most unsure about - these are documents with a rank near 50. Coverage Review continues serving up documents until there are no longer any documents to review. However, you should stop reviewing documents much earlier, once the model has stabilized.
+Documents served in Coverage Review
+The Coverage Review queue serves up a mixture of documents: 45% are documents with ranks immediately above 50, 45% are documents with ranks immediately below 50, and the remaining 10% are documents with a rank of exactly 50.
+For the documents above and below 50, the queue serves up the ranks closest to 50 before serving up ranks that are further away. For example, all documents ranked at 49 are served up before documents ranked at 48, documents ranked at 51 are served up before documents ranked at 52, and so on. This applies human coding decisions to the most ambiguous documents, training the model and improving its predictions about the remainder.
+Note: If you start the Coverage Review queue before a model build occurs, the queue initially serves up random documents because no scores are available for documents until a model build has completed. 
+Special considerations
+
+In order to make the Coverage Review even more efficient, we recommend suppressing duplicate documents from your Active Learning project on project setup. For more information, see Creating a new Active Learning project.
+The Active Learning model only builds when you have at least five documents coded with the positive choice and five coded with the negative choice.
+
+Starting the Coverage Review queue
+To start the Coverage Review queue:
+
+Add reviewers to the queue.Note: We recommend no more than 150 concurrent reviewers per project. Concurrent reviewers are defined as reviewers making coding decisions in an Active Learning queue at the same time. There is no limit to how many reviewers you can add to a queue as long as the number of concurrent reviewers remains at 150 or fewer.Click Add Reviewers in the queue modal.Find and select an individual reviewer, or type to enter a reviewer name. You can also click All Users to select every user in the group.Click the green check mark to save your changes.Click the red X to cancel reviewer changes.
+Click Start Coverage Review.
+
+The next time an active reviewer accesses the view for the Active Learning project, they see a blue banner which indicates they have access to the queue. For more information, see Reviewer access.
+You can see the following items in the Coverage Review queue modal:
+
+Coded - the number of documents coded and skipped in the Coverage Review queue. 
+Active Reviewers - the number of reviewers added to the project. 
+
+Admins can  pause the review at any point in the project by clicking the Pause Coverage Review button on the queue modal. Once the review is paused, the access point on the document view is disabled. You can restart the review at any time. Documents coded on the  review field while the review is paused are included the next time the model rebuilds.
+Adding Reviewers
+From the project homepage, admins can add reviewers to each queue on a user-by-user basis or in bulk.
+Note: After you ARM an Active Learning project, you must re-add reviewers to the queue.
+To add reviewers:
+
+Click Add Reviewers in the queue modal.
+Find and select an individual reviewer, or type to enter a reviewer name. You can also click All Users to select every user in the group. 
+Click the green check mark to save your changes.
+Click the red X to cancel reviewer changes.
+
+Note: We recommend no more than 150 concurrent reviewers per project. Concurrent reviewers are defined as reviewers making coding decisions in an Active Learning queue at the same time. There is no limit to how many reviewers you can add to a queue as long as the number of concurrent reviewers remains at 150 or fewer.
+Adding new documents
+If you want to add or remove documents from your Active Learning project after review has begun, complete the following:
+
+Click Pause Review to stop the review queue.
+Add or remove documents to the saved search used as the data source for the classification index. Be sure to return only the extracted text in your saved search.
+Navigate to the Analytics indexes tab, and then click the classification index used to create your Active Learning project.
+On the index console, click Run, then Incremental.
+Once the index finishes populating, return to your review queue and click Start Review.
+
+Notes: 
+ All documents, including the newly added documents, are given a rank score after the incremental population.
+The following explains the way Active Learning handles documents removed from the project:Documents in a queue that have been coded and then deleted from the workspace are marked as skipped.  If the document was manually coded, then deleted, the manually coded statistics update to the correct values.When the index is repopulated, deleted documents and documents removed from the search are removed from the model. After repopulation, the Project Size statistics and the count of coded documents are updated.If Project Validation is in progress when an index is repopulated, the Project Validation is canceled.
+

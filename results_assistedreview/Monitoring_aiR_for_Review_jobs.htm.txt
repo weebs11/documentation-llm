@@ -1,0 +1,150 @@
+
+Monitoring aiR for Review jobs
+After an aiR for Review job has started, you can use the aiR for Review jobs tab to monitor its progress, view prompt details, or cancel it. You can also view completed jobs and choose which analysis results are connected to the documents.
+For Fast Track jobs, banner statuses appear on the Documents tab to let you know when a job is complete. You can also monitor these from the aiR for Review jobs tab like any other job.
+Note: aiR for Review is currently in limited release. For information about the general release, contact your account representative.
+See these related pages:
+
+aiR for Review
+
+Running aiR for Review
+
+aiR for Review results
+
+aiR for Review security permissions
+
+
+aiR for Review Jobs tab
+There are two versions of the aiR for Review Jobs tab: one at the instance level, and one at the workspace level. The instance-level tab shows all jobs across all workspaces, and it includes several extra columns to identify the workspace, matter, and client connected to each job. Most users only need access to the workspace-level tab. However, because some of aiR's volume limits are instance-wide, the instance-level tab makes it easy to see exactly how much capacity is being used.
+Both versions of the tab show aiR for Review jobs that have been submitted for analysis. You can use the tab to view prompt details, cancel queued or in-progress jobs, and manage the job results.
+For information on managing tab permissions, see aiR for Review security permissions.
+Note: If the aiR for Review Jobs tab says that aiR for Review is not currently available, check with your administrator. Your organization might not have an active contract for aiR for Review.
+Managing jobs and document linking
+You can use the aiR for Review Jobs tab to cancel jobs, clear job results out of the document fields, and restore previous job results.
+To manage jobs, use the following icons:
+
+
+Cancel symbol (
+)—cancels a queued or in-progress job. Any results that were already received from the large language model (LLM) will stay in the fields, and those results will still be billed.
+
+
+Clear symbol (
+)—clears job results from the documents in this run. This empties the aiR for Review fields and removes highlighting from the Viewer, but it does not permanently delete the results. The results can be restored and re-linked at any time.
+
+
+Restore symbol (
+)—re-links the results of the selected job to the documents in the run. This replaces the results of any other job with the same result type.
+
+
+For example, if you realize your current Prompt Criteria gives you less helpful results than a previous Prompt Criteria did, you can restore the previous job's results. This immediately gives reviewers access to the old predictions without needing to re-run the old Prompt Criteria.
+Notes: 
+If you run a new job on documents that were part of a previous job, you may temporarily see both sets of results linked to those documents. The old results will be unlinked after the new job is complete.
+
+To avoid seeing doubled results, clear the previous result set using the aiR for Review Jobs tab.
+
+
+Viewing job details
+To see an aiR for Review job's Prompt Criteria, click on its row. A detail panel opens showing the setup details, case summary, fields, and criteria for analysis.
+You can control a user's access to the detail panel using both item-level and workspace-level permissions. For more information, see aiR for Review security permissions.
+Jobs tab fields
+The following fields appear on the aiR for Review Jobs tab:
+
+
+Job ID—the unique ID assigned to a job.
+
+
+Prompt Criteria Name—the name of the Prompt Criteria used by the job.
+
+
+If several jobs ran using the same Prompt Criteria, this name will be the same for those jobs.
+
+
+If a user edited the Prompt Criteria before running the job but did not change the name, the Prompt Criteria name will have a version number such as (1) or (2) appended after it.
+
+
+
+
+Job Status—the current state of the job. The possible statuses are:
+
+
+Not Started
+
+
+Queued
+
+
+In Progress
+
+
+Completed
+
+
+Cancelling
+
+
+Errored
+
+
+
+
+Job Type—the job's processing mode. For more information, see Choosing a processing mode.
+
+
+Client Name (workspace-level only)—the client associated with the job's workspace.
+
+
+Matter Name (workspace-level only)—the matter name associated with the job's workspace.
+
+
+Matter Number (workspace-level only)—the matter number associated with the job's workspace.
+
+
+Workspace ID (workspace-level only)—the ID of the job's workspace.
+
+
+Workspace Name (workspace-level only)—the name of the job's workspace.
+
+
+Doc Count—the number of documents submitted for analysis.
+
+
+Docs Successful—the number of documents that were successfully analyzed.
+
+
+Docs Pending—the number of documents that are waiting to be analyzed.
+
+
+Docs Errored—the number of documents that encountered an error during analysis.
+
+
+Docs Skipped—the number of documents that aiR did not return results for. This can happen for reasons such as cancelling a job, network errors, and partial or complete job failures.
+
+
+User Name—the user who submitted the job.
+
+
+Submitted Time—the time the user submitted the job.
+
+
+Completed Time—the time the job successfully completed. If the job failed or was cancelled early, this field is blank.
+
+
+Terminated Time—the time the job stopped running, regardless of whether it was cancelled, failed, or completed successfully.
+
+
+Job Failure Reason—if the job failed, the reason is listed here. If the job completed successfully, this field is blank.
+
+
+Estimated Wait Time—the initial estimate for how long the job will wait between when the user submits the job and when the job can start running.
+
+
+Estimated Run Time—the initial estimate for how long the job will take to run.
+
+
+Document Units—the number of documents counted for billing purposes. For more information, see How document units are calculated.
+
+
+Fast Track banner statuses
+When you submit a Fast Track job, the confirmation banner on the Documents tab updates automatically to show you the status of the job. This makes it easier to keep track of a small job's status without needing to check the dedicated Jobs tab. This banner only appears for the user who submitted the job.
+The banner updates when the job is queued, in progress, and complete.
+ 

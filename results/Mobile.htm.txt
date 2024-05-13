@@ -1,0 +1,43 @@
+
+
+RelativityOne's mobile experience 
+View and code documents on the go from your iPad or an iPhone with RelativityOne's mobile app for iOS. Access documents, folders, and saved searches from your device. Code documents on your device and all coding decisions reflect instantly in RelativityOne. Share documents and saved searches with other Relativity users.
+The features in RelativityOne's mobile app allow you to:
+
+Manage users, groups, and workspaces. Add and edit users and groups with the mobile admin capabilities.
+Review documents on the go. Code documents on your commute or your couch with RelativityOne's secure and native mobile application. For more information, see Coding documents .
+Decisions reflect in Relativity.The changes you make in the application are instantly reflected in RelativityOne. 
+			There will be no discrepancies between what you see on mobile and what your team sees in the office, creating a unified experience. 
+Keep your documents safe and secure. We built this native application with security top of mind. The application requires both a 6-digit passcode, Touch ID or Face ID, as well as Relativity login credentials. The application supports two-factor authentication. For more information, see Security. 
+Productivity on the move. Use a native mobile application to run searches in RelativityOne cases on the go.
+Work offline. Prepare, secure, access, search, and reference documents offline with RelativityOne's mobile app for iOS. For more information, see offline.
+
+
+
+
+
+Note: This functionality is not available in RelativityOne Government environments.
+See these related pages:
+
+ Navigation
+
+Documents
+
+ 
+Saved searches 
+
+
+Unified experience with RelativityOne
+RelativityOne's mobile app works concurrently with RelativityOne to provide the best experience while on a computer or on the go with your iPad or iPhone. This unified experience with RelativityOne lets you view, share, and code documents with all the work instantly reflected in RelativityOne in order for the case team to act on. This works from RelativityOne to mobile and mobile to RelativityOne. 
+All that is needed for the unified experience is a RelativityOne account and RelativityOne's mobile app downloaded on your iPad or an iPhone. The user's security settings placed in Relativity are reflected in the application, right when they log in for the first time.
+The .rap file is automatically installed with RelativityOne. To verify that it has been installed in your RelativityOne instance, locate Relativity Mobile in your OAuth2Client tab.
+(Click to expand)
+
+
+Device and system requirements
+Download the RelativityOne's mobile app to your Apple iPad or iPhone. Each device has specific requirements. For both devices, you must be running iOS 12 or higher. For more information on updating your iOS, visit Apple iOS 12 compatibility.
+Understanding the ADS app and OAuth2 client
+The mobile ADS app is installed during the installation. The mobile ADS app in Relativity is the connection that creates the unified experience between a web instance of RelativityOne and RelativityOne's mobile app. For more information on using application deployment systems, see Relativity applications. 
+When the mobile ADS app is installed, the OAuth2 client is also added to Relativity. Locate the Mobile OAuth2 client  in the OAuth2 Client tab at the instance level. This client authorizes the connection between your web instance and RelativityOne's mobile app. When accessing RelativityOne's mobile app, the OAuth2 client confirms authentication. When the authentication is confirmed, the user is logged in. This is process occurs on every login. For more information, see OAuth2 clients. 
+Note: Do not modify the mobile OAuth2 client.
+ 

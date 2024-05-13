@@ -1,0 +1,24 @@
+
+Alias object
+The “aliases” for an author are other textual representations of the author that are equated as the same entity. For example, John Doe sends an email using the email address john.doe@example.com.  He may have another email address, such as john.doe@gmail.com. Based on these email addresses, the Analytics engine finds they are related and can make an alias list that would include "John Doe" and "Doe, John" and "john.doe@gmail.com" and "john.doe@example.com." 
+Aliases are identified during the name normalization operation in Analytics. For more information, see Name normalization. You can also manually create an alias.
+Creating and editing an alias
+To create an alias, complete the following:
+Note: The Aliases tab only appears if you have Analytics installed. 
+
+From the Aliases tab, click New Alias.
+Complete the following fields:Name - the name of the alias.Note: Do not edit the Name value for aliases created by the name normalization operation as it can negatively impact future runs and results. Type - the type can be one of the following: Proper Name - an alias that contains all letters. Jane SmithEmail Address - a standard email addresses with no spaces or characters. jane.smith@relativity.comExtended Email Address - an email address with other content or characters. Jane Smith [Jane.Smith@relativity.com]Exchange - X500 and X400 formats. Smith, Jane </O=RELATIVITY/OU=NA/CN=RECIPIENTS/CN=JSMITH>Phone Number - an alias that contains only numbers and characters. 123-456-7890Undefined - an alias that doesn't fall into any of the categories above.Jane Smith/RELATIVITY@relativityXgatDomain (optional) - the full domain of the alias (everything after the @ sign). us.relativity.comPrimary Domain (optional) - the domain of the organization. relativity.com
+Click Save.
+
+Assign to Entity
+The Assign to Entity mass operation is a mass operation on the Aliases tab. This operation lets you select and re-assign an alias to a different entity. An entity must exist for you to merge into it; you can't create a new entity on-the-fly. 
+Note: You can only use the Assign to Entity mass operation if you have Analytics installed. 
+To assign aliases to entities:
+
+From the Aliases list, select the checkbox(es) next to the alias(es) that you want to assign to an entity.Note: No more than 150 aliases can be included in the Assign to Entity operation. 
+From the actions menu at the bottom, select Assign to Entity from the second drop-down.The Assign to Entity form appears.
+Select the Entity you want to assign the alias(es) to, and then click Assign to Entity. 
+
+Deleting an alias
+You can use the Mass delete operation to delete aliases. You can delete all aliases or up to 50 selected aliases at one time using the mass operation. For more information, see Mass delete. 
+When you delete an alias, the alias and the entity associated with the alias are removed from all name normalization document fields. 

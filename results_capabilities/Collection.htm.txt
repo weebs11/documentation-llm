@@ -1,0 +1,156 @@
+
+Collection
+Before you begin collecting, you must create a collection job and associate it with a specific matter, custodians, and one or more data sources. Add the custodians, data sources, and other information using the Collect wizard. Once completed, start the collection using the Collect console. Finally, download a results report that details the items collected and a summary report of the entire collection job. For more information, see  Reports.
+Creating a collection
+Before you begin creating a collection, make sure to create a matter. For more information, see Matters.
+Use the following procedure to create a collection:
+
+On the Collect tab, click the Collections sub-tab. Collect displays a list of the collections currently added to this application.
+Click New Collection.
+Complete the steps in the Collect wizard. See Using the Collect wizard 
+On the Collection Details page, click Run Collection in the console. See Collect console.
+
+For information on running concurrent Microsoft 365 collection jobs, see Accessing Microsoft 365 tenants.
+Using the Collect wizard 
+The Collect wizard takes you through each step to create a collection. After completing the collection setup, run a collection from the Collection console. 
+Collection wizard security permissions
+
+
+Custodian—View
+
+When a step is complete, click Next or the hyperlink under the next step shown. Click the Previous button to move to the previous step. Information is auto-saved when moving between steps. If any required information is wrong or missing, an error message displays and you cannot move to the next step.
+Collection Details
+Complete the Collection Details step by entering information in the following fields:
+
+Name—the name of the collection. Note: Enter a name using alphanumeric characters only. You cannot use special characters, such as periods, commas, and em dashes. Special characters will cause an error. 
+Collection Matter—the name of the matter associated with this collection. Click   Edit to select an existing matter or click Add to define a new one. See Creating a matter.
+Include Web I/E Locations—toggle this option on if you want to see all of the \WebImportExport file folders listed within the \ProcessingSource folder or toggle it off you do not want to see them.
+Job Number—lists a number assigned to the job  for reporting purposes.
+Processing Source Location—the file repository for collected data to be stored for future processing of documents or for storing collected data. See Processing and Collect Store.Note: All data sources that produce RSMF have a limit of 200 MB. For more information, see Processing.
+ZIP Collected Files—toggle on to compress all collected data into ZIP64 formatted containers. For more information, see Collect Store. Relativity can compress Microsoft 365, Slack, and X1 data into zip folders.Selecting Yes on the Collect Files in ZIP field adds your collected data into containers and puts it into a password protected compressed folder. The compressed folders separated by the custodian target collected. Each custodian target collect has its own folder. These folders will split when reaching a set size. The compressed folders are then stored in the processing staging area by default. For more information, see RelativityOne Store.You can secure these compressed folders with a password. You can enter a password that you, or another user, needs to enter to open the compressed folder. Relativity stores these passwords in the password bank. You can retrieve them there at a later time.To export your collected data, use the RelativityOne Staging Explorer. For information, see Staging Explorer. Google compresses the data on their end and they exclude Google data from the ZIP64 formatted containers.iManage does not support adding data to ZIP64 formatted containers.
+Zip Password—enter a password that is required by anyone attempting to decompress the ZIP64 container files. Note: If  you have Processing installed in the workspace, Collect will automatically populate the Processing Password Bank with the password so it is available at the time the collection is processed. 
+Enable Auto-Processing—toggle on to enable auto-processing. If enabled, select the workspace and profile. Relativity processes all data in a completed collection, or completed with errors collection, after a collection finishes.
+Select Workspace—select a workspace within your instance to select a Processing profile to use when creating a processing job.
+Select a Processing Profile—select a processing profile available in the drop-down menu. The available profiles are from the selected workspace.
+
+Select a document prefix option—select Use Entity Document Number Prefix or Use Processing Profile Document Number Prefix to apply to each file in the processing set once it's published to a workspace.
+
+Job Number—enter a number that you want assigned to the job for reporting purposes.
+Description—enter a description of the collection used for reporting purposes. 
+Receive Progress Notifications—toggle on to send or receive collection job status emails. The statuses include:Completed—includes completed or completed with errors job status.Failed—includes job status and reason for failure.
+Notification Address—enter the email address of person that wants to receive collection job statuses.
+Data Source Type—select one or more data sources to use in the collection. For more information, see Data source types. 
+
+
+
+Data source
+Configure the data sources chosen in the Collection Details step. If you select multiple data sources in the first step, you will configure all sources in the step. Switch between each source by clicking the name of the data source in the left navigation menu. Clicking Next and Previous also moves you through the data sources. Select individual data sources by clicking on the checkbox and then using the right arrows to select them. After selecting the data sources to configure, fill out the criteria. Each data source has different criteria to enter.
+Data source criteria
+Add criteria to collect specific data. To configure the data sources, complete the following fields:
+
+Select and unselected tabs—choose the data sources to collect from by moving unselected data sources to the selected list.
+Field—choose the field to filter on within the data source.Notes: This field is only required when you select a calendar source.
+Operator—choose an operator such as equals, contains, greater than, or less than.
+Value—enter a value to find in the selected field.
+
+ After selecting field options, you must click Add Criteria. You can add multiple criteria to search data sources. Things to know about criteria:
+
+Each criteria is then separated by an AND operator. 
+Leave the data source criteria empty to collect all data from the sources.
+
+Custodians
+Complete the Custodians step by assigning custodians to the project. Follow the steps below to assign a custodian:
+
+From the Unselected custodians table, use the column filters to locate custodians.
+Click a checkbox next to a custodian. Collect supports up to 30 custodians per collection project. If you need more than 30 custodians, you need to create another collection project.Note: If you select multiple Slack custodians in the same collection, the channels they share will only collect once. 
+Click  to add select custodians. Click  to add all custodians.
+Click Next.
+
+Note: There is a limit of 10,000 listed custodians with targets in the custodian picker.
+Non-custodial
+Note: This section only applies when SharePoint is selected as the data source.
+Select non-custodial data sources to complete this step. Non-custodial data means you will select the sites that you want to collect. Selecting custodians is not required. 
+With non-custodial data, you can collect from parent-level sites only. All sub-sites under a parent site are automatically collected.
+To select non-custodial data:
+
+
+Click one or more data sources in the Select Sources column.
+
+
+With one of the data sources highlighted, click the check boxes next to the sites you want to collect. 
+
+
+(Optional) Toggle on the Show selected only option in the SharePoint Sites table to only display the sites that have been selected for collection. The selected sites will display in a concise list at the top for easy review and confirmation before proceeding to the final Summary step.
+
+
+Click Next.
+
+
+Collection Summary
+Complete the creation of the collection by reviewing all steps, custodians, data sources, and targets, before finalizing. If Google Workspace, Microsoft 365, Slack, and X1custodian targets were not created before started the project, click Generate Targets. Clicking Generate Targets will check to see if targets exist for the custodians you have selected for collection. If the targets do not exist, Collect will automatically create them based on the email address contained in the Entity record for each custodian. 
+Targets
+In the Targets section, you will see a number next a custodian's name. The number listed is the number of custodian targets found in the associated data source. A zero, 0, means Collect did not find any custodian targets with that email address in that data source. A one means Collect found a single custodian target associated with the email address within the data source. Any number greater than one means that Collect found multiple custodian targets with that email address within the data source.
+If there is no color highlighting the number, it means Collect already found and generated the custodian target. If there is a green highlight, Collect autogenerated the custodian target. If there is a red highlight, Collect could not autogenerated this custodian target. If red, you can still manually generate the custodian target. For more information, see Creating a custodian target.
+Complete the collection setup by clicking View Collection Details. Once you finish creating the collection, it redirects you to the Collection Details page. From the Collection Details page, you can preview and run the collection from the Collection Summary. 
+Non-custodian targets
+Note: This section only applies when SharePoint is selected as the data source.
+In the Non-Custodian Targets section, you will see the target, target identifier, and the status. 
+
+
+Target—the name you gave when creating the data source.
+
+
+Target Identifier—the URL of the SharePoint site.
+
+
+Status—a message telling you if the target is valid or invalid. If invalid, navigate to the data source details page and click the Refresh Sites button.
+
+
+Identifying Collection data in Staging Explorer
+This section helps to identify the components of the folder information within the Staging pane of the Staging Explorer as it relates to the Collections setup fields.
+Use the sample screen below as a general guide for each data source type.
+
+
+Here is a breakdown of the folder components within the Staging pane of the Staging Explorer:
+\\files\<T####>\ProcessingSource\Collections\<WorkspaceID>\<CollectionName>_<ArtifactID>
+
+The Processing Source Location from the Collections page becomes the file location for the data in Staging Explorer. It contains a sub-folder for Collections to house the Collection data. Using the above example, it would be:
+
+
+
+\\files\<T####>\ProcessingSource\Collections
+
+
+
+The Workspace ID folder in the Staging pane corresponds to the Workspace ID number listed after the “AppID=” in the URL. For example, 1187585 would be the Workspace ID from this URL:  kcura.relativity.one/Relativity/RelativityInternal.aspx?AppID=1187585&ArtifactTypeID…...
+
+
+
+\\files\<T####>\ProcessingSource\Collections\1187585
+
+
+
+The Name of the Collection from the Collections page becomes the folder name within the Workspace ID folder. Using the above example, it would be:
+
+
+
+\\files\<T####>\ProcessingSource\Collections\1187585\<CollectionsName>
+
+
+
+The Artifact ID from the Collections page under Custodian Details is the data source ID. Using the above example, it would be:
+
+
+
+\\files\<T####>\ProcessingSource\Collections\<WorkspaceID>\<CollectionName>_<ArtifactID>
+
+
+
+In the case of grouped collections, such as Teams and Slack, there will be a folder within the Artifact ID folder corresponding to the data source type. Using Teams as an example, the file structure will be:
+
+
+
+\\files\<T####>\ProcessingSource\Collections\<WorkspaceID>\<CollectionName>_<ArtifactID>\Teams
+
+
+ 

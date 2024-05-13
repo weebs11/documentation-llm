@@ -1,0 +1,70 @@
+
+Sentiment analysis security permissions
+This page contains information on the security permissions required for working with sentiment analysis. For more information on setting permissions, see Workspace security.
+See these related pages:
+
+Sentiment analysis
+
+Sentiment analysis results
+
+Sentiment analysis highlights
+
+
+Running the sentiment analysis mass operation
+By default, only users in the system administrators group have access to the sentiment analysis mass operation. Other groups will need the permissions manually assigned to them.
+To run the sentiment analysis mass operation, you need the following permissions: 
+
+
+
+
+
+
+Object Security
+Tab Visibility 
+Mass Operation
+
+
+
+
+
+
+Sentiment Analysis Job - View, Edit, Add
+Sentiment Analysis Results - View, Edit, Add
+
+
+
+
+Documents
+
+
+
+
+
+Detect Sentiment
+
+
+
+
+
+
+Viewing sentiment analysis jobs and results
+By default, only users in the system administrators group have access to the sentiment analysis tabs. Other groups will need the permissions manually assigned to them.
+To view the Sentiment Analysis Jobs and Sentiment Results tabs, you need the following permissions: 
+
+
+
+
+Tab Visibility 
+
+
+
+
+
+
+Sentiment Analysis Jobs
+Sentiment Results
+
+
+
+
+

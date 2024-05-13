@@ -1,0 +1,69 @@
+
+aiR for Privilege
+aiR for Privilege is an AI-powered solution that uses generative AI, Large Language Models, natural language processing, machine learning, and social network graphs to analyze documents and decide if they’re privileged or not. This streamlines first-pass privilege review and generates more exact privilege calls. The product generates a privilege decision and a detailed rationale while citing snippets from the document. It also supplies more than 20 document data points that you can use to drive quality control (QC) checks, final review decisions, and privilege log creation.
+aiR for Privilege retains an understanding of privilege specific to an organization to drive greater consistency in privilege calls across matters and speed up the pace of privilege review. 
+Note: aiR for Privilege locates attorney-client privileged communications and documents subject to the attorney work-product doctrine, as understood under US standards and laws. It is up to the user of aiR for Privilege to decide whether this criteria and the results meet applicable requirements.
+Conceptual workflow
+The steps below illustrate the high-level workflow for aiR for Privilege:
+
+Create a saved search of documents that you want to analyze for privilege.
+Create an aiR for Privilege project.
+Upload any lists of Known Attorneys or Known Law Firms to jump-start the AI’s understanding.
+Run each aiR for Privilege pipeline step, confirming AI predictions along the way.
+Quality check (QC) results.
+Perform limited manual privilege review.
+Produce with confidence.
+
+Requirements
+Following are requirements for using aiR for Privilege:
+
+You must complete aiR for Privilege contracting to use it in your RelativityOne instances. See  Billing for more details. Contact your Relativity Sales Representative for contracting.
+Relativity must install the aiR for Privilege application to your instance.
+You must install the aiR for Privilege application to your workspace. See Installation and configuration for more details.
+You must install the Import/Export application to your workspace.
+
+Considerations
+Following are limitations to consider when using aiR for Privilege:
+
+aiR for Privilege is only available in RelativityOne instances hosted in Central US and East US Azure data centers. More data centers will be available in general availability.
+We do not support documents with more than 170KB of extracted text.
+			Note:  An increase to the extracted text size limit is coming soon.
+We do not support documents without extracted text.
+An aiR for Privilege project must include less than 500,000 documents. For details on including more Document Units, see Billing. You can complete many projects within a workspace to handle larger data sets.
+			Note: An increase to the document limit is coming soon.
+Every project is subject to Document Unit charge minimums. See Billing for more details.
+Only a single aiR for Privilege project within a workspace can be In Progress at any given time. 
+The performance of aiR for Privilege was tested on primarily English language documents. Use of aiR for Privilege with non-English language documents may result in unexpected or unverifiable results. Consider using Language Identification to better understand the language distribution across your data set.
+
+In progress aiR for Privilege projects will be abandoned when the workspace is deleted, regardless of Recycling Bin, archived (ARM), or put in Cold Storage.
+
+
+aiR for Privilege only works in Review workspaces.
+
+
+aiR for Privilege does not currently support CMK instances.
+
+
+aiR for Privilege is not offered in RelativityGov or Relativity Server.
+
+
+Billing
+aiR for Privilege is a usage-based product, meaning you pay-per-use. Charges are per Document Unit. A Document Unit is 15,000 characters and spaces count as characters. Relativity bills a document as a minimum of one Document Unit.  Every 15,000 characters in a document counts as a Document Unit. For example, a document of 16,000 characters is  two Document Units. Each project is subject to a 50,000 Document Unit minimum.
+After clicking the Run button on the Prepare Project pipeline step, Relativity estimates the number of Document Units you’ll use for this project. You can then decide to continue or cancel the step.
+ After completing the Prepare Project pipeline step Relativity will charge you for the number of Document Units. The price per Document Unit may vary. Your RelativityOne contract defines the price.
+Note: You may have included aiR for Privilege Document Units to trial the product without any cost. After you use your Included aiR for Privilege Document Units, Relativity will charge per document unit.
+Brain
+The Brain stores historical annotation decisions that can then be applied to an existing project. This accelerates annotation time and ensures consistency across the decisions that are made by the AI. Annotation objects found in the Brain will have the Source field populated accordingly. 
+The Brain contains three levels.
+
+The Universal Brain, which contains items that are public knowledge that will be applied to every project.
+The Client Brain, which contains client-specific items that can be applied to different matters for the same client.
+The Matter Brain, which contains matter-specific items that can be applied to different projects for the same matter.
+
+The Universal Brain
+The Universal Brain stores common, publicly available, knowledge that helps drive more exact and consistent privilege decisions. Disclaimer calls, Public, 3rd Party and Law Firm Domain calls, and Equivalent Domain calls are stored in the Universal Brain.Customer data is not extracted and stored in the Universal Brain.
+Client Brain
+After the completion of a project, aiR for Privilege will extract and store select information from that project  in a Client Brain that is specific to the Client object associated with the workspace. Any future project in a workspace associated with that Client object will have the opportunity to use knowledge stored in the Client Brain to jump start the decision-making process, resulting in greater consistency. See General settings in a workspace for more details on using the Client Brain. In-House Domain calls and Entity calls are currently stored in the Client Brain.
+Note: We plan to add Disclaimers, Domains, and Equivalent Domains  to the Client Brain for general availability. 
+Matter Brain
+The Matter Brain is data stored within the Disclaimers (Priv), Spammers (Priv), Domains (Priv), Equivalent Domains (Priv), Entity (Priv) tabs within a single workspace used for later projects within that workspace. When a new project locates an artifact that was already discovered it will link the new project to that artifact and take that artifact’s Annotator Decision as truth. This drives consistency and accelerates annotation time.

@@ -1,0 +1,486 @@
+
+Custom connectors
+You can integrate into the Contracts  Analysis pipeline through custom connectors.  A custom connector is a framework that customers can use to wrap around their existing machine learning (ML) and artificial intelligence (AI) pipelines, applications, or third-party services, allowing seamless integration to the Contracts  Analysis pipeline.  
+
+You can use custom connectors to integrate an internal entity extraction application without having to manually export/import data from Relativity, connect to a third-party contract analytics tool you are currently using, and more.
+
+
+Contracts  custom connectors support the following functionality:
+
+
+
+Document classification
+
+Segmentation
+
+Annotations
+
+Field Population
+
+Configuring a custom connector 
+To configure a custom connector:
+
+
+                Create a New Contracts  Model.
+            
+
+                For Model Type select External Analysis.
+            
+
+                Enter your API's endpoint URL for External API Endpoint.
+            
+
+                Click Check to verify connection.
+                Note: This verification is performed from your Relativity web server. Depending on your Relativity infrastructure setup, connectivity may be different from your agent servers compared to your web servers.  Check with your Relativity IT administrator if you experience problems.
+
+
+                    Use the @ character to trigger a list of Relativity fields to select and map to a JSON property.
+                
+
+                    To send the document’s native file, use the Contracts  Native field.  This provides a base64 encoded version of the Relativity document in the request body.
+                
+
+Click Edit Body to enter your API's JSON request body.Use the @ character to trigger a list of Relativity fields to select and map to a JSON property.To send the document’s native file, use the Contracts  Native field.  This provides a base64 encoded version of the Relativity document in the request body.
+
+                Click Save once all mapping is complete.
+                Note: Validation will occur to verify the input API Body is valid JSON. If not, a message will appear. 
+Select a Relativity Object to populate from your API’s response.
+
+Field mapping is done after saving the Model first and then going back to edit it.
+Token mapping
+To set up token mapping:
+
+
+                After saving the model, you'll see three new sections appear:  
+                
+                            Object Mapping
+                        
+                            Document Mapping
+                        
+                            Authentication Headers.
+                        
+
+                Click the Edit button on the Object Mapping card to view a mapping interface  with the Relativity Object Fields on the left and Response Properties on the right.
+            
+
+                Select the Relativity object fields from the list on the left.
+            
+
+                Click the Paste Response button on the right, then paste in a sample response from your API.
+            
+
+                Click the Generate Properties button at the bottom.  Contracts's custom connector framework will parse the sample, extract the properties and display them to map to the Relativity object fields.
+                Note: If your sample response does not contain all properties you can use the Add Tokens field at the top of the list to add any additional tokens needed for mapping.
+
+                Once you have all fields mapped, click Save.
+            
+
+                The page will refresh and display the new token mappings at the bottom.
+            
+
+                For Authentication Headers, click New and add a Parameter Name, Parameter Value, and Parameter Location, header or URL.
+            
+
+                When the request is sent, we will append the headers so that each request or document includes the headers, allowing you to send custom headers for each request to support authentication requirements of third party services.
+            
+
+Custom connector developer documentation
+This section provides an overview of custom connectors for developers.
+Authentication
+Custom Connectors support the use of one of the following standard authentication methods: API Key.
+Request
+We provide you with a simple configuration interface to map Relativity Fields to the properties in your API's request schema.
+Requirements
+
+All HTTP requests will be sent using the POST method.
+HTTP version 1.1 is required. 2.0 is currently not supported.
+Requests may be sent using HTTP or HTTPS. However, HTTPS is recommended.
+
+Examples
+Below are multiple example of API calls.
+Extracted text example
+In the following example, let’s say your API requires two fields to be sent for a request:
+
+
+
+
+
+Name
+Description
+
+
+id
+The document ID
+
+
+text
+The extracted text of the document
+
+
+
+An example JSON request body would look like the following:
+
+
+
+Native document example
+In this example, we show how you would send the native document API requires two fields to be sent for a request:
+
+
+
+
+
+Name
+Description
+
+
+id
+The document ID
+
+
+fileType
+The native file type
+
+
+fileData
+The base64 encoded native Document data
+
+
+
+An example JSON request body would look like the following:
+
+
+
+Response
+To take advantage of Contracts ’s rich document viewer functionality in Relativity, Custom Connectors accept the following fields in your API’s JSON response payload.
+
+
+
+
+
+
+
+
+Name
+Type
+Use case
+Description
+Relativity field
+
+
+
+
+documentId
+number
+ALL
+The Relativity ArtifactID of the document used to match the response of your API back to the document.
+
+
+Artifact ID
+(read only)
+
+
+category
+string
+Classification
+The category of the contract
+Contract Type
+
+
+probability
+decimal
+Classification
+The confidence score for the categorization of the contract
+
+
+Contract Type Confidence Score
+
+
+title
+string
+ALL
+The title of the contract
+Contract Title
+
+
+sections
+array
+Segmentation
+An array of sections
+Section
+
+
+annotations
+array
+Annotation
+An array of Annotations
+Annotation
+
+
+fields
+array
+Relativity Field Population
+An array of Fields
+Field
+
+
+
+Section (Relativity document)
+
+
+
+
+
+
+
+
+Name
+Type
+Use case
+Description
+Relativity field
+
+
+
+
+text
+string
+Segmentation (required)
+The text of the section
+Contracts Extracted Text
+
+
+heading
+string
+Segmentation (optional)
+The heading of the section
+Section Heading
+
+
+start
+integer
+Segmentation (required)
+The start offset of the Section in relation to the original Relativity Document Contracts  Extracted Text
+
+
+Contracts Section Start
+
+
+end
+integer
+Segmentation (required)
+The end offset of the Section in relation to the original Relativity Document Contracts  Extracted Text
+
+
+Contracts Section End
+
+
+category
+string
+Segmentation (optional)
+The category of the section
+Section Type
+
+
+probability
+decimal
+Segmentation (optional)
+The confidence score for the categorization of the section
+Section Type Confidence Score
+
+
+
+Annotation (RDO)
+
+
+
+
+
+
+
+
+Name
+Type
+Use case
+Description
+RDO field
+
+
+
+
+text
+string
+Annotation (required)
+The text of the annotation
+Text
+
+
+category
+string
+Annotation (required)
+The category or type of the annotation
+Category
+
+
+offset
+integer
+Annotation (required)
+The start offset of the Annotation in relation to the original Relativity Document Contracts  Extracted Text
+
+
+Length
+
+
+length
+integer
+Annotation (required)
+The length of the Annotation string
+
+
+Offset
+
+
+
+Field (Contracts internal)
+
+
+
+
+
+
+
+
+Name
+Type
+Use case
+Description
+RDO field
+
+
+
+
+field
+string
+Relativity Field Population (required)
+The unique name of the field
+Contracts Internal Field
+
+
+value
+string
+Relativity Field Population (required)
+The value of the field
+Contracts Internal Field
+
+
+locations
+array
+Relativity Field Population (required)
+An array of locations for boundary boxes for the field
+
+
+Location
+
+
+
+Location (Contracts internal)
+
+
+
+
+
+
+
+
+Name
+Type
+Use case
+Description
+RDO field
+
+
+
+
+page number
+integer
+Relativity Field Population (required)
+The page number of the boundary box of the field in the document
+
+
+Contracts Internal Field
+
+
+left
+decimal
+Relativity Field Population (required)
+The left coordinate of the bounding box as a ratio of the overall document page width
+
+
+Contracts Internal Field
+
+
+top
+decimal
+Relativity Field Population (required)
+The top coordinate of the bounding box as a ratio of the overall document page height
+
+
+Contracts Internal Field
+
+
+
+height
+decimal
+Relativity Field Population (required)
+The height of the bounding box as a ratio of the overall document page height
+
+
+Contracts Internal Field
+
+
+
+width
+decimal
+
+
+Relativity Field Population (required)
+The width of the bounding box as a ratio of the overall document page width
+
+
+Contracts Internal Field
+
+
+
+ 
+ 
+ 
+ 
+ 
+
+
+
+Examples
+Following are examples of API calls.
+Annotation, segmentation, and classification
+The following are example responses your API would return to support the use cases of annotations, segmentation, and classification.
+Annotations
+This example will save an Organization annotation on document 12345 with the text of “Acme & Sons Bank”. This annotation will be visible to users when viewing the document with the Contracts Viewer.
+
+
+
+Segmentation
+This example will create two sections on document 12345. These sections will be visible to users when viewing the document with the Contracts  Viewer.
+
+
+
+Classification
+This example will classify document 12345 as a Loan Agreement and save that classification to the Contract Type Relativity field.
+
+
+
+Relativity field population
+The following is an example response your API would return to support the Relativity Field Population use case.
+This example identifies in document 12345 the fields Invoice ID and Invoice Amount which can be setup to map to a Relativity Object when running Contracts  Analysis.
+
+
+
+ 

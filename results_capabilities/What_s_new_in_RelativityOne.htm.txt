@@ -1,0 +1,468 @@
+
+What's new in RelativityOne
+Discover new features in RelativityOne that will help you tackle every phase of your e-discovery projects.
+Note: The date shown represents when the feature or change is available in most Relativity environments. Due to differences in deployment and update schedules between regions or environments, the features listed may be available before the date shown or may not yet be available in all Relativity environments.**Indicates features that will be deployed using a Phased Rollout approach.To see a full list of enhancements for each release, refer to the RelativityOne release notes.
+Foreign Language Contract Support
+2024-04-25 | Relativity Contracts
+With the latest update to Relativity Contracts, the Contracts OCR now supports ten new languages in addition to English. Whether your agreements are in German, Portuguese, Chinese, Japanese, Korean, French, Italian, Spanish, Arabic, or Dutch,   Relativity Contracts can now recognize key terms and clauses that will get you valuable insights, faster.
+Contracts documentation
+
+
+
+
+Track Coding Decisions with Review Center Coding Field
+2024-04-25 | Review Center
+We’ve implemented a new field in Review Center called Review Center Coding to help users track coding decisions made on documents in queues. You will now be able to easily see which documents were reviewed in which queues, when, and by which reviewer.
+Review Center documentation
+
+Introducing the New Document List Page
+2024-04-16 | List Page
+We've modernized our document list page to provide you with a more performant, secure, and seamless experience. With this enhancement, you can now freeze columns as you scroll and copy column values to your keyboard directly from the list. You'll also notice a new design to our browser, search, and document preview panels with collapsible panels for more intuitive control. Finally, we've removed the ability to access the cluster browser directly from the list page, but you can still access it through widgets and dashboards.
+List page documentation
+
+ 
+Automatic Teams to RSMF Conversion
+2024-04-16 | Short Message
+Teams messages will now be automatically detected from your PST files during Processing and converted to RSMF with all the metadata needed for your review.
+Short message conversion documentation
+
+Redactions in the List Page
+2024-04-01 | PI Detect
+We are excited to introduce enhancements to PI Detect, including workflow improvements to make redacting PI faster and other performance improvements. You can now redact with PI Detect in the document list page as a mass action.  
+PI Detect documentation
+
+
+
+
+Lockbox visibility state
+2024-03-25 | Security Center 
+The lockbox states are now automatically surfaced and controllable in the Security Center, allowing you to more easily configure these states depending on your needs.
+Security Center documentation
+
+
+
+
+Staging Reports
+2024-03-05 | Management Console 
+You can now generate staging reports directly in the Management Console to get information on the size and breakdown of your staging area folder structures. Reports will be exported into Excel files for all your billing needs outside of RelativityOne.
+Cost explorer documentation
+
+
+
+
+
+Load File Enhancements
+2024-03-05 | Import/Export 
+Our latest Import/Export enhancement unifies load file import jobs, eliminating the need for varied file formats for each workflow. Now, load files (.opt and .dat) can be uploaded directly, while load files and .zip archives are uploaded separately. Additionally, we’re introducing load file precheck functionality for image and production load files.
+Import/Export documentation
+
+Lockbox scoped to Relativity employees
+2024-03-21 | Permissions 
+The new Enable Relativity Lockbox setting will manage Relativity Support's workspace access and prevent them from adding themselves to groups. Additionally, the Enable Customer Lockbox setting to control Client System Admins, will now prevent their workspace access unless added to the designated groups, streamlining access for Client System Admins and reducing the need to disable Lockbox.
+Permissions documentation
+
+Improved Scaling
+2024-03-04 | Review Center
+You can now run jobs in Review Center prioritized review queues of up to 2.5 million documents. This will allow you to scale to meet the needs of some of your largest cases without needing to use workarounds and separate queues.
+Review Center documentation
+
+Document deletion optimization
+2024-02-28 | Processing
+We made several improvements to the document deletion process. Now, when you delete a file ingested via Processing, all occurrences of the document, including duplicates, within the same processing data source will also be deleted. You can also choose to delete all occurrences of the document from other data sources, preventing automatic republication of duplicates to the workspace.  
+Processing documentation
+
+
+
+
+Job Page Improvements
+2024-02-26 | Translate
+We've made several improvements to the jobs page in Translate, including new ways to filter your data and pagination improvements. This will allow you to manage your jobs and reporting more easily.
+Translate documentation
+
+SharePoint Integration
+2024-02-22 | Collect
+You can now Collect all data from within a SharePoint folder directly into RelativityOne without selecting a specific custodian. This integration allows you to easily access more potentially relevant data without the hassle of running collections for each custodian.
+Collect documentation
+
+
+
+
+New Security Alert types
+2024-02-22 | Security Center 
+We are introducing four new security alert types aimed at helping service providers better secure their client domains. The alerts will identify specific types of client domain boundary violations and provide quick remediation steps.
+Security Alerts documentation
+
+
+
+
+Enhanced job insights
+2024-02-22 | Processing
+We are updating our Processing set layout to provide individual progress bars and descriptions to subphases of Processing jobs. It will also be easier to display statistics associated with each Processing job enabling greater transparency into your jobs for easy troubleshooting.   
+Note: This capability will be available via a Preview button on the upper right corner of the Processing set layout so you can begin getting used to it. We will inform you when this becomes the default experience.
+Processing documentation
+
+
+
+
+New preservation application
+2024-01-25 | Legal Hold
+Our enhanced in-place preservation application features a redesigned UI, improved status messaging, non-custodial preservations, and the ability to preserve multiple data sources within one legal hold project. We encourage all customers to migrate their preservation workflows into this new application. Other benefits include: 
+
+
+
+New Google Workspace preservation—the new application supports preserving Google Workspace data including Gmail, Drive, and Chat. 
+
+
+Refactored Microsoft 365 preservation—we’ve created a more streamlined and reliable experience when preserving Microsoft 365 data by integrating with Purview. 
+
+
+Legal Hold documentation
+
+
+
+
+PDF image file option
+2024-01-25 | Production
+We added the ability to select PDFs as an image type when choosing your data source for production projects. You now have additional flexibility in the file types you can choose to produce PDFs for easy use outside of RelativityOne.
+
+Production documentation
+
+
+
+
+Project rules support dtSearch syntax
+2024-01-25 | Redact
+With this new capability, you can create Redact project rules that follow support terms written in dtSearch syntax such as stemming, fuzzy searches, proximity, and more to quickly and automatically redact your next batch of spreadsheets, PDFs or images.
+Redact documentation
+
+
+
+
+Find & Redact for PDFs
+2024-01-25 | Redact
+Our newest markup action extends the searching capabilities in the viewer, allowing you to find text within a PDF and redact it in a few clicks instead of manually drawing your markup. Search your PDFs for key terms or other important information, then quickly draw a redaction over selected search hits with your preferred markup type, style, and scope.
+Redact documentation
+
+
+
+
+Import/Export: Automated custodian mapping
+2024-01-24 | Data Transfer
+Our most recent improvement in Import/Export allows for automatic custodian mapping based on folder names. When new custodians are detected, they will be added to the entity and associated with the data source, eliminating the need for manual custodian assignment.
+
+Import/Export documentation
+
+Streamline your redaction workflow with Façade Redactions
+2024-01-23 | Redact
+Marking up and producing natives just got easier with facade redactions. With this streamlined workflow, you no longer need to run a production preparation project for native documents, you can toggle markup transparency within the viewer, and you no longer need to manage redacted natives in a locked state for production. 
+
+*Note: This capability will be rolled out to RelativityOne instances starting January 23 over several weeks. The Relativity Team will notify you via email the week before it is delivered to your instance.
+Redact documentation
+
+
+
+
+Import/Export: What’s new
+2023-12-21 | Data Transfer
+In the past month, we've introduced updates to Import/Export, aiming to enhance efficiency and accuracy for your data uploads. Key improvements include the option to specify the starting point for import/export jobs, the ability to upload corrected load files without starting a new import job, and the addition of a Completed with Errors job status, giving you flexibility in how you handle failed files. 
+
+Import/Export documentation
+
+Mass Delete optimization
+2023-12-19 | Platform
+We have optimized the mass delete modal to provide more details into the settings you can configure and surfaced the “create audit snapshot” setting directly in the modal. This delivers additional clarity into the mass delete process and improves performance by up to 10%.
+Mass Operations documentation
+
+
+
+
+Workspace activity status
+2023-12-19 | Management Console
+The cost explorer in the Management Console will now show whether a given workspace was active or inactive in a given month. Activity will be determined by a single document view occurring during the month in question. 
+
+Management Console documentation
+
+
+
+
+ARM Restore UI changes
+2023-12-19 | Data Transfer
+The latest enhancements to the ARM interface will simplify your Restore workflow. When you create a Restore job, you now only need to select Client and Matter. The rest of the settings will be chosen automatically – decreasing the possibility of incorrect configurations.
+ARM documentation
+
+Name normalization improvements
+2023-11-16 | Analytics
+We’ve made multiple enhancements to improve your name normalization experience and results. This includes the option to run the analysis only on latest email received in an email chain and the ability to assign up to 500 aliases to a particular entity in a single operation.
+
+Analytics documentation
+
+Validation on Prioritized Queues
+2023-11-16 | Review Center
+Statistical validation of prioritized review queues is now available in Review Center. Now you can seamlessly validate the results of AI-backed workflows. Select a sample size from the prioritized queue and assign a reviewer group to review the sample. Once the coding of that sample is complete, you’ll be presented with recall, elusion, and richness statistics to help you determine the best next steps for your team.
+
+Review Center documentation
+
+
+
+
+Updated coding pane
+2023-11-15 | Case Dynamics
+We’ve revamped the coding pane for Case Dynamics to provide you with a more intuitive and seamless fact creation process. Updates include auto-suggested dates, creating new facts or updating existing facts from highlighted excerpts within the document, and custom fact colors and labels.
+Case Dynamics documentation
+
+
+
+
+Restore workspaces with Recycle Bin
+2023-11-15 | Matter Administration
+You can now quickly access and restore workspaces you’ve deleted within seven days by navigating to our recycle bin within the workspace list. This will allow you to easily self-correct in case you accidentally delete a necessary workspace, removing the need for you to contact support with these requests.
+Workspaces documentation
+
+
+
+
+Automatic Slack to RSMF Conversions
+2023-11-15 | Short Message
+Your Slack imports will now be automatically detected during Processing and converted to our short message format with all the metadata needed for your review.
+Processing documentation
+
+Make imaging cover sheet optional for RSMF files
+2023-11-10 | Imaging
+With our latest update to the Basic Imaging Profile, you now have the choice to include or exclude a cover sheet when imaging RSMF files, saving you from having to manually remove the cover sheet from imaged documents.
+
+Imaging documentation
+
+
+
+
+Item-level security visibility
+2023-10-20 | Permissions
+Easily see if objects in RelativityOne have item-level security enabled by navigating to the object security tab to view and edit permissions as necessary.
+
+Permissions documentation
+
+
+
+
+Mass download errored files in Processing
+2023-10-17 | Processing
+Effortlessly download batches of errored documents from the Processing Files tab to accelerate the external remediation of problematic and encrypted files.
+
+Processing documentation
+
+Import/Export: What’s new
+2023-10-17 | Data Transfer
+Over the last month, we’ve rolled out several exciting updates to Import/Export to save you time, reduce errors, and streamline your data uploads. Enhancements include email notifications and job queue monitoring across workspaces, the ability to detect and correct load file errors before running an import operation, and a new field search when mapping load file fields. 
+
+Import/Export documentation
+
+Introducing Data Breach Response
+2023-10-02 | Data Breach Response
+Data Breach Response is now available to extend the value you’re getting from RelativityOne. Leverage AI to find Personal Information (PI) automatically. Create breached entities directly in the native viewer, and automatically de-duplicate individuals to build concise notification lists. Respond faster and more accurately to materially reduce costs and help meet notification deadlines. 
+Data Breach Response documentation
+
+
+
+
+Introducing Personal Information Detect
+2023-10-02 | Personal Information Detect
+Personal Information (PI) Detect is now available in RelativityOne. It leverages pre-trained AI-based PI identification models available out-of-the-box, enabling you to be more efficient. Accelerate your PI review with AI-based detection, integrated review, and redaction in RelativityOne. 
+PI Detect documentation
+
+
+
+
+Mass Permissions updates for a single group
+2023-09-15 | Permissions
+We're introducing a new feature to simplify managing permissions. Administrators can now group batched permissions changes together, making it easier to edit, assign and make multiple permissions edits quickly. This user-friendly enhancement helps you save time and effort in managing permissions.
+Permissions documentation
+
+Collection of inactive Microsoft 365 Outlook mailboxes
+2023-09-14 | Collect
+We now support the collection of inactive Microsoft 365 Outlook mailboxes. Minimize potential data handling errors and save time by collecting these inactive mailboxes directly to a processing source location in RelativityOne and eliminate the need to manually import your data. 
+Data sources documentation
+
+PDF placeholders
+2023-09-14 | Document transformation
+In the event you do not require a document to be converted to PDF, you now have the option to create a placeholder PDF instead.
+Mass PDF documentation
+
+Document ID branding
+2023-09-14 | Document transformation
+We've enhanced our document rendering capabilities when working with PDFs so you can sequentially number document IDs, as well as brand those numbers on each document. This will allow you to more easily produce documents in the correct number order.  
+Mass PDF documentation
+
+
+
+
+Page-level document IDs
+2023-09-14 | Document transformation
+As part of our enhanced PDF rendering capabilities, you can now add document IDs on both the document and page-level, giving you more flexibility with numbering the documents before production.  
+Mass PDF documentation
+
+
+
+
+Sync workflow modifications to identical workflows
+2023-09-14 | Automated Workflows
+You can now seamlessly apply changes to automated workflows that are identical throughout projects in RelativityOne. After making adjustments in the template workflow, click Workflow Sync and the Sync to Workspaces tab to select the other linked workflows you want to pass modifications on to.
+Automated Workflows documentation
+
+
+
+
+Filtering by queue label
+2023-09-14 | Review Center
+We’ve introduced the ability to filter by Queue Label on the Review Center dashboard so users can more easily manage multiple queues and review the specific ones needed at a given point in time. The Queue Label field is included on the queue settings and allows admins to create and assign labels as they see fit.  
+Review Center documentation
+
+New Queue Summary Card
+2023-09-14 | Review Center
+Better understand and access details on your document queues though the newly enhanced Queue Summary, now available on the Review Center Dashboard. The fresh design puts key settings like the reviewer group, saved search, and review field at the forefront. You can also click and expand the section to view all queue settings. Leverage this new, intuitive delivery of additional queue context to manage your projects with ease.
+Review Center documentation
+
+
+
+
+Increased performance for large document transfer jobs in Integration Points
+2023-08-25 | Data transfer
+We removed the current limitation on the number of documents you can transfer using Integration Points in a single workspace-to-workspace job by allowing the solution to batch your documents automatically. This saves you time when working with large amounts of data in RelativityOne.
+Data Transfer documentation
+
+Introducing Relativity Contracts
+2023-08-21 | Contracts
+With Relativity Contracts, you have everything you need for large-scale contract review right in RelativityOne. Accelerate your decision-making by transforming agreements into actionable, structured data and get valuable insights faster with powerful workflows and a user-friendly viewer.
+Contracts documentation
+
+
+
+
+
+Automated alert remediation and configurable notification
+2023-08-16 | Security Center
+You can now resolve security alerts with a single click directly in the security center. Additionally, we've added an alert state field to provide you with transparency into which alerts still need to be addressed. You'll also be able to choose if you receive an email on any given alert. These enhancements will simplify the alert remediation process and give you more control over how you respond to alerts. 
+Security alerts documentation
+
+
+
+
+New preview functionality for Microsoft 365
+2023-08-03 | Collect
+With preview in Collect, you can now run a preview for Microsoft 365 Outlook and OneDrive to see the number of items discovered before performing the physical collection. Saving you from over-collecting or having to run multiple collections.
+Collect documentation
+
+
+
+
+Restore job failure improvement
+2023-07-20 | Data transfer
+When an application fails to update as part of a restore job in ARM, the job will still execute as planned so that you can start working in your workspace sooner. ARM will notify you which applications have failed to upgrade, and you can manually update them in the application library.
+ARM documentation
+
+Support for modern comments in PowerPoint with text extraction
+2023-07-18 | Processing
+We’ve enhanced the functionality of the Relativity Text Extraction method in PowerPoint files by incorporating the capability to extract and search “modern comments.” This update enables the retrieval of previously unsupported search content.
+Processing documentation
+
+Delayed execution on triggers
+2023-07-11 | Automated Workflows
+You can now set a rule that will delay the execution of a trigger by a set time frame. You have more control of the timing of your triggers and can run them in the background during off-hours. This setting is available for new documents added, translate, and other trigger options.
+Automated workflows documentation
+
+
+
+
+Load file precheck
+2023-06-30 | Data transfer
+We’ve made new enhancements to our Import/Export functionality. You can now validate a document’s or RDO load file’s consistency before starting an import job, so you can to identify inconsistencies before starting an import job.
+Import/Export documentation
+
+
+
+
+OCR engine upgrade
+2023-06-26 | Production
+We have upgraded our OCR engine to provide you with improved accuracy and performance. The upgraded engine will provide better text recognition results for non Latin-based alphabet languages, as well as faster OCR throughput that will provide you with a more robust experience.
+OCR documentation
+
+Save job configuration
+2023-06-23 | Data transfer
+We’ve made new enhancements to our Import/Export functionality. You can now export a new or modified document import job configuration to a file so it can be used for future jobs.
+Import/Export documentation
+
+
+
+
+Activate Express Transfer once per session
+2023-06-16 | Data transfer
+You can now activate Express Transfer once per session by using the Activate button instead of activating each time you run an Import/Export job.
+Import/Export documentation
+
+
+
+
+Family-based review in prioritized review queues
+2023-06-07 | Review Center
+Review Center’s prioritized review queues can now serve up documents by family or across other relational fields, allowing users to easily transition from linear review to AI-backed review while retaining family-based workflows.
+Review Center documentation
+
+Modern authentication is now available to preserve Microsoft Purview data in-place
+2023-05-30 | Legal Hold
+Linked attachments will now automatically be collected as part of your email collection, saving you from having to run separate OneDrive or SharePoint collections to gather linked files or manually link post-processed emails and files.
+Legal Hold documentation
+
+New naming options available for exports
+2023-05-15 | Import Export
+Now when you export files with Import/Export, you have the ability to rename native and text files with custom file naming options, rename exported folders, and slice your production into batches.
+Import/Export documentation
+
+
+
+
+Post-publish deduplication status visibility
+2023-05-12 | Processing
+We've added a new field to the files tab in Processing that allows you to see which files were deduplicated out of your Processing set. You will be able to access the file metadata and export this information, allowing for more visibility into deduplicated files.
+Processing documentation
+
+
+
+
+Improved processing and metadata support
+2023-05-04 | Relativity Short Message Format
+Our new RSMF handler will transform the way short message data is processed into RelativityOne by introducing workflows unique to short message. With this update, you’ll get to process more RSMF 2.0 metadata like application and collection ID, include your custom metadata and process files over 200 MB.
+RSMF documentation
+
+Linked attachments for Microsoft 365 Outlook collections
+2023-04-13 | Collect
+Linked attachments will now automatically be collected as part of your email collection, saving you from having to run separate OneDrive or SharePoint collections to gather linked files or manually link post-processed emails and files.
+Collect documentation
+
+Saved search data export
+2023-04-13 | Data transfer
+Our newest export workflow in the Import/Export application allows you to export your saved search data for easy sharing. This capability helps our export functionality achieve value parity with the RDC application.
+Data transfer documentation
+
+
+
+
+Express Transfer now supports exports
+2023-04-13 | Data transfer
+You can now leverage our Express Transfer solution to supercharge your downloads, especially those over 20 GB. The capability works in the background to download large amounts of data to your local disk or shares without needing to zip them or leverage other solutions. You can use it on both Windows and Mac machines, and the application will constantly stay up-to-date for you.
+Data transfer documentation
+
+
+
+
+Streamlined experience
+2023-04-11 | Management Console
+We've made a number of improvements to the Management Console to help simplify your experience, including removing unnecessary fields, making tables editable, and surfacing workspace data type.
+Management Console documentation
+
+
+
+
+Updated RelativityOne review template
+2023-04-11 | Review
+Leverage our updated Review Template to get started quickly in RelativityOne and jumpstart your path to insights. The new workspace template includes the latest features, including Review Center, Redact, and sentiment analysis to fully support your Review workflow.
+Review template documentation
+

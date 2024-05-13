@@ -1,0 +1,111 @@
+
+Mass operations
+
+Using mass operations, you can perform actions on a set of documents at once instead of performing the same action for each individual document. Some mass operations are available to reviewers, while other mass operations will only display in the mass operations bar if you are a system administrator. Access to each mass operation can be granted individually.
+For details on how to monitor the status of a mass operation that you've started, see Mass operation jobs. 
+Notes: 
+Some mass operations like Edit, Replace, and Delete can temporarily lock down the document table while executing. In a workspace with a large number of records and users, the table may be locked for an extended period of time and prevent users from performing standard edits. In such cases, we recommend carrying out mass operations at night or an off-peak time.
+You can't use mass operations on Data Grid-enabled fields.
+
+List of standard mass operations
+The following table provides a list of the most standard mass operations, specifically those available on the Document object. Click any of the links below for more details.
+There are other feature-specific mass operations that occur only on a limited number of objects. These are not listed below, but instead are found in their corresponding feature topics.  For example, the Republish operation is available only on the Files tab within the Processing feature.
+
+
+
+
+
+Mass operation
+ Description
+
+
+
+
+Edit
+
+You can use the mass edit operation to modify fields and coding values for multiple documents or objects at the same time.
+
+
+Copy
+
+Use Mass copy to copy items within Relativity. By using mass copy you can easily copy and rename items to improve workflows.
+
+
+Move
+
+You can use the mass move operation to move selected documents from their current folder to another existing folder. If you mass move any documents, any custom security applied to those documents is lost.
+
+
+Delete
+
+You can use the Mass delete operation to remove a group of documents or objects from Relativity in a single operation. When you delete documents, you can also remove their images and natives from the file servers.
+
+
+PDF
+
+
+           With the Mass PDF operation you can create PDF files from natives, images, and produced documents, and save those PDFs on your computer. The Mass PDF operation also allows you to store PDFs created from native files or original images in Relativity and review them in the PDF Viewer. 
+
+
+Replace
+
+You can use the mass replace operation to replace existing long or fixed-length field text with new content.
+
+
+Image
+
+Mass imaging creates TIFF or JPEG images for a document set based on the settings in the imaging profile you select. Relativity also provides a default imaging profile that you can use out-of-the-box. 
+
+
+Tally/sum/average
+
+
+You can use the tally/sum/average operation to tally, sum, or average the values of fields associated with documents or objects. This operation is commonly used to determine the number of pages in a print job or production.
+
+
+
+Export to file
+
+Use the Export to file option from the Mass Operations bar to export the current View to a file (e.g., .xls, .cvs, .dat). If no individual records are selected, Relativity will export all records in the current view, regardless of how many records are displayed per page. 
+
+
+Convert
+
+Use Mass convert to pre-convert a large set of documents into HTML5 format before review. By using mass convert you can eliminate document load time in the viewer. 
+
+
+Save as List
+
+Use this to save a group of documents as a list, follow this procedure. The same steps apply to other objects with Lists enabled. 
+
+
+
+Detect Sentiment
+
+
+Use this to score documents on the likelihood that they contain specific emotions. For more information, see Sentiment analysis.
+
+
+
+Mass operations permissions
+
+Assign to Entity—gives group members the rights to select and re-assign an alias to a different entity when using name normalization in Analytics. 
+Cluster—gives group members the rights to cluster documents using Analytics clustering.
+Convert—gives group members the ability to convert a large set of documents into HTML5 format for faster document load times within the viewer.Note: Mass convert is not available in repository workspaces.
+Copy—gives group members the rights to copy securable objects such as views, layouts and summary reports.
+Delete—group members can mass-delete documents. Mass delete also requires the rights to delete documents.
+Edit—gives group members the rights to use their layouts to simultaneously edit document field values for multiple documents.
+Export—gives group members the rights to export audit data via Audit. Note: This permission only appears if Audit is installed and configured.
+Export to File—gives group members the right to export the contents of a view to a .csv, .xls or .dat file.
+Image—group members can simultaneously send image requests for multiple native files.
+Move—gives group members the right to simultaneously move documents from one or more folders to one target folder. Mass Move also requires add and delete document rights.
+Merge—gives group members the rights to select and merge multiple entities into a single entity when using name normalization in Analytics. 
+Print Image—gives group members the right to simultaneously print images from multiple documents.
+Note: While the Print Image mass operation may be visible in the security console, it is not available to use in RelativityOne. Mass printing of images is only available if you revert back to the ActiveX control, which is not an option in RelativityOne. Instead of mass printing images in RelativityOne, you can use the option to save an image as a PDF from the document viewer.
+Produce—gives group members the right to simultaneously add multiple documents to a production set.
+Replace—group members can perform a replace operation on multiple documents. Examples include:Copying the contents of one text field to another.Adding a set string to the beginning or end of an existing field.Merging the values of a source field with the values of a target field.
+Process Transcript—group members can process imported transcripts for viewing in Relativity.
+Send To Case Map—group members can send multiple documents to CaseMap.Note: CaseMap is not compatible with Windows 8.
+Tally/Sum/Average—group members can tally, sum and average the values of any numeric fields. This action is recorded under the document history.
+Custom mass operations—may appear in this list. They include mass operations that you added to Relativity or that are available in applications currently installed in your environment.
+

@@ -1,0 +1,162 @@
+
+Import/Export overview
+Import/Export provides an efficient and streamlined ability to import raw data files, document load files, image load files, production files, RDO files, as well as to export folders and subfolders, production sets, saved searches, and RDO files. It is the recommended method for importing and exporting data for RelativityOne. 
+You can use Import/Export with or without activating Express Transfer, however, we recommend activating Express Transfer. For more information on Express Transfer, see Express Transfer overview and review the section below on considerations when to use and not use Express Transfer. 
+Notes: 
+Relativity ended Relativity Desktop Client (RDC) support for and access to RelativityOne commercial customers on December 31, 2023. Use Import/Export  for your RelativityOne importing and exporting needs. For RelativityOne Government customers, beginning March 31, 2024, RDC will only operate in web transfer mode, which will result in significantly slower transfer speeds. It is highly recommended that Government customers begin using Import/Export in RelativityOne as soon as possible to prepare for the deprecation of RDC on June 30, 2024. Starting July 1, 2024, RDC will no longer be operational.  See the Community article RDC Deprecation FAQ for additional information.
+
+For customers whose file shares haven’t been fully migrated to ADLS yet, Import/Export offers a solution where the import process utilizes the primary file share to store the uploaded data. See the Community article Import/Export uses ADLS if one is present on the tenant for details.
+
+After  documents are imported using Import/Export, you can automate creating a dtSearch index or run a search terms report with those documents using Automated Workflows
+
+Getting started with Import/Export checklist
+Ready to get up-to-speed with Import/Export? Learn more about the functionality, how to get it installed in your instance of RelativityOne, and workflow specifics with the resources listed below.
+Overview Sessions:
+
+Take a deeper dive by watching our recorded Import/Export Overview session.
+Explore more training sessions on the Relativity Training Center site.
+
+Before you can start working with Import/Export, you will have to set things up in your RelativityOne instance:
+
+Reach out to your IT Department and ensure TCP port 443 is open to transfer data in RelativityOne with Express Transfer. 
+Install Import/Export from the Relativity Application Library.
+Open Import/Export and install Express Transfer for larger data transfers and to streamline structured data loads. Only complete this step if your organization intends to use Express Transfer with Import/Export.
+Ensure that users have the proper permissions.
+
+Now that Import/Export is set up, you are ready to perform these workflows and benchmark your speeds:
+
+Import data, both structured and unstructured
+Export folders, RDO data, productions and saved searches
+
+Import and export data using Express Transfer with Import/Export
+
+View the Job History
+
+
+Have questions?
+
+Join one of our Live Monthly Import/Export What’s New and Q&A Sessions.
+Email Solutions@Relativity.com for workflow assistance.
+Visit our What’s New page, Relativity Documentation or our Community Site.
+Contact Relativity Customer Support.
+
+Available import and export workflows
+The following workflows can be performed using Import/Export .
+
+
+Import workflows:
+
+Raw (Unprocessed/Unstructured) Data 
+
+
+
+
+Unstructured data workflow with Processing
+
+
+
+
+
+
+
+Structured (Processed) Data 
+Structured data includes natives, text, and image files, and load files containing metadata.
+
+
+
+Document load file import 
+
+
+
+Image load file import 
+
+
+
+Production load file import
+
+
+
+Relativity Dynamic Object load file import
+
+
+
+
+
+
+
+Export workflows:
+
+
+
+Folder export
+
+
+
+Production set export 
+
+
+Saved Search export
+
+
+
+
+
+RDO export
+
+
+
+
+
+
+Import/Export transfer modes
+There are two methods available to transfer data using Import/Export. Refer to the next section for considerations when to use each one. 
+
+Import/Export with Express Transfer
+
+
+This refers to activating Express Transfer within Import/Export to transfer data into and out of RelativityOne.  This mode is the recommended method for  data transfer. Express Transfer is a separately installed desktop application that sits outside of the RelativityOne browser software and handles the data transfer process. See Express Transfer overview and Installing Express Transfer for more information
+
+
+Import/Export only 
+
+
+This refers to only using the Import/Export browser application within the RelativityOne software to import and export data without Express Transfer activated. This mode is sometimes referred to as web mode or web only mode. See Installing Import/Export. Even if the Express Transfer application is installed on the desktop, it must not be activated when using web mode.  
+
+Considerations when to use and not use Express Transfer with Import/Export
+We recommend using Import/Export with Express Transfer activated whenever possible for all importing and exporting workflows, and particularly when:
+
+data file size is greater than 20 GB (although Express Transfer can be used for any size data transfer). 
+processing multiple import jobs. The jobs will be queued and executed when the previous job is complete.
+slow or unstable network connection. Express Transfers enables you to retry the upload.
+
+Use Import/Export without activating Express Transfer when:
+
+your company policy prohibits installing desktop applications.
+your network configuration does not allow third party applications to send or receive data, such as proxy settings.
+data file size is less than 20 GB.
+data is in ZIP files.
+
+Note: 
+            You need to use Express Transfer to upload and process encrypted materials, such as password-protected zip files or Case files (L01/N01) that require Password Bank functionality. If you cannot use Express Transfer for such imports, zip your encrypted materials in a single unencrypted ZIP container (the 20 GB limit for the zip file size applies). Import/Export will transfer and extract the top-level zip file, preparing your encrypted materials for Processing. Then, Processing will utilize Password Bank to decrypt materials.
+Supported file types
+Import/Export supports the following file types. Refer to Import/Export load file specifications for more information regarding load files. Also see General recommendations for structured data import and export jobs.
+
+
+ZIP and PST files—for transferring data to the server-side.
+
+
+Native files for processing—see the list of supported file types for processing.
+
+
+Document Load File import—.dat, .csv and .txt load files.
+
+
+Image Load File import—Opticon-formatted page-level files. Formats supported:  single page TIFF (Group IV) files, single page JPG files, and single and multiple PDF files.
+
+
+Note: RelativityOne allows users to restrict given file types from being imported into their instances with the RestrictedFileTypes instance setting. Import/Export reads and applies this instance setting when importing materials into RelativityOne, therefore, all file types listed as restricted file types will be skipped.
+Data upload size limitation
+When Express Transfer is activated for use with Import/Export, there is no data upload limit. See Express Transfer overview and Activating Express Transfer for more information.
+When Express Transfer is not activated for use with Import/Export, the application  accepts single .zip or .pst containers or a single structured import data set load file up to 20 GB for a single import. 
+Concurrent and consecutive jobs
+The concurrent or consecutive nature of a job depends on what stage the job is at, which data transfer mode you're using (web only or Express Transfer), and what type of job you're running (Processing, Import, or Export). For more information, see the Community article Import/Export Concurrent and Consecutive Jobs.

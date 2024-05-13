@@ -1,0 +1,219 @@
+
+Review documents
+This section describes common tasks and interfaces used by Reviewers when working with PI Detect. Reviewers check documents to make sure the machine is accurately predicting what documents contain PII. They correct the machine's predictions when necessary and make sure all PII types are detected. 
+Spreadsheet review
+The PI Detect product uses AI to identify table boundaries, column headers, and the personal information that sits within those tables. The PI Detect product also identifies personal information that sits within cells outside of tables. Below is a high-level overview of the recommended review approach for spreadsheets, as it differs from non-spreadsheet documents: 
+
+Predict table boundaries and column headers. During the Incorporate Feedback process, PI Detect finds table boundaries with column headers to predict where and what type of personal information is contained in tables.
+
+Verify identified table boundaries and column headers. PI identified within tables are dependent on the table boundaries being properly identified. Table boundaries identified by the product can be edited or removed. New table boundaries can be added. For more information, see Creating a table
+
+
+Verify Personal Information identified outside of tables. The PI Detect product can also identify personal information that sits within cells outside of a table. Please use the PI Detection card to navigate to those. That PI can also be edited, removed, or new PI sitting outside a table can be added. For more information, see Capturing PI
+
+
+Reviewing PI within tables
+The PI Detect product identifies table boundaries with column headers to predict where and what type of personal information is contained in tables. There are instances where tables boundaries may need to be edited, removed, or added.
+Creating a table
+If there is a table in a sheet that has not been identified, a new table can be created. To create a new table:
+
+
+Select the table icon on the bottom of the native spreadsheet viewer or right click from the viewer  and select Add Table Boundary.
+
+
+From the table card, click Add New Table.
+
+
+Add a Name for the table.
+
+
+Insert the Table Boundaries for the table.
+
+
+If the table does not have headers and the first row of the table contains PI, disable the Header toggle. The header location will be auto filled with the first row of the table. If the Header toggle is selected, a header value must be entered.
+
+
+Click Save after confirming that the cell range is correct.
+
+
+Editing a table
+Table boundaries are marked by a dashed line around the predicted table. Existing table boundaries can be modified:
+
+
+Right click on the table boundary of the table you wish to edit.
+
+
+From the Context Menu, select Personal Information. Click Edit Table Boundary.
+
+
+A table card will appear. Click the Edit button in the table card.
+
+
+The Name of the table, Table Boundary, and Header values can be changed.
+
+
+Click Save.
+
+
+Capturing PI
+PI can be captured for a single cell, or for an entire column. It is appropriate to annotate an entire column if the majority of cells in that column represent the same type of PI. If this is not the case and PI is scattered inconsistently across the sheet, then manual annotations for single cells can be created.
+Adding PI
+To add PI:
+
+
+Right click the relevant column header.
+
+
+From the Context Menu, select Personal Information. 
+
+
+Click Add Column Annotation.
+
+
+Select the PI Type to assign to the column.
+
+
+Click Save.
+
+
+The PI will appear in the PI Detection panel.
+Editing PI
+To edit PI:
+
+From the Context Menu, select Personal Information. 
+Click Edit Column Annotation.
+Select the new PI Type to assign to the column.
+Click Save.
+
+Deleting PI
+To delete annotations that have been applied to entire columns:
+
+From the Context Menu, select Personal Information. 
+Click Remove Column Annotation.
+A confirmation modal appears. Click Remove.
+
+Adding partial cell PI
+To add partial cell PI:
+
+Right click the cell containing the PI in the spreadsheet.
+From the Context Menu, select Personal Information. 
+Click Add.
+The PI is captured in the PI Value field. Type to edit the PI Value if needed.
+
+Choose the PI Type.
+
+
+Click Add.
+
+
+The PI now appears in the PI Detection panel.
+Editing partial cell PI:
+To edit partial cell PI:
+
+Right click the cell containing the PI in the spreadsheet.
+From the Context Menu, select Personal Information. 
+Click Edit.
+Edit the PI Value and PI Type.
+Click Save.
+
+Removing partial cell PI:
+To remove partial cell PI:
+
+Right click the cell containing the PI in the spreadsheet.
+From the Context Menu, select Personal Information. 
+Click Delete.A confirmation modal appears. 
+Click Remove.
+
+Non-spreadsheet review
+PI Detect identifies personal information located within documents, reducing the manual burden on reviewers. When reviewing documents, the goal is to validate the predictions highlighted by the AI.
+Capturing PI
+Add or remove PI by following the procedures below.
+Adding PI
+To add PI:
+
+
+Select the text for annotation using the cursor.
+
+Right click on the document to open the Context Menu.
+
+From the Context Menu, select Personal Information. Click Add.
+
+
+From the Add PI Detection modal, select the PI type for the auto-filled PI value. You cannot change this text without re-highlighting it.
+
+
+Click Save.
+
+
+Editing PI
+To edit PI:
+
+Right click the highlighted PI to edit.
+From the Context Menu, select Personal Information. 
+Click Edit.
+
+From the Edit PI Detection modal, select the PI type for the auto-filled PI value.
+
+
+Click Save.
+
+
+Removing PI
+To remove PI:
+
+
+Right click the highlighted PI to remove it.
+
+
+From the Context Menu, select Personal Information. 
+
+
+Click Remove.
+
+
+Click Remove on the confirmation modal.
+
+
+Adding drawn annotations
+In some cases, PI detections cannot be made on a document due to poor OCR quality. In these instances, PI can be recorded by doing the following:
+Note: Drawn annotations can only be applied to PDFs.
+
+
+In the PI Detection panel, select Draw Annotation.
+
+
+Draw a box over the text that contains the PI to record.
+
+
+A panel opens in the Draw Annotation section of the PI Detection panel.Enter the PI Value and PI Type.
+
+
+Click Save.
+
+
+Locking detections
+For PI detections to be preserved on a document when the Incorporate Feedback pipeline is rerun, PI must be saved before moving on to the next document when reviewing. 
+To save PI detections before Incorporate Feedback is run, click the Lock Annotations button in the PI Detections panel. You can continue to make changes and Add/Edit/Remove PI after a document is locked. Those updates will remain on the document. Changes can not be made while Incorporate Feedback is running.
+If further changes need to be made on the document, select the button again to Unlock Annotations.
+Errors
+Personal information will not appear in the PI Detection panel under the following circumstances:
+
+The AI process, called Incorporate Feedback in PI Detect, has not been run.
+The AI process, called Incorporate Feedback in PI Detect, is in progress.Detections will be available in the PI Detection panel once Incorporate Feedback is complete. While Incorporate Feedback is in progress, the panel will display the following message:
+
+The AI process, called Incorporate Feedback in PI Detect, has failed.
+
+
+If an error has been encountered during PI detection or it has failed, the following message will appear in the PI Detections panel:
+
+
+
+
+No PI was detected after the AI was run.
+
+
+If a document does not contain PI, the PI detection panel will display a message indicating this.
+
+
+
+

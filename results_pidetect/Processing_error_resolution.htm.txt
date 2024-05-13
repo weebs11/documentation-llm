@@ -1,0 +1,336 @@
+
+Error resolution
+Two distinct types of errors occur during processing: exceptions and system errors. Exceptions are errors that occur when Relativity cannot process a job or file. For example, a password-protected file where Relativity cannot find the password. In this case, you can resolve the issue by providing the password and rerunning the process. System errors occur when the processing engine cannot complete the job. For example, a system error may occur when there is a break in network connectivity where Relativity cannot access file storage. In this case, the resolution is to rerun the processing job after you restore network connectivity. Other system errors may be more complex and require support intervention.
+
+For information on where to find processing error information, see Processing error overview.
+This page details the following:
+
+Types of processing errors
+
+Processing phases where errors may occur
+
+File errors
+
+File error actions
+
+Resolving file errors
+
+Retrying an error from the processing set
+
+Error categories and their probability of retry success
+
+
+
+Retry file errors mass action
+
+Replacing a corrupted file
+
+Resolving a password-protected file error
+
+
+
+
+
+Job errors
+
+Job error workflow
+
+Resolving job errors
+
+
+
+
+Types of processing errors
+There are two types of processing errors: file errors and job errors.
+
+
+File errors—affect a single file. Overall, the processing job continues, even if file errors exist. File errors are resolvable and have a status of Not Resolved in the Files tab. An example of a file error might include a password-protected file where Relativity cannot find the password.
+
+Job errors—affect the entire processing job and block publishing. You must resolve job errors before you can continue processing.
+
+Processing phases where errors may occur
+Errors can occur during any processing phase, such as Inventory, Discover, and Publish.
+
+Inventory—all Inventory errors are unresolvable, and you cannot retry them. To address inventory errors, rerun Inventory from the same processing set.
+Discover—the Discover phase covers file discovery and text extraction.Discover—job errors that occur during discovery are unresolvable, and you cannot retry them. You should always address unresolvable discover job errors. Not addressing unresolvable errors may result in incomplete metadata in published documents. Address these errors by creating a new processing set (or sets) and rediscovering the data. Text-extraction—job errors that are resolvable have an error status of Ready to retry. Retry the error from the same processing set.
+Publish—job errors during the publishing phase that are resolvable have an error status of Ready to retry. Retry the error from the same processing set.
+
+File errors
+After completing the discovery or publish phases, you notice the processing job encountered file errors. You want to investigate and resolve the errors to maximize the data published to your workspace. 
+File error actions
+You can take action on file errors from the mass actions drop-down menu located at the bottom of the Files tab page. 
+
+
+The following mass actions are available: 
+
+
+
+
+
+Mass operation
+Description
+
+
+
+
+Export as CSV
+This exports the list of processing errors as a CSV file.
+
+
+Republish
+
+Gives you the option of republishing errored files after you resolve the erorrs. If the republish is successful, the files are available in the Documents list and removed from the Current Errored Files view.
+For details on how to republish files from the Files tab, see Republishing files.
+
+
+
+Retry Errors
+
+This action provides the ability to resolve issues occurring during discover and publish. You can see these issues on the Current Errored Files and All Errored Files views within the Files tab. For details on how to retry errors from the Deleted Documents view in the Files tab, see Retrying delete errors.
+
+You must have edit permissions on the Discovered Files object to be able to retry file errors.
+							
+Note the following regarding retrying errors:
+								Auto-publish is not enabled when you retry errors. If you resolve any discover or text extraction errors, you must manually publish them into your workspace by navigating back to the processing set and clicking the Retry button.
+									
+									The discovery retry of errors process has a longer timeout period than the initial discovery process. It is not uncommon for the retry process to run longer than the initial discovery process.
+									You should always resolve all publish errors as these errors represent data not in review.
+									If an error occurs on a loose file during discovery, Relativity still attempts to publish it. For example, if a Password Protected error occurs on a PDF file during discovery, you can still publish the file in its current state. The resulting record may have metadata or extracted text missing depending on the issue, but still referenced during review.
+									Relativity automatically retries all publish errors for a set when you retry any error within that set.
+									Do not work on multiple retry attempts simultaneously. If you submit a secondary retry while the initial retry is still in progress, the second retry waits in a queue until the first retry completes.
+									You can only submit errors with an Error Status of Not Resolved for retry.
+							
+
+
+
+
+
+Ignore Errors
+
+This provides the ability to set a file’s Error Status to Ignored, which  removes it from the Current Errored Files view. The record is visible in the All Files and All Errored Files views.
+
+
+Undo Ignore Errors
+Sets a file’s Error Status field back to its original value after you previously ignored it.
+
+
+Single Download / Replace
+
+Use the Single Download / Replace mass operation to download a file to your local machine for investigation. After fixing the error, you can use the same mass operation to replace the original file with a newer version.
+Note the following regarding downloading and replacing files:
+
+You can only download or replace a single file at a time.
+You can only perform these actions on files with an error status of Not Resolved.
+There is no file size limitation when downloading files.
+There is a one-gigabyte file size limitation when uploading replacement files.
+Performing a file replacement retries associated errors once completed.
+After uploading a new document, and you select Replace & Retry, the native file updates before you republish.
+The retry action for job errors only retries errors in a Ready to Retry state.
+
+For more information on the Single Download / Replace mass operation, see Single Download / Replace on the Files tab page.
+
+
+
+Download
+
+Use the Download mass operation to download multiple errored files to your local drive.
+
+						Note the following regarding the downloading mass operation:
+
+You can only use the Download mass operation on files with an error status of Not Resolved.
+When complete, files are packaged in a zip container and saved to your local drive.
+You must use the Single File / Replace mass operation to replace a file.
+There is a 2.14 GB limitation on the zip container file size.
+
+For more information on the Download mass operation, see Mass download errored files on the Files tab page.
+
+
+
+
+Resolving file errors
+The following sections describe actions you may take to resolve file errors.
+Retrying an error from the processing set
+You can retry file errors from the processing set by clicking the Retry File Errors button located in the Process Files console.
+
+
+A confirmation message appears with information about the number of errors you are about to retry, along with the associated error categories. Click Yes to proceed or Cancel to return to the processing set page.
+
+
+Container file errors
+File errors on container files, such as a .zip file, may result in missing data from one or more files within the container. In some cases, you may have many files in error, even though you see a single file error on the container. For container file errors, extract the files and then create a new processing set with the extracted files.
+Error categories and their probability of retry success
+Relativity retries file errors that have a high chance of success. The error category associated with the file determines the probability of success. Error categories such as Corruption or Password Protection are not retried as they are not likely to be successful without manual intervention. For example, adding passwords to the Password Bank or replacing corrupt files. The table below lists the types of errors that Relativity retries.
+
+
+
+
+
+Error Category
+Included in Retry Button
+					
+
+
+
+
+Corrupt Container
+No
+
+
+Corrupt File
+No
+
+
+Could Not Identify
+No
+
+
+Environmental
+Yes
+
+
+File Read/Write Issue
+Yes
+
+
+Missing Attachment
+Yes
+
+
+Missing child items due to password protection
+No
+
+
+Missing Extracted Text
+Yes
+
+
+Missing File Metadata
+Yes
+
+
+Partially Corrupted Container
+No
+
+
+Password Protected Container
+No
+
+
+Password Protected File
+No
+
+
+Relativity Field Configuration
+No
+
+
+Unsupported
+No
+
+
+
+Retry file errors mass action
+Starting from your processing set, perform the following steps:
+
+
+From the Process Files console, click File Errors to open the Current Errored Files view. The list is automatically filters for your processing set.
+
+
+You can filter the errored files that are the most important to resolve. Some common filters are:
+
+Error Category—group issues of a similar type.
+					
+Error Phase—groups issues occurring during a particular part of processing.
+					
+Custodian—when you have a priority Custodian you want investigated first.
+					
+Sort Date—to retry files within the matter's relevant date range.
+					
+
+
+
+Once you identify a group of records to resolve, select the Retry Errors mass action to begin the process. Alternatively, you can retry all errored files without filtering.
+
+
+You can now track the progress of the error retry through the processing set's progress bar or by navigating to the Processing and Imaging Queue and viewing active jobs.
+Replacing a corrupted file
+Sometimes, files reach processing in a corrupted state. Here is a workflow to replace corrupted files with non-corrupted versions so you can get the most out of your data. This works on encrypted documents as well.
+Starting from your processing set, perform the following steps:
+
+From the Process Files console, click File Errors to open the Current Errored Files view. The list is automatically filters for your processing set.
+			
+Locate the file you need to replace. Common techniques are:
+			Filter the Error Category field for either Corrupted File or Corrupted Container.Filter by specific file names.Filter for specific error messages.
+Select the appropriate checkbox for the file you want to replace.
+Select the Single Download / Replace option in the mass action drop-down menu.
+From here, two options are available:
+				To download a corrupted file: confirm the modal displays the correct container and click the Download button.To replace a corrupted file: drag the replacement file into the modal or select browse for files to locate the container.
+			
+Once you add the replacement file to the modal, it automatically uploads to Relativity. A quick verification process  lets you know if there are any issues or if there are any significant differences between the original and replaced files.
+			
+Select the Replace & Retry button to complete the replacement and retry any Discovery related errors.
+			
+
+Note: When replacing a file, the metadata associated with the new file overwrites any metadata associated with the original file. For example, if the original file's author is Steve Bruhle and the replacement file's author is Dave Crews, the metadata in Relativity displays Dave Crews.
+For more information on replacement considerations, see Single Download / Replace.
+Resolving a password-protected file error
+Some files are password-protected. If Relativity cannot find the password during the Discover phase, you will see an error with the category, Password Protected Container. The resolution for this error is to add the password to the Password Bank.
+To add a password to the bank, perform the following steps:
+
+Navigate to the Password Bank | Processing tab.
+Click New.
+Select Passwords for the Type value.
+Add a meaningful description to help you differentiate between other password entries.
+Add one or more passwords. You must enter each password on a separate line.
+Click Save.
+Retry the file error from either the processing set Process Files console, or from the Files tab mass actions drop-down menu.
+
+For completed details on storing passwords, see Password Bank.
+Job errors
+Navigate to the Job Errors tab to view a list of job errors. The Current Job Errors view displays all outstanding job errors. The All Job Errors view displays all job errors across time, regardless of their resolution. Review the Error Status and Message fields for an overview of the error and the potential for remediation. 
+Job error workflow
+The following diagram shows the job error workflows for Inventory, Discover, and Publish jobs. 
+
+
+Resolving job errors 
+The steps for resolving job errors depend on the phase running when the error occurred. For some phases, errors are unresolvable; others require creating and running a new processing set. You can resolve some errors using mass actions or by retrying the errors from the processing set. The first step in resolving job errors is determining the phase in which the error occurred.
+To identify the phase where the error occurred, perform the following steps:
+
+Navigate to the Job Errors tab.
+Click the Error Identifier for the error you are researching. The Job Error Details pane opens.
+Click the Advanced tab.
+Locate the Data section, then locate the Relativity.Processing.Error.Phase entry key. The key value is the phase where the error occurred. In the image below, the phase is Inventory.
+
+
+
+Inventory
+All inventory errors are unresolvable. You must address the error outside of Relativity, then rerun Inventory from the processing set.
+To re-inventory files, perform the following steps:
+
+From the processing set, click the Inventory Files button in the Process Files console.
+A confirmation message appears. Click Yes.
+
+When you rerun the Inventory phase, Relativity clears any errors from the previous job.
+For detailed information on the Inventory phase and errors, see Inventory processing.
+Note: When working with questionable data sets, run Inventory to get a pre-assessment of corrupt files. This way, you can review the error messages returned for possible remediation before continuing to other processing phases.
+Discover
+The Discover phase includes file discovery and text extraction. You should treat errors that occur during the Discover phase with high priority, as they are generally unexpected. Resolving these errors depends on where they occurred during the discovery process. Not resolving Discover errors may result in incomplete metadata when the files are published.
+To address errors that occur during file discovery, perform the following steps:
+
+If possible, retry the errors from within the processing set.
+If the errors are unresolvable, create a new processing set using the same data source as the errored set.
+Rerun Discover.
+
+To address job errors that occur during text extraction, perform the following steps:
+
+From the processing set, click the Job Errors link in the Process Files console.
+You can retry errors with a status of Ready to retry. From the mass actions drop-down menu, select Retry Errors.
+On the Retry error(s) confirmation dialog, click Retry.
+The status changes to Resolving. You can refresh the page until the status updates with either Resolved or Not Resolved. If the error is not resolved, you must rediscover the files from a new processing set.
+
+For detailed information on discovering files, see Discovering files.
+Publish
+Job errors during the publishing phase that are resolvable have an error status of Ready to retry. Retry the error from the same processing set.
+
+For detailed information on the Publish phase and errors, see Publishing files.
+

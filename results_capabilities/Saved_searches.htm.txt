@@ -1,0 +1,41 @@
+
+Saved searches 
+
+Saved searches created in your workspace are available on RelativityOne's mobile app. Tap Saved Searches to view existing folders and saved searches. In the saved search folder you can filter, search, or share saved searches.
+
+
+
+Note: This functionality is not available in RelativityOne Government environments.
+Running a saved search
+In RelativityOne's mobile app, you can view already created saved searches and saved search folders. To run an already created saved search, follow the steps below:
+Note: A saved  search needs to be created in Relativity before used in RelativityOne's mobile app. For more information on creating a saved search, see Creating or editing a saved search. 
+
+Tap  to open the saved search  menu. 
+Tap on a saved search folder to view content within the folder. 
+
+Saved search folders display with the  icon. Tapping on the folder displays the list of searches and any subfolders within that folder to the right. Tap   to navigate back to the subfolders. Tapping on a root folder does not update the document list.
+Saved searches display with the   icon. Tapping on a saved search runs the saved search and displays the list of documents matching the search criteria.
+
+Note: Saved search folders with security permission restrictions show up with a locked icon ( ).
+Tap on the saved search you want to run. A list of documents matching the search criteria appears.
+Tap anywhere in the row in the first column to open the document in the Viewer. See Documents.
+
+(Click to expand)
+
+
+Note: Keyword searches are the only type of saved search currently supported in RelativityOne's mobile app. 
+Searching for saved searches
+RelativityOne's mobile app includes searching functionality within the Saved Searches browser to decrease the number of taps to find the correct folder. To search, follow the steps below:
+
+Tap the search bar.
+Enter the name of a saved search. Results include the saved search and folders that the saved search is in.
+Tap on a saved search to view the documents. 
+
+When tapping on a saved search folder, the browser opens to the selected folder. Opening the search folder displays the saved searches living in the folder. Tap the wanted saved search to close the saved search browser and display the saved search's results in the document list. 
+Sharing a saved search
+You can also share a saved search from your mobile device. To do that, tap  . Once tapped, a link for the document is created. From there, select the mode of delivery and the Relativity user to share the document link with. 
+(Click to expand)
+
+
+If the link is opened on a desktop computer, RelativityOne opens. The user opening the link will need to log into the app with their credentials. 
+Note: On iPads running iPad OS 13, links will open automatically open in Safari.  To have links open directly in the app  on iOS 12 or below, go to the iOS Settings app > Safari. In the websites section of Safari's settings tap "Request Desktop Website" and toggle off all websites.  This will allow links to open directly in the Relativity iOS App again.

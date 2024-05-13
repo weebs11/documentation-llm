@@ -1,0 +1,256 @@
+
+Creating a Review Center queue
+Review Center queues are flexible, customizable, and can be used for any stage of review. You can also create templates for common workflows, which shortens the  setup time for a new queue to only a few clicks. These queue templates can be saved as part of workspace templates, making it easy to re-use them for other cases.
+Even after creating a queue, you can still edit the settings or add new documents without interrupting reviewers.
+See these related pages:
+
+Monitoring a Review Center queue
+
+Reviewing documents using Review Center
+
+Review Center security permissions
+
+
+Installing Review Center
+Review Center is available as a secured application from the Application Library.
+To install it:
+
+
+Navigate to the Relativity Applications tab in your workspace.
+
+
+Select Install from application library.
+
+
+Select the ReviewCenter application.
+
+
+Click Install.
+
+
+After installation completes, the following tabs will appear in your workspace:
+
+
+Review Library—create and manage queue templates.
+
+
+Review Center—create and manage queues and view the dashboard.
+
+
+Review Queues—review documents using queues.
+
+
+For more information on installing applications, see Relativity applications.
+Choosing a queue type
+Review Center offers two types of review queues. Based on the needs of your project, you can set up review queues that either focus on custom-sorted sets of documents, or focus on documents that the AI classifier predicts as relevant.
+Saved search queues
+Saved search queues tie your queue to a saved search. You can use saved searches to group documents based on nearly any criteria, including documents from any existing Active Learning project or other Review Center queue. With this queue type, documents are served up to reviewers based on the sort method used for the saved search. If the saved search does not have a sort method selected, documents will be served up based on Artifact ID.
+Prioritized review queues
+Prioritized review queues are also based on a saved search, but instead of serving up documents based on their sort order, they use the AI classifier to serve up documents that it predicts as relevant. These relevance rankings are stored in the Rank Output field, and the ranks automatically update every time the queue refreshes.
+The AI classifier uses the extracted text of documents to make its predictions. Even if other fields are returned in the saved search, it will not affect the results.
+If you choose a prioritized review queue, we recommending coding at least two non-empty documents in your data source before preparing or starting the queue: one with the positive choice on your review field, and one with the negative choice. This gives the AI classifier the information it needs to start making its predictions. The more documents are coded, the more accurate the classifier’s predictions will be.
+If you do not have any coding completed, you can start the prioritized review queue without any coding. The classifier model won't build until at least 50 documents have been coded, with at least one coded positive and one coded negative. After you reach 50 coded documents, your ranks will update upon the next auto-refresh or manual refresh. If you need it to build sooner, you can manually trigger a queue refresh at any point after at least one document has been coded positive and one has been coded negative.
+Including random documents in the queue
+When you set up a prioritized review queue, you have the option to serve up randomly chosen documents alongside documents that are predicted relevant. This gives the AI classifier a broader variety of coding decisions to learn from, which improves its predictions in the early stages of a review. Having reviewers code a selection of random documents helps the classifier identify a wider range of relevant topics and prevents it from focusing on a limited subject area.
+Under the queue setting Include Random Items, you can choose to include random documents as up to 20% of the total documents served to reviewers. You can change this setting at any time. We recommend including a high percent of random items during the early stages of review.
+How document assignment works
+By default, five documents are checked out to each active reviewer at a time. As the reviewer saves their progress on those documents, more are checked out as needed.
+For example, documents 1 through 5 are assigned to the first reviewer who starts review. If a second reviewer logs in immediately after, documents 6 through 10 are assigned to the second reviewer. As the first reviewer completes their work, documents 11 through 15 are assigned to them, and so on.
+If a relational field is set for the queue, then the entire relational group for a document will also be checked out to that document's reviewer. For more information, see Keeping document families together.
+Keeping document families together
+All Review Center queues have the option of setting a relational field. If this is set, the whole relational group of documents present in the queue will be checked out to the same reviewer. This keeps families, email threads, or other relational groupings together in one queue.
+When a relational field is set, it takes priority over the sort method and document rank. For example,  if you sort a saved search queue by size and set the relational field to Family Group, then the entire family of the largest document will be checked out to the first reviewer, even if it contains small documents. Likewise, if you set the relational field to Family Group for a prioritized review queue, the entire family of the highest ranked document will be checked out to the first reviewer, even if it contains low-ranked documents. Within that family, documents will be served up based on the sort specified in the relational view.
+Note: If you set a relational field on a template or queue, set the same field in the Related Items drop-down menu of the saved search Conditions tab. Only relational group members returned by the saved search will be included in the queue. For more information, see Creating or editing a saved search.
+Setting up the reviewer group
+To give reviewers access to a queue, set up a reviewer group. You can either create a brand new group, or modify the permissions for an existing user group. You can assign multiple user groups to the same queue.
+To set up a reviewer group:
+
+
+Decide which user group or groups should contain the reviewers for the queue. For information on creating and editing groups, see Groups.
+
+
+Add each group to the workspace.
+
+
+Assign each reviewer group the following permissions:
+
+
+
+
+
+Object Security
+Tab Visibility 
+
+
+
+
+
+
+Document - View, Edit 
+Review Center Queue - View
+
+
+
+
+Review Queues
+
+
+
+
+
+
+
+Add the reviewers to each group.
+
+
+For more information about permissions, see Review Center security permissions.
+Creating required queue fields
+Before creating a prioritized review queue, create the following fields:
+
+
+Review field—a single-choice field that serves as the coding field for your queue. This field should have at least one positive choice and one negative choice. Any other choices will be considered neutral.
+
+
+ Rank Output—a decimal field that will hold the document ranks. Each prioritized review queue needs a separate Rank Output field on the Document object.
+Note: If a field has two colons (::) in the name, this is called a reflected field. Reflected fields typically link two objects, and they cannot be used as the Rank Output field.
+
+
+If you are creating a saved search queue, you do not need a Rank Output field, and the review field is optional.
+For more information about creating new fields, see Fields.
+Creating a queue template
+Templates are unassigned queues that can be used as the basis for building other queues quickly. The Is Template field should always be toggled to On for templates.
+The Review Center application comes with several premade queue templates to choose from. However, we recommend tailoring them or creating your own to best suit your needs. These can also be saved as part of your workspace template.
+Most fields which are required for queues, such as the Review Field, are not required for a template. This enables you to create generalized templates ahead of time and leave those decisions to the queue creator.
+To create a queue template:
+
+
+Navigate to the Review Library tab.
+
+
+Click the New Review Center Queue button.
+
+
+Enter the following information:
+
+
+Name—the queue name reviewers will see.
+
+
+Is Template—toggle this to On.
+Note: This field exists for all queues. If you toggle the Is Template setting to On for a regular queue, it disappears from the dashboard and becomes usable as a template for other queues. Toggling it off again returns the queue to the dashboard. The queue keeps all of its statistics and coding decisions, but the queue state resets to Not Started.
+
+
+Template Description—enter notes about the template such as its intended use, comments about field settings, etc.
+
+
+Queue Label—create and choose organizational labels that will apply to queues created from this template. Some label ideas include First Level Review, Second Level Review, or Quality Control. For more information, see Filtering the queue tab strip.
+
+
+Reviewer Groups—this is not recommended for templates.
+
+
+Queue Type—choose either Saved Search or Prioritized Review.
+
+
+Data Source—select the saved search that contains the documents for your queue. For file type considerations, see Data source considerations for Analytics.
+Note: If you are using a prioritized review queue:We recommend a maximum of 5 million documents in the data source.The classifier ignores documents with an extracted text field larger than 600 KB.  We recommend leaving these documents out of the data source.
+
+
+Rank Output (Prioritized Review only)—select the decimal field you created to hold the document rank scores.
+
+
+Review Field—select the single choice field you created for review. This field must have two or more choices.
+
+
+Positive Choice—select the choice that represents the positive or responsive designation.
+
+
+Negative Choice—Select the choice that represents the negative or non-responsive designation.
+Note: Any remaining choices are considered neutral.
+
+
+
+
+Relational Field—select a relational field for grouping documents in the queue. This makes reviewers receive related documents together, such as members of the same document family.
+Note: If you set a relational field on a template or queue, set the same field in the Related Items drop-down of the saved search Conditions tab. Only relational group members returned by the saved search will be included in the queue. For more information, see Creating or editing a saved search.
+
+
+Allow Coded in Review (Saved Search only)—controls whether documents coded outside of the queue will still be served up in the queue.
+
+
+Toggle this On to allow outside-coded documents to be served up.
+
+
+ Toggle this Off to exclude outside-coded documents from being served up. These are found and removed during queue refreshes and every time a reviewer checks out a document.
+
+
+Note: Prioritized review queues use outside-coded documents to train their predictions, but they only show them to reviewers if the Relational Field is set. For example, if the relational field is set to Family Group and some members of a document family are already coded, those will be served up to reviewers along with their family.
+
+
+Queue Display Options—select which statistics you want reviewers to see on the queue card in the Review Queues tab.
+
+
+Include Random Items (Prioritized Review only)—select what percentage of random documents to serve to reviewers. For more information, see Including random documents in the queue.
+
+
+Queue Refresh—controls whether the queue automatically refreshes after coding activity in any queue. This refresh includes re-running the saved search and checking for outside-coded documents. For prioritized review queues, this also re-trains the classifier with the latest coding and re-ranks documents in order of predicted relevance. For more information, see Auto-refreshing the queue.
+
+
+Toggle this On to refresh the queue automatically.
+
+
+Toggle this Off to prevent automatic refreshes. You will still be able to manually trigger refreshes using the dashboard.
+
+
+
+
+Reviewer Document View—select a view to control which fields reviewers see in the Documents panel of the Viewer. If you do not choose a view, this defaults to the lowest ordered view the reviewer has permission to access.
+
+
+This panel shows reviewers a list of documents they previously reviewed in their queue. For more information, see Finding previously viewed documents.
+
+
+If there are any conditions applied to the view, those conditions will also limit which documents appear in the panel.
+
+
+
+
+Email Notification Recipients—enter email addresses to receive notifications about the queue status. These emails tell users when a manually-triggered queue preparation completes, a queue is empty, or a queue encounters an error while populating. To enter multiple email addresses, separate them with a semicolon. Do not include a space.
+
+
+
+
+Click Save.
+The template now appears in the Review Library list.
+
+
+Creating a new queue from a template
+To create a new queue using a queue template, use the Add Queue button on the Review Center dashboard.
+
+
+
+To create a new queue from template using the dashboard:
+
+
+Navigate to the Review Center tab.
+
+
+Click the Add Queue button.
+
+
+Select the template you want to use, then click Next.
+
+
+Under Reviewer Groups, choose one or more reviewer groups.
+
+
+In the other fields, check the default values filled in by the template. Change any values that should be different for this queue.
+
+
+Click Save.
+The new queue appears as a tab in the banner at the top of the dashboard.
+
+
+All queue settings can also be edited after creating the queue.
+Note: After a queue has been created from a template, the two of them are no longer connected. You can edit the template without affecting the queue.
+For information on starting, managing, and deleting queues, see Monitoring a Review Center queue.

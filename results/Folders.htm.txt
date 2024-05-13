@@ -1,0 +1,32 @@
+
+Folders 
+
+RelativityOne's mobile app has a folders browser that contains documents in Relativity that are arranged in a hierarchy in the folder. The folders must be created on a web instance of Relativity. 
+
+
+
+Note: This functionality is not available in RelativityOne Government environments.
+Using the Folders browser
+
+Tap   to open the folder browser. 
+Tap on a folder to view the document list showing the content of that folder (and any criteria applied by the selected view).
+If a folder has subfolders, a Folder section appears at the top. Continue tapping on a folder  to view the subfolders. Tap  to return to the previous folder.
+Tap Hide Folders to collapse the list of subfolders. When tapping on a root folder, the document list will update.
+Note: Folders with security permission restrictions show up with a locked icon ( ).
+Tap on the document to open the document in the Viewer. See Documents.
+
+(Click to expand)
+
+
+
+Searching in Folders
+RelativityOne's mobile app includes searching functionality within the Folders browser to decrease the number of taps to find the correct folder. To search, follow the steps below:
+
+In the Folders list, tap the search bar.
+Enter the name or partial name of a folder or document.
+Tap on the name of a  folder to open a folder.
+Tap a folder or document.
+
+(Click to expand)
+
+

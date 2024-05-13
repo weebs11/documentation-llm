@@ -1,0 +1,292 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Browse by topic
+
+
+RelativityOne
+
+Getting started in RelativityOne
+
+RelativityOne technical overview
+
+RelativityOne downtime windows
+
+RelativityOne repository workspace
+
+The Relativity hybrid model
+
+More >
+
+
+
+
+Data Transfer
+
+Data transfer in RelativityOne
+
+Data migration in RelativityOne
+
+Import/Export 
+Migrate 
+ARM overview
+
+RelativityOne Staging Explorer
+
+RelativityOne Store 
+More >
+
+
+
+
+Processing
+
+Supported file types
+
+Processing profiles
+
+Mapping Processing fields
+
+More >
+
+
+
+
+Searching
+
+Search conditions
+
+dtSearch
+
+Filters
+
+Saved search
+
+More >
+
+
+
+
+
+
+Analytics
+
+Structured analytics
+
+Email thread visualization
+
+Email threading
+
+Sentiment analysis
+
+More >
+
+
+
+
+Assisted Review
+
+Review Center
+
+Active Learning
+
+Creating an Active Learning project
+
+Project Validation and Elusion Testing
+
+More >
+
+
+
+
+Review
+
+Reviewing documents 
+Reviewer statistics
+
+Reviewer access
+
+Review Center
+
+Redact 
+More >
+
+
+
+
+Production
+
+Production overview
+
+Production sets
+
+Production console
+
+Exporting a production set
+
+Placeholders
+
+More >
+
+
+
+
+
+
+Mobile
+
+Documents
+
+Folders 
+
+Mobile support and settings
+
+More >
+
+
+
+
+Case Strategy 
+
+Transcripts application
+
+Case Dynamics 
+
+
+
+
+Legal Hold
+
+Installing Legal Hold
+
+Projects
+
+Adding legal hold settings 
+Preservation hold (Legacy)
+
+More >
+
+
+
+
+Collect
+
+Installing Collect 
+Collection
+
+Matters
+
+Data sources
+
+More >
+
+
+
+
+
+
+Contracts
+
+Contracts OCR 
+Analysis
+
+Contracts Viewer
+
+Compare
+
+More >
+
+
+
+
+Supporting applications 
+
+ARM
+
+Case Metrics
+
+Direct SQL in RelativityOne
+
+Integration Points
+
+More >
+
+
+
+
+
+
+Certification exam resources
+
+Select Role
+Relativity Certified Administrator (RCA)
+Project Management Specialist
+Relativity Review Management Specialist
+Infrastructure Specialist
+Analytics Specialist
+Processing Specialist
+
+
+
+Additional resources
+
+
+Quick Ref Guides
+Printable guides that cover features at a high-level
+Learn More
+
+
+
+Workflow Recipes
+Workflow-based solutions for common tasks
+						in Relativity
+Learn More
+
+
+
+White Papers
+Marketing overviews of various Relativity
+						topics
+Learn More
+
+
+
+
+
+Training
+Browse live trainings, webinars, and self-paced tutorials to help you get the most out of RelativityOne and the latest Relativity Server releases.
+Learn More
+
+
+
+Certifications
+Ready to earn a Relativity e-discovery
+							certification? Get the resources you need to
+						pass the exam.
+Learn More
+
+
+
+Platform Documentation
+Explore the power of the platform and view our developer documentation.
+Learn More
+
+
+
+
+
+IncludedTopics
+Sitemap
+

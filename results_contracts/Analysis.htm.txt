@@ -1,0 +1,114 @@
+
+Analysis
+An analysis set includes models and analysis profiles. Think of a model as a worker designated to handle an individual piece of the overall analysis. Models in Contracts include contract classification, segmentation, section classification, extraction, and document assembly. An analysis profile is a bundle of models, like a reusable template for doing various jobs. 
+With an analysis set, you can run the analysis and check on progress. In an analysis set you select your analysis profile and the documents you want to analyze, and click Analyze. For more information on analysis sets, see Analysis statuses and results.
+Contracts analysis profile models
+You can add the following types of models to an analysis profile:
+
+
+
+
+
+Analysis profile model
+Description
+
+
+
+
+Contract Classification
+Identifies the contract type for every document in your data source. For more information, see  Classify contract types.
+
+
+Segmentation
+Breaks up every document in your data source into sections and creates a new document for every section found. For more information, see  Segment contracts into sections.
+
+
+Section Classification
+Identifies all section types for every document in your data source. For more information, see Classify section types.
+
+
+Extraction
+Runs all selected regex on your data source and either generates a report, auto populates a field of your choosing, or both, depending on your regex configuration. For more information, see Run reports on regular expressions results.
+
+
+Definition Extraction
+Extracts all definitions for every document in your data source. For more information, see Extract definitions from contracts.
+
+
+Document Assembly
+Generates a new document for every document in your data source based on your assembly template and field-to-token mapping. For more information, see Automating document assembly based on field values.
+
+
+Unitization
+Auto groups documents into families based on shared field values. For more information, see Auto-group families based on shared field values.
+
+
+
+Contracts analysis profile options
+The analysis profile includes the following options:
+
+
+
+
+
+Analysis profile option
+Description
+
+
+
+
+Reference Auto linking
+Creates links in the document for all instances where the text references a section found through segmentation.
+
+
+Batch Size Setting
+Determines how many documents an agent will process at a time. If you leave this blank, Contracts will default to the value you have set for the Batch Size instance setting in the Contracts AI Section.
+
+
+Notifications
+Contracts will send an email to the user selected upon completion of an analysis set. This email will include information on the number of documents completed, canceled, excluded, and errored with a link to your analysis set.
+
+
+
+Analysis workflow
+Following are high-level instructions for running Contracts analysis:
+
+Run Relativity Imaging.
+Run Contracts OCR.
+Create a new analysis profile from the Contracts Analysis Profiles tab.
+Add models to your analysis profile. 
+Create a new Contracts Analysis Set that points to one of your analysis profiles and also to a saved search with the documents you want to analyze.
+
+Once you run the analysis, you can review and evaluate your results and rerun analysis as needed.
+Rerunning analysis sets
+A common workflow when using Contracts includes running analysis, evaluating results, making changes to your analysis profile, and then rerunning analysis on the same document set to get better results.
+Rerunning contracts classification
+To rerun contracts classification:
+
+
+                Navigate to the analysis set you would like to run again.
+            
+
+                Delete all the contracts analysis documents associated with that set. This will not impact the documents themselves, any coding decisions, or any fields on the document. It indicates that these documents should run again.
+            
+
+                Once deleted, click the Analyze button to rerun the documents through the analysis.
+            
+
+Note: Contracts will skip any documents for which there is already a value.
+Rerunning contracts segmentation
+To rerun contracts segmentation:
+
+Delete existing sections. If you do not delete these, rerunning segmentation will create duplicate sections. You can create a saved search containing all the section documents you need to delete and delete them with the mass action button.
+Navigate to the analysis set you want to run again.
+Delete all the Contracts Analysis Documents associated with that set. This will not impact the documents themselves, any coding decisions, or any fields on the document. 
+Once deleted, click the Analyze  button to rerun the documents through the analysis.
+
+Rerunning extraction
+To rerun extraction:
+
+Navigate to the analysis set you would like to run again.
+Delete all the Contracts Analysis Documents associated with that set. This will not impact the documents themselves, any coding decisions, or any fields on the document. 
+Once deleted, click the Analyze button to rerun the documents through the analysis.
+
+Note: When running Extraction Models, make sure to double check the Model setting for Existing Values. If you populated fields and have the Existing Values setting set to Do Nothing you will need to either change it to Replace or Mass Edit to clear out the field value yourself. If you mass clear out the value yourself, this will not remove the green dot next to the field in the Contracts Viewer. To remove this location-based association, Contracts ships with a script called Clear Send to Field. Select your saved search and a field to clear, and Contracts will mass remove the location-based association and the green dot next to the field in the Contracts Viewer.

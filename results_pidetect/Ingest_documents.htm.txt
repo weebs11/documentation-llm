@@ -1,0 +1,247 @@
+
+Ingest documents
+Note: Billing for PI Detect will begin when documents are ingested using the steps below.
+After the PI Detect and Data Breach Response application is installed into your workspace, documents will need to be ingested before reviewing results. To ingest documents you will need to create a saved search containing all documents to send to PI Detect and create an ingestion job.
+Caution: PI Detect and Data Breach Response projects cannot be run in the same workspace. Attempting to run separate Data Breach - Ingestion and Personal Information - Ingestion jobs will cause the application to error.
+Prerequisites
+Before ingesting documents, the following prerequisites must be met:
+
+
+All documents must be either PDFs or spreadsheets. Documents that are not PDFs or spreadsheets will need to be run through PDF Conversion in RelativityOne first. Failure to convert non-excels to PDFs before ingestion will cause the ingestion to fail.
+
+
+For PI detections and redactions to be applied on native PDFs, the text must be searchable and highlightable.
+
+Ingestion requires a saved search as input. For each ingestion job, a different saved search must be used. We recommend creating a list in Relativity containing the documents and generating a saved search from the list. For more information, see Saved search and Lists.We recommend adding the PI_Exception field when creating your saved search. This field will help identify any documents that encountered exceptions during the ingestion job.
+Note: There is an Extracted Text Size limitation at 10MB for all records without a value in the Email To, Email CC, or Email BCC fields. If a record sent to Privacy exceeds this limitation, Privacy will populate the PI_Exception field when results are returned, indicating the record exceeded the limitation.
+
+Considerations
+The Privacy Workflow tab will not load until you run an ingestion job for the first time. 
+Creating a new ingestion job
+To create a new PI Detect job:
+
+Navigate to the PI Detect and Data Breach Response Application tab.
+Click Jobs.
+
+                Click New PI Jobs.
+
+                Enter a Name for the Job.
+            
+
+            Select the Job Type — Data Breach - Ingestion, Data Breach – Report, Personal Information – Ingestion, or Personal Information - Report.
+            Note: There are two types of Jobs for Data Breach and Personal Information: Ingestion and Report. Ingestion jobs will transfer files from RelativityOne to the dedicated PI Detect or Data Breach Response instance. Report jobs will pull the document report back to RelativityOne once the pipeline has successfully completed.
+
+                Select the Saved Search containing all documents to send to PI Detect
+.                Note: PI Detect does not currently support concurrent Jobs in the same workspace.  Once you send a Job to PI Detect, a new Job cannot start until results from the current Job are published to the Workspace.
+
+                Select Data Settings.
+            
+
+                Click Save.
+Caution: Selecting Save after setting up an ingestion job will cause usage and costs to be calculated. See Cost explorer for more details about the information that will be displayed. See Understanding cost in Relativity for information about how costs are calculated.
+
+                Once the job has been saved, the ingestion job will be automatically started. It can take several minutes to hours to complete depending on how large the data set is.
+            
+
+Once the job has transitioned its status to Completed, the document ingestion pipeline in PI Detect has started successfully. At this time, you can navigate to the Privacy Workflow tab to see the in-progress document ingestion process, located in the Document Ingestion tab of the left-hand navigation panel. This screen details each step of the ingestion process and if any failures occurred.
+Job-level states
+Following is a list of job-level states and descriptions:
+
+
+
+
+
+Job status
+Description
+
+
+
+
+Queued 
+The agent has not picked up this job to process yet. 
+
+
+Running 
+An agent is currently processing this job. During this state, the job will be split into batches.  
+
+
+Waiting  
+The job is waiting for all the batches to get into a terminal state. A terminal state is defined by a batch being in Completed or Errored state. 
+
+
+Completed 
+All of the batches for this job are complete. 
+
+
+
+Ingestion job states
+Following is a list of ingestion job states and descriptions:
+
+
+
+
+
+Batch Status
+Description
+
+
+
+
+Preparing Application
+
+Prepares the application backend for a project. This batch only runs during the first ingestion job and will not run for subsequent jobs. 
+Note: This batch may take up to 30 minutes to complete and may be retried if it fails.  
+
+
+
+
+Data-upload (pending)
+
+Initial State.
+
+
+Data-upload (ready-to-send)
+Notifies PI Detect that the records are Ready to Send.
+
+
+Data-upload (ready-to-receive)
+Preparing records in batch to transfer and send to PI Detect.
+
+
+Completed
+Ingestion job is complete, and documents have successfully transferred to PI Detect.
+
+
+
+Report job states
+Following is a list of report job states and descriptions:
+
+
+
+
+
+Batch Status
+Description
+
+
+
+
+Analysis (Working)
+PI Detect pipeline is running; reports are not ready .
+
+
+Analysis (ready-to-send)
+Downloads reports published by PI Detect.
+
+
+Completed
+PI Detect results have successfully been published to RelativityOne.
+
+
+
+Error codes
+Following is a list of error messages and corresponding codes:
+
+
+
+
+
+Message  
+Name  
+
+
+
+
+Unknown error occurred  
+Error Code 0  
+
+
+Unrecognized step encountered  
+Error Code 1  
+
+
+Unrecognized state encountered  
+Error Code 2  
+
+
+Cannot transition to given step  
+Error Code 3  
+
+
+Cannot transition to given state  
+Error Code 4  
+
+
+BatchId already taken  
+Error Code 5  
+
+
+Zip file could not be extracted  
+Error Code 6  
+
+
+Zip file did not have the mandatory single file  
+Error Code 7  
+
+
+Problem with file upload  
+Error Code 8  
+
+
+An error occurred in file upload  
+Error Code 9  
+
+
+Missing one or more required parameters  
+Error Code 10  
+
+
+Unknown workspace ID  
+Error Code 11  
+
+
+Unknown saved search ID  
+Error Code 12  
+
+
+Unknown batch ID  
+Error Code 13  
+
+
+Unexpected API call given the current state  
+Error Code 14  
+
+
+Unknown exception importing to Relativity  
+Error Code 15  
+
+
+Relativity import count mismatch  
+Error Code 16  
+
+
+No More Report Rows  
+Error Code 17  
+
+
+Privacy Ingestion Pipeline Failed to Start  
+Error Code 18  
+
+
+Cargo Validation Failed  
+Error Code 19  
+
+
+Header Mapping Validation Failed  
+Error Code 20  
+
+
+Cargo Creation Failed  
+Error Code 21  
+
+
+No Valid Documents
+Error Code 22
+
+
+

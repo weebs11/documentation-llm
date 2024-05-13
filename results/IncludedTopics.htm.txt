@@ -1,0 +1,28 @@
+
+Included Topics
+
+
+Hard Publish Delete KL
+Metadata Retention KL
+				
+StagingInventoryReport.htm
+
+dtSearch Case Sensitive Alphabet File.txt KL
+
+Processing error workflow deprecated, now a redirect page KL
+Using Lucene syntax for Elastic search (new supporting topic EA end Feb 2024) KL
+Short message search index (early access) KL
+What's new NM
+Management Console
+
+File and folder operations_ForAA.htm MJD
+Review results (PI Detect) CC
+Review results (Data Breach Response) CC
+Relativity White Papers NM
+Importing a document load file via Import/Export MJV
+Importing an image load file via Import/Export MJV
+Importing a production load file via Import/Export MJV
+Importing Relativity Dynamic Object data via Import/Export MJV
+
+
+

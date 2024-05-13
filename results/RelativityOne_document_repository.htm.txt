@@ -1,0 +1,362 @@
+
+RelativityOne repository workspace
+When installed to an existing workspace, the RelativityOne repository workspace application converts the workspace into a more streamlined version for performing early case assessment (ECA) on processed data. This limited workspace is equipped with  Relativity functionality you need for early case assessment  while providing more cost-effective pricing for storing data that may not be actively used in a case.
+Note: You cannot use a repository workspace for review or production purposes.
+For more information on repository workspaces, refer to Repository workspaces in RelativityOne.
+Basic repository workspace usage workflow
+Using the repository workspace allows you to focus on your data set, cut through noise, gain insights sooner, and reduce your overall costs.
+
+Move data into the RelativityOne repository workspace using any of the tools outlined on the Data Transfer topic.
+Once your data is in the repository workspace, you can use any number of RelativityOne tools to compile a set of documents for moving to a case workspace for review. Available tools include:Structured Analytics, including Name NormalizationDocument metadata searchesCluster visualization and conceptual analytics toolsdtSearchImaging  and OCRNote: Actual document review is not supported in this workspace and if you exceed the amount of unique documents viewed in the Viewer allowed for the month, you will be billed at the normal rate. See Limitations on functionality in Repository workspaces  for more information on what is supported in this workspace. 
+Create a saved search that includes all the necessary conditions or create a coding field that lets you designate which sets of documents you want to move to your case workspace for document review. This search will be used when migrating the set of documents over.
+Use Integration Points to move the set of documents to the relevant case workspace for review. 
+
+Best practices
+
+
+To take advantage of the reduced data costs offered by the repository workspace, we strongly recommend promoting sets of documents via links only to standard review workspaces instead of storing duplicates of the files in the review workspace. If you choose to promote actual files to your case review workspace, your calculated data usage will include both the files in the repository workspace billed at the reduced rate and the duplicated files in the standard review workspace, which is billed at the standard rate. Please refer to your contract for more specific information for how this is calculated. 
+
+
+Refer to Data Management workflows in RelativityOne for guidance using ARM and Cold Storage to manage your data, reduce costs, and store data for long periods of inactivity. 
+
+
+Repository workspace billing structure
+  The advantages of using the repository is that the workflow allows you to process and strategically filter within one workspace, repository workspace, and then push only a select set of data to a separate review workspace. Repository workspace is billed differently than review workspaces. Please contact your Account representative for further details.
+Workspaces will be billed at standard charge per GB if any of the following occurs during the billing month:
+
+Number of documents in the workspace exceeds 50 million.
+Number of unique documents viewed per month for the workspace exceeds 10,000.
+Total users accessing the workspace at the same time, or concurrently, exceeds 10. This total includes system admins.
+Repository application is uninstalled from the workspace.
+Note: Uninstalling the Repository workspace application from a converted workspace unhides the hidden functionality and reverts the workspace to a standard workspace which will be charged at the normal data subscription rates. The application should be uninstalled and not deleted for the hidden functionality to be restored.
+
+Note: Workspace usage activity will be monitored via Relativity reporting. System administrators that modify the default limited functionality in the RelativityOne document repository workspace will cause all data to be billed at the full data storage amount. 
+Billing for duplicates
+When a file's duplicates are promoted from repository to review, the file and its duplicates are charged to the Review Workspace by billing the maximum number of duplicated files found in a single Review workspace.
+For example, File A and its two duplicates sit in a Repository workspace; each file is 1MB. The file and all duplicates – three files total – are linked to Workspace 1. The file and one duplicate – two files – are linked to Workspace 2.
+     In this scenario, you would be billed at the review rate for the maximum number of duplicate files in a workspace, which is three files in Workspace 1 (file A and 2 duplicates), which is equal to 3MB.
+For more details, see Repository Workspace Billing Change on the Community.
+Creating a new repository workspace using the ECA Template
+
+Log in to the Relativity Community.
+Select the Files tab and click Templates. 
+Select RelativityOne ECA Template. This template contains  the Repository Workspace application. 
+Click Download to download the RelativityOne ECA template. For more information, see ECA template.
+
+
+
+Using the RelativityOne Staging Explorer or other data transfer tool, move the workspace archive file to the ARM folder in your file repository.
+
+
+Note: When using ARM for a workspace in repository mode, you need to select the Include Extended Workspace Data option for the ARM archive.
+
+Once the archive is in the correct place, you can then use ARM to restore the RelativityOne Repository template workspace to your RelativityOne instance. 
+Enter the workspace and add the appropriate security groups.
+Note: You may need to add your user to the Level 3 group in your instance to give yourself access to the template workspace.
+
+
+If you were a customer using RelativityOne prior to the Larkspur release, you should contact your Account Manager  before installing the Repository Workspace application as detailed in Converting an existing workspace via the ADS application.  New customers will already have a Repository Workspace application installed.
+Install the application to the template workspace. You can customize the template as you would like and use this template to create new repositories or processing workspaces for culling documents.
+
+The workspace has already been set up with the  RelativityOne repository workspace application and you can begin transferring data into the new workspace. See Basic repository workspace usage workflow for more details on basic workflow.
+Converting an existing workspace via the ADS application
+This application is deployable via Relativity's Application Deployment System (ADS) and will be available to all RelativityOne customers. 
+If you were an existing customer prior to the Larkspur RelativityOne release, please contact your account manager, and then work with Support to migrate an existing workspace to your RelativityOne instance using ARM. New customers will automatically have a RelativityOne repository workspace installed. 
+Note: We recommend downloading and restoring the RelativityOne Repository Template workspace from the Files area of the Community site to get an idea of how to configure visible tabs and other elements. 
+Note: Before installing the Repository application into a workspace, ensure that all the applications that you need are installed in the workspace.
+
+Access the RelativityOne repository workspace application from the Application Library.
+Install the application to the desired workspace.
+
+When the application is installed to the workspace, tabs and operations that are not permitted are automatically hidden as detailed in RelativityOne repository workspace. 
+Note: Uninstalling the Repository workspace application from a converted workspace unhides the hidden functionality and reverts the workspace to a normal workspace which will be charged at the normal data subscription rates.
+See Basic repository workspace usage workflow for more details on basic workflow.
+Note: We recommend that you create a Relativity Processing Repository Group that you can assign to the users that should have permission to perform operations in the RelativityOne repository workspace.  We recommend assigning this group to a very small number of users.
+Moving a repository workspace to Cold Storage
+Refer to RelativityOne Repository to Cold Storage for more information.
+Limitations on functionality in Repository workspaces
+The repository workspace is focused on specific functionality that can assist with early case assessment. 
+The following functionality is not available when using the repository application:
+
+Active Learning and Review Center
+Case Dynamics
+Custom objects
+Custom applications and Relativity Redact
+Downloading natives in the Viewer
+Sets in review, such as batch sets, markup sets
+Productions
+Mass convert and Save as PDF operations, including printing / printing as PDF
+Sentiment Analysis
+
+Transcripts
+Translate
+aiR suite (Review, Priv, Case Strategy)
+Contracts
+PI Detect
+Data Breach Response
+
+Note: If the Repository Workspace is already installed, tabs for newly installed applications will appear after the next execution of the Repository Workspace Billing Agent. 
+Available tabs and operations when using the repository
+The following is a detailed list of tabs and operations that are available when using the repository application. If the tab or operation is not listed here, you will not be able to use it for repository workspaces. 
+
+
+
+
+
+App Name
+
+Tab Name
+
+
+
+Analytics
+Aliases
+
+
+Analytics
+Entities
+
+
+Analytics
+Structured Analytics Set
+
+
+Analytics Core
+Analytics Categorization Set
+
+
+Analytics Core
+Analytics Indexes
+
+
+Analytics Core
+Analytics Profiles
+
+
+Analytics Core
+Cluster Visualization
+
+
+Analytics Core
+Repeated Content Filters
+
+
+Audit
+Audit
+
+
+Audit
+Audit Migration Reports
+
+
+Audit
+Audit Workspace Settings
+
+
+Audit
+Data Grid Audit Field Mapping
+
+
+Automated Workflows
+Automated Workflows
+
+
+Collect
+Collection Admin
+
+
+Collect
+Collections
+
+
+Collect
+Custodian Targets
+
+
+Collect
+Entities
+
+
+Collect
+Matters
+
+
+Collect
+Monitor
+
+
+Collect
+Status Summary
+
+
+Collect
+Target Status
+
+
+Domains
+Domains
+
+
+Field Categories
+Field Categories
+
+
+File Validation
+
+Job
+
+
+
+Imaging
+Application Field Codes
+
+
+Imaging
+Imaging Document Error
+
+
+Imaging 
+Imaging Profiles
+
+
+Imaging
+Imaging Sets
+
+
+Imaging 
+Imaging Sets
+
+
+Imaging 
+Imaging Warnings
+
+
+Imaging
+Native Types
+
+
+Imaging
+Password Bank
+
+
+Import/Export
+Import/Export Job
+
+
+Integration Points
+Destination Workspaces
+
+
+Integration Points
+Integration Point Profile
+
+
+Integration Points
+Integration Points
+
+
+Integration Points
+Job History
+
+
+Integration Points
+Job History Errors
+
+
+Lists
+Lists
+
+
+OCR
+OCR Profiles
+
+
+OCR
+OCR Sets
+
+
+Processing
+Document Errors
+
+
+Processing
+Entities
+
+
+Processing
+Errors
+
+
+Processing 
+Files
+
+
+Processing 
+Inventory
+
+
+Processing
+Job Errors
+
+
+Processing
+Password Bank
+
+
+Processing
+Processing Data Sources
+
+
+Processing 
+Processing Profile
+
+
+Processing
+Processing Sets
+
+
+Processing
+Quick Create Set(s)
+
+
+Processing 
+Reports
+
+
+Processing Duplication Workflow
+Processing Scripts
+
+
+Relativity Color Map
+Color Map
+
+
+Relativity Legal Hold
+Entities
+
+
+Search Terms Report
+Search Terms Reports
+
+
+Search Terms Report
+Search Terms Results
+
+
+System
+Dashboards
+
+
+System
+Documents
+
+
+System 
+Search Indexes
+
+
+Translate
+Documents - Viewer
+
+
+

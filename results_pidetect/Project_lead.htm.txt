@@ -1,0 +1,12 @@
+
+Project lead
+This section describes common tasks and interfaces used by Project Leads when working with PI Detect. Project leads work hands-on with the client to obtain a final work product that meets all their needs. PI Detect projects are largely customizable and require regular communication between a project lead and the client through e-mail, phone, and video calls. Project leads also work behind the scenes to organize batches of documents for reviewers, generate reports, and make sure quality control measures are in place.
+Project leads have access to the following capabilities in PI Detect:
+User administration
+
+Document ingestion
+
+Incorporate feedback
+
+Quality control
+

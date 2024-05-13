@@ -1,0 +1,22 @@
+
+Branding queue
+
+The Branding Queue displays production jobs receiving branding of redactions, header, footer, or other modifications. A production job displays in this queue only while it has a status of branding. The production job remains in the production queue until all branding is complete.
+You can view the branding queue from Home. Select the Queue Management tab, and then click Branding Queue. See Branding queue fields for details.
+Note: Branding agents scale automatically in RelativityOne. 
+To change the priority of a job, click the Change Priority button at the bottom of the view. Enter a new integer value in the Priority field, and then click Update. Only one job  runs at a time, the lower numbered job runs first and the higher numbered job runs last.
+Note:  Any change to the priority of a job in the branding queue also changes its priority in the production queue.
+Branding queue fields
+The Branding Queue view displays the following fields:
+
+
+
+
+Workspace - the workspace that contains the production set receiving branding
+Production Name - the production set  receiving branding
+Artifact ID - the unique identifier for the production set
+Images Remaining - the number of images that require branding
+Status - the current stage of the branding job
+Priority - the order in which the branding job is run. Relativity completes branding jobs by priority. The default value is 100.
+Submitted By - the user who initiated the job. You can use this information to prioritize branding jobs by user.
+

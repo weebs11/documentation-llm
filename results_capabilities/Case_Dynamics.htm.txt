@@ -1,0 +1,89 @@
+
+
+Case Dynamics
+Case Dynamics, formerly Fact Manager, assists in organizing and analyzing case details such as facts, issues, key organizations, key people, interview questions, and documents. This analysis helps identify strengths and weaknesses in litigation strategy and leads to better preparation for depositions, interviews, and trial.
+Access Case Dynamics using the Case Dynamics tab located in the workspace where you installed the application. 
+For more information about Case Dynamics, watch these self-paced videos from the Training Center:
+
+Using Case Dynamics
+
+
+Case Dynamics topics
+
+
+
+
+
+Topic
+Description
+
+
+
+
+Installing and upgrading Case Dynamics
+
+
+The Case Dynamics application must be installed in each workspace that you want to use application. This topic contains the compatibility matrix, installation and upgrade instructions, and security permissions. 
+
+
+
+Working with Case Dynamics objects
+
+You can use objects in Case Dynamics to store information related to your case. Object types include entities, facts, issues, interview questions, printing profiles, report sets, timeline builder, and outlines. 
+
+
+Organizing facts and issues 
+You can organize facts and issues using several methods, including nesting, numeric ordering, drag and drop, and color coding.
+
+
+Working with Outlines
+
+With the  Outlines feature in Case Dynamics, you can easily build case narratives, create free-form outlines, and link to existing or create new Case Dynamics objects and documents. 
+
+
+Reviewing documents with Case Dynamics
+
+
+When reviewing documents in the Review Interface, you can create and link Case Dynamics objects to the active document. 
+
+
+
+Working with the Timeline Builder
+
+
+You can use the Timeline Builder to visualize the chronology of facts. Being able to visualize the chronology of Facts adds  value during the stages of a case life cycle.
+
+
+
+Printing from Case Dynamics
+
+
+You can print specific facts, issues, interview questions, and outlines  along with associated information, such as documents and excerpts. 
+
+
+
+Creating Case Dynamics reports
+
+With Case Dynamics reports, you can view Case Dynamics objects without internet access or export Case Dynamics views into an Excel document. 
+
+
+Case Dynamics fields
+
+This topic lists the object data entry fields used when adding or editing a fact, issue, organization, person, or interview question.
+
+
+
+Case Dynamics life cycle
+
+
+
+Case Dynamics correlates facts and issues in all stages of the case life cycle.
+Case Dynamics  assists in the following areas of case preparation:
+
+Case outlineOrganize ideas about case or investigationPrioritize important facts about caseCollaborate with colleagues on case strategy
+Document review preparationDefine document review protocolIdentify initial possible issues, people, etc.
+Document reviewInclude additional issues and peopleAdd facts to support caseTag documents with details
+Case analysisAdd supporting documentationOrganize and analyze case details
+Interview and deposition prepUse pre-organized case details to prepare witnesses.Add additional details.
+Trial preparationUse information gathered to organize and analyze details for trial preparation.
+

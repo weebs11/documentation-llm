@@ -1,0 +1,10 @@
+
+Resources
+In addition to the documentation on this site, we provide a host of resources to help you use Relativity and its applications. 
+Tutorials
+Relativity provides video tutorials to teach you the basics of Relativity and its features. You can find the tutorials on Relativity's website. 
+Relativity Community
+The Relativity Community  is a collection of ideas, discussions, documentation, reports, articles and support tickets that Relativity clients can use to improve their knowledge of the application. Log in to the Relativity Community to search through the numerous resources available to you. 
+Relativity Support team
+If you need technical assistance or help troubleshooting an issue you are having, please contact our Support team through our Support page.
+Note: All customer data is treated as sensitive and confidential. Relativity Support will not accept any customer data from clients for use in Relativity software troubleshooting or software development without explicit permissions from the client. In the rare case where customer data is necessary to troubleshoot the issue, the document troubleshooting will be contained in the RelativityOne environment on secure region-specific RelativityOne Jumpboxes.

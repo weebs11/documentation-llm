@@ -1,0 +1,116 @@
+
+
+Utility Server
+Note: This functionality is not currently available for FedRAMP customers / government entities.
+The Utility Server is a virtual machine that can optionally be connected to your RelativityOne instance. It contains additional support tools to help you work with data in your RelativityOne staging area before editing and loading it into your RelativityOne instance.  You access your Utility server through a remote desktop connection, using an issued set of credentials and a custom IP address.  
+Once you are connected to your Utility Server, you can perform the following actions:
+
+Access a mapped drive for the file share (TenantUser accounts) - access your uploaded files to edit in the staging area before you add them to your RelativityOne workspaces or save them to a RelativityOne file storage location. You can also access and verify any production sets before you download them locally.
+Install applications  - if you have TenantAdmin access you can install applications
+Manage user administration - if you have TenantAdmin access and have Terminal Services licensed on the computer you can manage user administration yourself.
+
+Note: It's not recommended to store files on your Utility Server. If your Utility Server becomes inaccessible, you will lose the files you stored.
+Note: Direct SQL Access on the Utility Server is not supported.
+The Utility Server comes pre-loaded with the following tools:
+
+Notepad++—to correct any errors in load files or other data editing needs.
+
+Notes: 
+You can install Microsoft Office using your own license to correct any errors in load files or other, more robust data editing needs.
+You can add other minor third-party tools to perform file manipulations. If your Utility Server becomes inaccessible, we will issue you a new Utility Server. 
+
+Note: Relativity does not install any third party or custom applications on customer utility servers. You must re-install any custom applications if you're issued a new Utility Server.
+Utility server access
+Notes: 
+Customers are assigned one utility server per RelativityOne instance.  You may request up to 10 additional utility servers for a maximum of 11 utility servers per RelativityOne instance, including Client Domains.  To request an additional utility server, contact your Customer Success Manager.
+
+Access is limited to two users (TenantUser and TenantUser2) concurrently. You can increase the number of concurrent tenant users to 10. Additionally, you can request access for a TenantAdmin user if you need to install custom applications. To request additional users, contact your Customer Success Manager.
+
+
+By default, the Utility Server is issued to you these roles:
+
+ TenantUser 
+TenantUser2
+
+Note: If additional user accounts are required, please contact your Implementation Specialist or Customer Success Manager. 
+The TenantAdmin account can install third-party applications on the Utility Server, create additional users, and grant file share access to additional users. 
+Refer to the table below for details on security permissions on the utility server by role.
+
+
+
+
+
+
+
+
+Role
+Can install applications
+Can access file share
+Issued by request
+                    
+Issued by default
+
+
+
+
+TenantAdmin
+
+X
+X
+X
+
+
+
+
+TenantUser1
+
+
+
+X
+
+
+X
+
+
+TenantUser2
+
+
+
+X
+
+
+X
+
+
+
+Note:  Refer to RelativityOne - Creating a Windows user on the Utility Server in the Community for more details on Utility Server user administration.
+Connecting to your Utility Server
+Note: If you are using Client Domains functionality in RelativityOne, the Relativity Processing Console is not installed to the utility server. Client domain administrators will not have access to the Relativity Processing Console from the client domain’s utility server. 
+
+If you haven't already, connect to the Global Protect VPN using the credentials provided. 
+After you have connected to the VPN client, open the  ZIP file you downloaded, and then open the Credentials text file to view your provided Utility Server credentials.
+Launch the Windows Remote Desktop Connection tool.
+When the Windows Remote Desktop Connection window appears, enter the IP address provided via the Credentials file in the Computer field.
+Click Connect.
+Enter the Username and Password (provided in the Credentials text file) when prompted, and then click OK.
+When prompted again, enter your TenantUser, TenantUser2, or TenantAdmin (by request only)   Utility Server credentials, and then click OK.
+
+Note: For added security, change your password after you log in. We recommend changing the password every 90 days.
+You have successfully logged into the RelativityOne Utility Server.
+Note: If you are unable to connect to the Remote Desktop session, ensure you are connected to the provided VPN client.
+If you experience issues accessing your Utility Server, contact Customer Support.
+Folders accessible via your Utility Server
+Your Utility Server grants you access to the following Staging Area fileshare folders which map to the folders in Staging Explorer (which is used to upload and download data for Relativity Processing and ARM):
+Note: Zipping or unzipping files on the Utility Server is not supported.
+
+ARM—a folder for archiving workspaces and for staging restores via the ARM application.
+StructuredData—a folder for importing and exporting workspace data using Import/Export  and Integration Points. Refer to  Import/Export and Integration Points documentation for more information.
+
+
+Note: Relativity is deprecating the existing Export folder in September 2024 and is providing a new StructuredData folder in May 2024 to allow you to import and export data from the folder for easier integration with Import/Export and Integration Points. Begin using the StructuredData folder once it's available. This folder will be included in your Staging threshold and will be calculated and billed the same as the existing Staging folders (ProcessingSource, ARM, and TenantVM). The Export folder will be removed in September 2024 and will no longer be billable.
+
+
+ProcessingSource—a folder for storing files you want to process into your RelativityOne workspace.
+TenantVM—a folder to temporarily store Utility Server virtual machine (UVM) workflows. Refer to Utility Server documentation for more information.
+
+Note: Starting in September 2024, RelativityOne will be streamlining its staging boundaries to bolster platform security and accelerate the delivery of innovation to your environment. With this change, you will no longer be able to write to or access data outside of the defined staging area folders listed above, and the FTA, Temp, Export, and dtSearch folders will be deprecated. It is strongly recommended that you begin utilizing the ProcessingSource, StructuredData, and ARM folders as soon as possible and be sure to transfer any data you would like to retain access to that is currently housed outside of the designated staging area to an appropriate folder by September 1, 2024. After that date, the folders and data will not be accessible. For more information, see the Staging FAQ article in Community. 

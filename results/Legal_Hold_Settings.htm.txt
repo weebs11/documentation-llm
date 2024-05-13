@@ -1,0 +1,25 @@
+
+Adding legal hold settings
+The Hold Admin works in the Legal Hold Settings tab. This tab contains all Legal Hold configuration settings where you set up the custodian portal, email, and general hold settings. For more information for Entra ID, see Custodian Portal Authentication Provider.
+Note: Use Integration Points to import custodians from an LDAP-enabled data source. See Integration Points. As Integration Points is only compatible with Relativity 9.1 and higher, we encourage users who rely on this functionality to upgrade to Relativity 9.1+ prior to upgrading to Legal Hold 4.2 and above.
+Set up your legal hold settings within this tab. There are four requirements that all Hold Admins need to complete before a project can complete. These can be completed on the Legal Hold Settings page. These requirements are:
+
+
+Set up outgoing email. For more information, see Adding Outgoing Email settings.
+
+
+Set up incoming email. For more information, see Adding Incoming Email settings.
+
+
+Update the fields in the General section. For more information see, Adding general settings.
+
+
+Update the fields in the Custodian Portal section. For more information, see Adding Custodian Portal settings.
+
+
+If you intend to use the preservation hold functionality, see Preservations.
+When in the Legal Hold Settings tab, click Edit to start adding or updating your settings.
+Note: Contact Relativity Support about the IP Range to add to your firewall allow list.
+(Click to expand)
+
+

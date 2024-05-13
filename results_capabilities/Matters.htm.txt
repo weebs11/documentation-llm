@@ -1,0 +1,33 @@
+
+Matters
+In Collect, a matter represents a legal action or case requiring you to collect electronic data from sources such as Google Workspace, Microsoft 365, Slack, and X1. Matters can be used to group multiple related collection jobs. 
+You manage matters that are associated with a collection. You can create each of these items on their respective tabs, or you can create them when you add a new collection.
+Note: Matters created from  Home aren't available for use in Collect nor listed on the Matters tab in this application. Additionally, the matters created on this tab are only available for use in Collect.
+Creating a matter
+Use the following procedure to create a matter that you can associate with a collection:
+
+  Navigate to the Matters tab. Collect displays a list of the active matters currently available to this application.
+Click New Collection Matter.
+Complete the fields in the Matter Details layout. See Matter Details layout fields.
+Click Save. Collect displays the matter details. See Viewing or editing matter details.
+
+You can also create a matter when you add a new collection. Click the Add link next to the Matter field in the Collection layout. See Creating a collection.
+Matter Details layout fields
+The Matter Details layout contains the following fields:
+
+Name—the name of the matter.
+Number—the number you  assign to the matter for reporting purposes.
+Status—the status you assign to the matter for reporting purposes. Select an existing status from the drop-down menu or click Add to define a new one. Existing statuses include Active and Closed.Note: Assigning a status of Closed to a matter hides it from the Active Collect view on the Collect tab.
+Primary Contact—the name of an individual who handles communications related to the matter.
+Description—the description of the matter used for reporting purposes. Click  Edit to display an HTML text editor where you can enter the description.
+
+
+
+
+Viewing or editing matter details
+Display the matter details by clicking the name of a matter on the Matters tab. Collect also displays these details immediately after you add a new matter. You can use the buttons at the top of the page to edit, delete, or perform other tasks with the matter.
+The details page includes the following sections:
+
+Matters Details—lists the name, number, status, primary contact and description of the matter.
+Collect—lists all collections associated with the matter. You can also perform the following tasks in this section:Associate the matter with a new collection—to create a new collection, click New. See Creating a collection.Remove a collection from Relativity—click Delete to display a pop-up window. To view child objects and associated objects, click Dependencies.Modify collection details—click the Edit link for a collection. To modify the matter, click the Edit button at the top of the page.Display the collection details—click the name of the collection.
+

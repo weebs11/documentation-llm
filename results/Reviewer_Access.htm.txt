@@ -1,0 +1,49 @@
+
+Reviewer access
+After a project admin creates and saves a new Active Learning project, Relativity creates a new document list view that's tied to the Active Learning project. This view is automatically secured to the reviewers added to the project. As an Active Learning reviewer, this view is the only place you can enter the review queue. 
+Before assigning a document to a reviewer, Relativity ensures the following conditions are met:
+
+The current reviewer has permission to the document.
+The document has not been coded already.
+The document is not assigned to any other active reviewer.
+
+Documents can only be assigned to one reviewer except in cases where the reviewer leaves the viewer without making a coding decision or is automatically logged out. When this happens, the queue can reassign the document to another reviewer. Once a document has been coded by a reviewer, the Project Reviewers::User field will show that reviewer's name.
+ Reviewers code documents on the review field specified for the project and then click Save and Next to get a new document. They can also code other fields not associated with the project.
+Project admin considerations
+Note: We recommend waiting until non-business hours to update security permissions for document folders containing a large number of documents. Doing the update during business hours could lead to your workspace not loading and a delay in your document review project.
+
+If you don't want reviewers to skip documents, make the project review field a required field. 
+We recommend turning off family propagation with Active Learning. 
+Make sure all reviewers assigned to the project are enabled users in the Relativity environment. For more information, see Creating and editing a user.
+You can grant permissions to specific users or groups for certain icons in the Viewer. Any permissions changes will affect how those groups see the Viewer for both Active Learning and non-Active Learning projects.
+Reviewers can change the coding decision on documents they previously reviewed. These documents aren't considered manually-selected documents. The next model build will include the most recent coding update. 
+
+Accessing the Active Learning review queue
+To enter the Active Learning review queue, navigate to the Documents tab and ensure you are on the view named after the Active Learning project. This document view returns a list of all documents previously reviewed by you in the queue. When you first access the view, no documents appear because none have been coded. As you code documents from the Active Learning queue, documents appear in the list. 
+The project document view enables or disables reviewer access based on whether you are added to the queue and whether the queue is active. 
+If you are added to the queue and the queue is enabled, a blue banner appears in the project document view with a Start Review button. Clicking Start Review begins the review process.
+If the Start Review button is not appearing as expected, have the project admin try these troubleshooting steps:
+
+
+Ensure reviewers are added to the group associated with the Active Learning project.
+Ensure the reviewers have the proper security permissions. For more information, see Reviewer permissions.
+Ensure the saved search associated with the Active Learning project contains documents with extracted text. 
+Ensure the classification index associated with the Active Learning project is active. 
+On the Project Home tab, ensure the Start Review button is selected.
+When previewing permissions, ensure that you are previewing user permissions, not group permissions. The Start Review button does not appear in permissions group previews.
+
+
+
+Note: If the queue is disabled or you're removed from the queue while reviewing documents, a warning message will appear in the viewer. 
+
+
+If you aren't added to the queue or if the queue is paused, you can't access the Active Learning queue from the project document view. You can still access the view itself but only for reviewing previously coded documents. You may still code documents outside the queue if you have permissions to do so. 
+
+
+Review workflow
+Click Start Review to access the Active Learning queue viewer and start reviewing documents. The Viewer looks the same no matter which type of queue is active, contains the same functionality available for a standard queue, and relies on the same permissions.
+Code documents on the review field specified for the project and then click Save and Next to get a new document. You can also code other fields not associated with the project as determined by your project admin. 
+Reviewers must code documents based on the so-called "four corners" rule. This means that a document should be judged relevant or not relevant based solely on the extracted text of that document only.  Documents that are relevant based on family members should not be coded relevant on the Active Learning review field. Although individual anomalies will not hurt the algorithm, too many in aggregate could cause the model to perform worse. For more information on reviewer protocol and best practices, see Best practices for Active Learning review.
+Skipping documents
+You can skip documents without making a coding decision unless the review field is a required field. You can also click  to skip the current document and open a new document. In the upper right of the Viewer, you can see a running count of all documents  coded in the project, including skipped documents. Skipped documents are also reflected in the Project Home dashboard.
+Note: Reviewers can change the coding decision on documents they previously reviewed. These documents aren't considered manually-selected documents. The next model build will include the most recent coding update. 

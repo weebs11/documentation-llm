@@ -1,0 +1,734 @@
+
+Entity object
+The Entity object functions as the central location for people, companies, organizational groups, and their metadata. Relativity Legal Hold, Processing, and Analytics all leverage the Entity object. 
+There are several ways to add a new entity:
+
+Manually create an entity from the Entities tab. See Creating and editing an entity.
+Load and sync entities via Integration Points. See Integration Points.
+Load entities via the Relativity Desktop Client. See Importing entities through RDC.
+Load entities via Import/Export. See Importing entities through Import/Export.
+Run Analytics name normalization to identify entities from email headers. See Name normalization.
+Manually create a key entity in the Review Interface. A key entity is one that has the multi-choice field Classification set to either Key Person or Key Organization on the Entity object. These values are set automatically when you create an entity with either one of the respective views (Key People and Key Organization.) See Case Dynamics for more information on creating a key entity.
+
+Creating and editing an entity
+To create an entity, complete the following:
+
+From the Entities tab, click New Entity.
+Select a layout from the drop-down list. For more information, see the following:Note: Layouts only appear for the applications you have installed. Legal Hold Custodian layoutProcessing Entity layoutAnalytics layoutCase Dynamics layouts
+Complete the fields in the layout.
+Click Save.
+
+Importing entities through Import/Export
+For details on importing entities via Import/Export, see Importing Relativity Dynamic Object data via Import/Export.
+
+Importing entities through the RDC
+Note: Relativity ended support for and access to the Relativity Desktop Client (RDC) for RelativityOne commercial customers on December 31, 2023. Import/Export is being used for all importing and exporting workflows. For RelativityOne Government customers, beginning March 31, 2024, RDC will only operate in web transfer mode, which will result in significantly slower transfer speeds. It is highly recommended that Government customers begin using Import/Export in RelativityOne as soon as possible to prepare for the deprecation of RDC on June 30, 2024. Starting July 1, 2024, RDC will no longer be operational.  See the Community article RDC Deprecation FAQ for additional information.
+You can add multiple entities by uploading a .CSV or .DAT file via the Relativity Desktop Client.
+Use the following basic steps for importing entities through the RDC.
+
+Compile or locate the entity load file you wish to import. For more information about the load file, see the following:Legal Hold entity load fileProcessing entity load fileAnalytics entity load file
+
+
+Log in to the RDC and select the workspace into which you want to import these entities and eventually publish data.
+From the object drop-down list in the RDC, select the Entity object.
+
+
+
+
+
+Click Tools | Import | Entity Load File.
+
+
+
+
+
+Click the ellipsis next to the Load File field and select the file containing all of your entities.
+Map the Relativity entity fields to the fields included in your load file.
+Complete the import. For more information, see Importing through the RDC.
+
+
+Deleting an entity
+You can use the Mass delete operation to delete aliases. For more information, see Mass delete. You can only delete an entity if it's not associated with any alias, Processing data source, or Legal Hold project. 
+Note: If the Legal Hold application is installed in the workspace, it will negatively impact the performance of the Mass delete operation.
+Legal Hold entities
+The following section contains entities information specific to Legal Hold. For more information, see Relativity Legal Hold.
+Legal Hold entities
+
+Legal Hold layout
+The Legal Hold Custodian detail layout contains the following fields:
+Legal Hold Custodian layout
+
+
+
+
+Basic Contact
+
+First Name - the entity's first name.
+Last Name - the entity's last name.
+Email - (Optional) the entity's email address.Note: Legal Hold entities can share the same email address.
+Middle Name - (Optional) the entity's middle name.
+
+Company
+
+
+Company - (Optional) the entity's company.
+Current Title - (Optional) the entity's job title.
+Department - (Optional) the entity's department.
+Manager - (Optional) the entity's manager. Select a person from the available entities to designate as the new entity's manager. The designated manager will receive any Escalation communication for this entity.
+Employee Number - (Optional) the entity's employee number.
+Employment Status - (Optional) the entity's current employment status.
+Employment Start Date - (Optional) the date the entity's position started.
+Employment End Date - (Optional) the date the entity's position ended.
+Username - (Optional) the entity's employee username at the company.
+Domain - (Optional) the company's network name. For example, "Relativity.corp".
+Phone Number - (Optional) the entity's phone number.
+
+Location
+
+
+Address 1 - (Optional) the entity's home address.
+Address 2 - (Optional) the second line of the entity's home address.
+City - (Optional) the entity's home address city.
+State/Province - (Optional) the entity's home address state/province.
+Zip/Postal Code - (Optional) the entity's home address zip/postal code.
+Country - (Optional) the entity's home address country.
+Location - (Optional) An optional field used to denote a specific building/office or to provide a friendly name for different business unites.
+
+Other
+
+
+Secondary Email - (Optional) the entity's secondary email address.
+Notes - (Optional) use this field to add any applicable notes regarding the entity.
+Unique ID - (Optional) use this field when, for example, performing Active Directory data imports using Integration Points. Because you must reference a unique field when setting up the import, you can specify the UniqueID field as unique and map it to an Active Directory field such as ObjectGuid.
+Entity Interaction - (Optional) determines the level of interaction the Legal Hold application has with the entity. You can select None, Full, Limited, Redirected. Full - the entity  receives standard communication functionality. This is the default behavior. None - the entity no longer receives communications. Entities set to None do not appear in the Communication Summary report or the Open Tasks report and have N/A in the responded field on Entity reports. If an entity sends a message to an admin, the admin can respond to the entity. Redirect - the entity communications are redirected to a Redirect Recipient, another entity, to act on behalf of the original entity. If a redirect recipient is acting on behalf of another entity, the information can be found in the database.Note: If an entity is selected to receive redirected communications, they then cannot be removed from Legal Hold nor set to None. For more information, see Custodian Interaction level.
+
+Custodian Interaction level
+When creating or editing an entity,  there is a Custodian Interaction level that can be set. You can find this setting within the Other tab. Custodians have three different interaction levels: Full, None, Redirect. 
+
+
+
+Full is the default and the entities with this setting get all communications as normal. None is a setting for entities who should not receive any communications. The Redirect setting is used for entities that need communications and questionnaires sent to another entity, or redirect recipient, that is able to acknowledge on behalf. When acting as a Redirect Recipient, the entity cannot be deleted, as they are acting on behalf of other entities within the project. 
+When a custodian's Interaction level is set to None or Redirect, the entity does not appear in the Redirect Recipients dialog. Custodians that have their Custodian Interaction level set to None, will not appear on the Communication Summary report and the Open Tasks report.
+ Different communication actions and different interaction level settings combined with the Silent Custodian setting can get complicated. In order to make sure the correct entity, if any, gets the correct communication, see the chart below.
+
+
+
+
+
+
+
+Entity Interaction Level
+Action
+Do Not Notify (Is set)
+Target Entity Receives Email
+
+
+
+
+Full
+Send General Notice Communication
+False
+Yes
+
+
+Full
+Send BCC
+True
+Yes
+
+
+Full
+Send BCC
+False
+Yes
+
+
+Full
+Send BCC
+Not on project
+Yes
+
+
+Full
+Send Escalation/Automatic Escalation (Manager)
+True
+Yes
+
+
+Full
+Send Escalation/Automatic Escalation (Manager)
+False
+Yes
+
+
+Full
+Send Escalation/Automatic Escalation (Manager)
+Not on project
+Yes
+
+
+Full
+Send Reminder/Automatic Reminder
+False
+Yes
+
+
+Full
+Global Reminder
+False (for at least one project they are active on)
+Yes
+
+
+Full
+Release Entity
+False
+Yes
+
+
+Full
+Send Alert Notice
+True/False/Not on project
+Yes
+
+
+Full
+Resend Expired Portal Link
+False
+Sends out link
+
+
+Full
+Resend Expired Portal Link
+True
+Sends out link
+
+
+Full
+Responses
+False
+Yes (never redirect)
+
+
+Full
+Send Portal Link
+True
+No (button disabled)
+
+
+Full
+Send Portal Link
+False (for at least one project they are active on)
+Yes
+
+
+Full
+Send Escalation to CC recipients
+True/False/Not on Project
+Yes
+
+
+Redirect
+Send General Notice Communication
+False
+Redirected
+
+
+Redirect
+Send BCC
+True
+Redirected
+
+
+Redirect
+Send BCC
+False
+Redirected
+
+
+Redirect
+Send BCC
+Not on Project
+Redirected
+
+
+Redirect
+Send Escalation/Automatic Escalation (Manager)
+True
+Redirected
+
+
+Redirect
+Send Escalation/Automatic Escalation (Manager)
+False
+Redirected
+
+
+Redirect
+Send Escalation/Automatic Escalation (Manager)
+Not on Project
+Redirected
+
+
+Redirect
+Send Reminder/Automatic Reminder
+False
+Redirected
+
+
+Redirect
+Global Reminder
+False (for at least one project they are active on)
+Redirected
+
+
+Redirect
+Release Entity
+False
+Redirected
+
+
+Redirect
+Send Alert Notices
+True
+Redirected
+
+
+Redirect
+Send Alert Notices
+False
+Redirected
+
+
+Redirect
+Send Alert Notices
+Not on Project
+Redirected
+
+
+Redirect
+Resend Expired Portal Link
+False
+Sends out link to original entity
+
+
+Redirect
+Resend Expired Portal Link
+True
+Sends out link to original entity
+
+
+Redirect
+Responses
+False
+Yes (never redirect)
+
+
+Redirect
+Send Portal Link
+True
+No (button disabled)
+
+
+Redirect
+Send Portal Link
+False (for at least one project they are active on)
+Redirected
+
+
+Redirect
+Send Escalation to CC recipients
+True/False/Not on Project
+
+No
+
+
+
+None
+Send Escalation/Automatic Escalation (Manager)
+True
+Yes
+
+
+None
+Send Escalation/Automatic Escalation (Manager)
+False
+Yes
+
+
+None
+Send Escalation/Automatic Escalation (Manager)
+Not on project
+Yes
+
+
+None
+Send Portal Link
+True
+No (button disabled)
+
+
+None
+Send Portal Link
+False (for at least one project they are active on)
+No (button disabled)
+
+
+None
+Send Escalation to CC recipients
+True/False/Not on Project
+No
+
+
+
+
+
+Entity console
+Use the Entity console to take an action related to that entity and run reports specific to that entity across multiple projects. Buttons are shaded gray when the action is unavailable or may not appear if you don't have the correct permissions. See Securing a project.
+
+
+
+Custodian
+
+Use Portal As - view the Legal Hold portal as a specified entity in a separate tab. Use this feature to acknowledge participation in a project or answer a questionnaire on someone else's behalf. For example, use this feature during a guided entity interview.
+Send Portal Link - send a communication to the entity that contains the link to their Entity portal home page. Entities can enter their email address to access the portal.
+Note: Custodians can only receive communications if they have their email address on their entity record.
+Reports - run a project-specific report from this section. The report appears inline. See Reports for more information about each report. Note that you may not be able to view all reports depending on your permissions.
+Legal Hold entity load file
+To load entities via Import/Export, create a load file that contains at least the following:
+
+Entity's full name
+Entity's email address
+
+
+
+Processing entities
+The following section contains entities information specific to Processing.
+Processing entities
+
+Processing layout
+The Processing Entity layout provides the following fields:
+Processing Entity layout
+
+
+
+
+
+Type - select one of the following:Person - select this to enter first and last name of the individual acting as entity of the data you wish to process.Other - select this if the entity of the data you wish to process isn't an individual but is, for example, just a company name. You can also select this if you wish to enter an individual's full name without having that name include a comma once you export the data associated with it. Selecting this changes the Entity layout to remove the required First Name and Last Name fields and instead presents a required Full Name field.
+First Name - the first name of the entity. This field is only available if you've set the Type above to Person.
+Last Name - the last name of the entity. This field is only available if you've set the Type above to Person.
+Classification - a multiple choice field that links the Entity to one or more applications such as Processing, Legal Hold, or Case Dynamics. For example, Entities linked to the Processing application have a Classification value of Custodian - Processing.
+Document numbering prefix - the prefix used to identify each file of a processing set once the set is published. The prefix entered on the entity appears as the default value for the required Document numbering prefix field on the processing data source that uses that entity. The identifier of the published file reads: <Prefix> # # # # # # # # # #.
+Notes - any additional descriptors of the entity.
+
+Viewing or editing Processing entity details
+ Click the Edit link to the left of the Full Name column to access the Entity layout. On the Entity layout, you can edit an entity's name, enter a document numbering prefix, and add notes.
+When you upgrade to Relativity RelativityOne, existing entities are placed into the Last Name field on the Entity layout. If you need to edit an upgraded entity, you need to parse out the first and last names, as both of those fields require values when you save the entity.
+You can view more details about an entity by clicking the entity's name from the list on the Entities tab. The Entity layout displays an additional section called Processing Data Source (Custodian). 
+
+
+
+The Processing Data Source (Custodian) associative object view contains the following fields:
+
+Processing Data Source - all the data sources to which this entity is attached.
+Status - the state of the processing jobs to which the entity is attached.
+Source path - the file location entered for the Source path field on the data source to which the entity is attached.
+Time zone - the value selected for the Time zone field on the data source to which the entity is attached.
+
+Note: You can't delete an entity already associated with a processing data source. For more information, see Adding a data source.
+Now that you've created an entity, you can associate that entity with a data source and then add the data source to a processing set. When you run the processing set, you'll be sending that entity's files to the processing engine to be inventoried, discovered, and published to a workspace. For more information, see Adding a data source.
+
+
+Processing entity load file
+The following is an example of a Processing entity load file that includes several individuals identified as entities for the data you wish to process.
+
+
+
+
+
+Analytics entities
+The following section contains entities information specific to Analytics.
+Analytics entities
+
+Analytics layout
+The following fields appear when you select Entities - Communicators Layout from the drop-down list:
+Entities - Communicators Layout
+
+General
+
+
+Full Name - the entity’s full name
+First Name - the entity's first name.
+Last Name - the entity's last name.
+Middle Name - (Optional) the entity's middle name.
+Classification - all entities created or impacted by name normalization in Analytics receive the classification value Communicator - Analytics. You can add new Classification choices to help keep track of groups of entities. 
+Type - the type can be one of the following: 
+							Person - select this to enter first and last name of the individual acting as entity of the data you wish to process.Other - select this if the entity of the data you wish to process is not an individual, for example, a company. You can also select this if you wish to enter an individual's full name without having their name include a comma after you export the data associated with it. 
+Email - (Optional) the entity's email address.
+
+Contact
+
+Affiliations
+
+Aliases - the aliases linked to the entity. 
+
+
+You can also create a new alias from the Entities - Communicators Layout. 
+
+Click the name of an entity.
+Select the Entities - Communicators Layout layout.
+Click New. 
+Complete the following fields: Name - the name of the alias.Type - the type can be one of the following: Proper Name - an alias that contains all letters. Jane SmithEmail Address - a standard email addresses with no spaces or characters. jane.smith@relativity.comExtended Email Address - an email address with other content or characters. Jane Smith [Jane.Smith@relativity.com]Exchange - X500 and X400 formats. Smith, Jane </O=RELATIVITY/OU=NA/CN=RECIPIENTS/CN=JSMITH>Phone Number - an alias that contains only numbers and characters. 123-456-7890Undefined - an alias that doesn't fall into any of the categories above.Jane Smith/RELATIVITY@relativityXgatDomain (optional) - the full domain of the alias (everything after the @ sign). us.relativity.comPrimary Domain (optional) - the domain of the organization. relativity.com
+
+
+
+
+Analytics entity load file
+An alias object is created for each alias included in the entity import. When you run name normalization, these aliases are used to map documents to existing entities. 
+To load entities via Import/Export, create a load file that contains at least the following:
+
+Entity's full name
+Aliases
+
+We also recommend you add known email addresses, name variations, and exchange IDs to the alias field for best results. Avoid adding any generic aliases such as "John."
+Merge
+The Merge mass operation is a mass operation on the Entities tab that only appears if you have Analytics installed. This operation lets you select and merge multiple entities into a single entity.
+You need the following object security permissions to merge entities:
+
+
+Alias—View, Edit
+
+
+Entity—View, Edit, Delete
+
+
+Field—View, Edit
+
+
+Note: To limit the impact on Processing and Legal Hold workflows, you cannot merge entities if two or more of those entities are associated with a Processing data source or Legal Hold project. 
+To merge entities:
+
+From the Entities list, select the checkboxes next to the entities that you want to merge.Note: No more than 150 entities can be merged at one time. 
+From the actions menu at the bottom, select Merge from the second drop-down menu.
+Click Merge Entities.
+
+If a conflict occurs when merging entity fields, the value of the entity associated with either a Processing data source or Legal Hold project takes priority followed by the value of the entity with the lowest Artifact ID. 
+
+
+Case Dynamics entities 
+Case Dynamics comes with two layouts on the Entity object.
+For an entity to appear in Case Dynamics, either Person or Organization must be selected for the Type field and Key - Case Dynamics must be selected for the Classification field. For these two layouts, there is an event handler that sets the Type field to save the user time.
+The following sections contains entities information specific to Case Dynamics.
+Case Dynamics entities
+
+Key entities
+For an entity to appear in Case Dynamics, it must be classified as Key - Case Dynamics. 
+To mark an existing entity as Key - Case Dynamics from the Entities tab:
+
+Go to the Entities tab. 
+In the row of the entity that you want to mark as Key - Case Dynamics, click Edit. 
+Select one of the Case Dynamics entities layouts. See Case Dynamics layouts. 
+In the Classification field, select Key - Case Dynamics.
+Click Save. 
+
+You can also create and mark existing entities as Key - Case Dynamics from the Review Interface, inline edit lists, and Outlines. See these topics:
+
+Reviewing documents with Case Dynamics
+
+Working with Outlines
+						
+
+
+Ensuring you do not create duplicate entities
+Case Dynamics has several features to ensure that you do not create duplicate entities. 
+If you highlight text in the Viewer or an Outline and select to a create a Key Person or Key Organization, Relativity compares the highlighted text to existing entities in the workspace to see if there is a possible match. The table below lists the possible match types.
+Match types table
+
+
+
+
+
+
+
+Match type
+Pop-up name
+Options
+
+
+
+
+Key entity match
+Key Entity Match
+
+
+
+
+
+Link this Key Entity - the key entity becomes linked to the document. 
+Create New Entity - creates a new key entity and links the key entity to the document. 
+Cancel - closes the pop-up and does not link the highlighted text to an existing entity or create a new entity. 
+
+
+
+
+No match found
+Create New Entity 
+
+
+
+
+
+Create New Entity -  creates a new key entity and links the key entity to the document. 
+Cancel - closes the pop-up and does not create a new entity. 
+
+Search Existing Entities - enables you to search existing entities to see if the entity already exists under a different spelling variation. Through the view that opens, you can search and filter on fields.
+
+
+
+
+
+
+
+
+When you start typing the entity name that you want to add in the Create New Entity pop-up, the auto-complete feature returns a list of existing entities that match what you typed. Select the entity you want from the list or finish typing the name of the new entity that you want to create. If the entity you select is not classified as Key - Case Dynamics, it becomes classified as Key - Case Dynamics once you save it.
+
+
+
+When you click on an existing entity, the fields on the Create New Entity pop-up show the name of the entity you selected and the field becomes read only. Click the  to remove the existing entity you selected.  If an existing entity option displays , go to the Entities tab, and edit the entity with the warning icon. Be sure to fill out all required fields.
+
+
+
+From the Create New Entity pop-up, you can also click Search Existing Entities to see the list of existing entities, select the entity that you want to link to the document, and click Set. If the entity you select is not classified as key, it automatically becomes Key - Case Dynamics when you click Set.
+To edit the name of an existing entity, go to the Entities tab. The name update will be reflected across all applications using the entity object that are installed in the workspace. 
+Default Case Dynamics layouts
+Case Dynamics has two entities layouts:
+
+Key Organization Basic Layout
+
+Key Person Basic Layout
+
+
+Case Dynamics layouts
+
+Key Organization Basic Layout
+The Key Organization Basic Layout contains the following fields:
+Key Organization Basic Layout
+
+
+
+
+Key Organization Detail 
+
+Full Name - the organization's full name.
+Type - set to Organization. 
+Classification - (Optional) Communicator - Analytics - select this option if the entity is impacted by name normalization in Analytics. Custodian - Processing - select this option if the entity is impacted by Processing.Key - Case Dynamics - select this option to use the entity in Case Dynamics. 
+Location - (Optional) the entity's address.
+Website - (Optional) the entity’s website. 
+Notes - (Optional) use this field to add any applicable notes regarding the entity.
+
+Other
+
+
+System Last Modified By - the name of the user who modified the system last. 
+System Last Modified On - the time  the system was last modified. 
+
+
+
+Key Person Basic Layout
+The Key Person Basic Layout contains the following fields:
+Key Person Basic Layout
+
+
+
+
+Entity Key People Detail 
+
+First Name - the entity's first name.
+Last Name - the entity's last name. 
+Type - set to Person. 
+Classification - (Optional) Communicator - Analytics - select this option if the entity is impacted by name normalization in Analytics. Custodian - Processing - select this option if the entity is impacted by Processing.Key - Case Dynamics - select this option to use the entity in Case Dynamics. 
+Email - (Optional) the entity's email address. 
+Role in Litigation - (Optional) the entity's role in litigation. 
+Corporate Titles Case Dynamics - (Optional) - the entity's corporate title. 
+Notes - (Optional) use this field to add any applicable notes regarding the entity. 
+
+Other
+
+System Last Modified By - the name of the user who modified the system last. 
+System Last Modified On - the time  the system was last modified. 
+
+
+
+
+
+Case Dynamics entity load file
+To load a Case Dynamics entity that is a person via Import/Export, create a load file that contains at least the following:
+
+First Name
+Last Name
+Full Name
+Classification - enter Key - Case Dynamics
+Type - enter Person
+
+To load a Case Dynamics entity that is an organization via Import/Export, create a load file that contains at least the following:
+
+First Name
+Last Name
+Full Name
+Classification - enter Key - Case Dynamics
+Type - enter Organization
+
+
+
+Custom Case Dynamics layout requirements
+When creating custom Case Dynamics layouts for the entity object, keep the following requirements in mind:
+
+
+ The layout should include the Type field, as well as, the Classification fields. Both fields should be editable so that entities can be tagged properly. 
+
+
+
+
+If you're creating entities with Organization selected for the Type field, then the Full Name field must be included on the layout. 
+
+
+If you're creating entities with Person selected for the Type field then the First Name, Last Name, and Full Name fields must be included on the layout.
+
+
+
+
+
+Collect entities
+The following sections contains entities information specific to Collect.
+Collect entities
+
+You can collect electronic data from custodians who are individuals or entities involved in a legal action or case. You can collect electronic data for custodians from different sources and you may perform multiple collections from a single custodian. On the Entities tab, you can create and edit entities as well as view their details and perform other tasks.
+Creating an entity
+Use the following procedure to create a custodian that you can associate with a collection:
+
+Click the Entities tab. Relativity displays a list of the custodians available in this workspace.
+Click New Entity.
+Complete the fields in the Collect Custodian Details layout. See Collect Entity Details fields.
+
+Click Save. Collect displays the custodian details. See Viewing or editing entity details.
+Note: You can also create a custodian when you add a new collection. Click the Add link on the collection layout. See Creating a collection. 
+
+
+Collect Entity Details fields
+The Collect Custodian Details layout contains the following fields:
+
+Type - select one of the following:Person - select this to enter first and last name of the individual acting as custodian of the data you wish to process. This choice is selected by default. Other - select this if the custodian of the data you wish to collect isn't an individual but is, for example,  a company name or a data location. Add the entity's full name and email (optional).
+First Name - the first name of the entity.
+Middle Name - (Optional) the middle name of the entity.
+Last Name - the last name of the entity.
+Email - the email address for the entity.
+
+Viewing or editing entity details
+Display entity details by clicking the name of the entity on the Entities tab. Collect also displays these details immediately after you add a new entity. You can use the buttons at the top of the page to edit, delete, or perform other tasks with the entity. In addition, you can select the Collection History or Custodian Data Sources view to change the information displayed in the grid.
+Collect custodian view
+The Collect custodian view is illustrated in the following screen shot:
+
+
+
+This view includes the Custodian Details that lists the first, last, and full name of the custodian as well as  the associated email address.
+
+

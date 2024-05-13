@@ -1,0 +1,79 @@
+
+RelativityOne PDF downloads
+This page contains PDF versions of the RelativityOne documentation on this site. The PDFs posted here are updated daily, so we recommend bookmarking the PDFs instead of saving them locally or printing. 
+Ultimately, we recommend using the website to get the most up-to-date information. If you have trouble accessing any of these guides, contact us using the form at the bottom of this page. 
+Feature guides
+Active Learning Guide.pdf
+
+Admin Guide.pdf
+
+aiR for Review Guide.pdf
+
+Analytics Guide.pdf
+
+Case Metrics.pdf
+
+Client Certificate Authentication Guide.pdf
+
+Collect.pdf
+
+
+
+Collect - Bloomberg
+
+
+
+Collect - Box
+
+
+
+Collect - Google Workspace
+
+
+
+Collect - Microsoft 365
+
+
+
+Collect - Refinitiv Eikon
+
+
+
+Collect - Slack
+
+
+
+Collect - X1
+
+
+
+Data Transfer.pdf
+
+Event Handler Express.pdf
+
+Integration Points.pdf
+
+Searching Guide.pdf
+
+Simple File Upload.pdf
+
+Processing User Guide.pdf
+
+Relativity Data Grid.pdf
+
+Relativity Legal Hold.pdf 
+
+Review Center Guide.pdf
+
+Transcripts application Guide.pdf
+
+User Guide.pdf
+
+Importing and exporting
+Import/Export Guide.pdf
+
+Relativity Desktop Client Guide.pdf 
+Note: Relativity ended support for and access to the Relativity Desktop Client (RDC) for RelativityOne commercial customers on December 31, 2023. Import/Export is being used for all importing and exporting workflows. For RelativityOne Government customers, beginning March 31, 2024, RDC will only operate in web transfer mode, which will result in significantly slower transfer speeds. It is highly recommended that Government customers begin using Import/Export in RelativityOne as soon as possible to prepare for the deprecation of RDC on June 30, 2024. Starting July 1, 2024, RDC will no longer be operational.  See the Community article RDC Deprecation FAQ for additional information.
+Zip files
+RelativityOne_PDF_Documentation.zip - This zip file contains the PDFs for RelativityOne available on this website.
+Relational Field Icons.zip - Icon set for displaying lists of items grouped by the relational field.

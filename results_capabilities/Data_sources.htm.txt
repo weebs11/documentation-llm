@@ -1,0 +1,34 @@
+
+Data sources
+A data source allows you to define where and how you pull data from a communication channel. A data source stores the configuration necessary to retrieve data from a communication channel, process that data, and ingest it into Collect. 
+Set up workspace data sources before beginning collections. Data sources are stores of information from which you collect data. These data sources have parameters that you can set during the creation of a collection job. 
+Creating a collect data source
+The Collection Admin tab is where you create, edit, and remove data sources from your workspace. Setup only needs to be done once for each data source. You must create your data sources prior to setting up your custodian targets. For more information, see Custodian targets . 
+When creating data sources, you can select different types of data sources for obtaining files. 
+ It is possible to collect data placed on a preservation hold through Relativity Legal Hold. For more information on preserving Microsoft 365 data using Legal Hold, see Adding preservation hold settings using Modern Authentication (Legacy).
+Use the following procedure to create a new Collect source instance:
+On the Collect Admin page,
+
+Click the New Collection Source Instance button.
+Enter in a unique name for the data source.
+Select the type of data source.			Note: Collect automatically collects any data that is preserved due to an in-place hold or litigation hold. Data on a hold is stored in a preservation library and separate folders. For more information, see Microsoft Retention Policies.
+Enter the data source-specific settings. For more information, locate your data source topic.
+Click Save.
+
+After clicking Save, Relativity verifies the parameters and connectivity to the Microsoft 365 data source. If successful, the data source is saved. If the connection fails, a message in the UI will indicate that the connection failed. If verification fails, verify that the values  are correct. The data source will save when it is corrected and is verified.
+Once the data source is set up, you'll see the data source information on the Collect Admin page. 
+Data source types
+You can select any of the following data sources for step 3 of the creating a new collection source instance process:
+
+Bloomberg—select to collect data from Bloomberg Chat. For more information, see Bloomberg chats and emails data source.
+Box—select to collect data from Box cloud storage. For more information, see Box data source.
+Google Workspace—select to collect data from Google Chat, Drive, Gmail, or Groups. There is no support for modern attachments.  For more information, see Google Workspace data source.
+iManage—select to collect data from the iManage document and email management application. For more information, see iManage data source.
+Microsoft 365 OneDrive—select to collect data from OneDrive accounts. Unable to collect from inactive employee sites. The Graph API does not support access to inactive user accounts. For more information, see Microsoft 365 - OneDrive data source.
+Microsoft 365 Outlook—select to collect data from Microsoft's email application. You can choose archived mailbox, calendar, contacts, and mailbox. Inactive employee mailboxes are included with mailbox collections. For more information, see Microsoft 365 - Outlook data source.
+Microsoft 365 SharePoint—select to collect data from Micrsoft SharePoint sites. For more information, see Microsoft 365 - SharePoint data source.
+Microsoft 365 Teams—select to collect data from Microsoft's short-messaging application. This data source is only available for commercial, Microsoft 365 tenants. Requires enhanced licensing (E5) and access to Microsoft Protected APIs. For more information, see Microsoft 365 - Teams data source.
+Refinitiv Eikon—select to collect data from Refinitiv Eikon chats. For more information, see Refinitiv Eikon data source.
+Slack—select to collect data from an organization or custodian's Slack profile. To get the steps to gather the temporary code and access token, see Slack data source.
+X1—select to collect data from a custodian's emails or files stored in an X1 endpoint. Requires separate licensing, configuration, and training through a third party. For more information, see X1 data source.
+

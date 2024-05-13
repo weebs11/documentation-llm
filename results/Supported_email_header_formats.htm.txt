@@ -1,0 +1,3312 @@
+
+
+Supported email header formats
+Email threading and name normalization results may be incorrect if the extracted text isn't formatted properly.  The email threading and name normalization operations rely on well-formed email messages. Poorly-formed email messages can be caused by  processing and email software that doesn't  adhere to email standards. 
+ Analytics uses a best-effort approach to parse email messages, but it will not handle all possible cases of badly formed email messages. 
+See these related pages:
+
+Email threading
+
+Email threading results
+
+Inclusive emails
+
+Name normalization
+
+Name normalization results
+
+Structured analytics
+
+Running structured analytics
+
+Email thread visualization
+
+
+Supported email header formats
+The primary email is the most recent email segment, which is found at the very top of the document.  The primary email header is only used by Analytics if the Email Header Fields are not set on the Analytics profile or if a given email does not have any data in the linked Email Header fields.  If the Email Header fields are linked on the Analytics profile and the fields are present for a given document, then the fielded data is used rather than the primary email header.  A lack of primary email headers in the extracted text is also supported as long as the Email Header fields are linked on the Analytics profile, and they are set on the documents.  
+Note: No text should be inserted into the extracted text before the primary email header.  If there is text before the primary email header, this will be analyzed as if it is a reply to the email header below it.
+Embedded emails are those found below the primary email.  Embedded headers are always used for email threading and name normalization and need to be in a supported format in order for the email segment to be properly identified.
+
+Expand the following to view a list of currently supported header formats.
+Supported English header formats
+
+
+
+
+
+
+
+Template
+Examples
+Email Type
+(Primary and/or
+Embedded
+email)
+
+
+
+
+
+To:
+<receiver>
+CC:
+<copy>
+Date: <sent date>
+From:
+<sender>
+Subject:
+<email subject>
+Attachments:
+<list of email attachments>
+
+
+
+
+To:
+CN=JaFirst CaLast/OU=AM/O=LLY@Domain
+CC:
+CN=SaFirst AhLast/OU=AM/O=LLY@Domain Date:
+02/06/2004 10:58:29 AM
+From:
+CN=GoFirst SeLast/OU=AM/O=LLY Subject:
+Weight vs. Efficacy Attachments:
+Maximum Weight Gain Correlation 02-06-
+ 2004.doc
+
+
+Primary
+
+
+
+From: <sender>
+Sent: <sent date>
+To: <receiver>
+Subject: <email subject>
+
+
+From: someone@somewhere.net
+[mailto:someone@somewhere.net]
+Sent: Friday, October 23, 2009 3:44 PM
+To: recipient@otherworld.com
+Subject: Re: Original email subject
+
+Primary
+
+
+On <sent date> <sender>
+wrote:
+On Oct 26, 2011, at 4:41 PM, "Sally Sender"
+<sally@sender.com> wrote:
+Embedded
+
+
+Date: <sent date>
+From: <senderTo: <receiverSubject: <email subject>
+Date: Fri, 14 Mar 2008 10:29:25 -040From: ricky@receiver.comTo: "Sender, Sally" <sally@sender.com>Subject: Fw: The subject
+
+Primary
+
+
+<prefix>Date: <sent date><prefix>From: <sender><prefix>To: <receiver><prefix>Subject: <email
+subject>
+>>Date: Fri, 14 Mar 2008 10:29:25 -0400
+>>From: ricky@receiver.com
+>>To: "Sender, Sally" <sally@sender.com>
+>>Subject: Re: The subject
+Embedded
+
+
+From: <sender>To: <receiver>
+<linebreak>
+<linebreak>
+Date: <sent date>
+Subject: <email subject>
+From: Sally Sender
+To: Rick Receiver
+Date: 01/01/2012 10:30 AM
+Subject: RE: hello
+Primary/Embedded
+
+
+
+Created: <sent date>
+From: <sender>To: <receiver>
+Subject: <email subject>
+
+
+Created: Fri, 14 Mar 2008 10:29:25 -0400
+From: ricky@receiver.com
+To: "Sender, Sally" <sally@sender.com>
+Subject: Re: The subject
+
+Primary/Embedded
+
+
+Date: <sent date>
+From: <sender>To: <Receiver>
+Subject: <email subject>
+Flag: <flag header>
+Date: Fri, 14 Mar 2008 10:29:25 -0400
+From: ricky@receiver.com
+To: "Sender, Sally" <sally@sender.com>
+Subject: Re: The subject
+Flag: Haven't responded to this yet
+Primary/Embedded
+
+
+<sender> <sent date>
+To: <receiver>
+cc: <copy>
+Subject: <email subject>
+
+Sally Sender 03/27/2001 09:04 AM
+To: Rick Receiver/Brown Dog/Corp/ABCDCorp@
+ABCD-Corpcc: Jane Smith/Brown Dog/Corp/ABCDCorp@
+ABCD-CorpSubject: Certified payrolls
+
+
+Primary\Embedded
+
+
+Date: <sent date>
+From: <sender>
+Subject: <email subject>
+Cc: <copy>
+Bcc: <hidden copy>
+Date: Tue, 13 Nov 2001 07:53:48 -0800 (PST)
+From: email1
+Subject: RE: Engineering Weekly Status
+Cc: ccmail
+Bcc: bccmail
+
+Primary\Embedded
+
+
+From: <sender>
+Sent: <sent date>
+To: <receiver-1>,
+<space><receiver-2>,
+<space><receiver-3>,
+<space><receiver-4>
+Subject:<email subject>
+From: Sender, Sally
+Sent: Friday, October 12, 2001 9:01 AM
+To: Receiver, Rick R.;
+Cc: Doe,
+Jane;
+Victorio,
+Tom
+Subject: March Madness Brackets
+Primary\Embedded
+
+
+<email subject>
+<sender> To: <receiver> <sent
+date>
+From: <sender>
+To: <receiver-1>
+<receiver-2>
+History: <history>
+<email body>
+
+
+See you tomorrow
+John Doe To: James Smith, Rick Receiver
+11/15/2012 10:30 AM
+From:John Doe
+To: James Smith <jsmith@example.com>; Rick
+Receiver
+<rreceiver@example.com>
+History: This message has no reply.Hey James,
+I'll see you tomorrow
+
+Primary
+
+
+From : <whitespaces><sender>
+Date : <whitespaces> <sent
+date>
+To :<whitespaces><receiver>Subject : <whitespaces><email
+subject>
+From : "Sender, Sally" <sally@sender.com>
+Date : Fri, 14 Mar 2008 10:29:25 -0400
+To : ricky@receiver.com
+Subject : The subject
+Primary
+
+
+<sender>
+<sent date>
+To:<receiver>
+cc: <copy>
+Subject: <email subject>
+"Sender, Sally" <Sally.Sender@ssender.com>
+07/05/2006 01:34 PM
+To: <rick_receiver@example.com>, "Doe, Jane"
+<Jane.Doe@example.com>
+cc: "Smith, John" <John.Smith@example.com>
+Subject: RE: House of Cards
+Embedded
+
+
+<sender> on <date>
+To: <receiver>
+cc: <copy>
+Subject: <email subject>
+Sally Sender sallys@sallysender.com on
+01/21/2000 03:35:19 AM
+To: Rick Receiver/HOU/ECT@ECT
+cc: someone@email.com
+Subject: client meetings
+Embedded
+
+
+<sender> on <date>
+To: <receiver-part-1>
+<space><receiver-part-2>cc: <empty>
+Subject: <email subject>
+Sally Sender sallys@sallysender.com on
+01/21/2000 03:35:19 AM
+To: Rick
+Receiver/HOU/ECT@ECT
+cc:
+Subject:
+Embedded
+
+
+<sender> To <receiver> cc
+<date>
+Subject: <email subject>
+Sally Sender<ssender@example.com>
+Engineering/ABCD Corp/USA
+Corporate
+Engineering/ABC Corp/USA To Rick Receiver
+<rrick@example.com> QA/ABCD Corp/USA
+Sachin
+QA/ABCD/USA
+Cc
+19-03-2013 10:49
+Subject: CAAT1070 email
+Embedded
+
+
+<sender>
+To: <receiver>
+<sent date> Cc: <copy>
+Subject: <subject>
+originalSender@sender.com
+To: sender@sender.com
+11/6/2012 2:10 PM Cc: cpyrcver@receiver.com
+Subject: super subject line
+Embedded
+
+
+
+<sender>
+<sent date>
+<tab>To: <receiver>
+<line break>
+<tab>CC: <empty>
+<linebreak>
+<tab><email subject-part-1>
+<tab><email subject-part-2>
+<line break>
+<email body>
+
+
+Sally Sender
+11/11/2012 7:50 PM
+To: Rick Receiver
+
+CC:
+
+Look at
+this email subject
+
+This is the original body.
+
+Embedded
+
+
+<sender>
+<sent date>
+<tab>To: <receiver>
+<line break>
+<tab>CC: <empty>
+<tab>
+
+Sally Sender
+11/11/2012 7:50 PM
+To: Rick Receiver
+
+CC:
+
+Look at this. This is the original body.
+
+Embedded
+
+
+--Forwarded By
+<sender>
+on <sent date>--
+--Forwarded By
+Sally Sender
+on Tue 11/6/2012 7:35 PM--
+Embedded
+
+
+<sender> on <sent date>:
+sally@sender.com on 03/13/2008 02:43:09
+PM:
+Embedded
+
+
+<sender>
+<sent date>
+To
+<receiver>
+Cc
+<copy>
+Subject
+<email subject>
+<email body>
+Sally Sender
+Tue 11/6/2012 2:10 PM
+To
+Rick Receiver
+Cc
+Subject
+Not the subject
+Text for original.
+Embedded
+
+
+<sender> To<tab>: <receiver>
+<sent date> CC<tab>:<copy>
+Subject<tab>:<email subject>
+<email body>
+user1@CAAT1037Pass1.com To
+:user2@CAAT1037Pass1.com
+11/5/2012 2:10 PM Cc
+:user3@CAAT1037Pass1.com
+Subject : CAAT1037Pass1
+Pass1.1
+Embedded
+
+
+From: <sender> <sent date>
+To: <receiver>
+cc: <copy>
+Subject: <email subject>
+From: Sally Sender 04/11/2001 10:17 AM
+To: Rick Receiver/HOU/ECT@EC
+cc: James Smith/HOU/ECT
+Subject: Re: Costs
+Primary/Embedded
+
+
+
+
+
+Supported Dutch header formats
+
+
+
+
+
+
+
+Template
+Examples
+Email Type
+(Primary and/or
+Embedded
+email)
+
+
+
+
+Van: <sender>
+Aan: <receiver>
+Datum: <sent date>
+Onderw: <subject>
+CC: <carbon copy>
+BCC: <blind copy>
+Van: sally@sender.com
+Aan: ricky@receiver.com
+Datum: 15 marzo 2001 02:56:00
+Onderw: Patch update
+CC: Brandon Copy
+BCC: Martin Copy
+
+
+Primary/Embedded
+
+
+Van: <sender>
+Aan: <receiver>
+Verzonden: <sent date>
+Onderwerp: <subject>
+Van: sally@sender.com
+Aan: ricky@receiver.com
+Verzonden: 15 marzo 2001 02:56:00
+Onderwerp: Patch update
+Primary/Embedded
+
+
+Van: <sender>
+Aan: <receiver>
+Gemaakt: <sent date>
+Betreft: <subject>
+Van: sally@sender.com
+Aan: ricky@receiver.com
+Gemaakt: 15 marzo 2001 02:56:00
+Betreft: Patch update
+Primary/Embedded
+
+
+Op <sent date> heeft <sender> geschreven:
+Op 24-02-07 heeft ubuntu@hamersmail.nl <ubuntu@hamersmail.nl> het volgende geschreven:
+Embedded
+
+
+<sender> schreef op <sent date>:
+Hannie schreef op vr 17-06-2011 om 17:47 [+0200]:
+Embedded
+
+
+Op <sent date>, shreef <sender>:
+Op maandag 03-05-2010 om 20:19 uur [tijdzone +0200], schreef Jochem:
+Embedded
+
+
+Op <sent date> schreef <sender>
+Op wo 29 aug. 2018 om 11:09 schreef Bas Neve <bastiaann...@gmail.com
+Embedded
+
+
+Op <sent date> heeft <sender> het volgende geschreven:
+Op 7 november 2008 19:43 heeft Han Bronsveld <jbronsveld@solcon.nl>
+het volgende geschreven:
+Embedded
+
+
+Op <sent date>, <sender> schreef:	
+Op 02-03-13 11:19, Redmar schreef:
+Embedded
+
+
+
+
+
+Supported French header formats
+
+
+
+
+
+
+
+Template
+Examples
+Email Type
+(Primary and/or
+Embedded
+email)
+
+
+
+
+De : <sender> 
+Envoyé : <sent date> 
+À : <receiver> 
+Cc : <copy> 
+Cci: <hidden copy>
+Objet : <subject>
+
+De : Sally Sender
+Envoyé :  Lun 12 septembre 2005 15:42
+À : Ricky Receiver
+Cc : Jane Smith
+Cci: Tom Jones
+Objet : New subject
+
+Primary/Embedded
+
+
+From : <sender> 
+Envoyé : <sent date> 
+À : <receiver> 
+Cc : <copy> Bcc: <hidden copy>
+Sujet : <subject>
+
+From : Sally Sender
+Envoyé :  Lun 12 septembre 2005 15:42
+À : Ricky Receiver
+Cc : Jane Smith
+Bcc: Tom Jones
+Sujet : New subject
+
+Primary/Embedded
+
+
+De : <sender> Envoyé : <sent date> À : <receiver> Cc : <copy> 
+Cci: <hidden copy>
+Objet : <subject>
+
+De : Sally Sender
+Envoyé :  Lun 12 septembre 2005 15:42
+À : Ricky Receiver
+Cc : Jane Smith
+Cci: Tom Jones
+Objet : New subject
+
+Primary/Embedded
+
+
+
+Pour: 
+<receiver> CC: 
+<copy> 
+Date de création:
+
+<sent date> 
+De :
+<sender> 
+Suject
+<email subject> 
+Pièces jointes:
+<list of email attachments>
+
+
+Pour:
+CN=JaFirst CaLast/OU=AM/O=LLY@Domane
+CC:
+CN=SaFirst AhLast/OU=AM/O=LLY@Domane
+Date de création:
+06/02/2004 10:58:29
+De:
+CN=GoFirst SeLast/OU=AM/O=LLY
+Sujet:
+Weight vs. Efficacy
+pièces jointes:
+Maximum Weight Gain Correlation 02-06-2004.doc
+
+Primary
+
+
+De: <sender>
+Date/heure: <sent date>
+Pour: <receiver>
+Suject: <email subject>
+<email body>
+
+De: someone@somewhere.net [mailto:someone@somewhere.net]
+Date/heure: jeudi 08 septembre 2005 а 10:47 +0200
+Pour: recipient@otherworld.com
+Sujet: Re: Original email subjectThis is the text of the message.
+
+
+Primary/Embedded
+
+
+Envoyé: <sent date>De: <sender>
+Pour: <receiver>
+Sujet: <email subject>
+<email body>
+
+Envoyé: 27 avr. 2007 14:04
+De: ricky@receiver.com
+Pour: "Sender, Sally" <sally@sender.com>
+Sujet: Tr: The subjectThis is the text of the message.
+
+
+Embedded
+
+
+De: <sender>
+Pour: <receiver>
+<linebreak>
+<linebreak>
+Date: <sent date>
+Sujet: <email subject>
+<email body>
+
+De: John Doe
+Pour: Jane Smith
+
+Date: 01/01/2012 10:30 AM
+Sujet: RE: hello
+This is the text of the message.
+
+Primary/Embedded
+
+
+<sender>
+<sent date>
+Pour:<receiver>
+CC: <copy>
+Suject: <email subject>
+<email body>
+
+Sally Sender 
+03/27/2001 09:04 AM
+
+Pour: Rick Receiver/Brown Dog/Corp/ABCDCorp@ ABCD-Corp
+CC: Jane Smith/Brown Dog/Corp/ABCDCorp@ ABCD-Corp
+Sujet: Certified payrolls
+This is the text of the message.
+
+Embedded
+
+
+<sender><sent date>
+Pour:<receiver>
+CC: <copy>
+Suject: <email subject>
+<email body>
+
+Sally Sender 03/27/2001 09:04 AM
+
+Pour: Rick Receiver/Brown Dog/Corp/ABCDCorp@ ABCD-Corp
+CC: Jane Smith/Brown Dog/Corp/ABCDCorp@ ABCD-Corp
+Sujet: Certified payrolls
+This is the text of the message.
+
+Embedded
+
+
+De: <sender><tab><sent date>
+Pour: <receiver>
+CC: <copy>Sujet: <email subject>
+<email body>
+
+De: Sally Sender 03/27/2001 														09:04 AM
+
+Pour: Rick Receiver/Brown Dog/Corp/ABCDCorp@ ABCD-Corp
+CC: Jane Smith/Brown Dog/Corp/ABCDCorp@ ABCD-Corp
+Sujet: Certified payrolls
+This is the text of the message.
+
+Primary/Embedded
+
+
+Date/heure: <sent date>
+De: <sender>
+Sujet: <email subject>
+Cc: <copy>
+Bcc: <hidden copy>
+<email body>
+
+Date/heure: lun. 13 mars 2017 à 12:51
+De: Sally Sender
+Sujet: Subject Here
+Cc: Jane Smith
+Cci: James Jones
+This is the text of the message. 
+Primary/Embedded
+
+
+De: <sender>
+Sent: <sent date>
+Pour: <receiver-1>,
+<space><receiver-2>,
+<space><receiver-3>,
+<space><receiver-4>
+Object:<email subject>
+<email body>
+
+De: Sender, Sally 
+Sent: jeudi 08 septembre 2005 а 10:47 +0200
+Pour: Receiver, Rick R.; 
+Cc: Doe, Jane; 
+  Victorio, Tom 
+Objet: March Madness Brackets
+This is the text of the message.
+
+Primary/Embedded
+
+
+<sender>
+Pour: <receiver>
+<sent date> Cc: <copy>
+Sujet: <subject>
+<email body>
+
+originalSender@sender.com 
+À: sender@sender.com
+Mercredi, 25 Juillet 2007, 16h21mn 09s Cc: copiedReceiver@receiver.com
+Sujet: super subject lineThis is the text of the message.
+
+
+Embedded
+
+
+Expéditeur : <whitespaces><sender>Envoyé par: <whitespaces> <sent date>
+Pour: <whitespaces><receiver>
+Sujet : <whitespaces><email subject>
+<email body>
+
+Expéditeur: "Sender, Sally" <sally@sender.com>
+Envoyé par: 25.10.2006 23:55
+Pour : ricky@receiver.com
+Sujet : The subject
+This is the text of the message.
+
+Primary
+
+
+<prefix>Date:<sent date>
+<prefix>From: <sender>
+<prefix>To:<receiver-1>
+<prefix><receiver-2>
+<prefix><receiver-3>
+<prefix>Subject:<email subject>
+<email body>
+
+>>Envoyé: Lun 12 septembre 2005 15:42
+>>De: "Sender, Sally"
+>>Pour: ricky@receiver.com
+>>ricky3@receiver.com
+>>ricky3@receiver.com
+>>ricky3@receiver.com
+>>ricky4@receiver.com >>Sujet: The subject
+>>This is the text of the message.
+
+Embedded
+
+
+Le <date>, <sender> a écrit :
+Le Lundi 13 mars 2017 2h29, "Sender, Sally" <sally@sender.com> a écrit :
+Embedded
+
+
+De: <sender>
+Répondre à : <sender>
+Date  : <date>
+À : <receiver>
+CC: <copy>
+Objet : <subject>
+
+De : Sally Sender
+Répondre à : Ricky Receiver
+Date : lun. 13 mars 2017 à 12:51
+À : Ricky Receiver <ricky@receiver.com>
+Objet : New subject
+
+Primary
+
+
+> *De :* <sender>
+> *À :* <recipient>
+> *Envoyé :* <date>
+> *Cc :*  <copy>
+> *Sujet :* <subject>
+
+> *De :* Sally Sender
+> *À :* Ricky Receiver
+> *Envoyé :* 10 mars 2017 19:31
+> *Cc :* Jane Smith> *Sujet :* New Subject
+Embedded
+
+
+
+
+
+Supported German header formats
+
+
+
+
+
+
+
+Template
+Examples
+Email Type
+(Primary and/or
+Embedded
+email)
+
+
+
+
+An:
+<receiver>CC:
+<copy>
+Datum:
+<sent date>
+Von:
+<sender>
+Betreff:
+<email subject>
+Anhänge:<list of email attachments>
+<email body>
+An:
+CN=JaFirst CaLast/OU=AM/O=LLY@Domane
+CC:
+CN=SaFirst AhLast/OU=AM/O=LLY@Domane
+Datum:
+02/06/2004 10:58:29 AM
+Von:
+CN=GoFirst SeLast/OU=AM/O=LLY
+Betreff: Weight vs. Efficacy
+Anhänge:
+Maximum Weight Gain Correlation 02-06-2004.docThis is the text of the message.
+
+Primary
+
+
+Von: <sender>
+Sent: <sent date>
+An: <receiver>
+Betreff: <email subject>
+<email body>
+Von: someone@somewhere.net [mailAn:someone@somewhere.net]
+Datum: Freitag, Oktober 23, 2009 3:44 PM
+An: recipient@otherworld.com
+Betreff: Aw: Original email subjectThis is the text of the message.
+
+Primary/Embedded
+
+
+Datum: <sent date>
+Von: <sender>
+An: <receiver>
+Betreff: <email subject>
+<email body>
+Datum: Fr, 14 März 2008 10:29:25 -0400
+Von: ricky@receiver.com
+An: "Sender, Sally" <sally@sender.com>
+Betreff: Wg: The subjectThis is the text of the message.
+
+Primary
+
+
+<prefix>Datum: <sent date>
+<prefix>Von: <sender>
+<prefix>An: <receiver>
+<prefix>Betreff: <email subject>
+<email body>
+>>Datum: Fr, 14 Mai 2008 10:29:25 -0400
+>>Von: ricky@receiver.com
+>>An: "Sender, Sally" <sally@sender.com>
+>>Betreff: Aw: The subjectThis is the text of the message.
+
+Embedded
+
+
+Von: <sender>
+An: <receiver>
+<linebreak>
+<linebreak>
+Datum: <sent date>
+Betreff: <email subject>
+<email body>
+Von: John Doe
+An: Jane Smith
+
+Datum: 01/01/2012 10:30
+Betreff: Aw: helloThis is the text of the message.
+
+Primary/Embedded
+
+
+<sender>
+<sent date>
+<line break>
+An:<receiver>
+Kopie (cc): <copy>
+Betreff: <email subject>
+<email body>
+"Sender, Sally"
+07/05/2006 01:34
+
+An: Ricky ReceiverKopie (cc): James SmithBetreff: AW: HelloThis is the text of the message.
+
+Embedded
+
+
+<sender> <sent date>
+<line break>
+An: <receiver>
+Kopie (cc): <copy>
+Betreff: <email subject>
+<email body>
+Sally Sender 03/27/2001 09:04 AM
+
+An:  Rick Receiver/Brown Dog/Corp/ABCDCorp@ ABCD-Corp
+Kopie (cc):  Jane Smith/Brown Dog/Corp/ABCDCorp@ ABCD-Corp
+Betreff: Certified payrollsThis is the text of the message.
+
+Embedded
+
+
+Von: <sender><tab><sent date><line break>
+An: <receiver>
+cc: <copy>
+Betreff: <email subject>
+
+Von: Sally Sender     03/27/2001     09:04 AM
+An: Rick Receiver/Brown Dog/Corp/ABCDCorp@ ABCD-Corp
+cc: Jane Smith/Brown Dog/Corp/ABCDCorp@ ABCD-Corp
+Betreff: Aw: Certified payrolls
+Primary/Embedded
+
+
+Datum: <sent date>
+Von: <sender>
+Betreff: <email subject>
+Kopie (cc): <copy>
+Blindkopie (bcc): <hidden copy>
+
+Datum: Fr, 14 März 2008 10:29:25 -0400
+Von: Sally Sender
+Betreff: Subject Here
+Kopie (cc) : Jane Smith
+Blindkopie (bcc): James Jones
+Primary/Embedded
+
+
+Von: <sender>
+Datum: <sent date>
+An: <receiver-1>,
+<space><receiver-2>,Cc: <receiver-3>,
+<space><receiver-4>Betreff:<email subject>
+
+Von: Sender, Sally
+Datum: Fr, 14 März 2008 10:29:25 -0400
+An: Ricky Receiver,
+  James Smith
+Cc: Doe, Jane;
+  Victorio, Tom
+Betreff: March Madness Brackets
+Primary/Embedded
+
+
+<sender>
+An: <receiver>
+Datum: <sent date> Cc: <copy>
+Betreff: <subject>
+
+originalSender@sender.com
+An:  ricky@reciever.com
+Datum: Fr, 14 März 2008 10:29:25 -0400 Cc: Jane@receiver.com
+Betreff: super subject line
+Embedded
+
+
+From : <whitespaces><sender>
+Date : <whitespaces> <sent date>
+To : <whitespaces><receiver>
+Subject : <whitespaces><email subject>
+<email body>
+Von : "Sender, Sally" <sally@sender.com>
+Datum : Fr, 14 März 2008 10:29:25
+An : ricky@receiver.com
+Betreff : The subject
+Primary
+
+
+<prefix>Datum:<sent date>
+<prefix>Von: <sender>
+<prefix>An:<receiver-1>
+<prefix><receiver-2>
+<prefix><receiver-3>
+<prefix>Betreff:<email subject>
+
+<email body>
+>>Datum: Fr, 14 März 2008 11:29
+>>Von: "Sender, Sally"
+>>An: ricky@receiver.com
+>>ricky3@receiver.com
+>>ricky3@receiver.com
+>>ricky3@receiver.com
+>>ricky4@receiver.com
+>>Betreff: The subject
+>>This is the text of the message.
+Embedded
+
+
+Am <date> schrieb <sender>
+Am Fr, 14 März 2008 10:29 schrieb Sally@sender.com
+Embedded
+
+
+<sender> schrieb am <date>
+Sally@sender.com schrieb am Fr, 14 März 2008 10:29
+Embedded
+
+
+Am <date> schrieb <sender> um <time>:
+Am Do, den 04.11.2004 schrieb Sally@sender.com um 16:18:
+Embedded
+
+
+
+
+
+Supported Chinese header formats
+
+
+
+
+
+
+
+Template
+Examples
+Email Type
+(Primary and/or
+Embedded
+email)
+
+
+
+
+
+发件人: <sender>
+收件人: <receiver>
+
+时间: <sent date>
+
+主旨: <subject>
+reply-to: <reply receiver>
+送: <copy>
+附件: <attachments>
+发件人: Sally Sender
+收件人: Robert Receiver
+时间: 2017年10月2日 7:24:17
+主旨: Re:新闻
+reply-to: Alex
+送: Tom Jones
+附件: test.pdf
+Primary
+
+
+发件人: <sender>
+
+回复至发送时间: <sent date> 
+收件人: <receiver>
+主旨: <subject>
+回复至: <reply receiver>
+抄送人: <copy>
+密送人: <blind copy>
+
+個附件: <attachment>
+发件人: Sally Sender
+回复至发送时间: 星期三 21 六月 2006 10:50
+收件人: Robert Receiver
+主旨: New Subject
+回复至: Ricky Receiver
+抄送人: Sue Copy
+密送人: Linda May
+
+個附件: test.txt
+Primary
+
+
+
+发件人: <sender>
+发送时间: <sent date> 收件人: <receiver>
+主题: <subject>
+
+抄送: <copy>
+
+个附件: <attachment>
+
+<email body>
+发件人: Sally Sender
+发送时间: 2009-01-11日的 14:57 +0000
+收件人: Ricky Receiver
+主题: New Subject抄送: Tom Jones
+
+个附件: test.jpeg
+
+Email Body Here
+Primary
+
+
+日期: <sent date>
+從: <sender>
+到: <receiver>
+
+副本(cc): <copy>
+密件抄送: <blind copy>
+主题: Re: <subject>
+
+<email body>
+日期: 2008-12-17三 10:08 +0000
+從: Sally@sender.com
+到: ricky@receiver.com
+副本(cc): Jane Smith/Brown Dog/Corp/ABCDCorp@ ABCD-Corp 
+密件抄送: Colleen Copy
+主题: Re: New Subject
+Email Body
+Primary
+
+
+发件人: <sender>
+收件人: <receiver>
+发送时间: <sent date>
+暗送: <copy>
+密送: <blind copy>
+主旨: 回复: <subject>
+
+<email body>
+发件人: sally@sender.com
+收件人: robert@receiver.com
+发送时间: 2017年08月14日 20:32 (星期一)
+暗送: Colleen Copy
+密送: Brad Copy
+主旨: 回复:
+
+Simple ExampleEmail Body
+Primary
+
+
+寄件者: <sender>
+建立日期: <sent date>
+收件者: <receiver>
+主旨: 答复: <subject>
+
+抄送人: <copy>
+密送人: <blind copy>
+
+<email body>
+寄件者: Sally Sender
+建立日期: 2016年1月6日 10:26
+
+收件者: Ricky Receiver
+
+主旨: 答复: Lunch?
+
+抄送人: Colleen Copy
+密送人: Brad Copy
+
+Example of body
+Primary
+
+
+发件人: <sender>
+收件人: <receiver>
+
+寄件日期: <sent date>
+抄送: <copy>
+密件副本: <blind copy>
+主旨: <subject>
+
+<email body>
+发件人: Sally Sender
+收件人: Ricky Receiver
+
+寄件日期: 星期日 02 七月 2006 22:07
+抄送: Colleen Copy
+密件副本: Brad Copy
+主旨: 回复: March Madness Brackets 
+
+Simple Example 4
+Primary
+
+
+寄件者: <sender>
+收件者: <receiver>
+副本: <copy>
+
+主旨: 回复: <Re: subject>
+
+<email body>
+寄件者: Sally Sender
+收件者: Ricky Receiver
+
+副本: Colleen Koy
+
+主旨: 回复: Subject
+
+Example of body
+Primary
+
+
+在<optional_space><date>，<author><optional_space>写道：
+在 2017年5月24日，上午10:04，Alex 写道：
+Embedded
+
+
+于<optional_space><date>，<author><optional_space>写道：
+于 2017年5月24日，上午10:04，Alex 写道：
+Embedded
+
+
+
+
+
+Supported Portuguese header formats
+
+
+
+
+
+
+
+Template
+Examples
+Email Type
+(Primary and/or
+Embedded
+email)
+
+
+
+
+Assunto: <email subject>
+
+De: <sender>
+
+Enviada: <sent date>
+
+Para: <receiver>
+<email body>
+Assunto: Re: Hello
+
+De: "Sally Sender" <sally@sender.com>
+Enviada: 23/11/2007 03:24
+
+Para: Ricky Receiver
+Primary/Embedded
+
+
+
+Enviado el: <sent date>
+De: <sender>
+
+Assunto: <email subject>
+
+Para: <receiver>
+
+<email body>
+Enviado el: 22/11/2007 17:17
+De: "Sally Sender" <sally@sender.com>
+Assunto: Re: Lunch?
+
+Para: "Ricky Receiver" <ricky@receiver. com>
+Primary/Embedded
+
+
+
+De: <sender>
+
+Enviada em: <sent date>
+
+Para: <receiver>
+
+Assunto: <email subject>
+
+<email body>
+De: Sally Sender
+
+Enviada em: Qui, junho 14, 2006 08:00
+
+Para: Ricky Receiver
+Assunto: Re. Hello
+
+
+Primary/Embedded
+
+
+Assunto: <email subject>
+
+De: <sender>
+
+Enviadas: <sent date>
+
+Para: <receiver>
+
+<email body>
+Assunto: Re: Subject
+
+De: "Sally Sender" <sally@sender.com>
+Enviadas: 23/11/2007 03:24
+Para: Ricky Receiver
+Primary/Embedded
+
+
+
+Assunto: <email subject>
+
+De: <sender>
+Data: <sent date>
+Para: <receiver>
+CC: <copy>
+
+CCO: <blind copy>
+<email body>
+Assunto: Re: Subject
+
+De: Sally Sender
+
+Data: 26/09/2008 19:18
+
+Para: Ricky Receiver
+
+CC: Colleen Copy
+CCO: "Bruno Miguel"
+Primary/Embedded
+
+
+Assunto: <email subject>
+
+De: <sender>
+
+Criado em: <sent date>
+
+Para: <receiver>
+
+BCC: <blind copy>
+Cópia: <copy>
+
+<email body>
+Assunto: RES: Lunch?
+
+De: Sally Sender
+
+Criado em: 19/11/2007 13:28
+
+Para: rachel@receiver.com, rick@receiver.com
+
+BCC: "Bruno Miguel"
+
+Cópia: Colleen Copy
+Primary/Embedded
+
+
+
+Em<space><sent date>,<space><sender>escreveu:
+
+
+Em 25/06/07, Sally Sender escreveu:
+
+
+Embedded
+
+
+Em<space><sent date>,<space><sender>
+
+escreveu:
+> > Em 28/04/07, Sally Sender
+> > escreveu:
+Embedded
+
+
+<date> , <author> escreveu:	
+Em 25/06/077, Sally Sender escreveu:	
+Embedded
+
+
+<date> , <author>
+
+escreveu:
+Ter, 2007-07-03 às 13:07 +0100, sally@sender.com
+
+escreveu:
+Embedded
+
+
+
+
+
+Supported Japanese header formats
+
+
+
+
+
+
+
+Template
+Examples
+Email Type
+(Primary and/or
+Embedded
+email)
+
+
+
+
+件名: <email subject>
+差出人: <sender>
+送信日時: <sent date>
+受取人: <receiver>
+<email body>
+件名: FireFox
+差出人: 森山 <mtmori@sender.com>
+送信日時: 2003年3月15日12時7分
+受取人: Ricky Receiver
+
+メール本文
+Primary/Embedded
+
+
+
+
+
+                        件名: <email subject>
+                        送信者: <sender>
+                        日付: <sent date>
+                        宛先: <receiver>
+                        返信先: <reply-to>
+                        <email body>
+                        
+                    
+件名: 再送: Subject
+送信者: "Sally Sender
+日付: 2011年5月31日, 火曜日 午前 2:54:14 GMT+09:00
+宛先: ricky@receiver.com
+
+返信先: robert@receiver.com
+
+email body
+Primary/Embedded
+
+
+
+
+差出人: <sender>
+
+cc: <copy>
+件名: <Re: email subject>
+送信: <sent date>
+宛先: <receiver>
+
+応答先: <reply-to>
+
+<email body>
+差出人: Sally@sender.com
+cc: Colleen@copy.com
+
+件名: 返: Lunch?
+送信: 2007年2月14日 16:13:00
+宛先: ricky@receiver.com
+
+応答先: robert@receiver.com
+
+Body of the email
+Primary/Embedded
+
+
+
+
+件名: <Fw: email subject>
+
+差出人: <sender>
+
+cc: <copy>
+
+bcc: <blind copy>
+送信済み: <sent date>
+宛先: <receiver>
+
+<email body>
+件名: 転送: エイリアスIPの付け方について
+差出人: Sally Sender <sally@sender.com>
+
+cc: Colleen Copy <colleen@copy.com>
+
+bcc: Brandon Copi
+送信済み: 2004年11月5日 11:41:00
+宛先: Ricky Receiver
+
+Body of the email
+Primary/Embedded
+
+
+
+
+<date> に <sender>
+
+さんは書きました:
+
+
+
+
+
+
+
+<sent date> に <sender> さんは書きました :
+2008-06-26 (木) の 00:15 +0900 に Sally Sender <sally@sender.com>
+さんは書きました:
+
+Body 1 is here
+
+
+
+08/11/13 に Sally <Sally@sender.com> さんは書きました:
+Body 2 here
+Embedded
+
+
+<sent date> 、<sender> さんは書きました:	
+
+2004 6月 17 木曜日 04:19、sally@sender.com さんは書きました:
+Embedded
+
+
+<sent date> 投稿者：<sender>
+木曜日 07 4月 2005 20:33 投稿者：Sally Sender
+
+Example 1
+2011/1/13 17:19 投稿者：Sally Sender
+Example 2
+Embedded
+
+
+<sender> さんは書きました (<sent date>):
+Sally Sender さんは書きました (2009/04/16 23:15)
+Example 1
+
+Sally Sender さんは書きました (2011/12/23 7:40):
+Example 2
+
+Sally Sender さんは書きました (2010/01/15 10:10):
+Example 3
+Embedded
+
+
+
+
+
+Supported Spanish header formats
+
+
+
+
+
+
+
+Template
+Examples
+Email Type
+(Primary and/or
+Embedded
+email)
+
+
+
+
+De: <sender>
+Enviado el: <sent date>
+Para: <receiver>
+Copia:<carbon copy>
+Asunto: <subject>
+De: sally@sender.com
+Enviado: 15 marzo 2001 02:56:00
+Para: ricky@receiver.com
+Copia: Brandon Copy
+Asunto: Updated Contract
+Primary/Embedded
+
+
+
+Remitente: <sender>
+Enviado el: <sent date>
+Para: <receiver>
+Copia:<carbon copy>
+Asunto: <subject>
+Remitente: sally@sender.com
+Enviado: 15 marzo 2001 02:56:00
+Para: ricky@receiver.com
+Copia: Brandon Copy
+
+Asunto: Deadline Tomorrow
+Primary/Embedded
+
+
+
+Remitente: <sender>
+Data: <sent date>
+A: <receiver>
+cc:<carbon copy>
+
+Asunto: <subject>
+Remitente: sally@sender.com
+Data: 15 marzo 2001 02:56:00
+A: ricky@receiver.com
+cc: Brandon Copy
+
+Asunto: Patch update
+Primary/Embedded
+
+
+
+De: <sender>
+Enviado el: <sent date>
+Recipiente: <receiver>
+cc:<carbon copy>
+Tema: <subject>
+De: sally@sender.com
+Data: 15 marzo 2001 02:56:00
+Recipiente: ricky@receiver.com
+cc: Brandon Copy
+
+Tema: Hello!
+Primary/Embedded
+
+
+
+De: <sender>
+Fecha: <sent date>
+Recipiente: <receiver>
+cc:<carbon copy>
+Tema: <subject>
+De: sally@sender.com
+Fecha: 15 marzo 2001 02:56:00
+Recipiente: ricky@receiver.com
+cc: Brandon Copy
+
+Tema: Lunch Meeting?
+Primary/Embedded
+
+
+
+De: <sender>Fecha y hora: <sent date>
+Recipiente: <receiver>
+cc:<carbon copy>
+Tema: <subject>
+De: sally@sender.com
+Fecha y hora: 15 marzo 2001 02:56:00
+Recipiente: ricky@receiver.com
+cc: Brandon Copy
+Tema: New Subject
+Primary/Embedded
+
+
+
+De: <sender>
+Fecha: <sent date>
+Para: <receiver>
+Copia:<copy>
+bcc: <blind copy>
+Asunto: <subject>
+De: Sally Sender
+Fecha: 3 octubre 2001 06:35:51
+Para: Ricky Receiver
+Copia: Colleen Copy
+bcc: Robin Jacobson, Jason Debby
+Asunto: Reenviar: Urban Legends
+Primary/Embedded
+
+
+
+Sobre <sent date>, <sender> escribió: 	
+Sobre 2017-12-05 18:16, John Smith <jsmith@sample.es> escribió:
+Embedded
+
+
+El <sent date>, <sender> escribió:
+El 20 de febrero de 2015, 13:13, John S. <jsmith@sampleEMT.com> escribió:
+
+Embedded
+
+
+El <sent date>, <sender> escribió:	
+
+El 20 de febrero de 2015, 12:59, Bob S. <
+bsmith@sampleEMT.com> escribió:
+Embedded
+
+
+El <sent date>, <sender> dijo:
+El vie, 22 de sep de 2006, a las 09:23:13 -0500, Dino Johnson dijo:
+Embedded
+
+
+El día <sent date>, <sender> escribió:
+El día 6 de febrero de 2009 12:07, Javier <javu@sampleEMT.com> escribió:
+Embedded
+
+
+
+
+
+Supported Korean header formats
+
+
+
+
+
+
+
+Template
+Examples
+Email Type
+(Primary and/or
+Embedded
+email)
+
+
+
+
+보낸 사람: <sender>
+날 짜(Date): <sent date>수신: <receiver>
+참조: <carbon copy>
+
+숨은참조: <blind copy>
+
+제목: <subject>
+보낸 사람: John <john@example.com>
+
+날 짜(Date): 15/10/2015
+
+수신: Ricky Receiver <ricky@receiver.com>
+
+참조: Colleen Copy <colleen@copy.com>
+숨은참조: Brandon Smith <brandon@example.com>
+
+제목: Hello
+Primary/Embedded
+
+
+보낸사람: <sender>
+
+날짜: <sent date>
+
+받는 사람: <receiver>
+
+제 목(Subject): <subject>
+보낸사람: John <john@example.com>
+
+날짜: 2015년 12월 21일 (월) 오후 8:23
+
+받는 사람: Ricky Receiver <ricky@receiver.com>
+
+제 목(Subject): Hello
+Primary/Embedded
+
+
+보낸이: <sender>
+
+제 목: <sent date>
+받는사람: <receiver>
+
+메일 제목: <subject>
+보낸이: John <john@example.com>
+
+제 목: 2017년 10월 9일 오후 1시 40분 36초 GMT+9
+받는사람: Ricky Receiver <ricky@receiver.com>
+
+메일 제목: Hello
+Primary/Embedded
+
+
+출발: <sender>
+
+보낸날짜: <sent date>
+
+받는이: <receiver>제 목: <subject>
+출발: John <john@example.com>
+
+보낸날짜: 15/10/2015
+받는이: Ricky Receiver <ricky@receiver.com>
+
+제 목: Hello
+Primary/Embedded
+
+
+발신: <sender>
+날 짜: <sent date>
+
+받는이: <receiver>
+
+메일 제목: <subject>
+발신: John <john@example.com>
+날 짜: 2016.11.21 오후 11:38:24
+받는이: Ricky Receiver <ricky@receiver.com>
+메일 제목: Hello
+Primary/Embedded
+
+
+보낸이(From): <sender>
+
+보낸 날짜: <sent date>
+
+받는이(To): <receiver>
+
+참 조: <carbon copy>
+주제: <subject>
+보낸이(From): John <john@example.com>
+
+보낸 날짜: 15/10/2015
+
+받는이(To): Ricky Receiver <ricky@receiver.com>
+참 조: Colleen Copy <colleen@copy.com>
+주제: Hello
+Primary/Embedded
+
+
+보내는 사람: <sender>
+보낸날짜: <sent date>
+
+받는 사람: <receiver>
+
+숨은참조: <blind copy>
+제목: <subject>
+보내는 사람: John <john@example.com>
+보낸날짜: 2015/12/29 오후 5:27 (GMT+09:00)
+
+받는 사람: Ricky Receiver <ricky@receiver.com>
+
+숨은참조: Brandon Smith <bsmith@example.com>제목: Hello
+Primary/Embedded
+
+
+<sent date> <Author>이(가) 작성:
+06. 1. 6일에 <bsmith@example.com>이(가) 작성:
+06. 1. 11일에 양정석 <dasomoli@gmail.com>이(가) 작성:
+Embedded
+
+
+<sent date> <Author> 쓰시길:	
+2006-01-14 (토), 06:20 -0600, John Smith 쓰시길:
+2006-01-15 (일), 21:35 +0900, John Smith 쓰시길:
+Embedded
+
+
+<sent date> <Author>님이 작성한 메시지:
+2008년 5월 30일 (금) 오후 1:59, Colleen Copy <colleen@copy.com>님이 작성한 메시지:
+2008년 6월 8일 (일) 오후 8:40, John Smith <j.smith@example.com>님이 작성한 메시지:
+Embedded
+
+
+<sent date> <Author>님이 작성:	
+
+07. 8. 3, Ricky Sender <ricky@sender.com>님이 작성:
+
+2017년 9월 19일 오후 1:46, John Smith <j.smith@example.com>님이 작성:
+
+2018년 1월 2일 오후 8:10, John Smith (황병희, 黃炳熙) <j.smith@example.com>님이 작성:
+Embedded
+
+
+<sent date> <Author>님의 말:	
+2015년 10월 2일 금요일 오후 10시 51분 26초 UTC+9, John Smith 님의 말:
+2012년 11월 26일 오후 5:38, mixed <j.smith@examplecom>님의 말:
+Embedded
+
+
+<sent date> <Author> 이(가) 쓴 글:	
+
+2017년 01월 21일 01:54에 John Smith 이(가) 쓴 글:
+2018년 1월 2일 18시 57분에 John Smith 이(가) 쓴 글:
+Embedded
+
+
+<sent date> <Author> 작성:	
+2018. 1. 3. 오후 3:54 John <john@example.com> 작성:
+Embedded
+
+
+<sent date> <Author>님이 쓰신 메시지:
+09/3/4 (수)에 John Smith <jsmith@example.com>님이 쓰신 메시지:
+Embedded
+
+
+
+
+
+Supported email header fields
+The following is a list of email header fields currently supported by email threading and name normalization for primary email headers. A line in the header beginning with one of these field names followed by a colon indicates an email header field. If the field spans more than one line, it is expected that the continuation immediately follows but is indented with white space. The field names are not case-sensitive, but the diacritics, if present, are required. The order of the fields in the primary email header is irrelevant.
+Expand the following to view a list of currently supported header fields.
+Supported English header fields
+
+
+apparently-to
+approved-by
+authentication-results
+attachments
+bcc
+cc
+comments
+content-...
+date
+delivered-to
+disposition-notification-to
+dkim-signature
+domainkey-signature
+errors-to
+followup-to
+from
+importance
+in-reply-to
+keywords
+list-help
+list-post
+list-subscribe
+list-unsubscribe
+mailing-list
+message-ed
+message-id
+mime-version
+newsgroups
+organization
+precedence
+priority
+received
+received-spf
+references
+reply-to
+resent-bcc
+resent-cc
+resent-date
+resent-from
+resent-message-id
+resent-reply-to
+resent-sender
+resent-to
+return-path
+sender
+sent
+status
+subject
+thread-index
+thread-topic
+to
+user-agent
+x-...
+
+
+
+Supported Dutch header fields
+
+
+Aan
+CC
+BCC
+Van
+Onderw
+Onderwerp
+Betreft
+Datum
+Verzonden
+Gemaakt
+
+Subject prefixes:
+
+Re
+Antw.
+Betr
+Fw
+Fwd
+
+
+
+ 
+Supported French header fields
+
+
+À
+Répondre
+Copie à
+Destinataire
+Destinataires
+Pour
+To
+Cc
+Cci
+Bcc
+From
+Sender
+Expéditeur
+De
+Répondre à
+Subject
+Objet
+Sujet
+Envoyé
+Envoyé le
+Envoyé par
+Date de création
+Date/Heure
+Pièces jointes
+Date
+Sent
+Joindre
+Attachments
+
+
+
+Supported German header fields
+
+
+Von
+An
+Bis
+Kopie (CC)
+Cc
+Blindkopie (bcc)
+Всс
+Datum
+Gesendet
+Betreff
+Antwort an
+Anhänge
+Gesendet von
+
+
+
+Supported Chinese header fields
+
+
+到
+收件人
+收件者
+送
+副本(cc)
+抄送人
+抄送
+抄送
+副本
+暗送
+密件抄送
+密送
+密送人
+密件副本
+從
+发件人
+寄件者
+主题
+主旨
+日期
+发送时间
+时间
+建立日期
+日期
+寄件日期
+回复至发送时间
+附件
+reply-to
+回复至
+個附件
+个附件
+
+Subject prefixes:
+
+	返
+	転送
+	再送
+RE
+FW
+
+
+
+Supported Portuguese header fields
+
+
+De
+Para
+Assunto
+Data
+Enviada
+Enviada em
+Enviadas
+Enviado el
+Criado em
+CC
+Cópia
+BCC
+CCO
+
+Subject prefixes:
+
+RE
+RES
+FW
+FWD
+Enc
+
+
+
+Supported Japanese header fields
+
+
+差出人
+送信者
+受取人
+宛先
+cc
+bcc
+日付
+送信日時
+送信
+送信済み
+件名
+返信先
+応答先
+
+Subject prefixes:
+
+返
+転送
+再送
+RE
+FW
+
+
+
+Supported Spanish header fields
+
+
+A
+Para
+Recipiente
+CC
+Copia
+Bcc
+De
+Remitente
+Tema
+Asunto
+Enviado el
+Fecha
+Fecha y hora
+Data
+
+Subject prefixes: 
+
+Re
+Rv
+Reenviar
+Fwd
+Reenv
+
+
+
+Supported Korean header fields
+
+
+받는 사람
+받는사람
+받는이
+수신
+받는이(To)
+보낸 사람
+보낸사람
+보낸이
+출발
+발신
+보낸이(From)
+보내는 사람
+참조
+참 조
+숨은참조
+제목
+메일 제목
+제 목
+주제
+제 목(Subject)
+보낸 날짜
+날짜
+보낸날짜
+날 짜
+날 짜(Date)
+답장받는 사람
+회신 대상
+첨부
+
+Subject prefixes
+
+Re
+답장
+회신
+Fw
+
+
+
+Supported date formats
+The following is a list of date formats currently supported by email threading and name normalization. Note that not all date formats are supported in all languages.
+Expand the following to view a list of currently supported date formats.
+Supported date formats
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Supported Date Formats
+English
+Dutch
+French
+German
+Chinese
+Portuguese
+Japanese
+Spanish
+Korean
+
+
+
+
+yyyy-MM-dd HH:mm:ss Z
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+yyyy-MM-dd H:m zzz
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+yyyy/M/d 
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+yy/MM/d 
+ 
+√
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+yy/MM/dd HH:mm	
+ 
+√
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+yyyy/MM/dd HH:mm	
+ 
+√
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+yyyy/MM/dd H:mm	
+ 
+√
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+yy-mm-dd	
+ 
+√
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+yyyy, MMMM, dd hh:mm a
+√
+
+√
+
+√
+
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+
+
+MMMM-d-yy hh:mm a
+√
+
+ 
+ 
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+
+
+MMMM-d-yy h:mm a
+√
+
+√
+
+ 
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+
+
+MMMM-dd-yy hh:mm a
+√
+
+ 
+√
+
+ 
+ 
+√
+
+√
+
+ 
+√
+
+
+
+MMMM-dd-yy h:mm a
+√
+
+√
+
+√
+
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+
+
+MMMM d, yyyy h:mm:ss a z
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+MMMM d, yyyy h:mm:ss a
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+MMMM d, yyyy h:mm a
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+MMM d, yyyy h:mm:ss a z
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+MMM d, yyyy h:mm:ss a
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+MMM d, yyyy h:mm a
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+M/d/yy h:mm:ss a z
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+M/d/yy h:mm:ss a
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+M/d/yy h:mm a
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+EEEE, MMMM d, yyyy h:mm:ss a z
+√
+
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+ 
+
+
+EEEE, MMMM d, yyyy h:mm:ss a
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+ 
+
+
+EEEE, MMMM d, yyyy h:mm a
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+ 
+
+
+EEEE, MMMM d, yyyy h:m a
+√
+
+√
+
+√
+
+√
+
+ 
+√
+
+√
+
+√
+
+ 
+
+
+EEEE, dd MMMM yyyy, H'h'mm'mn' ss's'
+ 
+√
+
+√
+
+ 
+ 
+√
+
+√
+
+√
+
+ 
+
+
+EEEE, dd MMMM yyyy, HH'h'mm'mn' ss's'
+ 
+√
+
+√
+
+ 
+ 
+√
+
+√
+
+√
+
+ 
+
+
+EEEE, d MMMM yyyy, H'h'mm'mn' ss's'
+ 
+√
+
+√
+
+ 
+ 
+√
+
+√
+
+√
+
+ 
+
+
+EEEE, d MMMM yyyy, HH'h'mm'mn' ss's'
+ 
+√
+
+√
+
+ 
+ 
+√
+
+√
+
+√
+
+ 
+
+
+EEEE dd MMMM yyyy HH:mm
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+ 
+
+
+EEEE d MMMM yyyy HH:mm
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+ 
+
+
+EEE',' dd MMM yyyy HH:mm:ss Z (z)
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+EEE, dd MMM yyyy HH:mm:ss Z
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+EEE, dd MMM yyyy
+√
+
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+EEE dd/MM/yyyy H:mm
+
+
+ 
+√
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+EEE, d MMM yyyy HH:mm:ss Z
+√
+
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+EEE, d MMM yyyy HH:mm Z
+√
+
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+EEE dd MMMM yyyy HH:mm
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+EEE d MMMM yyyy HH:mm
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+EEE M/d/yyyy H:mm
+
+
+ 
+√
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+dd-MM-yy 'om' hh:mm	
+ 
+√
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+mm/dd/yy 'te' hh:mm	
+ 
+√
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+mm-dd-yyyy 'om' hh:mm 'uur'	
+ 
+√
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+dd/MM/yyyy HH:mm:ss
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+dd.MM.yyyy HH:mm[:ss]
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+dd MMMM yyyy HH:mm[:ss]
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+dd MMMM yyyy H:mm[:ss]
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+dd MMM yyyy HH:mm[:ss]
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+d MMMM yyyy HH:mm[:ss]
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+d MMMM yyyy HH:mm:ss zzz Z
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+d MMMM yyyy HH:mm:ss zzz
+√
+
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+d MMMM yyyy HH:mm:ss z
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+d MMMM yyyy H:mm[:ss]
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+d MMM yyyy HH:mm[:ss]
+ 
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+d MMM yyyy HH:mm:ss Z
+√
+
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+d MMM yyyy HH:mm Z
+√
+
+ 
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+√
+
+
+
+
+
+
+Reformatting extracted text
+Extracted text may require reformatting to comply with the email header format requirements. For the most reliable parsing, reconstruct emails using the following guidelines:
+
+Request that the processing vendor send a version of the extracted text without headers, or request that the extracted text is altered to meet the requirements listed under Supported email header formats.
+Place header fields, one per line, at the top of the file. Do not place any blank lines between fields. Limit header fields to those listed under  Supported email header fields.
+At the end of the header, include a single blank line.
+Place the body of the email below the blank line. Do not include any additional text, markers, spacing, or indentation that could hide the structure of the email.
+
+Note: Use consistent end-of-line delimiters. Typical choices are \n for Unix systems and \r\n for Windows systems.

@@ -1,0 +1,245 @@
+
+
+Legal Hold 
+Legal Hold is Relativity's integrated solution for a complete legal hold management workflow application. Legal Hold helps you identify and preserve relevant data when you anticipate litigation. Better understand your organizational data structure, which gives you an advantage in preparing for a hold, responding to a regulatory agency, or negotiating with opposing counsel with Legal Hold.
+Instead of sending ad hoc emails and manually tracking responses in spreadsheets  to manage a legal hold, you can centralize this process by using one application. Using Legal Hold, you can:
+
+Send out hold notifications by email to confirm involvement.
+Interview custodians to gather information.
+Automatically follow up with unresponsive custodians.
+Track and analyze responses using the Relativity Pivot feature.
+Generate reports to maintain a defensibly-sound audit trail of all communications with custodians and other relevant parties.
+
+RelativityOne Legal Hold  is available in the application library and is upgraded with each Relativity upgrade. Install Legal Hold to your workspace from the application library. For more information see Installing applications.
+Note: You can locate an application's version number by navigating to Applications & Scripts > Application Library tab. You must be a system admin to access this tab.
+This guide outlines Legal Hold's structure and functionality and describes how to create, manage, assess, and close a legal hold or hold-related project. For a PDF version of this guide, see Legal Hold.pdf.
+Read a Legal Hold scenario
+
+
+Using Legal Hold 
+You're the lead attorney in your company's general counsel and unfortunately, your corporation is identified in an upcoming litigation. Per your company's established legal hold policy, it's your duty to identify and preserve all data for the potential investigation. You need to start notifying people of their required participation in the upcoming legal hold and start identifying all devices storing pertinent information.
+To do this, you create a project in Legal Hold, then you add people to associate them to the hold, and create/assign communications and questionnaires to that project. As you add people, you create roles for them to differentiate between departments as the hold processes. For example, you need to involve the IT department to help identify hardware and the HR department to help identify persons of interest.
+Once you associate employees with your hold, your attorneys use your project to send an initial hold communication that requires each employee to acknowledge their participation in the hold. You've also included a questionnaire in the notice, which asks relevant questions about the employee's starting employment date, their supervisor, and what company machines they use most frequently and for what purpose. This helps your team identify what level of involvement each employee has in the litigation. You keep track of all individual responses in the Mailbox tab in and send follow-up communications as necessary, informing the employee that they are no longer needed in the legal hold, or that you need more information for the litigation.
+You run a report to monitor the overall progress of the hold and your attorneys monitor how many people have responded to your communications. Based on this information, you set automatic reminder to non-responsive custodians, or escalate the reminders to a custodian's manager.
+Once your team has identified the key players in the hold and the actual legal hold period is over, you close your hold in Legal Hold. All of the information remains accessible for potential future audits.
+
+
+
+Watch the Legal Hold training video for more information.
+
+
+Starting with the Hold And Collect template
+The RelativityOne Hold and Collect template has been specifically designed to provide the optimal environment for using Legal Hold and Collect.  You can find an ARM of the template in the Templates section of RelativityOne or on the Community at RelativityOne Hold and Collect Template.
+  For more information, see RelativityOne Hold and Collect workspace template.
+Communication templates are sorted by communication type and additional templates can be added. Communication templates include:
+
+Alert Notice
+Legal Hold Notice
+Email Acknowledgement
+Legal Hold Release
+
+Preparing to use Legal Hold
+Before installing and using Legal Hold, the Hold Admin needs to gather some information. This information will be used when setting up Legal Hold, email, and preservation holds. See the pre-requisite links below.
+
+
+SMTP email settings requirements
+
+
+
+Data sources
+
+
+
+Legal Hold technical requirements
+To have full use of Legal Hold, the Hold Admin needs to install the application and configure access, as well as set up email, the custodian portal, and preservation hold settings. Without this setup, a legal hold project can't be completed. Follow the setup in the order below.
+
+Install Legal Hold from the application library. Installing Legal Hold. (Required)
+Configure access and security for Legal Hold. Securing a legal hold project. (Optional)
+Complete email settings on the Legal Hold Settings tab.  Adding Outgoing Email settings and Adding Incoming Email settings. (Required)
+Complete custodian portal settings. Updating Custodian Portal settings. (Optional)
+Complete preservation hold settings on the Preservation Hold Setting tab. Adding preservation hold settings using Modern Authentication (Legacy). (Optional)
+
+Setting up Legal Hold may require the assistance of Relativity Support.
+Legal Hold considerations
+A variety of teams are required to communicate and implement a legal hold. Consider the following as you are getting started with Legal Hold.
+
+What role will members of the organization have in creating a hold, sending a hold, and implementing preservation management required under the hold.Some roles to consider are:Project Owners—the employees who are ultimately responsible for identifying custodians, drafting the notices, and managing the hold process.Project Administrators—the employees who will be using Legal Hold for creating the hold and sending it to employees.Data Stewards—employees responsible for managing the electronic assets and information systems of the organizations.Alert Groups—groups or teams that will be notified if a custodian answers a question in a certain manner.
+Review existing legal hold notices and communications and prepare them as templates in Legal Hold.Communication types to considerLegal Hold or Preservation Notices—the notification and instructions that hold participants receive that explains their obligations under the holdAlert Notices—the notification to the Alert Group that a custodian has answered a question in a way that requires attentionRelease Notices—the notification that an individual or all the hold participants have been released from their obligations under the hold.
+Determine what the reminder and escalation cadence will be for individual holds.
+Determine whether periodic reminders for individual projects or for all holds will be sent and what the cadence of those reminders will be.
+Review current hold questionnaires for templates and what standard questions might be asked of all hold participants.
+Review procedures for communicating hold notices to data stewards.
+
+Legal Hold documentation based on personas
+There are many personas, or roles, within the entirety of a legal hold project. Someone has to setup a Relativity workspace, another has to create a legal hold project, and another has to respond to holds.
+Find your documentation based on your role:
+
+
+Instance administrator
+
+
+
+Installing Legal Hold
+
+
+
+
+
+Workspace administrator
+
+
+
+Securing a legal hold project
+
+
+
+Importing hold data to RelativityOne Legal Hold
+
+
+
+Integrating Azure with Legal Hold
+
+
+
+Adding legal hold settings
+
+
+
+Adding general settings
+
+
+
+Adding custodian portal settings
+
+
+
+Custodian Portal Authentication Provider
+
+
+
+Creating legal hold entities
+
+
+
+Deleting a custodian
+
+
+
+Adding preservation hold settings using Modern Authentication (Legacy)
+
+
+
+
+
+Legal Hold administrator
+
+
+
+Assigning roles to custodians
+
+
+
+Item selectors
+
+
+
+Reports
+
+
+
+Mailbox
+
+
+
+Question responses
+
+
+
+Creating a communication
+
+
+
+Creating a questionnaire
+
+
+
+Question library
+
+
+
+Attachments library
+
+
+
+Task tracking
+
+
+
+Custodian communications tab
+
+
+
+Custodian portal
+
+
+
+
+
+Legal Hold user
+
+
+
+Projects
+
+
+
+Preservation hold (Legacy)
+
+
+
+Legal hold reminders
+
+
+
+Sending a communication
+
+
+
+Sending questionnaires
+
+
+
+Custodian status dashboard
+
+
+
+
+
+Legal Hold custodians
+
+
+
+Responding to emails
+
+
+
+
+
+Training
+To supplement the documentation, you should visit the following resources:
+
+
+Legal Hold training
+
+
+
+Getting the most out of Legal Hold
+
+
+
+Prepare for success with Legal Hold
+
+
+
+Installing Legal Hold
+For customers who want to install Legal Hold to a workspace instead of using the template, it is recommended to install the program to one workspace. This allows for the consolidation of reporting and monitoring custodian interactions across all the organization’s legal holds. If you are installing Legal Hold to take advantage of the communications and acknowledgments feature, it is recommended to put this in a workspace separate from your legal hold workspace. If you offer Legal Hold as a service for you clients, it is recommended to separate the workspaces per client.

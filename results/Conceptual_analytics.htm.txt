@@ -1,0 +1,69 @@
+
+Conceptual analytics
+Conceptual analytics helps you organize and assess the semantic content of large, diverse and/or unknown sets of documents. Unlike structured analytics, which relies on the specific structure of the content, conceptual analytics focuses on related concepts within documents, even if they don't share the same key terms and phrases. Using these features, you can cut down on review time by more quickly assessing your document set to facilitate workflow.
+After using structured data analytics to group your documents, you can run Analytics operations to identify conceptual relationships present within them. For instance, you can identify which topics contain certain issues of interest, which contain similar concepts, and/or which contain various permutations of a given term. 
+To run conceptual Analytics operations, you must first create an Analytics index. See Analytics indexes for more information.
+Conceptual analytics helps reveal the facts of a case by doing the following:
+
+Giving users an overview of the document collection through clustering
+Helping users find similar documents with a right-click
+Allowing users to build example sets of key issues
+Running advanced keyword analysis
+
+
+Watch the following What's New - Analytics video.
+
+
+See these related help topics:
+
+Repeated content filters
+
+Analytics indexes
+
+Analytics categorization sets
+
+Clustering
+
+Cluster visualization
+
+Concept searching
+
+Keyword expansion
+
+Find similar documents
+
+
+Structured analytics vs. conceptual analytics
+It may be helpful to note the following differences between structured analytics and conceptual analytics, as one method may be better suited for your present needs than the other.
+
+
+
+
+
+Structured analytics
+Conceptual analytics
+
+
+
+
+Takes word order into consideration
+
+
+Leverages Latent Semantic Indexing (LSI), a mathematical approach to indexing documents
+
+
+
+Doesn’t require an index (requires a set)
+	Requires an Analytics Index
+
+
+
+Enables the grouping of documents that are not necessarily conceptually similar, but that have similar content
+Uses co-occurrences of words and semantic relationships between concepts
+
+
+Takes into account the placement of words and looks to see if new changes or words were added to a document
+Doesn't use word order
+
+
+

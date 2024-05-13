@@ -1,0 +1,271 @@
+
+Searching with the Entity object and name normalization 
+This topic describes the types of searches you can conduct using the Entity object and Name Normalization results.
+Note the following special considerations:
+
+
+The quality of your searches is affected by the quality of your name normalization results. Please use the Name Normalization Quick Reference Guide to verify your Name Normalization results.
+
+
+You can only create the following searches after running the name normalization operation.
+
+
+Emails within a specific organization
+To find emails between individuals within a specific organization, use the Alias From and Alias Recipient fields along with the associated Alias From::Domain and Alias Recipient::Domain fields. You must conduct this search with a double negative in order to find documents that only include your selected organization.
+Notes: 
+You can use variations of this search to identify specific cross organization communications. You can also use variations of this search to  identify communications with outside counsel if you know the specific domain of outside counsel.
+There are scenarios where an alias doesn’t include a domain (ex. Proper names). In these scenarios, the following search will not include documents where those aliases are communication. Reach out to Relativity Support for alternative workflows to circumvent this issue.
+
+Create a search with the following conditions: 
+Note: Connect the search conditions as follows using Boolean operators: 1 AND 2 AND 3
+Condition 1
+
+
+Field: Alias From
+Operator: is set
+
+Condition 2
+
+
+Field: Alias From
+Operator:not these conditionsField: Alias From::Domain Operator: is notText: [Domain 1]
+
+Condition 3
+
+
+Field: Alias Recipient
+Operator:not these conditionsField: Alias Recipient::Domain Operator: is notText: [Domain 1]
+
+
+
+
+Breaking it down:
+
+Alias From::Domain==not this domain means someone without this domain is the sender
+Not these conditions [LINE ABOVE] means no domain other than this domain is the sender
+
+Communications between two specific individuals and no one else
+To find emails between two individuals and no one else, use the Entity From and Entity Recipient fields. You must conduct this search with a double negative in order to find documents where only your selected entities appear.
+Notes: 
+You can use variations of this search to identify communications where a specific entity is the only recipient, but the senders vary.
+You can also use variations of this search to exclude CC or BCC values.
+You can use the Entity Participant field to ensure no one else existed on the email thread.
+
+Create a search with the following conditions: 
+Note: Connect the search conditions as follows using Boolean operators and Logic Groups: 1 AND ((2 AND 3) OR (4 AND 5))
+Condition 1
+
+
+Field: Entity From
+Operator: is set
+
+Condition 2
+
+
+Field: Entity From
+Operator:not these conditionsField: Entity FromOperator: none of theseText: [Entity A]
+
+Note: This is a double-negative condition that will exclude everyone but Entity A. In other words, this condition will only allow emails sent by Entity A. When conditions 2 and 3 are combined, we have a holistic search condition for emails sent by Entity A and received by Entity B.
+Condition 3
+
+
+Field: Entity Recipient
+Operator:not these conditionsField: Entity RecipientOperator: none of theseText: [Entity B]
+
+Note: This is a double-negative condition that will exclude everyone but Entity B. In other words, this condition will only allow emails received by Entity B. When conditions 2 and 3 are combined, we have a holistic search condition for emails sent by Entity A and received by Entity B.
+Condition 4
+
+
+Field: Entity From
+Operator:not these conditionsField: Entity FromOperator: none of theseText: [Entity B]
+
+Note: This is a double-negative condition that will exclude everyone but Entity B. In other words, this condition will only allow emails sent by Entity B. When conditions 4 and 5 are combined, we have a holistic search condition for emails sent by Entity B and received by Entity A.
+Condition 5
+
+
+Field: Entity Recipient
+Operator:not these conditionsField: Entity RecipientOperator: none of theseText: [Entity A]
+
+Note: This is a double-negative condition that will exclude everyone but Entity A. In other words, this condition will only allow emails received by Entity A. When conditions 4 and 5 are combined, we have a holistic search condition for emails sent by Entity B and received by Entity A.
+
+
+
+Note: By combining the two logic groups above, we create a holistic set of search conditions that will return all emails sent from entity A to entity B as well as all emails sent from entity B to entity A.
+Breaking it down:
+
+Entity From==not this person means someone other than this person is the sender
+Not these conditions [LINE ABOVE] means nobody other than this person is the sender
+
+Communications between any two individuals and no one else
+To find emails between any two individuals and no one else, use the Email Recipient Count field created by Relativity Processing or the Delimiter Count by Saved Search script available on the Relativity Community site to count the number of recipients for each document.
+Create the following search:
+Field: Email Recipient Count
+Operator: is
+
+Text: 1
+
+
+
+
+Because an email always has a single sender, this search focuses on  finding emails that have just one recipient.
+Note: You can also use this search can to filter out email blasts by looking for documents where Email Recipient Count is greater than 20.
+Emails across entity metadata (such as departments)
+You can use any entity metadata field for advanced searching on documents. As an example, to find emails sent from the Finance department to the Human Resource department, you can use the Entity From::Department and Entity Recipient::Department fields.
+Notes: 
+You can use variations of this metadata search to identify conversations with attorneys (Job Title), between your Chicago and Hong Kong offices (Location), or between males and females (Gender), etc.
+You may need to edit the Entity field to set Open to Associations to Yes in order to search across it on the document object.
+Importing address book, Active Directory, or CRM information for each entity can give you more metadata to leverage when searching across documents.
+
+Create a search with the following conditions: 
+Note: Connect the search conditions as follows using a Boolean operator: 1 AND 2
+Condition 1
+
+This search indicates that a specific entity value is the sender of the document.
+
+Field: Entity From
+Operator: these conditionsField: Entity From::DepartmentOperator: isText: [Department 1]
+
+Condition 2
+
+
+Field: Entity Recipient
+Operator: these conditionsField: Entity Recipient::DepartmentOperator: isText: [Department 2]
+
+
+
+
+Emails sent from two different internal domains
+To find emails sent between two different internal domains, use the Alias From and Alias Recipient fields. Use the Text field to define each domain. The logic below pulls emails sent from Domain 1 to Domains 1 or 2 and emails sent from Domain 2 to Domains 1 or 2.
+Logic Group 1
+
+
+Condition 1
+
+Field: Alias From
+Operator: these conditions
+Operator: is
+Text: [Domain 1]
+
+
+Sub-logic Group 1B
+
+Condition 2
+
+Field: Alias Recipient
+Operator: not these conditions
+Field: Alias From::Domain
+Operator: is not
+Text: [Domain 1], [Domain 2]
+
+
+Condition 3
+
+Field: Alias Recipient
+Operator: these conditions
+Operator: is set
+
+
+
+
+
+Logic Group 2
+
+
+Condition 4
+
+Field: Alias From
+Operator: these conditions
+Operator: is
+Text: [Domain 2]
+
+
+Sub-logic Group 2B
+
+Condition 5
+
+Field: Alias Recipient
+Operator: not these conditions
+Field: Alias From::Domain
+Operator: is not
+Text: [Domain 1], [Domain 2]
+
+
+Condition 6
+
+Field: Alias Recipient
+Operator: these conditions
+Operator: is set
+
+
+
+
+
+Emails someone sent to themselves
+To find emails someone sent to themselves and nobody else, use the “Entity From” and “Entity Recipient” fields. You must conduct this search with a double negative in order to find documents that only include our selected entity.
+Note: This search may be impacted by whether you decided to group professional and personal aliases under a single entity or separate entities.
+Create a search with the following conditions: 
+Note: Connect the search conditions as follows using a Boolean operator: 1 AND 2 AND 3
+Condition 1 
+
+
+Field: Entity From
+Operator: these conditionsField: Entity FromOperator: is set
+
+Condition 2 
+
+This search indicates that someone other than this person is the sender. 
+
+Field: Entity From
+Operator: not these conditionsField: Entity FromOperator: none of theseText: [Entity 1]
+
+Search 3 
+
+
+Field: Entity Recipient
+Operator: not these conditionsField: Entity RecipientOperator: none of theseText: [Entity 1]
+
+
+
+
+Breaking it down:
+
+Entity From==not this person means someone other than this person is the sender
+Not these conditions [LINE ABOVE] means nobody other than this person is the sender
+
+Entities that communicated on privileged documents
+To find a list of entities that communicated on privileged documents, use the Entity Participant::Privilege Designation field on the Entity object (Entities tab). 
+Note: 
+You must edit the Privilege Designation field to set Open to Associations to Yes in order to search across it on the document object.
+You can use a variation of this search using the Participant field to return the entities that only sent or received privileged documents rather than participated in any segment of the document . 
+You can use variations of this search to return the entities that communicated on a document that have any specific attribute. For example, entities that communicated on Hot documents.
+
+Create the following search:
+
+Field: Entity Participant
+Operator: these conditionsField: Entity Participant::Privilege DesignationOperator: any of theseText: [Designation Type(s)]
+
+This search locates Entities that exist in the Entity Participant field of documents that have this specific value in the Privilege Designation field.
+
+
+
+Emails where a specific person drops off of a communication
+To find emails where a specific person dropped off an email chain, use the Entity From, Entity Recipient, and Entity Participant fields. This search finds all documents where the person appears in a lowers email segment within the document (Entity Participant), but not the top email segment (Entity From and Entity Recipient).
+Note: Adding multiple people to the search can cause documents to be missed. If you want to search for multiple people, create separate search cards for each person.
+Create a search with the following conditions: 
+Note: Connect the search conditions as follows using a Boolean operator: 1 AND 2 AND 3
+Condition 1
+
+Entity Participant (these conditions), Entity Participant (any of these [Entity 1])
+
+Field: Entity Participant
+Operator: these conditionsField: Entity ParticipantOperator: any of theseText: [Entity]
+
+Condition 2
+
+Entity From (not these conditions), Entity From (any of these [Entity 1])
+Condition 3
+
+Entity Recipient (not these conditions), Entity Recipient (any of these [Entity 1])
+
+
+

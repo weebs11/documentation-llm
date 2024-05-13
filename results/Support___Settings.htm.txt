@@ -1,0 +1,43 @@
+
+Mobile support and settings
+Switch your workspace, get mobile support and  update your RelativityOne mobile app settings in the More tab. Get support and update settings by tapping  . When in the More tab, tap Switch Workspace to do so, Support to contact Relativity Support or view documentation, Settings to change your passcode, or Logout to log out of the app. 
+
+
+
+Note: This functionality is not available in RelativityOne Government environments.
+Switching workspaces
+To switch workspaces while already in one, click More. In the More menu, tap the Switch Workspace to view a workspace list. Locate the workspace by searching or scrolling through the list. Tap on the desired workspace to open.
+(Click to expand)
+
+
+Support
+In the More tab, tap Support. There are multiple ways to find support for Relativity's mobile app:
+
+Contact Support - tap to open the Relativity Support page in a browser.
+View Mobile Documentation - tap to open the app's documentation on the RelativityOne user site.
+Share App Feedback - tap to open an email addressed to mobilefeedback@relativity.com.
+Send Issue Logs - tap to open an email that includes log files that provide Relativity engineers  information.
+
+Settings
+Updating your passcode
+
+RelativityOne's mobile app requires you to create a 6-digit passcode to secure the application prior to adding a Relativity account. The passcode must be all numbers.
+You are prompted to enter the passcode anytime you open RelativityOne's mobile app after:
+
+The device logs you out.
+The application timeout occurs.
+iOS notifications push you out of the application.
+
+To update your passcode, tap More. Tap Settings to open the new passcode number pad. Enter in a new passcode that is more than 6 characters into the text box. To confirm that this is the passcode you want, you will have to re-enter your passcode to confirm. With a successful match, this will be the passcode used when logging into RelativityOne's mobile app.
+Toggling Touch ID and Face ID
+Touch ID and Face ID is available with RelativityOne's mobile app, as long as it's first set on your device. To set up Touch ID or Face ID, you will need to navigate to your device's settings.  For more information on setting up Touch and Face ID on your iPad or iPhone, visit Apple support. 
+On your first  mobile app login, you're asked if you would like to use Touch ID or Face ID. Select Yes or No. To change your selection, you will need to navigate to the More tab. Once there, follow the steps below:
+
+Tap . 
+In More, tap Settings.
+Tap the Touch ID or Face ID toggle.
+
+The Touch ID and Face ID toggle is green when enabled. You can now use Touch ID or Face ID to log into RelativityOne's mobile app.
+Logout
+Tap the More tab and then tap the Log out button to log out of the application. Logging out returns you to the Instance URL page. 
+Note: Force closing the application, or hitting the Home button while in RelativityOne's mobile app, will not log out a user.

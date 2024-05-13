@@ -1,0 +1,487 @@
+
+Using regular expressions with structured analytics
+When running a structured analytics set for email threading or textual near duplication analysis, it's important to filter out extraneous text, such as Bates numbers, from each document.  Extraneous text causes emails that should be identified as duplicates to instead be identified as unique.  Likewise, when building a conceptual analytics index, extraneous text such as confidentiality footers shouldn't be included to train the system.
+By using regular expressions (RegEx), you can filter out extraneous text from structured analytics sets and conceptual analytics indexes.  Analytics uses Java's implementation of RegEx.
+Regular expressions provide a powerful method for removing extraneous text from your data set, ensuring that emails are threaded properly and textual near duplicates are identified accurately.
+Textual Analysis
+Extracted text is first sent to a pipeline where filters apply to the text. This process happens prior to submitting the extracted text to the Analytics engine for analysis. When you construct any RegEx to run with Analytics, it must match the text in the Analytics pipeline, not the text in the extracted text viewer.  
+Note: The extracted text for all documents transforms into one long string in the Analytics pipeline.
+Consider the following when matching your RegEx filter to how the text appears in the Analytics pipeline:
+Line breaks
+
+In pattern matching, the symbols “^” and “$” match the beginning and end of the full file, not the beginning and end of a line. If you want to indicate a line break when you construct your RegEx, use the sequence “\r\n”. Whether or not you will have line breaks in your expression depends on what you are trying to match. Line breaks can be useful “anchors” that define where some pattern occurs in relation to the beginning or end of a line. Note that some Analytics operations don’t pay attention to line breaks (e.g. textual near duplicate identification) while others are very sensitive (e.g. email header parsing in name normalization or email threading). The first image shows extracted text in the viewer followed by the same text in the Analytics pipeline.
+
+
+
+
+
+Spaces
+
+Any spaces in the extracted text greater than 1 space truncate to a single space in the pipeline. If you encounter a data set that contains multiple whitespace characters, you don't need to account for these when constructing your RegEx. The first image shows extracted text in the viewer followed by the same text in the Analytics pipeline.
+
+
+
+
+
+
+
+Create a sample set
+Before constructing any regular expressions to filter out extraneous text,  run a structured analytics set on a small sample of documents that contain extraneous text. This pushes text into the Analytics pipeline which allows you to get an idea of whether you are filtering out all the extraneous text. 
+RegEx metacharacters
+Metacharacters are the building blocks of regular expressions. Characters in RegEx are understood to be either:
+
+a metacharacter with a special meaning, or
+a regular character with its literal meaning
+
+View RegEx metacharacters examples
+
+
+
+
+
+
+
+Metacharacter
+Description
+Example
+
+
+
+
+\d
+Whole number 0 - 9
+
+\d\d\d = 327
+
+\d\d = 81
+
+\d = 4
+
+\d\d\d ≠  24631
+\d\d\d doesn't return 24631 because 24631 contains 5 digits.  \d\d\d only matches for a 3-digit string.
+ 
+
+
+
+
+\w
+Alphanumeric character
+
+\w\w\w = dog
+
+\w\w\w\w = mule
+
+\w\w = to
+
+\w\w\w = 467
+
+\w\w\w\w = 4673
+
+\w\w\w ≠  boat
+
+\w\w\w doesn't return boat because boat contains 4 characters.
+
+\w ≠  !
+
+\w doesn't return the exclamation point ! because it is a non-alphanumeric character.
+
+
+
+
+\W
+Symbols
+
+\W = %
+
+\W = #
+
+\W\W\W = @#%
+\W\W\W\W ≠  dog8
+
+\W\W\W\W doesn't return dog8 because d, o, g, and 8 are alphanumeric characters.
+
+
+
+
+\s
+Whitespace character
+
+dog\scat = dog cat
+
+\s matches for a single space.
+ 
+ \s only works in Analytics RegEx.  In dtSearch RegEx, \s doesn't return results.
+
+
+
+
+[a-z]
+[0-9]
+
+Character set, at least one of which must be a match, but no more than one unless otherwise specified. 
+The order of the characters doesn't matter.
+
+
+pand[ora] = panda
+
+pand[ora] = pando
+
+pand[ora] ≠  pandora
+pand[ora] doesn't bring back pandora because it is implied in pand[ora] that only 1 character in [ora] can return.
+
+
+
+
+
+
+RegEx groups
+With RegEx groups you can match for groups of characters within a string. The following table provides examples of how to use groups in your RegEx. Groups are most useful when you use them in conjunction with alternation and quantifiers.
+
+
+
+
+
+
+Metacharacter
+Description
+Example
+
+
+
+
+
+(abc)
+(123)
+
+Character group, matches the characters abc or 123 in that exact order.
+
+pand(ora) = pandora
+
+pand(123) = pand123
+pand(oar) ≠  pandora
+pand(oar) does not match for pandora because it's looking for the exact phrase pandoar.
+
+
+
+
+
+RegEx alternation and quantifiers
+You can set up your RegEx for alternate matches within a single search string via the pipe (|) alternation metacharacter. RegEx uses quantifiers to indicate the scope of a search string. You can use multiple quantifiers in your search string. 
+View RegEx alternation and quantifier examples
+
+The following table provides examples of the alternation metacharacter and quantifier metacharacters. 
+
+
+
+
+
+
+Metacharacter
+Description
+Example
+
+
+
+
+|
+Alternation. | operates like the Boolean OR.
+
+pand(abc|123) = pandabc OR pand123
+Although you can only apply one RegEx filter to a structured analytics set, you can insert more than one regular expression in the filter by using the pipe character |.
+
+
+
+
+?
+Question mark matches when the character preceding ? occurs 0 or 1 time only, making the character match optional.
+
+colou?r = colour (u is found 1 time)
+
+colou?r = color (u is found 0 times)
+
+
+
+
+*
+
+Asterisk matches when the character preceding * matches 0 or more times.
+Note: * in RegEx is different from * in most standard searches.  RegEx * is asking to find where the character (or grouping) preceding * is found ZERO or more times.  In most standard searches, the * acts as a wildcard and is asking to find where the string of characters preceding * or following * is found 1 or more times.
+
+
+tre*= tree (e is found 2 times)
+
+tre* = tre (e is found 1 time)
+
+tre* = tr (e is found 0 times)
+
+
+tre* ≠  trees
+tre* doesn't match the term trees because although "e" is found 2 times, it is followed by "s", which isn't accounted for in the RegEx.
+
+
+
+
++
+Plus sign matches when the character preceding + matches 1 or more times. The + sign makes the character match mandatory.
+
+tre+ = tree (e is found 2 times)
+
+tre+ = tre (e is found 1 time)
+tre+ ≠  tr (e is found 0 times)
+tre+ doesn't match for tr because e is found zero times in tr.
+ 
+
+
+
+
+. (period)
+The period matches any alphanumeric character or symbol.
+
+ton. = tone
+
+ton. = ton#
+
+ton. = ton4
+
+ton. ≠  tones
+ton. doesn't match for the term tones because . by itself  only matches for a single character, here, in the 4th position of the term. In tones, s is the 5th character and isn't accounted for in the RegEx.
+
+
+
+
+.*
+
+Combine the metacharacters . and *, in that order .* to match for any character 0 or more times.
+Note: 
+ 
+ .* in RegEx is equivalent to dtSearch wildcard * operator.
+
+
+
+tr.* = tr
+
+tr.* = tre
+
+tr.* = tree
+
+tr.* = trees
+
+tr.* = trough
+
+tr.* = treadmill
+
+
+
+
+{n}
+Matches when the preceding character, or character group, occurs n times exactly.
+
+\d{3} = 836
+
+\d{3} = 139
+
+\d{3} = 532
+pand[ora]{2} = pandar
+
+pand[ora]{2} = pandoo
+
+pand(ora){2} = pandoraora
+
+pand[ora]{2} ≠  pandora
+pand[ora]{2} doesn't match for pandora because the quantifier {2} only permits for 2 letters from the character set [ora].
+ 
+
+
+
+
+{n,m}
+Matches when the preceding character, or character group, occurs at least n times, and at most m times.
+
+\d{2,5} = 97430
+
+\d{2,5} = 9743
+
+\d{2,5} = 97
+\d{2,5} ≠  9
+9 does not match because it is 1 digit, thus outside of the character range.
+
+
+
+
+
+
+
+RegEx flags
+With RegEx flags you can change how a particular string gets interpreted. RegEx flags only work in Analytics, not in dtSearch. While there are various RegEx flags, the following example focuses on the flag for forcing a case-insensitive match. This is important because text in the Analytics pipeline retains case.
+
+
+
+
+
+
+Flag
+Description
+Examples
+
+
+
+
+(?i)
+Forces a case insensitive match.
+
+(?i)(acme) = ACME
+
+(?i)(acme) = Acme
+
+(?i)(acme) = acme
+
+
+
+
+
+By default, Analytics RegEx employs global matching. There is no need to turn on the global searching flag (?g). With global matching, a single RegEx filters out multiple terms in a document's extracted text that match a particular pattern, not just the first instance of that pattern.
+Escaping RegEx metacharacters
+When using RegEx to search for a character that is a reserved metacharacter, use the backslash \ to escape the character so it can be recognized. The following table gives an example on how to escape a reserved metacharacter when searching.
+
+
+
+
+
+
+Search for
+RegEx
+Match results
+
+
+
+
+International phone number (UK)
+\+[0-9]{12}
+
++447700900954
+
++447700900312
+
+
+If the + sign is not escaped with a backslash, RegEx treats + as a quantifier instead of the literal plus sign character.
+
+
+
+
+
+Analytics RegEx filter examples
+The following table provides common examples of extraneous text and the corresponding RegEx that filter out extraneous text.
+
+
+
+
+
+
+Extraneous text
+Examples
+RegEx filter
+
+
+
+
+Bates numbers with specific # of digits following Bates prefix
+
+ACME028561
+
+Acme373894
+
+acme
+
+
+
+(?i)(acme[0-9]{6})
+This RegEx matches for the Bates prefix ACME, regardless of case, followed by 6 digits.
+
+
+
+
+Bates numbers with different # of digits, some with spaces between Bates prefix and numbers
+
+ACME 123456
+ACME012345678
+
+Acme      794028475612 
+
+acme 012
+
+
+
+(?i)(acme\s?[0-9]+)
+This RegEx matches for the Bates prefix ACME, regardless of case, followed by any number of digits. Recall that whitespace characters in the extracted text truncate to a single space in the Analytics pipeline.
+
+
+
+
+Confidentiality footers
+This message and any attached documents contain information which may be confidential, subject to privilege or exempt from disclosure under applicable law. These materials are intended only for the use of the intended recipient. If you are not the intended recipient of this transmission, you are hereby notified that any distribution, disclosure, printing, copying, storage, modification or the taking of any action in reliance upon this transmission is strictly prohibited.
+
+
+(?i)(This message and.*?strictly prohibited\.?)
+This RegEx matches for a footer block that begins with the phrase "This message and", along with any text that follows this phrase, up to the next instance of the phrase "strictly prohibited", with or without a period at the end of the footer block.
+
+
+
+
+Combination of different Bates numbers and Confidentiality footers
+
+ENRON 123456
+enron123456789
+
+Acme     13894037
+
+ACME003846
+
+This message and any attached documents contain information which may be confidential, subject to privilege or exempt from disclosure under applicable law. These materials are intended only for the use of the intended recipient. If you are not the intended recipient of this transmission, you are hereby notified that any distribution, disclosure, printing, copying, storage, modification or the taking of any action in reliance upon this transmission is strictly prohibited.
+
+
+
+
+(?i)(enron\s?[0-9]+)|(acme\s?[0-9]+)|(This message and.*?strictly prohibited\.?)
+ 
+The alternation metacharacter | permits multiple regular expressions in a single RegEx filter. Also, even though you are constructing 3 RegEx's, you only need to apply (?i) once at the beginning of the RegEx string to force a case insensitive match across all 3 RegEx's.
+
+
+
+
+
+RegEx: dtSearch vs. structured analytics
+The following table outlines the differences between how RegEx operates in structured analytics versus dtSearch.
+
+
+
+
+
+dtSearch
+Analytics
+
+
+
+
+Uses TR1 implementation of RegEx.
+Uses JAVA implementation of RegEx.
+
+
+All characters in a dtSearch index are normalized to lower case.  A dtSearch RegEx must contain lower case characters only.
+Case is preserved in the Analytics pipeline.  Use the flag (?i) to force case insensitive pattern match.
+
+
+Spaces do not exist in dtSearch, but are instead interpreted as word breaks.  The metacharacter \s will never match and return no results.
+Any spaces are normalized to single space.  The metacharacter \s matches for a space.
+
+
+Need to encapsulate RegEx string with "##" so that it can be recognized as a regular expression.
+No need to add special syntax for RegEx string to be recognized as a regular expression.
+
+
+
+
+RegEx anchors \b, ^, and $ do not work in dtSearch.
+You can use RegEx anchors to match for positions in a string.
+
+
+

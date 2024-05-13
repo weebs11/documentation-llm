@@ -1,0 +1,177 @@
+
+
+Analytics
+Structured Analytics, Conceptual Analytics, and Sentiment Analysis are Relativity tools that enable you to categorize your documents and automate the review process while minimizing the time your review team would otherwise spend coding irrelevant documents in your document set.
+Read an Analytics scenario
+
+
+Using Analytics
+You’re a system admin at a law firm and one of your clients, a construction company, is involved in litigation regarding the use of materials that they weren’t informed were potentially environmentally damaging when they purchased them from a major supplier.
+In the past, you’ve conducted a linear review for projects of a similar nature. This case, however, is the largest you’ve seen, as it includes 7 TB of data comprised of 11.6 million documents. These documents are primarily email attachments, but they also include 20 MB of technical manuals related to construction practices and material handling.
+Your goal is to organize and assess the semantic content of this large data set, saving your firm as much money as possible in the process. To do this, you’re going to leverage Relativity’s structured analytics options, build an Analytics profile, and create and build an Analytics index, which you’ll eventually use as the basis for an Assisted Review project.
+
+
+
+
+
+
+
+
+
+
+ Structured Analytics
+Structured  analytics
+
+Running structured analytics
+
+Analytics profiles
+
+Email threading
+
+
+
+Inclusive emails
+
+
+
+Email threading results
+
+
+
+Email thread visualization
+
+
+
+Name normalization
+
+
+
+Name normalization results
+
+
+
+Best practices for name normalization
+
+
+
+Running name normalization on email headers
+
+
+
+Alias object
+
+
+
+Communication Analysis
+
+
+
+Textual near duplicate identification
+
+
+
+Textual near duplicate identification results
+
+
+
+Using near duplicate analysis in review
+
+
+
+Language identification
+
+
+
+Language identification results
+
+
+
+Supported email header formats
+
+Repeated content filters
+
+Using regular expressions with structured analytics
+
+
+
+Conceptual Analytics
+Conceptual analytics
+
+Analytics indexes
+
+Analytics categorization sets
+
+Repeated content filters
+
+Sampling for repeated content
+
+Clustering
+
+Cluster visualization
+
+Concept searching
+
+Keyword expansion
+
+Find similar documents
+
+Solving review case challenges with Analytics
+
+
+
+Sentiment Analysis
+Sentiment analysis
+
+Sentiment analysis results
+
+Sentiment analysis security permissions
+
+
+
+
+
+Knowledge base articles
+Analytics - creating an optimized index
+
+Sentiment Analysis Workflows and Fields Overview
+
+Estimating diskspace utilization for databases and indexes
+
+Use case for Analytics - clustering and categorization
+
+Using categorization to identify hot documents
+
+Analytics - Support for CJK and other non-English Languages
+
+
+
+On-demand training
+Analytics Index Building: Beyond the Basics
+
+Creating a Conceptual Analytics Index
+
+Discussion of Near Duplicate Identification
+
+Email Thread Visualization & Workflows
+
+Email Threading Deep Dive
+
+Getting the Most out of Cluster Visualization
+
+Language and Repeated Content Identification
+
+Name Normalization Basics
+
+Using Cluster Visualization on Dashboards
+
+Using Email Thread Visualization
+
+
+
+White papers
+Sentiment Analysis: Relativity’s Approach to Developing Responsible AI Solutions for e-Discovery and Investigation
+
+
+
+
+

@@ -1,0 +1,101 @@
+
+Installing Legal Hold
+To use Legal Hold, you need to install the Legal Hold application to one or more workspaces.
+For more information on prerequisites, technical requirements, and other considerations, see the links below.
+
+
+RelativityOne Hold and Collect workspace template
+
+
+
+SMTP email settings requirements
+
+
+
+Data sources
+
+
+
+Legal Hold 
+
+
+
+For customers who are using Legal Hold to manage their own legal holds, it is recommended to install the program to one workspace. This allows for the consolidation of reporting and monitoring custodian interactions across all the organization’s legal holds. 
+If you are installing Legal Hold to take advantage of the communications and acknowledgments feature, it is recommended to put this in a workspace separate from your legal hold workspace. 
+If you offer Legal Hold as a service for you clients, it is recommended to separate the workspaces per client.
+Use the following procedures to install Legal Hold:
+
+Install the RelativityOne Hold and Collect template. See RelativityOne Hold and Collect template.You can also install the Relativity Legal Hold application from either the Application Library or an external file. See Install Legal Hold from the Application Library .
+Add the Legal Hold Agent. See Adding the Legal Hold agent.
+Configure Legal Hold. See Installing Legal Hold.
+
+Installing Legal Hold
+You have the option to install the RelativityOne Hold and Collect template or install the application from the Application Library.
+RelativityOne Hold and Collect template
+We recommend using the RelativityOne Hold and Collect Template.  The template has both applications installed and it has been optimized for Legal Hold and Collect users. For more information, see RelativityOne Hold and Collect workspace template.
+You also have the option of using the Relativity Base Template, since the following features are not required:
+
+Analytics server setup
+Database server for processing or native imaging
+Worker server for processing or native imaging
+Obtaining applications for native imaging and processing
+
+Install Legal Hold from the Application Library 
+Since Legal Hold uses the ADS framework, you have the option of adding the Legal Hold application to the Application Library, after which you can install it to the current workspace from the library. The templates referred to above are recommended over using the application library method.
+ See Relativity applications.
+
+Navigate to the workspace where you want to install the application.
+Navigate to the Relativity Applications tab.
+Click New Relativity Application to display an application form.
+Click the Select from Application Library radio button in the Application Type section.
+Click  in the Choose from Application Library field.
+Select Relativity Legal Hold on the Select Library Application dialog. This dialog only displays applications added to the Application Library. If Relativity Legal Hold is not included in the list, see Installing applications.
+Click Ok to display the application in the Choose from Application Library field. The application form also displays the following fields:Version—displays the version of the application that you are installing.User-friendly URL—displays a user-friendly version of the application's URL. This field may be blank.Application Artifacts—displays object types and other application components.Map Fields—there are no fields available in Relativity Legal Hold for mapping.
+Click Import to install Legal Hold into the workspace.
+Review the import status of the application. Verify that the install was successful or resolve errors. See Viewing import status and Troubleshooting application installation errors.
+
+Adding the Legal Hold agent
+After you install Relativity Legal Hold, add the Relativity Legal Hold Agent by going to the Agents tab in the Admin level and clicking New Agent. Add at least one Legal Hold agent and one Legal Hold Preservation agent, if using preservation holds, per environment. Add more as needed.
+Verify the Enable column displays Yes for the Relativity Legal Hold Agent. 
+
+
+
+
+
+
+
+Agent name
+Requirement information
+Function
+Agent type
+
+
+
+
+Relativity Legal Hold Agent
+At least one per environment. Note: You can add more agents to allow simultaneous jobs to run. You may also need more agents if you frequently multitask several Legal Hold actions at once, project deletions, send emails.
+Sends emails, including reminder and escalation, pulls emails in from custodian responses and purges custodians from a project.
+Multiple-installation
+
+
+Relativity Legal Hold Preservation Agent
+At least one per environment. Note: If multiple preservations are to be created, create more than one preservation agent. 
+
+Performs all Microsoft 365 Preservation-related work. 
+The agent creates an Microsoft 365 eDiscovery Case, holds and assigns mailboxes and OneDrive URLs of corresponding Custodians. The agent job removes corresponding Custodians from Micsofot 365 Hold. 
+Agent job deletes corresponding Microsoft 365 Case when Project is closed.
+Agent job collects information about existing legal hold and Microsoft 365 holds and updates state and property information in Legal Hold.
+Agent job sends alert per settings if any modifications found on Microsoft 365 site which does not correspond to Relativity Legal Hold settings.
+Agent job sends emails per settings if Custodian is placed/removed on/off Hold.
+Agent job for preservation in place manager is created on application install or upgrade and refreshed when Preservation Case Environment RDO is saved to update Agent run interval.
+
+Multiple-installation
+
+
+
+Configuring Legal Hold
+Before configuring Legal Hold, gather your SMTP information. For more information, see Legal Hold SMTP information. 
+To configure Legal Hold, access the Legal Hold Settings tab. For more information, see Adding legal hold settings.
+Post-installation verification test
+As a best practice, you should confirm that your Legal Hold application is functioning properly after an initial installation or an upgrade. We provide step-by-step instructions in the following Word document for performing a post-installation verification test in your Relativity environment.
+Click here or the following image to download the Legal Hold Post-Installation Verification Test document.

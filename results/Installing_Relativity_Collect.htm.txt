@@ -1,0 +1,104 @@
+
+Installing Collect
+You can install Collect in a workspace by using the functionality available through the Application Deployment System (ADS). This system provides you with the option to install Collect by selecting it from the list of existing applications in the Application Library tab or by importing it from an external application file. 
+To install Collect, install Collect from the Application Library tab and, if required, enable access for the data source. 
+Confirm that you have the appropriate system admin permissions to install an application. See Workspace security.
+See these related pages:
+
+Matters
+
+Data sources
+
+Collection
+
+
+System requirements for Collect
+Collect uses the ADS framework, so you install it as an application within a Relativity instance. Consequently, Collect has the same system requirements as RelativityOne. See User software requirements.
+Installing Collect
+Collect is compatible with RelativityOne.  See Getting started in RelativityOne for requirements. 
+For a Collect-only installation, you do not need the following pre-requisities:
+
+Analytics server setup
+Database server for processing or native imaging
+Worker server for processing or native imaging
+Obtaining applications for native imaging and processing
+
+Because Collect uses the ADS framework, you can install through the Relativity Application tab from the library. See Installing Collect from the application library.
+Note:  You configure security permissions on Collect just as you would for any other Relativity application. See Workspace security.
+Installing Collect from the application library
+If Collect is in the application library, you can install it to the current workspace. Confirm that you have the appropriate system admin permissions to install an application. See Collect.
+Note: Analytics, Case Dynamics, Collect, Legal Hold, and Processing all share the Entity object. You may be prompted to complete additional steps to unlock and resolve conflicts of the listed applications in order to complete installation. 
+Use the following procedure to install Collect from the application library:
+
+Navigate to the workspace where you want to install the application.
+Navigate to the Application Admin tab.
+Click New Relativity Application to display an application form.
+Click the Select from Application Library radio button in the Application Type section.
+Click  in the Choose from Application Library field.
+Select Collect on the Select Library Application dialog. This dialog only displays applications added to the Application Library. If Collect is not included in the list, see Installing applications.
+Click Ok to display the application in the Choose from Application Library field. The application form also displays the following fields:Version—displays the version of the application that you are installing.User-friendly URL—displays a user-friendly version of the application's URL. This field may be blank.Application Artifacts—displays object types and other application components.Map Fields—there are no fields available in Collect for mapping.
+Click Import to install Collect into the workspace.
+Review the import status of the application. Verify that the install was successful or resolve errors. See Viewing import status and Troubleshooting application installation errors.
+
+Permissions to run Collect
+The following security permissions are required to run and complete the collection process:
+
+
+
+
+
+
+Object Security
+Tab Visibility
+Other Settings
+
+
+
+
+
+
+Collection – View, Edit, Add
+Collection Detail Custodian – View, Edit, Add
+Collection Detail Custodian Target – View, Edit, Add 
+Collection Detail Custodian Target Result – View, Edit, Add
+Collection Detail Request – View, Edit, Add
+Collection Detail Source Instance – View, Edit, Add
+Collection Detail Source Type – View, Edit, Add
+Collection Detail Summary – View, Edit, Add
+Collection Matter – View, Edit, Add
+Collection Source Instance – View, Edit, Add 
+Collection Source Instance Parameter – View, Edit, Add 
+Collection Source Type – View, Edit, Add 
+Collection Source Type Parameter Type – View, Edit, Add
+Collection Source Type Criteria – View, Edit, Add 
+Custodian Target – View, Edit, Add
+Entity – View, Edit, Add
+Custom – View, Edit, Add
+
+
+
+
+
+Entities
+
+Collect
+
+Matters
+Custodian Targets
+Collections
+Status Summary
+Target Status
+Collection Admin
+Monitor
+
+
+
+
+
+
+None
+
+
+
+
+

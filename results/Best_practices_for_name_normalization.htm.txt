@@ -1,0 +1,112 @@
+
+Best practices for name normalization
+This topic provides best practices for setting up a structured analytics set to run name normalization.
+See these related pages:
+
+Name normalization
+
+Name normalization results
+
+Running name normalization on email headers
+
+
+Pre-work
+Before running name normalization, do the following:
+
+Set up or import known aliases and entities before running the structured analytics set.
+            
+ Link all of the known aliases to known entities using the mass-action Assign to Entity.
+            
+ Use the Classification field to tag the entities based on the features they will be used in (such as Collect, Legal Hold, Processing or Case Dynamics). This classification makes it easier to filter Entities after the structured analytics set has run. For more details, see Adding a Classification value for Legal Hold.
+            
+
+Setting up the structured analytics set
+Use the following best practices when setting up your structured analytics set:
+
+Name normalization runs on email data. We recommend that you exclude non-email data from your saved search, as it will be ignored.
+We recommend turning on Analyze topmost email only and Use email header fields for best results. For more information, see Running name normalization on email headers.
+
+
+If email metadata fields are not available, name normalization parses the email headers embedded in the field you choose under Select field to analyze. Make sure the field you choose displays the expected extracted text.Documents that have been scanned and OCR'd might have text stored in the OCR Text field instead of the Extracted Text field.Documents in non-English languages may have English translation data stored in a translated text field instead of the Extracted Text field.
+
+Note: For help modifying your workflow to handle unusual scenarios, use the Customer Support form to submit a request for assistance.
+Dealing with mixed-language data sets
+Consider the following when dealing with data sets containing multiple languages:
+
+While most processing tools will render top level headers in English, emails with headers in unsupported languages might achieve only a partial level of name normalization.
+If your data set contains multiple languages, please refer to Supported email header formats to check if the headers in the specific languages in your data set are supported.
+Consider removing the data with unsupported headers from your data source for optimal results.
+If you are not sure which languages your data set includes, consider running language identification on the data set before running it through name normalization.
+More details on running language identification can be found under Language identification.
+
+Mapping fields
+When mapping the fields on the Analytics profile, we recommend that you map non-SMTP email header fields. These use extended email addresses, which include the proper name followed by the email address. This allows the system to generate three types of aliases (proper name, email address, and extended email address) and link them to the entity.
+The following table shows the difference between SMTP and non-SMTP field types. 
+
+
+
+
+
+
+
+Processing/source field name
+Field type
+Description
+Example
+
+
+
+
+BCC
+
+Long Text
+The name(s) (when available) and email address(es) of the Blind Carbon Copy recipient(s) of an email message.
+Capellas Michael D. [Michael.Capellas@COMPAQ.com]
+
+
+BCC (SMTP Address)
+
+Long Text
+The full SMTP value for the email address entered as a recipient of the Blind Carbon Copy of an email message.
+Michael.Capellas@COMPAQ.com
+
+
+CC
+
+Long Text
+The name(s) (when available) and email address(es) of the Carbon Copy recipient(s) of an email message.
+Capellas Michael D. [Michael.Capellas@COMPAQ.com]
+
+
+CC (SMTP Address)
+
+Long Text
+The full SMTP value for the email address entered as a recipient of the Carbon Copy of an email message.
+Michael.Capellas@COMPAQ.com
+
+
+
+Identifying a priority custodian
+We recommend identifying the priority custodian alone at first, then identifying other custodians in a subsequent structured analytics job. Because the data set for a single custodian is smaller, clean-up will be easier.
+
+When performing the quality control tasks, open the entities and aliases and verify that the associated documents are correct.
+Perform any clean up tasks such as merging entities or re-assigning aliases to the correct entity.
+Add more custodians to your data source, incrementally populate the structured analytics set, and repeat the exercise for the other custodians.
+
+Handling unclear or unexpected results
+If the initial structured analytics job produced unexpected results, try either of the following options:
+
+Delete all resulting aliases and re-run the structured analytics set. Deleting all aliases at once is faster than deleting only a few.
+Create your own custom categories, then assign entities to these categories in order to sort them during cleanup. Some examples are:Junk – entities that are known to be junk.To Check – entities with possible custodian names.Not Sure – entities to revisit later if required.
+
+Alternative workflow using regular expressions (RegEx) 
+A complex data set can cause unexpected results even when you have applied best practices. Some common reasons are:
+
+
+Using a mix of many languages, which makes it difficult to remove documents from the data source.
+
+
+Using a comma as a delimiter for recipient lists instead of a semicolon.
+
+
+If you keep having unexpected results, consider using RegEx for an alternate workflow that parses only the top-level headers. For details, see Using regular expressions to force metadata use. 

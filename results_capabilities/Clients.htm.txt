@@ -1,0 +1,74 @@
+
+
+
+
+
+
+
+
+
+
+
+Clients
+Clients are companies or organizations. In Relativity, link clients with associated users, matters, groups, and workspaces.
+
+
+
+This page contains the following sections:
+
+Creating or editing a client
+
+Enabling client domains on a client
+
+
+Read a clients scenario
+
+
+Using clients
+
+The company, Cloud Gate, Inc., just hired you for their case Cloud Gate, Inc. vs. Chicago. As the system admin, it’s your job to set up the workspaces and prepare the system for document review. The first step is creating the client. Since Cloud Gate, Inc. hired you, you click Create New Client in the Client tab and name the client “Cloud Gate, Inc." This client relates directly to the matter you create next. 
+Cloud Gate's case is just one of many your firm is in the process of handling, so you also track the status of the case with the Status field. When Cloud Gate's casework is complete, you switch the client's status to "Inactive" so you can focus your attention on other cases that are currently in progress.
+
+
+
+Creating or editing a client
+To create a client or edit information for an existing client, perform the following steps:
+
+Select the Clients tab and then click New Client to create a new client, or click Edit next to the client whose information you want to edit. The New Client form appears.
+Note: If your Clients tab view list does not contain the Edit field, you can add it.
+Complete the fields on the form. See Fields. 
+Click Save. You can optionally enable tenancy on the client. 
+
+Fields
+The following fields display on the Client Information form. Fields in orange are required.
+
+Name - the name of the client. The name must be between 1 and 210 characters.
+Client Number - the billing number for the client. This value must be between 1 and 50 characters.
+Status - the current status of the client. The default options are active or inactive, but you can add any status value. Use the status value to organize and display lists of clients using Relativity views. See Views.
+
+
+Watch the Creating Clients, Matters and Workspaces video for more information.
+
+
+Enabling client domains on a client
+Note: This feature was formerly referred to as multi-tenancy. For more information, see Client domains.
+Note: You cannot convert an existing client to a client domain. 
+To request a new client domain, you must submit a RelativityOne request via the Community site by navigating to the Support tab and then RelativityOne requests (as detailed in the following knowledge article). Please note that the Client Domain creation process takes 3 business days. If an Utility Server was requested, you will also be contacted with the following information:
+
+IP address to the new client domain Utility Server.
+Client domain user credentials to the new Utility Server.
+
+The following things occur automatically after client domains are enabled:
+
+The system creates a new Everyone - [Client's Name] group and adds that group to the client domain. Only users whose client field is set to the client domain are included in the client domain everyone group. The system also removes those users from the default Relativity Everyone group. A system admin can add any users to any group regardless of client domain status.
+
+Note:  The Everyone - [Client's Name] group should not be assigned as the workspace administrator group for a given workspace that is part of a Client Domain.
+
+The system creates a unique copy of all resource pools associated with any workspaces under the client domain.
+
+Note: Permissions assigned to groups override client domain isolation. If a non-client domain group has permissions to see a client domain's workspace or users, then those non-client domain users in the non-client domain group can still access client domain items. Enabling client domains does not change previously configured item level security settings applied to any objects within the client domain.
+
+The system creates a client domain admin group that permits its members to perform admin operations within the client domain.
+The  Billing statistics - RelativityOne - case rollup and Billing statistics - users  reports include columns called Client Domain Name and Client Domain Artifact ID. These columns display client name and artifact ID when you enable client domains for a client.
+
+Note: After enabling client domains, system administrators needing to make group or permission changes should be extra cautious and thoroughly investigate the potential impact to client domain separation before implementing any new group/permission changes.

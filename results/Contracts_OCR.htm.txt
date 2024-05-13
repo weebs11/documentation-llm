@@ -1,0 +1,70 @@
+
+Contracts OCR
+To access the Contracts Image Viewer and functions such as search and navigation, you must run Contracts OCR. Contracts must have information about the location of words in the extracted text so that it can map text to image and highlight the image accurately.
+Prerequisites
+Before running Contracts OCR:
+
+You must run Relativity Imaging and successfully generate images for the document. 
+
+If no images are present, there is nothing for Contracts to OCR. For more information on how to run imaging in Relativity, see Imaging.
+The Contracts Extracted Text field must be empty. Contracts does not run OCR on documents that have this field already populated.
+
+Running Contracts OCR
+To run Contracts OCR:
+
+Go to the Contracts OCR Sets tab.
+Click New Contracts OCR Set.
+Name your Contracts OCR Set.
+For Data Source, select a saved search to run OCR on.
+Select whether to Auto-Rotate Images or Auto-Flatten Columns for double column contracts.
+Select the Language you want the OCR engine to recognize.
+Contracts OCR supports the following languages in addition to English:ArabicItalianChinese (simplified)JapaneseDutch (Flemish)KoreanFrenchPortugueseGermanSpanish (Castilian)Note:  If there are multiple languages within a document, the OCR engine will only recognize the language selected when creating the OCR set.
+Click Save.
+Click Run OCR in the right console.
+If there are errors, you can click the Download Errors link in the right console to download them.
+
+Fields auto populated by Contracts
+Below is a list of all fields that Contracts will auto populate when you run imaging and OCR.
+
+
+
+
+
+
+ 
+Field type
+Field auto population
+
+
+
+
+Contracts Extracted Text
+Long-text
+Auto populated with the full extracted text of the document.
+
+
+
+Contracts OCR Confidence
+Decimal
+Auto populated with a number between 0 and 100 signifying Contract's confidence in the OCR quality.
+
+
+
+Note: If you run imaging and OCR and later edit the values of the below fields, running imaging and OCR again will replace your manual edits.
+Image pre processing
+There are two imaging pre processing options—image auto rotation and column auto flattening.
+Image auto rotation
+If you select this option, Contracts will detect pages to rotate and will auto rotate them 90, 180, or 270 degrees to the correct orientation. This will result in more accurate OCR. It will also add time to analysis per rotated page, but not per page with the correct orientation.
+This will also rotate the image itself stored in Relativity so that in the Contracts Viewer, all auto rotated images will display with the correct orientation, including thumbnails.
+Note: Auto rotation works for pages rotated incorrectly by 90, 180, or 270 degrees, but not for skewed or tilted pages.
+Column auto flattening
+You can flatten double-column formatted contracts  to one column during imaging and OCR. This results in more accurate OCR, but will add time to analysis per flattened page. 
+To run column auto flattening and image auto rotation:
+
+Open the Contracts OCR Sets tab.
+Click the Edit button next to the OCR set you are working with.
+Navigate to the Image Pre-processing section and check the Auto-Rotate Images and Auto-Flatten Columns buttons.
+Click Save.
+Click Run OCR on the Management Console.
+
+The status of the document will appear under Processing Status. Once complete, click the Refresh button to refresh the page and view your rotated document.

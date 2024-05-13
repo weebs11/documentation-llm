@@ -1,0 +1,163 @@
+
+aiR for Review security permissions
+This page contains information on the security permissions required for interacting with aiR for Review. For more information on setting permissions, see Workspace security.
+Note: aiR for Review is currently in limited release. For information about the general release, contact your account representative.
+See these related pages:
+
+aiR for Review
+
+Running aiR for Review
+
+Monitoring aiR for Review jobs
+
+aiR for Review results
+
+
+Running the aiR for Review mass action
+To run the aiR for Review mass action, you need the following permissions:
+
+
+
+
+
+Object Security
+Other Settings
+
+
+
+
+
+
+aiR for Review Profile - View, Edit, Add
+
+
+
+
+Mass Operations - aiR for Review
+
+
+
+
+
+You must also belong to at least one user group other than the Workspace Admin Group.
+Viewing the aiR for Review Jobs tab
+There are two versions of the aiR for Review Jobs tab: one at the instance level, and one at the workspace level. The instance-level tab shows all jobs across all workspaces, and it includes several extra columns to identify the workspace, matter, and client connected to each job.
+The following permissions allow users to see the job list and click on each job to view Prompt Criteria details. Users with access to this tab can also cancel in-progress jobs.
+Instance-level permissions
+To view the instance-level aiR for Review Jobs tab, you need the following permissions:
+
+
+
+
+
+Object Security
+Tab Visibility 
+
+
+
+
+
+
+Admin Repository - View
+aiR for Review Prompt Criteria - View
+
+
+
+
+aiR for Review Jobs
+
+
+
+
+
+Assign these permissions under the Instance Details tab.
+Viewing Prompt Criteria at the instance level
+To view Prompt Criteria details for a job, you also need some permissions within that job's workspace:
+
+You must belong to more than just the Workspace Admin Group within the workspace.
+You must have aiR for Review Prompt Criteria - View rights within that job's workspace.
+
+If you do not have these, you will be able to see jobs from that workspace, but you will not be able click on those jobs to view their Prompt Criteria.
+You can also use item-level permissions to restrict access to a specific job's aiR for Review Prompt Criteria. For more information, see Levels of Security in Relativity.
+Workspace-level permissions
+To view the workspace-level aiR for Review Jobs tab, you need the following permissions:
+
+
+
+
+
+Object Security
+Tab Visibility 
+
+
+
+
+
+
+aiR for Review Prompt Criteria - View
+
+
+
+
+aiR for Review Jobs
+
+
+
+
+
+Assign these permissions under the Workspace Details tab within the chosen workspace.
+You can also use item-level permissions to restrict access to a specific job's aiR for Review Prompt Criteria. For more information, see Levels of Security in Relativity.
+Clearing and restoring job results
+To clear or restore job results using the aiR for Review Jobs tab, you need the following permissions:
+
+
+
+
+
+Object Security
+Tab Visibility 
+
+
+
+
+
+
+Document - View, Edit
+aiR Relevance Analysis - View, Edit
+aiR Issue Analysis - View, Edit
+aiR Key Analysis - View, Edit
+
+
+
+
+aiR for Review Jobs
+
+
+
+
+
+If you have Edit permissions for only one of the analysis types, you will only be able to clear or restore results of that type.
+For more information on clearing and restoring results, see Managing jobs and document linking.
+Viewing highlights in the Viewer
+To  see aiR for Review results highlighted in the Viewer, you need the following permissions:
+
+
+
+
+Object Security
+
+
+
+
+
+
+aiR Relevance Analysis - View
+aiR Issue Analysis - View
+aiR Key Analysis - View
+
+
+
+
+
+If you only have access to some of these, you will only see highlighting for those analysis types.
+ 

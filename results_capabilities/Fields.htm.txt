@@ -1,0 +1,403 @@
+
+
+
+
+
+
+
+
+
+
+
+Fields
+Fields store object information, document metadata, and coding choices within Relativity. You can use fields to display metadata on views and layouts. You can also use fields to create associations between different objects in Relativity. 
+
+
+
+See these related pages:
+
+Applying propagation to documents
+
+
+Read a fields scenario
+
+
+Using fields
+Imagine you are an admin. The lead attorney at your firm asks you to configure Relativity to have an easy way to track the job titles of custodians involved in an employee discrimination case. Besides knowing who sent which emails to who when, she wants to know the relationship of each custodian to the company's overall hierarchy, to determine whether or not decisions to fire an employee were made based on discriminatory bias or due to legitimate employee incompetence. 
+You navigate to the Fields tab and create a new field named "Job Title". You specify this field to relate to the entity object. You also configure it to be a multiplechoice, read-only field  that lists all relevant positions within the organization. And codes each custodian according to their position. You then add this field to the attorney's layout, so she can determine the role of each custodian in the case. 
+She also wants a field for reviewers to track the presence of derogatory content, regardless of whether or not it relates directly to the case so that she has evidence to present against the defendant's character witnesses.
+You add another field to the document object. This field has a Yes/No checkbox labeled "Derogatory Content" that reviewers can check within their layouts.  
+When review is complete, your attorney can search for all documents that include derogatory content.
+
+
+
+Fields permissions
+The following permissions are needed to use fields:
+
+
+
+
+
+
+Object Security
+Tab Visibility
+Other Settings
+
+
+
+
+
+
+
+Field - View, Edit, Delete, Add
+
+
+Relativity Application - View
+
+
+
+
+
+Workspace Admin
+
+Fields
+
+
+
+
+ 
+
+
+
+System fields
+All Relativity workspaces contain the following system fields:
+
+Artifact ID—uniquely identifies all database objects in Relativity.
+Batch, Batch::Assigned to, Batch::Batch Set, Batch::Status—stores values related to any document batches. For more information about batching, see Batches.
+Document Compare—displays the Document Compare  icon. Use Document Compare to compare the extracted text of one document to another. Note: Document Compare is particularly useful when working with groups of near duplicates or conceptually similar documents. See Document compare.
+Control Number—the workspace identifier. You can rename this field.
+Extracted Text—stores any full text or OCR text loaded into Relativity. It is available for searching and as a radio button in the Viewer.
+FileIcon—an icon representing the document’s Relativity Native File Type.
+Folder Name—the name of the folder where the document resides.Note: This is just the location folder, not the full folder path.
+Has Images—a single choice field indicating whether a document has images.
+Has Natives—a yes/no field indicating whether a document has natives.
+Has Inline Tags—a yes/no field indicating whether a document has a right-click tag markup.
+Relativity Image Count—the number of non-production images associated with a document.
+Relativity Native Time Zone Offset—a numeric field that offsets how header dates and times appear in the Viewer for emails. If the value in this field is blank or 0 for a document, the date and time appears as Coordinated Universal Time (UTC) in the Viewer.If Relativity was used to process the documents, the Native Time Zone Offset field will be populated with the UTC offset value of the time zone chosen in the Processing profile. For example, documents processed to Central Standard Time (CST), would be populated with a value of "-6" because CST is UTC-6.You can also manually update this field with a whole number, positive or negative, to offset the time from UTC to the desired time zone in the viewer.For example, if you have documents that were processed in UTC and you wish to show the time in the viewer in Pacific Standard Time (PST), you would enter "-8" in the Native Time Zone Offset field because PST is UTC-8. Note that you can mass edit this field.The Native Time Zone Offset field controls how the header dates and times for all email messages appear in the Viewer. This does not apply to images or extracted text in the Viewer. It does not modify the actual metadata fields associated with these values. If Relativity is not used to process the documents, the Native Time Zone field will be calculated based on the date/time information available from the file. When calculating the value of this field, the following metadata is 
+parsed, in this order:
+If the file has an EmailSentOn metadata field, then the Time Zone Offset 
+    is calculated based on that field.If the file has an EmailReceivedOn metadata field, then the Time Zone 
+    Offset is calculated based on that field.If the above two fields do not exist, the LastModified metadata field 
+    becomes the default, and the Time Zone Offset is calculated based on that 
+    field.If none of the fields above exist, the Relativity Native Time Zone Offset 
+field remains empty.Note: Relativity does not automatically account for Daylight Savings Time. If you need the Viewer to account for Daylight Savings Time, deploy the Set Native Timezone Offset with DST script from the Lists section of the Relativity Community. You must be a Relativity admin to deploy this script. 
+Relativity Native Type—the type of native file loaded into the system. The system assigns this value.
+Supported by Viewer—a yes/no field indicating whether the viewer supports the native document.
+System Last Modified On—the date and time at which the document was last modified.
+System Last Modified By—identifies the user who last modified the document.
+System Created On—the date and time when the document was created.
+System Created By—identifies the user who created the document.
+<Markup Set Name>—created when a user creates a markup set. Its values are:Blank when the document has no highlighting or redactions for the markup setHas Redactions when the document has redactions for the markup set.Has Highlights when the document has highlights for the markup set.Note: If a highlight or redaction is created using a third-party application or script, this field may not automatically update.
+<Production Name>—created when a user creates a production. This field stores how the document was added to a production. It is either blank, contains Images Only, Natives Only, or Images and Natives.
+Production Alerts—a yes/no field to warn of any production execution problems
+
+Note: You cannot edit the Source value for processing fields that are system mapped. For a list of processing system fields, see System-mapped processing fields.
+Creating and editing fields
+To create a new field or edit an existing one:
+
+Navigate to the Fields tab in your workspace.
+Click New Field. To edit a field, click the Edit next to the field's name.Note: You can add an Edit link to your field list view if it does not already exist. See Views.
+Input and modify field information on the field details page. If you are creating a new field, the Field Information section must be completed before the remaining sections will display. See Fields.Note: You can not change a field's type after creating the field. See Field types.
+Click Save to save the field details.
+
+Fields
+The fields object includes the following field sections:
+
+
+Field information
+
+
+Field settings
+
+
+Advanced settings
+
+
+List and dashboard settings
+
+
+Choices
+
+
+Field information
+Each field in the Field Information section must be completed before the fields in the remaining sections will display. The options you select in this section will determine what fields display in the Field Settings and Advanced Settings sections.
+
+
+
+
+Name—the field’s name. This must be between 1-50 characters.
+Object Type—determines which object Relativity uses to classify the field.You create object types in the Object Type tab. See Editing Relativity Objects.If you are not sure which Object Type to select, ask “What object do I want to add information to?” The answer is your object type. For example, if you want your new field to store information about a document, select Document.Note: You can create new objects within Relativity. These dynamic objects are securable, non-document objects within your workspace. By connecting objects to each other you can create powerful custom applications within your workspace. See Relativity objects overview.
+
+
+Field Type—determines the field’s functionality and presentation. For example, a Yes/No field type indicates that the reviewer must choose a value of either yes or no to edit the field. See Field types.
+Associative Object Type—an object that the single object or multiple object field type uses to create a relationship. The objects selected in the Object Type and Field Type options determine the available associative object types.
+
+Field settings
+The fields in this section depend upon which options you selected in the Field Information section. You may see any of the following options in this section:
+
+
+
+
+Available in Field Tree—places the field and its choices in the Field Tree browser.This field defaults to no.This field is only editable for Document object type fields. The field type must be one of the following: single choice, multiple choice, single object, or multiple object.
+Available in Viewer—displays the field in the viewer. The user can then check text against the original document or image. This setting is only editable for long text fields with a Document object type. If set to Yes, the field is available in a drop-down menu on the Extracted Text setting in the viewer.Note:  Copies of reflected fields are not available in this drop-down menu. If you select an empty long text field in the viewer, the viewer displays a blank page.
+Default Overlay Behavior—defines how Relativity handles multiple choice or multiple object fields when importing a load file. Merge Values—merges previous values with load file values.Replace Values—removes previous values and replaces them with the values in the load file. This field defaults to Merge Values and is only available for multiple choice and multiple object fields.
+Formatting—determines the field’s format and only applies to the following fields:Date—displays only the date.  Date+Time—displays the date and time.Use Thousands Separator—if enabled, a comma displays between digits where appropriate for decimal and whole numbers fields.Whole Number—none displays the value as a string of numbers. Integer displays the value with commas separating each group of three digits.
+Identifier—indicates if the field is the workspace’s unique identifier with a value of yes or no. You are unable to edit this field.Note: Relativity does not enforce uniqueness. 
+Include in Text Index—adds the field values to the workspace’s SQL text index, making the field searchable via keyword search.
+Maximum Length—the value entered is the maximum number of characters permitted in the field. The value is set to 50 by default.
+"No" Display Value—determines how a "no" value displays in a list. No is the default value but you may edit it as desired.
+Required—determines whether the user must populate the field on a layout with information in order to continue coding documents. This does not apply when loading workspace data.
+Store in Data Grid—This option allows you to store Long Text fields in Relativity Data Grid, but it's only accessible if you've configured a valid endpoint URL. Once available, it's enabled by default with the filter type set to "none".Disabled—saves all data imported into this field to the SQL Server.Enabled—saves all data imported into this field to the Data Grid.Caution: If you have existing long text fields stored in SQL, you can use the Data Grid Text Migration Application to migrate those fields from SQL to Data Grid. For more information, see Data Grid Text Migration application.Note: Once you enable a field for Data Grid, you cannot disable it. The option to edit the field is unavailable after you save. 
+"Yes" Display Value—determines how a "yes" value displays in a list. Yes is the default value but you may edit it as desired.
+
+Storage of long text fields on document 
+
+
+
+Storage—Choose whether to store Long-text fields in Data Grid, or SQL. Data Grid is recommended for input/output tasks in large jobs, such as translation, OCR, and search index builds. SQL is recommended when you need to perform bulk operations (such as editing, replacing, tallying, summing, averaging, and exporting) and apply filtering on the document page.Note: When storing in Data Grid, users will not be able to use bulk operations, filter on document pages, pivot and sort, or utilize fields in layouts (including on the document panel). For more information about storage in Data Grid, please see  Processing to Data Grid.
+
+Advanced settings
+The fields in this section depend upon which options were selected in the Field Information section. You may see any of the following options in this section:
+
+
+
+Auto Add Choices—adds all choices associated with a single or multiple choice field to an application. This property only applies to single and multiple choice fields.Note: If you are changing this property from No to Yes and you did not add the field to applications in your workspace, the choices are not added until you re-add the field to each application. The Relativity Applications property in this section lists each application to which this field is currently assigned.
+Enable HTML—indicates whether or not to allow HTML code to execute within the field.Enabled—executes the code when the layout displays the field.Disabled—displays the field as plain text.Notes: Using allow HTML, you can configure Relativity to throw an alert when the field appears in a  layout. HTML will always display as plain text in a view. The AllowHTMLVisible instance settings table value controls whether or not the Allow HTML value displays on the Field page. 
+Field Tree View—determines the values and the order they appear in the field tree. It also determines the views that appear in the pickers when you set conditions for searches and views. To select a view, the field must be single object or multiple object.When Available in Field Tree is No, this property is disabled. When Available in Field Tree is Yes, this property reflects the default value of <All Items>.When you select a view for Field Tree View, Relativity respects the sort order of that view. If you do not define a sort order, it sorts by Artifact ID.If you choose search terms reports as the associated object type and you are adding the field to the Field Tree View, only search term report items with a status of Completed appear in the field tree.Note: For Field Tree View, you can select any view you have rights to see. However, a warning appears when you attempt to save the field, if the selected view is personal.
+If you edit the view selected as the Field Tree View, you receive a warning when you attempt to save it as a personal view.
+ The Field Tree View property includes two icons:  edits the view by opening Conditions, step 3 of 4, in the view wizard.   creates a new view from Basic Information, step 1 of 4, of the view wizard. See Views.
+Field Type—the type of the catalog field to which you are mapping. This must match the type of the field you are creating or editing.
+Keyboard Shortcut—you can define a keyboard shortcut for the document field you are editing or creating with keyboard shortcuts. You can then use this shortcut to code and edit documents in the Review Interface. This setting is available only for document fields.
+You can use the following key options to define the shortcut trigger. You must use Ctrl, Alt, and/or Shift, and the workspace cannot have duplicate keyboard shortcuts.Modifier Keys—check the desired key option to define the shortcut trigger. You must use Ctrl, Alt, and/or Shift. The workspace cannot have duplicate keyboard shortcuts.Main Keys—click on the drop list and click on the desired key to use in combination with the other specified keys. Show Keyboard Shortcuts—click to view a list of the current keyboard shortcuts.
+
+For a list of browser shortcuts see Keyboard shortcuts.
+
+Note: You can modify the key combinations for system keyboard shortcuts if you have the Modify System Keyboard Shortcuts security permission. For more information, see Creating keyboard shortcuts.
+Keywords—allows you to enter words that describe the field you are creating. There is a 50 character limit.
+Length—the length of a fixed-length text field.Defaults to 255 characters.Maximum length is 4,999 characters.Maximum length is 4,000 if Unicode enabled.
+Linked in List—sets the field as a hyperlink.In the example below, the Date Sent field was set to Linked: Yes. As a result, Date Sent appears as a hyperlink in the view. Clicking the date launches the related document in the viewer. Similarly, clicking any link in the document record also launches the document in the viewer.Note: When you create a Yes or No field, set the width to 30 pixels for the optimum column size.
+List Column Width—the width, in pixels, of the column in the view. To accept Relativity’s default, leave this field blank.
+Notes—allows you to enter words that describe the field you are creating. There is not a character limit.
+Open to Associations—determines whether an object field can display its information on an associated object field. Fields that are open to association are sometimes referred to as reflected fields. Reflected fields can be re-named and exported via the Export to File mass action. When you open a field to association, that field’s information is viewable and editable on an associative list found on the object with which you associate it. For example, you have two associated objects: Entity and Company. You want to add a field called Address to hold addresses on the Company object and to display addresses on an Entity. To do this, create a new field with an object type of Company and set the Open to Associations field to Yes. This creates two fields: a Company object field called Address and a Company::Address field on the Entity object. If the generated reflected field name exceeds the maximum length of 100 characters, it is handled as follows:Each field is allocated 50 characters, anything over that 50 character limit is truncated.The field's ArtifactID is appended to the field's name part.Additional space is truncated to allow room for the field's ArtifactID to become part of the new name.The two field name parts are joined with "::", for example: "AAAAAAAAA BBBBBBBBB CCCCCCCCC DDDDDDDDD EEEEEEE (1000012)::GGGGGGGGG HHHHHHHHH IIIIIIIII JJJJJJJJJ KKKKKKK (1000013)".
+Propagation—forces a coding value to a specified group of related items. This value must be set to Yes before you can propagate to a related item.
+Propagate To—click the Select button to access the propagation options. The available options depend on the relational fields set for the workspace. Check the desired related items and click  to move the selected items to the right. Click Apply.
+Relational—you can make a fixed-length text field relational. A relational field is used to identify a group of related documents, such as families, duplicates, or near duplicates. For example, MD5 Hash is commonly used to identify duplicates. If set to Yes, identifies the field as relational. Once set to Yes, the Friendly Name, Import Behavior, and Order fields become required in order to save the field.Note: You can only set relational field properties on fixed-length text fields that don't exceed 450 characters.
+Relational Properties—click the Select button to access the following relational options:Friendly Name—a label for the relational field that users can easily understand. For example, you could change the relational MD5 Hash field to Duplicates, since it is used to group copies of the same document. This name displays in the Include Related Documents menu in workspaces and in the Related Items pane.Import Behavior—controls how blank values are handled when importing through the Relativity Desktop Client. Depending on how your vendor processes these group identifiers, the relational field on the parent document may be blank. Select an option to determine how blank fields are imported:Leave blank values unchanged—Relativity imports the fields with blank values.Replace blank values with identifier—Relativity updates the blank relational field with the document identifier.Note: When you append documents through the Relativity Desktop Client, with a relational field’s Import Behavior set to Replace blank values with identifier, blank values are replaced on that relational field even if it is not mapped to a load file field. The same action occurs when you import blank values mapped to the relational value using an overlay.Pane Icon—select and upload an icon for display in the Related Items pane of the Review Interface. Users can click on the icon to display a list of items grouped by this relational field. You can download the Relativity-provided Relational Field Icons.zip, or you can upload a custom icon. Icons shouldn't exceed 16 x 16 pixels.Order—controls the pane icon order on the bottom of the Related Items pane. Use the following guidelines:Icons with low order numbers appear to the left.Icons with the same order number are sorted alphanumerically.The order number can be any positive or negative integer. We recommend using groups of 10, such as 10, 20, and 30, so you can easily insert a new icon without having to reorder existing ones. You can use the View Order button to see how icons are currently ordered in the Related Items pane. The Order Reference window displays the leftmost icon at the top of the list.Relational View—controls the view that appears in the Related Items pane. Shared values in this field determine the documents the view displays. This field contains  and  icons you can use to edit the selected view or create a new view.Note: You cannot select a view that contains conditions or add/edit conditions to a view referenced by a relational field. You also cannot make a relational view personal. This view will control the fields displayed and sort order.
+Relativity Applications—associates the field with a Relativity application. Click the Select button to select an existing application. Check the desired applications and click  to move the selected items to the right. Click Apply. This option is only available for those who have the Manage Relativity Applications permission. 
+Source—the list of fields that you can use when mapping processing fields. Click the Select button to access the available field sources, which contain the following options:Standard Fields—contains a collection of fields from both the Metadata Fields and Other Fields options. Metadata Fields—contains fields extracted from the actual file or file system.Other Fields—contains static, or system fields such as control number, processing set name, custodian, and so forth.
+
+
+
+Source Field Name—the name of the catalog field to which you are mapping the field you are creating or editing.
+Field Type—displays the category of each field.
+Description—the description of the catalog field.
+Workspace Field Mapping(s)—the name of the Relativity field to which the catalog field is mapped. This is blank if the field has not yet been mapped. Note the following about the field catalog: If you want to display every field available for mapping, switch to the All Fields view from the Field Catalog view. All fields are accessible in the All Fields view, but the Field Catalog only provides the processing-related fields.The Source field is disabled if you do not select Document as the Object Type.The Source field is disabled for processing fields that are system-mapped, meaning processing system fields that were automatically mapped when you installed or upgraded the Processing application.For more information on using the field catalog to map processing fields, see Mapping processing fields.
+
+Unicode—special characters are permitted. This option must be enabled  before you can load any Unicode data into the field. We recommend keeping this option enabled.Note: If Unicode data is loaded into a non-Unicode enabled field, then the data becomes unreadable.
+Wrapping—toggles text wrapping for the field.Enabled—wraps all of a field’s text, displaying the contents on multiple lines.Disabled—the field extends as far right as necessary within the screen to display the text.
+
+List and Dashboard Settings
+
+
+
+
+Filter Type—determines type of filter available for the field. Note: When using the new UI framework, Filter Type is not used except for the following scenarios: disabling filtering on the field by selecting None, selecting List filters for Fixed Length fields, or selecting a custom pop-up picker view for a multiple and single object fields. None—disables filtering on the field.List—displays a drop-down list of all the field’s values in the workspace. Users can select only one of the values. Notes: Fields that contain a large number of items may also cause the List filter to take longer to populate. We recommend you only select the List filter type for Single Choice and Yes/No fields. For fields that may contain a large number of choices, you can designate a pop-up filter instead. Fixed Length Text fields—if the field contains more than 255 items, the List filter type you specify for the field will revert to the text box filter type and an error will be written to the Error Log when you visit a Document list view containing the field. Single Choice / Single Object fields—if the field contains more than 255 items, the List filter type you specify for the field will revert to None (disabled) and an error will be written to the Error Log when you visit a Document list view containing the field. TextBox—displays a text box that a user can query for text. You can use search operators in the filter box. See Filters.Multi-list—displays a list for a user to select one or more fields  to filter.Boolean—displays Boolean choices for the field. Users can select one option.CustomOnly (Advanced)—searches with multiple search terms and operators.  When you use this filter in a view, the operators that display are dependent upon the field type. The CustomOnly filter type is available for the following field types:Fixed LengthLong TextDecimal Whole NumberCurrencyDateFor more information on how the CustomOnly filter works,  see Filters.Popup—displays a pop-up picker where you can select values to use while filtering a list, or modifying criteria in a saved search or view. You can access these pop-up pickers from layouts, field filters through a Select... button, view conditions, advanced search conditions, and the mass edit window. You can access this picker via the check and uncheck buttons next to the field name. For more information, see Mass edit.Note: In the pop-up picker view drop-down field, you can select any view you have rights to see. However, a warning appears when you attempt to save the field, if the selected view is personal.
+If you edit the view selected as the Field Tree View, you receive a warning when you attempt to save it as a personal view.
+
+
+Depending on the type of field you're creating, only certain filters are available.
+
+
+
+
+
+Filter
+Field types
+
+
+
+
+List
+Fixed-length text, single choice, single object, user
+
+
+TextBox
+Fixed-length text, long text, date, whole number, decimal, currency, object
+
+
+Multi-list
+Single choice, multiple choice, multiple object
+
+
+Boolean
+Yes/No
+
+
+Custom Only
+Fixed-length text, date, whole number, decimal, and currency
+
+
+Popup
+Single object, multiple object, single choice, and multiple choice
+
+
+
+
+Enable Sort/Tally—if enabled, sorts document lists based on the field.
+Enable Group By—if enabled, makes the field available to group by when using Pivot. Relativity does not support Pivot On for Long Text fields due to the performance impact.
+Enable Pivot—if enabled, makes the field available to pivot on. Relativity does not support Pivot On for Long Text fields due to the performance impact. For more information, see Pivot.
+
+Choices
+The Choices section contains the Choice editor, which you can use to add and edit choices for a single or multiple choice field. 
+
+
+
+See Choices. 
+Field types
+Relativity supports the following field types:
+
+
+Fixed-length text
+
+
+Long text
+
+
+Date
+
+
+Whole number
+
+
+Decimal
+
+
+Curency
+
+
+Yes/No
+
+
+Single choice
+
+
+Multiple choice
+
+
+User 
+
+
+File
+
+
+Single object
+
+
+Multiple object
+
+
+Fixed-length text
+ The fixed-length text field type is a text field with a limited length. You can use up to 4,999 characters. Unicode-enabled fixed-length text fields cannot exceed 4,000 characters. 
+
+The sum of all fixed-length text fields for any individual object should be no larger than 8,060 bytes. To see how many of your 8,060 bytes remain, go to object you are checking. The control panel section displays remaining bytes in the usage field. 
+Examples: Email from, Email subject, Conversation, Document extension, File Name, Parent Document ID, Subject.
+
+Long text
+You can add more than 4,999 characters in a long text field.
+
+The technical limitation of a long text field is 2 GB. Relativity usually defaults to streaming only files smaller than 50 MB.
+Examples: Full text, Conversation ID, Email BCC, Email To, Source File, Title
+
+Date
+ The date field type stores the date or date and time. Dates must be in a valid format. For example, 01/00/2000 is not valid. Attempting to load an invalid date produces an error.
+
+Relativity accepts many formats, including SQL-accepted formats that match your SQL Server’s regional settings. However, the date displays as mm/dd/yyyy for the US or dd/mm/yyyy for the UK.When entering a date field, you can use the picker to choose from a calendar or enter a date directly in the field.
+Example: Email sent date, Date Created, Date Last Modified, Date Received, Date Sent.
+
+Note: When you search on a user-created date field using a relative date,  Last 7 Days for example, you may see different results between a saved search and a search from the search panel if you are not in the same timezone as your Relativity instance. 
+Whole number
+ The whole number field type stores any natural numbers or their negatives.
+
+This value cannot exceed 2,147,483,647. In other words, 2,147,483,648 and higher is invalid.
+Example: Page count, Number of Attachments.
+
+Decimal
+ The decimal field type stores numeric values that may include decimals. 
+
+With this field you can have a maximum of 15 digits before the decimal and two digits after the decimal.
+Example: Percentage, File Size.
+
+Currency
+ The currency field type stores numeric values in a currency format. Ten digits is the maximum for this field. 
+
+Your currency symbol is set based on Windows regional currency settings in the server hosting Relativity. The formatting, such as decimal, commas, negative number sign, the position of currency symbol, are  based on the browser's language. When using RelativityOne, the settings of the regional server cannot be changed. They are set to the US currency symbol.
+Example: Amount sold.
+
+Yes/No
+ The Yes/No field type accepts one of two values. The default values are Yes and No.
+
+You can edit the display values in the Yes/No display values section.  See Fields.
+Example: Reviewed.
+
+Note: If you are exporting a Yes/No field type with Relativity Desktop Client or Integration Points, the values will display as True/False in the exported files.
+Yes/No fields are useful, but consider the following caveat:
+Searching for yes/no fields can be difficult, especially if the field displays as a checkbox. The check box only displays as checked or unchecked; however, a yes/no field has three potential values. These values include yes, no, or null. Because of the searching difficulties, you may want to display yes/no fields as drop-down menus. 
+Single choice
+ The single choice field type provides a predetermined set of values called choices.
+
+You can choose only one value.
+Example: Responsiveness, Custodian
+
+Multiple choice
+ The multiple choice field type provides a predetermined set of values called choices.
+
+You can choose multiple choices. You can also nest the choices in a hierarchy structure.
+Example: Issues, Deponent
+
+Note: If Overlay Behavior is set to Replace Values on this field,  a warning message appears stating that on import that the current values for this field will be deleted and replaced with the values included in the load file. The Overlay Behavior setting must be set to Merge Values in order to merge the values from the load file with the field's current values. 
+User
+ The user field type contains users with rights to the current workspace. Depending on the function of the field, Relativity filters the list of users to display only members of certain groups.
+Examples:
+
+On layout—displays non-admins.
+On review batch—displays non-admins.
+Owner of a saved search—displays system admins and other group members.
+Saved search condition—displays system admins and other group members.
+
+File
+With the file field you can upload files for a non-document object. You can click on the Select button to choose a file to upload or drag-and-drop the file onto this field to upload it. When you add a file field, Relativity automatically creates file size, file icon, and text fields for the object. Once you upload a file, you can click on Pop Out icon to open the file in the Viewer.
+ The text field contains the extracted text of all files uploaded to the file field. The Text Extraction Manager agent must be running in the Relativity environment to populate the text field.
+Note: Relativity prohibits users from uploading certain file types to file fields. The RestrictedNativeFileTypes instance setting value defines the prohibited file types. To receive assistance with this instance setting, contact our Support team through the Support page.
+Single object
+ The single object field type defines a one-to-many relationship between two objects. You add a single object field on the selected object under the Object Type option. You can then create a one-to-many relationship with the selected object using the Associative Object Type option.
+For example, you could use a single object field called Sender Domain to create a relationship between email messages and the domains of their senders. You add the Sender Domain field to a Document object and associate it with a Domain object. By doing so, you used a single object field to create a one-to-many relationship, since each email message can originate from only one domain, but many different domain options are available.
+Multiple object
+The multiple object field type defines a many-to-many relationship between two objects. You add the Multiple Object field on the selected object under the Object Type option. You can then create a many-to-many relationship with the object selected in the Associative Object Type option.
+For example, you could use a multiple object field called Recipient Domains to create a relationship between available domains and the email recipient domains from email messages.
+Note: If Overlay Behavior is set to Replace Values on this field, you will be prompted with a warning message on import that the current values for this field will be deleted and replaced with the values included in the load file. The Overlay Behavior setting must be set to Merge Values in order to merge the values from the load file with the field's current values. 
+You add the Recipient Domains field on a Document object and associate it with a Domain object. By doing so:
+
+You used a multiple object field to create a many-to-many relationship, since you can have multiple domains, and each recipient of an email message can have a different domain.
+Relativity automatically creates two fields when you define Multiple Object field type. The first Recipient Domains field has a Document object type. The second Recipient Domains field represents the relationship between the Recipient Domains object type and the Domain associative object type.Note: The Assigned to field displays user information in the format "last name, first name." You must use the user's email address when loading this field in Relativity. For example, you would load a user named John Smith as johnsmith@example.com.
+
+Fields and performance
+Field configuration can dramatically impact database performance. Use the following guidelines to improve field efficiency:
+
+Set fixed-length text fields to the minimum size needed and to no more than 400 characters.
+Store choice data  in single or multiple choice fields if possible.
+Use separate objects to store repetitive content when possible.
+Set up fields as Unicode in advance because the system will have to re-index a field if you make the change following data load.
+Only include fields in the text index when it is truly necessary to do so.
+
+Linking Fields to Field Categories
+Once a field has been created, you can link it to a field category to help you efficiently find that field and apply it when adding conditions in the search panel. To learn more about linking a field to a field category, visit Field categories.

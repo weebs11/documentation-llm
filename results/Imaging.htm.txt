@@ -1,0 +1,94 @@
+
+Imaging 
+You can use imaging to convert a group of documents to images using imaging profiles and sets. You can fine-tune how your images generate by creating reusable profiles that use specific image settings.
+With imaging sets, you can image a group of documents by selecting a saved search and a specific imaging profile. Imaging sets also provide error-handling functionality you can use to view error messages and rerun imaging on specific documents or jobs.
+See these related pages:
+
+Imaging profiles
+
+Imaging sets
+
+Imaging native types
+
+Monitoring imaging status
+
+Running an imaging set
+
+Imaging jobs in the processing and imaging queue
+
+Application Field Codes
+
+
+Read an imaging scenario
+
+
+Using imaging
+
+You’re a system admin and the workspace you’re managing contains 500 files that you need to make into TIFF’s so that a group of reviewers in England can apply markups and redactions to these images and eventually produce them. This is too many files to ask your reviewers to image individually by themselves in the Viewer, as this would add unnecessary time to their review.
+You create a new imaging profile that provides the appropriate settings for European reviewers. Then you create a new imaging set  that uses a saved search containing the 500 documents you need to image and that references the profile you created. Then you run the imaging set, which images all 500 documents at once, thus equipping your reviewers with the images they need and saving hours of time.
+
+
+
+Required security permissions for imaging
+The following security permissions are required to image documents in Relativity. These apply to all imaging options, including image-on-the-fly, mass image, and imaging sets, unless otherwise noted.
+
+
+
+
+
+
+Object security
+Tab visibility
+Other settings
+
+
+
+
+
+
+Document – Add, View
+
+
+Imaging Profile - View, Edit, Add
+
+
+Imaging Set - View, Edit, Add
+Notes: You can still use mass imaging and image-on-the-fly even if you don't have the Edit permission on the Imaging Set object.
+
+
+Native Type - View
+Notes: View permission for the Native Type object is needed to create a new Basic and/or Native Imaging Profile.
+
+
+
+
+
+Documents
+Imaging Profiles
+Imaging Sets
+
+
+
+Mass Operations
+
+Image
+
+System Field requirements						
+
+Has Images field
+
+
+
+
+
+Note: When you run imaging on a specific saved search used in an imaging set, documents that don’t have the "Add Image" permission will be skipped.
+Troubleshooting imaging
+In the event a user reports missing Image commands (in the Viewer or mass operations menu), or the Imaging Sets Run button is disabled, address the following potential causes:
+
+The Imaging application was uninstalled from Relativity Applications
+The user is a member of a group that doesn't have one or both of the following security permissions granted:Mass Images (Mass Actions permissions)Add Image (Document security permissions)
+
+Image on the fly
+By using the Imaging option in the Viewer, you can image a single document on the fly with any imaging profile you have permissions to. For more information, see Imaging on the fly. 
+Mass image
+You can image multiple documents at the same time by using the Mass Image operation in the document list. Select an Imaging Profile to use when imaging a group of documents. For more information on mass imaging, see Mass image.

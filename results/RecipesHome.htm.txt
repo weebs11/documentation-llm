@@ -1,0 +1,325 @@
+
+Knowledge base
+
+Relativity's Solutions team has written a number of knowledge base articles, which act as supplemental material to the content found on this documentation site. These articles generally contain details on specific workflows you could execute as part of your usage of Relativity features. Click the links below to jump to the list of knowledge base articles that are available on the Community for that feature set.
+Note: The knowledge base articles referred to on this page were formerly known as "Recipes."
+Note: You must have valid Relativity Community credentials in order to download any Community file linked to the documentation site. You'll need to enter those credentials on the Community login screen if you're not already logged in. If you're already logged in to the Community at the time you click a link, the file is automatically downloaded in the bottom left corner of your screen. If you get an error message stating "URL No Longer Exists" after clicking a Community link, it may be due to a single sign-on error related to the SAML Assertion Validator, and you should contact your IT department.
+
+
+
+
+Assisted Review
+
+
+
+
+Review Center - Multiple queues powered by the same classifier
+
+
+
+How to control what fields appear on the Documents card in the Review Center Viewer
+
+
+
+Review Center compared to Active Learning
+
+
+
+Active Learning to QC previously coded data
+
+
+
+How to handle Suppressed Duplicates at the end of your project
+
+
+
+Statistical Sampling Explained
+
+
+
+
+
+
+
+
+Conceptual Analytics
+
+
+
+
+Cluster Visualization QC Workflow
+
+
+
+Creating an optimized conceptual Analytics index 
+
+
+
+Estimating diskspace utilization for databases and Analytics indexes
+
+
+
+Privilege QC using categorization
+
+
+
+Statistical Sampling Explained
+
+
+
+Tracking Categorized Documents to their example document
+
+
+
+Use Case for Analytics - Clustering and Categorization
+
+
+
+
+
+
+
+Using Categorization to Identify Hot Documents
+
+
+
+
+
+
+
+
+Processing
+
+
+
+
+Create and map field catalog
+
+
+
+
+
+
+
+
+
+Non-English Languages
+
+
+
+
+
+
+Setting Up CJK and other Unicode document workspaces in Relativity 
+
+
+
+
+
+
+
+
+Legal Hold
+
+
+
+
+Advanced workflows with Relativity Legal Hold
+
+
+
+
+
+
+
+
+Production
+
+
+
+
+
+
+Locking Produced Documents from Editing
+
+
+
+Importing Productions in Relativity with Natives
+
+
+
+Maintaining Previous Bates Numbers Between Production Sets
+
+
+
+
+
+
+
+
+Review
+
+
+
+
+
+
+Coding the First Item in a Family Group by Using the Skip Function
+
+
+
+Creating an Application for Managing Attorney Lists
+
+
+
+Email threading and near dupe - workflow alternatives
+
+
+
+Using Redactions From Other Applications
+
+
+
+Using Case Dynamics Outlines for your Review Protocol
+
+
+
+
+
+
+
+
+Searching
+
+
+
+
+Build a Case Sensitive dtSearch Index
+
+
+
+Creating Secured Saved Search Folders For Multiple Groups
+
+
+
+Identifying emails between two or more specific individuals
+
+
+
+Identifying standalone emails
+
+
+
+Regular Expression Searching - SSN and EIN
+
+
+
+Searching for custom object information on the Document object
+
+
+
+Searching for dates in Relativity
+
+
+
+QC Newly Loaded Data
+
+
+
+Searching for handwritten documents
+
+
+
+Searching for single standalone emails
+
+
+
+Searching for Terms and Excluding Email Footers
+
+
+
+Searching for unique identifiers
+
+
+
+Using Saved Searches to Complete Conflict Checks
+
+
+
+
+
+
+
+
+Structured Analytics
+
+
+
+
+Email threading and near dupe - workflow alternatives
+
+
+
+Email Threading Results - Identify threads with missing emails
+
+
+
+Finding duplicates or near duplicates in a new set that match up to a previous set
+
+
+
+Finding Groups of "Textual Exact Duplicates"
+
+
+
+Troubleshooting a bad email thread
+
+
+
+Using Email Thread Visualization in your QC workflows
+
+
+
+Using Email Thread Visualization to leverage previously coded documents
+
+
+
+
+
+
+
+
+Workspace Administration
+
+
+
+
+Exporting to HTML for Expert Witness Review
+
+
+
+Mass importing into a file field
+
+
+
+Migrating Data from Summation
+
+
+
+Searching for custom object information on the Document object
+
+
+
+Setting Up CJK and other Unicode document workspaces in Relativity 
+
+
+
+Using Redactions From Other Applications
+
+
+
+Using Custom Objects to Secure Coding Choices
+
+
+
+

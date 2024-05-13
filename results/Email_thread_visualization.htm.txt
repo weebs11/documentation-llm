@@ -1,0 +1,436 @@
+
+
+Email thread visualization
+The email thread visualization tool is available for any email threading jobs run as full builds. Upon job completion, the visualization is available from the document viewer when you open a document.
+The email thread visualization can be used in the following ways to optimize your efficiency when working with email threads:
+
+Quickly see the story of an email conversation - instantly see where the conversation branched and where drafts or attachments occurred as the conversation progressed.
+Optimize your QC process - use the visualization as part of your QC process. Coding highlight can be used to highlight any Yes/No and single choice field in the email thread visualization pane. In this way, you can see how a whole thread is coded with privilege or responsiveness. Furthermore, where discrepancies exist, you can use the visualization to correct them through mass editing.
+
+See these related pages:
+
+Email threading
+
+Supported email header formats
+
+Inclusive emails
+
+Email threading results
+
+Structured analytics
+
+Running structured analytics
+
+On demand tutorial - Using Email Thread Visualization
+
+Using Email Thread Visualization in your QC workflows
+
+Using Email Thread Visualization to leverage previously coded documents
+
+
+Requirements for email thread visualization
+Users must have the Analytics application installed in the workspace, and the Email Author Date ID must be present for the emails. The Email Author Date ID is only available for emails run through a full analysis using structured analytics. The email thread visualization pane will not work for email threads from previous versions unless a full analysis is run against the structured analytics set containing the emails. 
+Security permissions
+The following security permissions are required for email thread visualization:
+
+
+
+
+
+Object Security
+Admin Operations
+
+
+
+
+
+
+Color Map - View or higher
+Structured Analytics Set - View or higher
+Structured Analytics Results - View or higher
+
+
+
+
+Email Thread Visualization
+
+
+
+
+
+ You must also have View security permissions to the following fields. If you don’t have security access to any one of these email fields, you cannot use this tool.
+
+Email Action
+Email Thread Group
+Email Author Date ID
+Inclusive Email, Email Thread Hash
+Email Duplicate Spare
+ Email Threading Display
+
+Launching the email thread visualization tool
+Email thread visualization is available from the document viewer, for all document types. 
+Note: Email thread visualization is not supported if you are using the ActiveX document viewer.
+To launch the email thread visualization pane, click the email thread visualization (  ) icon in the lower left corner of the displayed document in the viewer. The pane expands and shows the thread group for the selected email in the viewer.
+Upon clicking the email thread visualization  (  ) icon, the email thread visualization pane expands to display the email thread group of the currently opened document.  From the  visualization, the currently opened document is outlined in orange and appears larger than the unselected documents in the thread. If the current document is an attachment or duplicate spare, the parent that holds that attachment or duplicate spare will be outlined in gray.
+Note: If you are working with multiple structured analytics sets, ensure that you see the correct email thread information by opening the Display Options sub-tab inside the legend and verifying that you have the correct structured analytics set selected in the drop-down. 
+
+
+
+When navigating in the viewer, the email thread visualization pane will persist in its current state. Once opened, the pane will remain opened for documents that are navigated to which also have been run through email threading. Navigation to new email thread groups update the pane to reflect the new email thread group. Navigation to any documents that have not been run through email threading will close the email thread visualization pane. 
+Common icons and basic navigation 
+The email thread is depicted in the email thread visualization pane from left to right with the earliest emails in the thread group appearing on the left.  Emails with Forward and Reply actions branch downward before a Reply All action. Email actions are illustrated with arrow icons in the lower left corner of the email icon. See Email Threading Display for more information on how email actions are shown.
+The color of the square email icon indicates inclusiveness. Inclusive, non-duplicate messages appear black. Non-inclusive or duplicate spare messages appear white. See Navigation icons and Using the legend and email thread characteristics for more information on. 
+Clicking on an email icon  opens the parent email in the viewer and if you hover over an email icon, a tooltip window displays with information about who the email is from, the sent date, and lists any attachments or duplicate spares for the selected email. You can click on the attachment name or the name of the duplicate spare to open it in the viewer. See Using the email icon tooltip window (hover).
+An email that has duplicate spares or non-duplicate spare emails that exist at the same location in the visualization contain a double stacked email icon. These non-duplicate spare emails are grouped within an "Other Emails" section in the tooltip. The following scenarios are the most common reasons these emails are not marked as duplicate spares and thus grouped in the “Other Emails” section:
+
+Inserted confidentiality footer
+Processing differences in body text
+Differing attachments
+
+Note: There are no changes to email threading values, branches, or nodes upon upgrade; the change is only in visualization.
+If you navigate to a document within the current document list review queue (meaning, the set of documents that you have opened in the viewer), then the document opens without refreshing the viewer screen. If you navigate to an email that is outside of the current document list review queue  (such as if you filtered the document list  or opened the viewer from search results), then a new review queue containing only the documents within the selected document's email thread group displays. From the new email thread group review queue, you can only navigate to emails within the same thread group. Click Return to review queue at the top left of the viewer to return to your original document list review queue.
+Navigation icons
+The following basic navigation icons are displayed in the email thread visualization pane:
+
+
+
+
+
+
+Icon
+Feature
+Description
+
+
+
+
+
+
+
+Enable Mass Edit Selection
+Click this button to allow you to click on documents in the visual email thread (along with their duplicate spares and/or attachments) to select them. You can then mass edit the selected documents. See Mass editing using email thread visualization.
+
+
+
+
+
+Zoom out / Zoom in controls
+Click the plus or minus sign to zoom in or zoom out in your email thread visualization. See Using zoom controls.
+
+
+
+
+
+Reset Zoom 
+Click this icon to reset your zoom to its default state. See Using zoom controls.
+
+
+
+
+
+
+Collapse legend / display option controls
+
+Click this icon  to collapse the legend and display options for the email thread visualization pane. See Using the legend and email thread characteristics.
+
+
+
+
+
+
+Expand legend / display option controls
+
+Click this icon  to expand the legend and display options for the email thread visualization pane. See Using the legend and email thread characteristics.
+
+
+
+Mass editing using email thread visualization
+The email thread visualization tool can be used to code entire branches of emails quickly and visually. You can mass edit from thread group related items pane or the visualization and it’s reflected in real time.
+To mass edit emails in a displayed thread:
+
+
+Click the Enable Mass Edit Selection (  ) icon to go from navigation to selection mode. 
+The Edit and Cancel buttons appear.
+If you do not want to perform a mass edit, click Cancel to return to navigation mode.
+While in selection mode,  click on the emails you want to edit in the displayed email thread to select them.  A green circle with the number of items selected for the email displays in the top right corner of the icon for the selected emails. 
+Notes: 
+If a selected email contains an attachment and/or duplicate spare, both the parent and children attachments and/or duplicate spares are also selected and the total number of selected documents for the email is displayed in the green circle. The Edit button displays the total number of emails / attachments / duplicate spares currently selected for your review.
+
+Hold down the SHIFT button  to select an entire branch of a thread by clicking at the beginning email and the end email in the thread you want to highlight.
+
+
+
+Click the Edit button to launch the mass edit modal. 
+
+
+
+The mass edit modal displays options for coding the documents.
+
+
+Make your coding changes for the selected emails, and then click Done. 
+
+The email thread visualization refreshes with the coding changes and restores the pane to navigation mode upon completion. 
+
+
+Using zoom controls
+The visualization first renders in a best zoom state, respecting the particular email thread group size being rendered. The visualization can be further zoomed out or in using the zoom controls () in the header as well as through use of your mouse's scroll button. Click the reset zoom ()  arrow to restore the default zoom state. 
+Using the legend and email thread characteristics
+When you view the email thread visualization for the first time during a session, a legend appears in an opened state showing the meaning behind the different icons. You can collapse the legend if you want to see more of the visualization and the legend will persist as closed once it is closed until you log out of Relativity.
+
+
+
+The legend also contains the Coding Highlight as well as other display options that can be turned on or off. See Using coding highlighting.
+ The Legend contains descriptions for the following types of emails:
+
+
+
+
+
+
+Icon
+Feature
+Description
+
+
+
+
+
+
+
+Inclusive
+
+Emails that are inclusive, non-duplicate spares are represented by solid email icons. 
+
+
+
+
+
+Not Inclusive
+
+  Emails that are not inclusive are represented by the white email icons.
+
+
+
+
+
+Missing
+
+
+  Missing emails are indicated by a question mark icon. 
+Notes: 
+Please note that missing email icons may not represent truly missing emails. Missing email icons will be used when  a previous segment has changed as the thread progresses. Because the original segment is not found, the Analytics Engine believes there is a missing email and represents this in the visualization. Inserted confidentiality footers is a common cause of missing emails being perceived. This can be mitigated by running email threading with a regular expression filter.
+If an email that is in the middle of a thread is secured, then it will be represented with the same missing email icon. For example, the missing email shown below could be secured. If a secured email is the last email in the thread, then it is not shown in the visualization altogether. Last, if a parent email is secured that holds an attachment or duplicate spare that is not secured, the email will be represented as missing with the attachment or duplicate spare off that missing email shown.
+
+
+
+
+
+ / 
+Duplicate Spare and Other
+
+
+   An email that has duplicate spares or non-duplicate spare emails that exist at the same location in a thread contain a double stacked email icon. These non-duplicate spare emails are grouped within an "Other Emails" section in the tooltip. There are no changes to email threading values, branches, or nodes upon upgrade; the change is only in visualization. The following scenarios are the most common causes of these emails not being marked as duplicate spares:
+
+Inserted confidentiality footer
+Processing differences in body text
+Different attachments
+
+
+
+
+
+Message and file type icons
+The Email Threading Display field includes the following file type icons:
+
+Send (or Other)  - represented by a simple indentation square (this the start of an email thread)
+Reply  - represented by an indentation square with a single left arrow (original file name begins with RE:)
+Reply All  - represented by an indentation square with a double left arrow (reply to all recipients)
+Forward  - represented by an indentation square with a single right arrow (original file name begins with FW:)
+Draft   - represented by a pencil on the left of the square indentation square (email is a draft and not sent)
+Email contains attachments  or  - represented by an indentation square with a single paper icon on the right (file is an email containing a single attachment) or a double paper icon on the right (file is an email containing multiple attachments). Attachments are documents included in your emails in document set saved search. The following conditions apply to the icon display in the Relativity workspace:The document type determines the attachment's file type icon.The attachment’s file name that appears is based on the value in the attachment name field.
+
+Using the email icon tooltip window (hover)
+If you hover over an email icon, a tooltip window displays with information about who the email is from, the sent date, and lists any attachments or duplicate spares for the selected email. You can click on the attachment name or the name of the duplicate spare to open it in the viewer.
+Note: Sent Date and Email From fields are typically mapped for email threads when you run Structured Analytics email threading on documents.  The tooltip reflect those properties. If you do not map these fields in your Structured Analytics profile, or you don't use them in your workspace, Relativity will use the derived values from the Analytics engine.
+
+
+
+ If there are multiple attachments or duplicate spares, you can click on the link displaying the number of documents to display a slideout window of the actual list.
+Note: The tooltip window will not display for you after clicking the Enable Mass Edit Selection (  ) icon and switching to selection mode.
+Selecting a different structured analytics set
+When viewing a thread in the email thread visualization pane, you can also select from any email threading structured analytics sets to view any differences for the  sets run with different settings or on slightly different data sets. 
+To switch to viewing the thread in a different structured analytics set, click the  icon, then select a structured analytics set from the drop-down menu.  
+Notes: 
+You will only see structured analytics sets that you have access to in the  drop-down menu. To see a set in the drop-down menu, you must have security permissions for all necessary results fields for the set.
+If a displayed email thread is not in the selected Structured Analytics Set, then the email thread visualization displays a notification that the current document is not in the selected structured analytics set.
+
+Using coding highlighting
+Use coding highlight to see how emails in the current thread are coded for a particular yes/no or single-choice field. Coding discrepancies that could exist in a coded email thread are visually apparent, making it very easy to make corrections or see where mistakes were made during review. 
+Note: 
+
+Any coding for the selected field performed in Relativity is reflected in real time. 
+To use coding highlighting:
+
+Click to open the Display Options section of the legend, and then click on the Highlight Field switch to enable coding highlighting. This enables the drop-down Coding Highlight field. To disable coding highlighting, click the switch again (now grayed out).
+
+Select the field you want to highlight in the email thread visualization pane from the drop-down Coding Highlight field (such as Confidential Designation). The emails in the thread are now highlighted with different colors corresponding to the available choices for the field.
+
+The Legend displays the choices associated with the selected field for the displayed email thread and assigns each choice a color. Coding highlighting for this field will remain as you navigate the email thread. Navigating to other email thread groups with the Coding Highlight enabled will update the legend with the choices coded for the new thread.
+Notes: 
+You can also hover over any email to view highlighted coding for duplicate spares or any attachments (see Using the email icon tooltip window). Any email where the coding highlighting for its duplicate spares or attachments does not match displays a red exclamation point icon in the top left corner (  ). Email thread visualization always shows the coding highlight for the primary document.
+Colors chosen for the highlighted field choices are assigned automatically. When a field choice is highlighted for the first time, a color is associated with that choice and will remain associated with that choice as you view coding highlight for other email thread groups. If you want to change the color that is associated with a choice, refer to Changing the color associated with a coding choice.
+
+Changing the color associated with a coding choice
+Colors are assigned as a field and its choices are being visualized in the Email Thread Visualization. The choices visualized are assigned colors in the order shown in the table below. As new choices on that same field are visualized, then they are assigned the next color in the order shown.
+
+
+
+
+
+
+
+Order
+
+
+Background Color
+
+
+Foreground Color
+
+
+
+
+
+
+1
+
+
+
+ #3f79f9
+
+
+#434548 (default)
+
+
+
+
+2
+
+
+
+  #f8d353
+
+
+#434548 (default)
+
+
+
+
+3
+
+
+
+  #c14c89
+
+
+#434548 (default)
+
+
+
+
+4
+
+
+
+  #54cd93
+
+
+#434548 (default)
+
+
+
+
+5
+
+
+
+  #ff6363
+
+
+#434548 (default)
+
+
+
+
+6
+
+
+
+  #43bdd6
+
+
+#434548 (default)
+
+
+
+
+7
+
+
+
+  #faa85d
+
+
+#434548 (default)
+
+
+
+
+8
+
+
+
+  #6b51b4
+
+
+#434548 (default)
+
+
+
+
+9
+
+
+
+  #9dbd5b
+
+
+#434548 (default)
+
+
+
+
+10
+
+
+
+  #ffa7b2
+
+
+#434548 (default)
+
+
+
+
+As a Relativity system admin, you can update the colors that are assigned to specific coding field values.
+To update the color mapped to a choice perform the following steps:
+
+Unlock the Relativity Color Map application. See Locking and unlocking applications.
+Unhide the Color Map tab from the application console by clicking Edit next to the tab, and then selecting the Visible flag.
+Navigate to the Color Map tab. A list of Yes/No and single choice fields and their field values appears.
+Select the choice that you want to update – Field Value is set to the ArtifactID of the choice.
+
+
+Edit the Background Color for the selected choice using the Edit mass operations. Use the table above to enter values for the Background Color (e.g., #43bdd6). See Mass edit for more information on how to use the Edit mass operation.
+Re-hide the Color Map tab (optional), and then re-lock the Color Map application.
+

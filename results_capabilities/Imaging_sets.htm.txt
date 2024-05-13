@@ -1,0 +1,43 @@
+
+Imaging sets
+An imaging set consists of an imaging profile and a saved search containing the documents you want to image. You run the imaging job from the imaging set console. In addition, on the Imaging Set Details page, you can view document-level error messages and rerun an imaging job if it failed.
+Using imaging sets
+
+You need to provide reviewers in England with a group of 500 TIFFs so that they can redact and apply markups to them in the Viewer The Viewer is the area of the core reviewer interface in which document review takes place. It displays loaded forms of documents from the workspace and provides options for controlling the mode in which those documents display. Reviewers can apply markups, redactions, and persistent highlights to documents in the viewer. without having to first image them individually. You've already created an imaging profile specifically tailored to their needs. 
+Now you just need to create a saved search containing the 500 documents you want to provide as TIFFs to your reviewers. This is required because you need to select it as a data source when you go to create the imaging set.
+Next you create an imaging set that references both the profile and the saved search you created. Once you save the set, you select to image the documents through the set's console. When this imaging job is complete, your reviewers can redact and apply markups to the images you created.
+Creating and editing an imaging set
+Note: You need to install the Imaging Request and Imaging Response agents in order to perform image on the fly, run an imaging set, or execute a mass imaging operation. The maximum recommend amount of  Imaging Response agents is 8, any more can cause database issues. The standard configuration is 4, for details on installation and activation of these agents, see Imaging.
+To create or edit an imaging set:
+
+Navigate to the Imaging tab, and then click Imaging Sets in a workspace. 
+Click New Imaging Set.
+The  Imaging Set Form appears.
+
+
+Complete all required fields. See Fields for details.
+Click Save. The saved set layout provides the set details and the imaging set console, from which you run the imaging job. For more information, see Running an imaging set.
+
+Fields
+The imaging set form contains the following fields:
+
+
+
+Imaging Set Information
+
+
+Name - the designation for the imaging set.
+Data Source - a saved search, which includes a group of documents to image. Only documents in the saved search are imaged.
+Imaging Profile - a pre-determined set of parameters that control how the images generate. The list you encounter when clicking the ellipsis contains both Native and Basic profiles.
+Email Notification Recipients -  adds email addresses of those who require notification of the completion of processes within the imaging job. Separate multiple email addresses with a semi-colon delimiter. Those processes are:Imaging Set completed successfullyImaging Set completed with errors
+
+Imaging Status
+
+
+Start Time - this field will appear with the following conditions are met:The imaging set is in the Submitting status.The imaging set is in the Imaging status and the job has commenced.
+Status - the current state of the imaging job. This value depends on issues encountered during the job and how often you refresh the page while the job is running. The possible values for this field are:Staging - you've started the job, but no documents from the imaging set have been sent to the worker manager server yet.Submitting - Relativity is currently submitting documents from the imaging set to the worker manager server to be imaged. The Image Completion field below reflects the number of documents remaining and submitted. This value is new starting in November 2017.Imaging - the job is currently being performed in the worker manager server.Completed - the last document in the set has come back from the worker manager server and there is no longer a job in the ImagingJob database table.Completed with Errors - the last document in the set has come back from the worker manager server, there were errors in the job that are now visible in the Errors tab, and there is no longer a job in the ImagingJob database table.Stopped - the imaging set was stopped by Relativity.Stopped by User - the imaging set was manually stopped by the user through the Stop Imaging button on the console.
+Image Completion - lists the following information:# documents pending submission - the number of documents from the imaging set that have yet to be submitted to the worker manager server to be imaged.# documents submitted - the number of documents that have already been submitted to the worker manager server.# documents remaining - the number of documents received by the worker manager server and are waiting to be imaged.# documents successfully imaged - the number of documents that were imaged by the worker manager server without any errors.# documents with errors - the number of documents that were submitted to the worker manager server and that received an error during imaging.# documents skipped - the number of documents from the imaging set that were never submitted to the worker manager server to be imaged.
+Completion Rate - lists the following information:# documents submitted per hour - during the submission phase, this is the average number of documents submitted to the worker manager server per hour. It is calculated by normalizing the number of documents submitted over a 10 minute interval, and then scaling up to an hour.# documents imaged per hour -during the imaging phase, this is the average number of documents completed by the worker manager server per hour. It is calculated by normalizing the number of documents imaged over a 10 minute interval, and then scaling up to an hour.
+Image QC Review Status - the number of documents set to be hidden from QC review, per your selection for the Hide Images for QC Review option right after clicking Image Documents on the console. This also lists the number of documents that currently have viewable images.
+Last Run Error - the date and time of the last error.
+

@@ -1,0 +1,28 @@
+
+
+Language identification
+Language identification examines the extracted text of each document to determine the primary language and up to two secondary languages present. This allows you to see how many languages are present in your collection, and the percentages of each language by document.  You can then easily separate documents by language and batch out files to native speakers for review.
+For multi-language documents, it returns the top three languages found and their approximate percentages of the total text bytes (e.g. 80% English and 20% French out of 1000 bytes of text means about 800 bytes of English and 200 bytes of French).  The operation analyzes each document for the following qualities to determine whether it contains a known language:
+
+Character set (for example, Thai and Greek are particularly distinctive)
+Letters and the presence or absence of accent marks
+Spelling of words (for example, words that end in “-ing” are likely English)
+
+Language identification is a naive Bayesian classifier, using one of three different token algorithms: 
+
+For Unicode scripts such as Greek and Thai that map one-to-one to detected languages, the script defines the result. 
+For Chinese, Japanese, and Korean languages, single letters (rather than multi-letter combinations) are scored. 
+For all other languages, language identification ignores single letters and instead uses sequences of four letters (quadgrams).
+
+It also ignores punctuation and HTML tags.  Language identification is done exclusively on lowercase Unicode letters and marks; after expanding HTML entities; and after deleting digits, punctuation, and <tags>.  For each letter sequence, the scoring uses the 3-6 most likely languages and their quantized log probabilities.
+The analysis does not use a word list or dictionary. Instead, the engine examines the writing to determine the language. The training corpus is manually constructed from chosen web pages for each language, then augmented by careful automated scraping of over 100M additional web pages.  The algorithm is designed to work best on sets of at least 200 characters (about two sentences).
+Note: Language identification in Relativity 9+ supports 173 languages. Language ID considers all Unicode characters and understands which characters are associated with each of the supported languages.   For example, Japanese has several different character sets—kanji, katakana, and hiragana—all of which are supported. See the Supported languages matrix for a complete list of languages that the language identification operation can detect. 
+See the following related pages:
+
+Language identification results
+
+Structured analytics
+
+Running structured analytics
+
+

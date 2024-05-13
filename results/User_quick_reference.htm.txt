@@ -1,0 +1,35 @@
+
+Quick reference guides
+Use these quick reference guides to quickly access information about the following topics:
+
+Advanced search quick reference—a guide to set up, configure and optimally utilize search indexes available in Relativity. Download PDF file here.
+Case workspace quick reference—a guide to navigating the Relativity case workspace. Download PDF file here.
+Review interface quick reference—a guide to working in the viewers and email thread visualization. Download PDF file here.
+Dashboard and Pivot quick reference—a guide to interpreting the dashboard and pivot user interfaces. Download PDF file here.
+Searching quick reference—a guide to searching operators, fields, and key differences between keyword and dtSearches. Download PDF file here.
+Tab navigation quick reference—a guide to setting up and navigating in Relativity using tabs. Download PDF file here.
+Workspace security quick reference—a guide to applying permissions for groups within a workspace. Download PDF file here.
+
+Product quick reference guides
+
+Active Learning quick reference guide—step-by-step instructions for creating and administering an active learning project, with an active learning project checklist included at the end of the guide. Download PDF file here.
+Analytics index quick reference guide—step-by-step instructions for creating an analytics conceptual index in order to run conceptual analytics tools. In addition, this guide explains the different stages of index creation. Download PDF file here.
+Azure AD—step-by-step guide to integrate Relativity and Microsoft Azure AD. Download PDF file here.
+Collect quick reference guide—high-level instructions for install Collect and running a collection job. Download PDF file here.
+Conceptual analytics setup basics—high-level instructions for setting up an analytics conceptual index and the conceptual analytics tools. Download PDF file here.
+Connect - RelativityOne primary contact—high-level workflow for enabling Connect for an instance. Download PDF file here.
+Connect - Admin—high-level workflow for connecting users to multiple instances. Download PDF file here.
+Connect - User—high-level workflow for signing in and navigating between multiple instances. Download PDF file here.
+Name normalization quick reference guide—high-level instructions for running name normalization and various workflows for using its results. Download PDF file here.
+
+Review Center - Admin—high-level workflow for creating and administering a Review Center queue. Download PDF file here.
+
+
+Review Center - Reviewer—high-level workflow for reviewing documents in a Review Center queue. Download PDF file here.
+
+Structured analytics quick reference guide—step-by-step instructions for creating and administering structured analytics. In particular, it discusses how to take advantage of running multiple structured analytics sets on the email threading and textual near duplicate operations. Download PDF file here.
+Structured analytics - Email threading and TND setup basics—high-level workflows for setting up email threading and textual near duplicate identification separately or together. Download PDF file here.
+Structured analytics - Language identification setup basics—high-level workflow for setting up language identification. Download PDF file here.
+Structured analytics - Name normalization setup basics—high-level workflow for setting up name normalization. Download PDF file here.
+Structured analytics - Repeated content identification—high-level workflow for setting up repeated content identification. Download PDF file here.
+

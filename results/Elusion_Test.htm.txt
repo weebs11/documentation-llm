@@ -1,0 +1,136 @@
+
+Project Validation and Elusion Testing
+Project Validation is used to validate the accuracy of an Active Learning project. The goal of Project Validation is to estimate the accuracy and completeness of your relevant document set if you were to stop the project immediately and not produce any unreviewed documents below the rank cutoff. The primary statistic, elusion rate, estimates how many low-ranked uncoded documents are actually relevant documents that you would leave behind if  you stopped the project. The other validation statistics give further information about the state of the project. We recommend running Project Validation when you believe the project has stabilized and the low-ranking documents have an acceptably low relevance rate. However, you can run Project Validation at any point after the first model build. 
+When you run Project Validation, you must first specify the rank cutoff. Then you specify the confidence level for elusion, and either the number of documents in the sample or the margin of error for elusion. Based on these inputs, a sample will be taken. If you choose Elusion Only, the elusion sample is taken from the uncoded documents below the specified rank cutoff. The uncoded documents include documents that were skipped, suppressed, marked neutral, or never reviewed. If you choose Elusion with Recall, the sample is taken from all documents in the Active Learning project, regardless of rank or coding status. Reviewers then code the uncoded sample documents on the project review field, and the results are used to calculate project validation statistics.
+For a detailed explanation of how the validation statistics are calculated, see Project Validation statistics.
+Note: Project Validation does not check for human error. We recommend that you conduct your own quality checks to make sure reviewers are coding consistently. For more information, see Quality checks and checking for conflicts.
+Key definitions for Project Validation
+The following definitions are useful for understanding Project Validation: 
+
+Discard pile – the set of uncoded documents with ranks below the rank cutoff.
+Discard-pile elusion rate – the percentage of documents in the discard pile that are relevant. It’s not possible to calculate this number precisely (with zero error) without coding every document in the discard pile. Therefore, we use sampling to estimate the discard-pile elusion rate. This gives us a sample elusion rate along with a margin of error and confidence level, which capture the amount of uncertainty in the estimate.
+Sample elusion rate – the percentage of documents in the elusion sample that are relevant.
+
+Pre-coded documents in sample - documents which are included in the sample but not served up for coding. When Elusion with Recall is selected, it samples across the entire Active Learning Project, including from documents that already have coding decisions. These pre-coded documents are assumed to be correctly coded, and they are not served up to reviewers for re-review in the validation queue.
+
+
+Rank Cutoff - the numeric cutoff for positive prediction. This is fixed before Project Validation begins.
+
+
+Choosing a validation type
+The key differences of each validation type are listed below. If you aren't sure which type to choose, we recommend Elusion with Recall.
+Elusion with Recall - samples all documents, regardless of rank or coding status, and calculates elusion rate, richness, recall, and precision. This has the following advantages:
+
+
+The richness estimate helps you interpret the elusion rate. For more information, see Project Validation statistics.
+
+
+The recall estimate is often requested by receiving parties, especially government regulators.
+
+
+If you run validation near the end of a prioritized review, this validation type takes roughly the same effort as Elusion Only, but gives a clearer picture of the project state. Because most high-ranking documents in the sample have already been coded, the reviewers will be coding a similar number of documents to an Elusion Only test.
+
+
+Elusion Only - samples uncoded documents below the rank cutoff and calculates only the elusion rate. Because it samples from only the discard pile, Elusion Only requires less coding from reviewers when you have many uncoded documents above the cutoff. If you run validation early in your project, this validation type will be faster, but it gives less information.
+Note: Documents which were previously coded as positive or negative will be sampled for Elusion with Recall's statistics, but they will not be served up to reviewers a second time. They are not sampled at all for Elusion Only tests because they are already coded, and therefore did not elude review. Documents in the sample that were previously coded as neutral may be served up again to reviewers for a final choice of either positive or negative.
+Starting Project Validation
+The Project Validation queue appears along with the other review queues after a new project is created. Starting Project Validation disables all other active queues in the project and suspends model updates until Project Validation is completed.
+To run Project Validation, complete the following:
+
+
+Click Add Reviewers on the Project Validation card and confirm you want to start Project Validation.
+Note: It is common practice to restrict project validation to a small set of knowledgeable reviewers. This typically includes fewer than ten reviewers.
+
+Wait for the system to set up the test. Once the card reads Start Project Validation, click the queue.
+On the Project Validation setup window, complete the following fields:<Positive Choice> Cutoff - the rank which divides positive and negative predictions, such as "relevant" and "not relevant." This cutoff is used throughout Active Learning and factors heavily into the validation statistics.Note: When you update the rank cutoff value, the value is updated in all three places where it’s used in the application: Project Validation, Update Ranks, and Project Settings.Validation TypeElusion Only - starts validation which checks the elusion rate only.Elusion with Recall - starts validation which checks elusion rate, richness, recall, and precision.Sample TypeStatistical - creates a random sample set of a size that is based on a given Confidence and Margin of Error for elusion.Fixed - creates a random sample of a fixed number of documents. This is a sample of the discard pile for Elusion Only and a sample of the entire project for Elusion with Recall.Elusion Confidence Level - the probability that the sample elusion rate is a good estimate of the discard pile elusion rate (i.e., within the margin of error). Selecting a higher confidence level requires a larger sample size.Est. Elusion Margin of Error - the maximum difference between the sample elusion rate and the discard-pile elusion rate. Selecting a lower margin of error requires a larger sample size. Note: Elusion Only tests keep the margin of error that was chosen at the beginning of the test. For Elusion with Recall tests, the actual margin of error is recalculated at the end of project validation. It may be narrower than the original estimate.Reviewers - the users that will review documents during Project Validation.
+Click the green check mark to accept your settings.
+Click Start Review.
+
+Tracking sampled documents
+If you want to run your own calculations on the Project Validation sample, you can create lists to track the sampled documents. This process is optional.
+Follow the steps below to create three lists in the Documents view:
+
+
+Pre-coded documents
+
+
+
+After you start Project Validation, but before reviewers have coded any documents, search for documents which already have the <project name>::Project Validation field set. These are the pre-coded documents.
+
+
+Save the results as a list called "Validation Pre-coded" or similar.
+
+
+
+
+High-ranking Project Validation queue documents
+
+
+
+After coding is complete, search for documents which have the  <project name>::Project Validation field set, but which do not belong to the "Validation Pre-coded" list.
+
+
+Add a search condition narrowing the results to documents which have a CSR - <project name> Cat. Set::Category Rank value greater than or equal to your cutoff value.
+
+
+Save the results as a list called "Validation Predicted Positive" or similar.
+
+
+
+
+Low-ranking Project Validation queue documents
+
+
+
+After coding is complete, search for documents which have the  <project name>::Project Validation field set, but which do not belong to the "Validation Pre-coded" list.
+
+
+Add a search condition narrowing the results to documents which have a CSR - <project name> Cat. Set::Category Rank value lower than your cutoff value.
+
+
+Save the results as a list called "Validation Predicted Negative" or similar.
+
+
+
+
+For more information on creating lists, see Mass Save as List.
+Running Project Validation
+Project Validation statistics are reported in Review Statistics and are updated during Project Validation. You can cancel Project Validation at any time. You can also pause a review queue by clicking the Pause Review button. 
+ Reviewers access the queue from the document list like all other queues. Reviewers code documents from the sample until all documents have been served, at which point the following message appears:
+
+
+
+Note: 
+            For best results, we strongly recommend coding every document in the Project Validation queue as positive or negative. Avoid skipping documents or coding them as neutral. For more information, see How Project Validation handles skipped and neutral documents.        
+When a reviewer saves a document in Project Validation, the document is tagged in the <Project Name>:: Project Validation multi-choice field.
+Releasing unreviewed documents
+If a reviewer falls inactive and does not review the last few documents in a Project Validation queue, you can release those documents to be checked out by another reviewer. This option appears when there are four or fewer documents remaining in Project Validation.
+To release unreviewed documents, select the following:
+
+
+In the Active Learning Project Home, click Release All Documents on the Project Validation card.
+
+
+Click Release Documents on the confirmation modal. The documents are now free to be checked out by active reviewers.
+
+
+Note: The Release All Documents link remains on the Project Validation card after the documents have been released.
+Reviewing Project Validation results
+Once reviewers code all documents in the sample, you can access a summary of the Project Validation results by clicking View Project Validation Results. To view full results, click on the Review Statistics tab in the upper left corner of the screen. For more information, see Review statistics.
+Based on the coding of the Project Validation sample, the results pop-up displays the following:
+
+Elusion Rate - the percentage of documents coded relevant in the uncoded, low-ranking portion of the sample. The elusion rate results are displayed as a range that applies the margin of error to the sample elusion rate, which is an estimate of the discard pile elusion rate. The rate is rounded to the nearest hundredth of a percent.Note: Documents that are skipped or coded neutral during the Project Validation queue are treated as relevant documents when calculating Elusion Rate. Therefore, coding all documents in the elusion sample as positive or negative guarantees the statistical validity of the calculated elusion rate as an estimate of the entire discard-pile elusion rate.  
+Eluded Documents - the estimated number of eluded documents, calculated by multiplying the sample elusion rate by the number of documents in the discard pile. This number is subject to the final confidence and margin of error which can be found in Review Statistics.
+Richness - the percentage of relevant documents across the whole sample. This is calculated by dividing the number of positive-coded documents in the sample by the total number of documents in the sample. This allows us to predict a richness range for the whole project.
+Recall - the percentage of truly positive documents which were found by the Active Learning process. A document has been "found" if it was previously coded positive, or if it is uncoded with a rank at or above the cutoff.
+Precision - the percentage of found documents which are truly positive. A document has been “found” if it was previously coded positive, or if it is uncoded with a rank at or above the cutoff. Documents which were predicted positive but coded negative during validation will count against precision.
+
+If documents were skipped or coded as neutral during Project Validation, a warning appears on the modal. You can review these skipped and neutral documents, and they'll be reflected in the results as if they were coded during the test.
+If you find the Project Validation results acceptable, select whether to Update document ranks upon completion, and then click Complete Project to close the project. Once the project is complete, the model remains frozen. Any coding decisions that occur after Project Validation will not be used to train the (now frozen) model.
+Note: Updating ranks upon accepting Project Validation results will use the Project Validation Rank Cutoff.  
+If you don't find the Project Validation results acceptable, click Resume Project, then click again to re-open the Active Learning project. This unlocks the model and allows it to rebuild. Any documents coded since Project Validation began, including those from the Project Validation queue itself, are included in the model build.
+Full Project Validation statistics are reported in Review Statistics and persist after Project Validation is finished. This data is located under the Project Validation report tab.
+See Review Statistics for more information. 
+
+
+

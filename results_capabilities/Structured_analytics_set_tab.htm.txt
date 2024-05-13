@@ -1,0 +1,159 @@
+
+
+Structured analytics
+Structured analytics operations analyze text to identify the similarities and differences between the documents in a set. 
+Using structured analytics, you can quickly assess and organize a large, unfamiliar set of documents. On the Structured Analytics Set tab, you can run structured data operations to shorten your review time, improve coding consistency, optimize batch set creation, and improve your Analytics indexes.
+See these related pages:
+
+Running structured analytics
+
+Email threading
+
+Email threading results
+
+Email thread visualization
+
+Textual near duplicate identification
+
+Textual near duplicate identification results
+
+Language identification
+
+Language identification results
+
+Evaluating repeated content identification results
+
+Name normalization
+
+
+Read a structured analytics scenario
+
+
+Read a structured analytics scenario
+As a system admin tasked with organizing and assessing one of the largest data sets you've worked with for a pending  lawsuit against your client, you find a substantial portion of your data set includes emails and email attachments. To save time and accomplish the task of organizing and assessing the large data set for review, you create and run a new structured analytics set using the email threading operation to do the following:
+
+Organize all emails into conversation threads in order to visualize the email data in your document list.
+Reduce the number of emails requiring review and focus only on relevant documents in email threads by identifying all inclusive emails—emails containing the most complete information in a thread.
+
+After running your structured analytics set with the email threading operation, you first review the summary report to assess your results at a high level, and then you create a new email threading document view for the purpose of viewing and analyzing your email threading results to identify non-duplicate inclusive emails for review.
+
+
+
+Structured analytics vs. conceptual analytics
+It may be helpful to note the following differences between structured analytics and conceptual analytics, as one method may be better suited for your present needs than the other.
+
+
+
+
+
+Structured analytics
+Conceptual analytics
+
+
+
+
+Takes word order into consideration
+
+
+Leverages Latent Semantic Indexing (LSI), a mathematical approach to indexing documents
+
+
+
+Doesn’t require an index (requires a set)
+	Requires an Analytics Index
+
+
+
+Enables the grouping of documents that are not necessarily conceptually similar, but that have similar content
+Uses co-occurrences of words and semantic relationships between concepts
+
+
+Takes into account the placement of words and looks to see if new changes or words were added to a document
+Doesn't use word order
+
+
+
+Structured analytics operations
+Structured analytics includes the following distinct operations:
+
+Email threading performs the following tasks:Determines the relationship between email messages by grouping related email items together.Identifies inclusive emails (which contain the most complete prior message content) and can bypass redundant content.Applies Email thread visualization (including reply, forward, reply all, and file type icons). Visualization helps you track the progression of an email chain—allowing you to easily identify the beginning and end of an email chain.Note: The results of email threading decrease in accuracy if email messages contain headers in unsupported languages.
+Name normalization performs the following tasks on email messages:Identifies aliases (proper names, email addresses, etc.) within email headers.Groups aliases into entities (people, distribution groups, etc.).
+Textual near duplicate identification performs the following tasks:Identifies records that are textual near-duplicates (those in which most of the text appears in other records in the group and in the same order).Returns a percentage value indicating the level of similarity between documents.
+Language identification performs the following tasks:Identifies the primary and secondary languages (if any) present in each record.Provides the percentage of the message text that appears in each detected language.See the Supported languages matrix for a complete list of languages that the language identification operation can detect.
+Repeated content identification analyzes extracted text to identify repeated content at the bottom of documents, such as email footers, that satisfy the minimum repeated words and minimum document occurrences settings. It returns a repeated content filter, which you can apply to an Analytics profile to improve Analytics search results.
+Note: The repeated content filter can be applied to the Analytics index . Repeated content filters are no longer linked to the Analytics profile.
+
+The following table summarizes the primary benefits of each operation.
+
+
+
+
+
+
+
+
+Operation
+Optimizes batch set creation
+Improves coding consistency
+Optimizes quality of Analytics indexes
+Speeds up review
+
+
+
+
+Email threading
+√
+
+√
+
+ 
+                    
+√
+
+
+
+Name normalization
+√
+
+√
+
+ 
+√
+
+
+
+Textual near duplicate identification
+√
+
+√
+
+ 
+√
+
+
+
+Language identification
+√
+
+ 
+ 
+                    
+√
+
+
+
+Repeated content identification
+ 
+ 
+√
+
+√
+
+
+
+
+Note: You can change the structured analytics set operations after you run a set. Once you successfully run an operation and want to run another, return to your set and deselect the operation you previously ran and select the new operation. Then, save and run your structured analytics set. 
+Setting up your environment
+Note: If you are a current RelativityOne user, and you want to install or upgrade this application, you must contact the Customer Support team.
+To use structured analytics within RelativityOne, you must have the Analytics application installed in your workspace. Installing the application will create an Indexing & Analytics tab, along with several fields that allow structured analytics to become operational. Due to the addition of several relational fields, we recommend installing the application during a low activity time via the Applications Library admin tab. For more information, see Installing applications.
+Note: Relativity template workspaces already have the Analytics application installed by default.

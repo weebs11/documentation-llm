@@ -1,0 +1,39 @@
+
+Running a dictionary search
+When you run a dtSearch, you can use Dictionary Search to query the index for a term and find the total occurrences and number of documents in which it occurs. The Dictionary Search dialog displays  the results, including the following columns:
+
+Keyword - the word contained in the index. If you use fuzziness or stemming in your search, this column displays any variations of the term.
+Total Words - the number of times the word appears in the dtSearch index.
+Total Documents - the number of documents in the index that contain the word.
+
+A dictionary search returns only the first 2,000 items in the result set. If your search returns more than that,  a message displays to indicate that only 2,000 items were returned.
+Running a dictionary search in the search panel
+To run a dictionary search in the search panel:
+
+Navigate to the search panel.
+Click Add Condition.
+Select (Index Search) from the Add Condition dropdown.The (Index Search) pop-up opens.
+Select the name of your dtSearch index from the Index dropdown.
+Click Dictionary. The Dictionary Search pop-up opens.
+
+Enter a search term in the textbox. You can enter variations of a search term as well as the wildcard (*), stemming (~), or fuzzy searching (%) operators.
+(Optional) Set one of the following search operators:Fuzziness Level - Select a value from one to ten to set the degree of variation in the terms returned. A larger number returns terms with more variation. This option is independent of the fuzziness (%) character that you can enter in the textbox on the Dictionary Search dialog. See Fuzzy searching.Enable Stemming - Select to return grammatical variations of a word. For example, a search on "apply" returns "applying", "applies" and "applied." This option is independent of the stemming (~) character that you can enter in the textbox on the Dictionary Search dialog. See Stemming.
+Click Search to display a list of keywords and the associated totals.
+Perform any of the following tasks with your search results:Copy to Clipboard - Select the checkboxes for the terms that you want to copy, and click Copy to Clipboard. On the Documents tab, right-click in the Search Terms box, and click Paste. The terms will added to the textbox separated by the OR operator.Sort - Click a column header to sort in descending or ascending order.Reset Columns Sizes - Displays columns with their default widths.Export to Excel - Click to download an Excel spreadsheet containing the keywords and totals from the dictionary search.Show Filters/Clear All - See Filters.
+
+Running a dictionary search in the search browser
+To run a dictionary search in the Search browser:
+
+Click  to access the Search browser from the Document list.
+Click Create New Search.
+Enter required fields.
+Click Add Condition.
+Select (Index Search) from the Add Condition dropdown. The (Index Search) pop-up opens.
+Select the name of your dtSearch index from the Index dropdown.
+Click Dictionary. The Dictionary Search pop-up opens.
+
+Enter a search term in the textbox. You can enter variations of a search term as well as the wildcard (*), stemming (~), or fuzzy searching (%) operators.
+(Optional) Set one of the following search operators:Fuzziness Level - Select a value from one to ten to set the degree of variation in the terms returned. A larger number returns terms with more variation. This option is independent of the fuzziness (%) character that you can enter in the textbox on the Dictionary Search dialog. See Fuzzy searching.Enable Stemming - Select to return grammatical variations of a word. For example, a search on "apply" will return "applying", "applies" and "applied." This option is independent of the stemming (~) character that you can enter in the textbox on the Dictionary Search dialog. See Stemming.
+Click Search to display a list of keywords and the associated totals.
+Perform any of the following tasks with your search results:Copy to Clipboard - Select the checkboxes for the terms that you want to copy, and click Copy to Clipboard. On the Documents tab, right-click in the Search Terms box, and click Paste. The terms are added to the textbox separated by the OR operator.Sort - Click a column header to sort in descending or ascending order.Reset Columns Sizes - Displays columns with their default widths.Export to Excel - Click to download an Excel spreadsheet containing the keywords and totals from the dictionary search.Show Filters/Clear All - See Filters.
+

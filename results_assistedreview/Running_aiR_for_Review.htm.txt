@@ -1,0 +1,512 @@
+
+Running aiR for Review
+aiR for Review uses generative AI to simulate the actions of a human reviewer, finding and describing relevant documents using the review instructions that you provide. These analyses can be customized to search for relevance, key documents, or specific issues as needed.
+The instructions you give aiR for Review are called Prompt Criteria. For best results, we recommend analyzing a small set of documents, tweaking the Prompt Criteria as needed, then finally analyzing a larger set of documents. This lets you see immediately how aiR's coding compares to a human reviewer's coding and adjust the prompts accordingly.
+Note: aiR for Review is currently in limited release. For information about the general release, contact your account representative.
+See these related pages:
+
+aiR for Review
+
+Monitoring aiR for Review jobs
+
+aiR for Review results
+
+aiR for Review security permissions
+
+
+See these additional resources:
+
+Workflows for Applying aiR for Review
+
+aiR for Review example project
+
+
+Installing aiR for Review
+aiR for Review is available as a secured application from the Application Library. You must have an active aiR for Review contract to use it, and it is not available for repository workspaces.
+To install it:
+
+
+Navigate to the Relativity Applications tab in your workspace.
+
+
+Select Install from application library.
+
+
+Select the aiR for Review application.
+
+
+Click Install.
+
+
+After installation completes, the following object types will appear in your workspace:
+
+
+aiR Relevance Analysis—records the Relevance results of aiR for Review analysis runs.
+
+
+aiR Issue Analysis—records the Issue results of aiR for Review analysis runs.
+
+
+aiR Key Analysis—records the Key results of aiR for Review analysis runs.
+
+
+aiR for Review Prompt Criteria—records the Prompt Criteria settings and contents for each analysis run. This also records Prompt Criteria drafts for each user.
+
+
+Installing aiR for Review creates two versions of the aiR for Review Jobs tab: one at the instance level, and one at the workspace level. Some users also find it helpful to manually create tabs for the three Analysis objects, but this is optional.
+For more information on installing applications, see Relativity applications.
+Setting up permissions
+For detailed information on aiR for Review user permissions, see aiR for Review security permissions.
+Choosing an analysis type
+aiR for Review supports three types of analysis. Each one is geared towards a different phase of a review or investigation.
+ For each aiR for Review job, choose one analysis type:
+
+
+Relevance—analyzes whether documents are relevant to a case or situation that you describe, such as documents responsive to a production request.
+
+
+Relevance and Key Documents—analyzes documents for both relevance and whether they are “hot” or key to a case.
+
+
+Issues—analyzes documents for whether they include content that falls under specific categories. For example, you might use this to check whether documents involve coercion, retaliation, or a combination of both.
+
+
+Based on the analysis type you choose, you will need the following fields:
+
+
+Relevance—one single-choice results field. The field must have at least one choice.
+
+
+Relevance and Key Documents—two single-choice results fields. These should have distinct names such as "Relevant" and "Key," and each field should have at least one choice.
+
+
+Issues—one multi-choice results field. Each choice should represent one of the issues you want to analyze.
+Note: Currently, aiR for Review analyzes a maximum of five issues per run. You can have as many choices for the field as you want, but you can only analyze five at a time.
+
+
+aiR for Review does not actually write to these fields. Instead, it uses them as reference when making and reporting on its predictions.
+Choosing a processing mode
+aiR for Review supports two processing modes: Fast Track and Batch. These are designed for the workflow of fine-tuning Prompt Criteria on a small set of documents, then using the Prompt Criteria on a large set of documents.
+Because the large language model (LLM) has limited capacity, we dedicate some bandwidth exclusively to Fast Track jobs. This returns speedy results for smaller jobs without them having to wait for larger jobs in the queue.
+ For each aiR for Review job, choose one mode:
+
+
+Fast Track—processes up to 50 documents quickly. Use this to test and refine your Prompt Criteria on a small set of test documents.
+
+
+Each user can have only one Fast Track job running at a time.
+
+
+These jobs use dedicated bandwidth that is not available to larger batch jobs. They typically return results within 5-10 minutes.
+
+
+
+
+Batch—processes up to 50,000 documents. Use this to run your previously refined Prompt Criteria on a larger set of documents.
+
+
+Each instance can have up to three Batch jobs running at a time.
+
+
+Processing time varies based on document load and total load on the LLM.
+
+
+
+
+For more detailed information about each mode’s capacity, see Job capacity and size limitations.
+Best practices for running aiR for Review
+aiR for Review works best after fine-tuning the Prompt Criteria. Analyzing just a few documents at first, comparing the results to human coding, and then adjusting the Prompt Criteria as needed yields more accurate results than diving in with a full document set.
+We recommend the following workflow:
+
+
+For your first analysis, run the Prompt Criteria on a set of 10 test documents that are a mix of relevant and  not relevant.
+
+
+Compare the results to human coding. In particular, look for documents that aiR coded differently than the humans did and investigate possible reasons. This could include unclear instructions, needing to define an acronym or code word, or other blind spots in the Prompt Criteria.
+
+
+Tweak the Prompt Criteria to adjust for blind spots.
+
+
+Repeat steps 1 through 3 until aiR predicts coding decisions accurately for the test documents.
+
+
+Test the Prompt Criteria on 50 documents and compare results. Continue tweaking as needed.
+
+
+Finally, run the Prompt Criteria on a larger set of documents.
+
+
+aiR only sees the extracted text of a document. It does not see any non-text elements like advanced formatting, embedded images, or videos. We do not recommend using aiR for Review on documents such as images, videos, or spreadsheets with heavy formulas. Instead, use it on documents whose extracted text accurately represents their content and meaning.
+Running the analysis
+aiR for Review works as a mass action found on the Documents tab. Running the analysis has three basic parts:
+
+
+Selecting documents and setting up the review
+
+
+Writing the Prompt Criteria
+
+
+Submitting the job for analysis
+
+
+At any point in this process, you can click Save and Close in the mass action modal. This saves your progress so that you can keep working on it at a later time.
+When you reopen the mass action modal, the last Prompt Criteria that you saved will display. For more information, see Running aiR for Review.
+Step 1: Selecting documents and setting up the review
+To start an aiR for Review analysis job:
+
+
+From the Documents tab, select the documents you want to analyze.
+
+
+Under Mass Actions, select aiR for Review. A modal with several tabs appears.
+
+
+On the Setup tab of the modal, set the following:
+
+
+Prompt Criteria Name—give the Prompt Criteria a unique name. You can also click Load Prompt Criteria to select Prompt Criteria that you or another user previously wrote. For more information, see Editing and collaboration.
+
+
+Review Type—select one of the following. For more information, see Choosing an analysis type.
+
+Relevance—analyzes whether documents are relevant to a case or situation that you describe, such as documents responsive to a production request.
+
+Relevance and Key Documents—analyzes documents for both relevance and whether they are “hot” or key to a case.
+
+
+Issues—analyzes documents for whether they include content that falls under specific categories.
+
+
+
+
+Run in Fast Track—toggle this On for 50 documents or fewer, and Off for more than 50 documents. For more information, see Choosing a processing mode.
+
+
+
+
+The first time you use the mass action, all the fields will be blank. When you click Save and Next or Save and Close, your progress saves and persists for the next analysis.
+If any required fields on any of the tabs are empty or misconfigured, the Save and Next button will be unavailable. Click on the title of each tab to fill out its fields.
+Step 2: Writing the Prompt Criteria
+The Prompt Criteria are a set of inputs that give aiR the context it needs to understand the matter and evaluate each document. Writing the Prompt Criteria is a way of training your "reviewer," similar to training a human reviewer.
+Depending which type of analysis you chose, you will see a different set of tabs. All Prompt Criteria include the Case Summary tab.
+General writing guidelines
+For all of the setup tabs, we recommend:
+
+
+Write as if "less is more." Instead of pasting in a long review protocol as-is, summarize where possible and include only key passages. The Prompt Criteria have an overall length limit of 10,000 characters.
+
+
+Phrase things in a positive way when possible. Avoid negatives ("not" statements) and double negatives.
+
+
+Do not include explanations of the law.
+
+
+Do not give the LLM commands, such as “you will review XX." Instead, simply describe the case.
+
+
+Use whatever writing format makes the most sense to a human reader. For example, bullet points might be useful for the People and Aliases section, but paragraphs might make sense in another section.
+
+
+The LLM has essentially “read the whole Internet.” It understands widely used slang and abbreviations, but it does not necessarily know jargon or phrases that are specific to an organization.
+
+
+When you start to write your first Prompt Criteria, the fields contain grayed-out helper text that shows examples of what to enter. Use this as a guideline for crafting your own entries.
+Note: 
+For more guidance on prompt writing, see the following resources on the Community site:
+
+
+aiR for Review Prompt Writing Best Practices—downloadable PDF of writing guidelines
+
+
+aiR for Review example project—detailed example of adapting a review protocol into Prompt Criteria
+
+
+
+Filling out the Case Summary tab
+The Case Summary gives the broad context surrounding a matter. It includes an overview of the matter, people and entities involved, and any jargon or terms that are needed to understand the document set.
+Limit the Case Summary content to roughly 20 sentences overall, and 20 each of People and Aliases, Noteworthy Organizations, and Noteworthy Terms.
+To fill out the Case Summary tab:
+
+
+Within the setup modal, click on the Case Summary tab.
+
+
+Fill out the following:
+
+
+Matter Overview—provide a concise overview of the case. Include the names of the plaintiff and defendant, the nature of the dispute, and other important case characteristics.
+
+
+People and Aliases—list the names and aliases of key custodians who authored or received the documents. Include their role and any other affiliations.
+
+
+Noteworthy Organizations—list the organizations and other relevant entities involved in the case. Highlight any key relationships or other notable characteristics.
+
+
+Noteworthy Terms—list and define any relevant words, phrases, acronyms, jargon, or slang that might be important to the analysis.
+
+
+Additional Context—list any additional information that does not fit the other fields. This section is typically left blank.
+
+
+
+
+Depending on which Review Type you chose, the remaining tabs will be called Relevance, Key Documents, or Issues. Fill out those tabs according to the guide sections below.
+Filling out the Relevance tab
+If you chose either Relevance or Relevance and Key Documents as the Review Type, you will see the Relevance tab. This defines the fields and criteria used for determining if a document is relevant to the case.
+To fill out the Relevance tab:
+
+
+Within the setup modal, click on the Relevance tab.
+
+
+Fill out the following:
+
+
+Relevance Field—select a single-choice field that represents whether a document is relevant or non-relevant.
+
+
+Relevant Choice—select the field choice you use to mark a document as relevant.
+
+
+Relevance Criteria—summarize the criteria that determine whether a document is relevant. Include:
+
+
+Keywords, phrases, legal concepts, parties, entities, and legal claims
+
+
+Any criteria that would make a document non-relevant, such as relating to a project that is not under dispute
+
+
+
+
+Issues Field (Optional)—select a single-choice or multi-choice field that represents the issues in the case.
+
+
+Choice Criteria—select each of the field choices one by one. For each choice, write a summary in the text box listing the criteria that determine whether that issue applies to a document. For more information, see Filling out the Issues tab.
+
+
+Note: aiR does not make Issue predictions during Relevance review, but you can use this field for reference when writing the Relevance Criteria. For example, you could tell aiR that any documents related to these issues are relevant.
+
+
+
+
+For best results when writing the Relevance Criteria:
+
+
+Limit the Relevance Criteria to 5-10 sentences.
+
+
+Do not paste in the original request for production (RFP); those are often too long and complex to give good results. Instead, summarize it and include key excerpts.
+
+
+Group similar criteria together when you can. For example, if an RFP asks for “emails pertaining to X” and “documents pertaining to X,” write “emails or documents pertaining to X.”
+
+
+Filling out the Key Documents tab
+If you chose Relevance and Key as the Review Type, you will see the Key Documents tab. This defines the fields and criteria used for determining if a document is "hot" or key to the case.
+To fill out the Key Documents tab:
+
+
+Within the setup modal, click on the Key Documents tab.
+
+
+Fill out the following:
+
+
+Key Document Field—select a single-choice field that represents whether a document is key to the case.
+
+
+Key Document Choice—select the field choice you use to mark a document as key.
+
+
+Key Document Criteria—summarize the criteria that determine whether a document is key. Include:
+
+
+Keywords, phrases, legal concepts, parties, entities, and legal claims
+
+
+Any criteria that would exclude a document from being key, such as falling outside a certain date range
+
+
+
+
+
+
+For best results, limit the Key Document Criteria to 5-10 sentences.
+Filling out the Issues tab
+If you chose Issues as the Review Type, you will see the Issues tab. This defines the fields and criteria used for determining whether a document relates to a set of specific topics or issues.
+To fill out the Issues tab:
+
+
+Within the setup modal, click on the Issues tab.
+
+
+Fill out the following:
+
+
+Field—select a multi-choice field that represents the issues in the case.
+
+
+Choice Criteria—select each of the field choices one by one. For each choice, write a summary in the text box listing the criteria that determine whether that issue applies to a document. Include:
+
+
+Keywords, phrases, legal concepts, parties, entities, and legal claims
+
+
+Any criteria that would exclude a document from being key, such as falling outside a certain date range
+
+
+
+
+
+
+For best results when writing the Choice Criteria:
+
+
+Limit the criteria description for each choice to 5-10 sentences.
+
+
+Each of the choices must have its own criteria. If a choice has no criteria, either fill it in or remove the choice.
+
+
+Removing issue choices
+aiR analyzes a maximum of 5 choices. If the issue field has more than 5 choices:
+
+
+Select the choice you want to remove.
+
+
+Click the Remove Choice button on the right.
+
+
+Repeat with any other unwanted choices.
+
+
+Step 3: Submitting the job for analysis
+After filling out the Setup, Case Summary, and other tabs, review the job and submit it for analysis.
+To submit a job:
+
+
+Click Save and Next.
+
+
+Review the confirmation summary. This includes:
+
+
+Total Docs—number of documents to be analyzed.
+
+
+Est. Total Doc Units—number of document units counted for billing purposes. For more information, see How document units are calculated.
+
+
+Est. Time to Start—estimated wait time from when you submit the job, to when aiR can begin analyzing your job. Longer wait times appear when aiR already has other work queued up.
+
+
+Est. Run Time—estimated time aiR will take to analyze and return the results of the documents selected. This does not include time waiting in the queue.
+
+
+
+
+Click Start Classification.
+A banner appears showing that the job was successfully submitted for analysis.
+
+
+Note: If you try to run a job that is too large or when too many jobs are already running, an error will appear. You can still save and edit the Prompt Criteria, but you will not be able to start the job. For more information, see Job capacity and size limitations.
+For information on monitoring jobs in progress, see Monitoring aiR for Review jobs.
+Editing and collaboration
+By default, when you select the mass action, the last Prompt Criteria you saved will display. This makes it easy to edit the Prompt Criteria without re-entering information.
+If you want to edit a different set of Prompt Criteria or collaborate with another user, you can load previous Prompt Criteria into the mass action modal. From there, any edits you make will be saved as a new set of Prompt Criteria.
+To load previous Prompt Criteria:
+
+
+From the Documents tab, check the documents you want to analyze.
+
+
+Under Mass Actions, select aiR for Review.
+
+
+On the Setup tab of the modal,  click Load Prompt Criteria. A pop-up opens with two tabs:
+
+
+Prompt Criteria—Prompt Criteria for jobs that already ran in the workspace.
+
+
+Drafts—each user’s most recently saved Prompt Criteria. These may or may not have been run yet.
+
+
+
+
+Select a row from either tab.
+The right-hand panel shows a preview of the Prompt Criteria.
+
+
+Click Load.
+The Prompt Criteria Name, Analysis Type, and all criteria load into the aiR for Review modal.
+
+
+If you run the previous Prompt Criteria without making any changes, the Prompt Criteria Name stays the same. If you edit the prompt before running it, a number such as (1) or (2) will be automatically added to the end of the Prompt Criteria Name. You can also manually enter your own name for the Prompt Criteria as you edit it.
+If you and another user both edit the same Prompt Criteria at the same time, your edits are saved as separate drafts. To collaborate on the same draft, we recommend having the first user finish their edits, then pass the draft off to the second user.
+Note: Only one Prompt Criteria draft is saved for each user. If you save a draft, then load in different Prompt Criteria, that draft will be overwritten. To save Prompt Criteria long-term, run them with one or more documents.
+How document units are calculated
+A document unit is a document with between 1 and 15,000 characters of text. If a document has more than 15,000 characters in it, it is counted as two or more document units. For example, a 1-character document counts as one document unit, but a 16,000-character document counts as two document units.
+Note: Any Unicode character counts as one character, regardless of storage size.
+Because the document unit estimation calculates white space slightly differently than actual billing, small discrepancies may appear for document sizes that are right on the border between two document units. To find the actual document units that are billed, see the Cost Explorer.
+Job capacity and size limitations
+Based on the limits of the underlying large language model (LLM), aiR has size limits for the documents and prompts you submit, as well as volume limits for the overall jobs.
+Size limits
+The documents and Prompt Criteria have the following size limits:
+
+
+The Prompt Criteria have an overall length limit of 10,000 characters.
+
+
+Each document's extracted text should be under 150KB if possible. aiR has a hard limit of 300KB extracted text per document, but due to how the LLM processes document size, it sometimes rejects documents that are smaller than 300KB. To avoid this, we recommend treating 150KB as the upper limit.
+
+
+Each document's extracted text, when combined with the Prompt Criteria, must be less than 32,000 “tokens” (roughly equivalent to words, symbols, or whitespace). This is usually not a problem for documents under 150KB.
+
+
+Volume limits
+The volume limits for aiR for Review jobs are as follows:
+
+
+
+
+
+
+Volume Type
+Limit
+Notes
+
+
+
+
+Max job size for Fast Track mode
+50 documents
+For over 50 documents, use Batch mode.
+
+
+ Max job size for Batch mode 
+50,000 documents
+
+A single Batch job can include up to 50,000 documents.
+
+
+
+Concurrent Fast Track jobs per user
+1 job
+Each user can only have one Fast Track job running at a time. However, multiple users in one instance can run Fast Track jobs at the same time.
+
+
+Concurrent Batch jobs per instance
+3 jobs
+Only 3 Batch jobs can be queued or running at the same time within an instance.
+
+
+
+Speed
+After a job is submitted, aiR analyzes roughly 25-50 documents per minute. Fast Track jobs typically take under 10 minutes. Batch job speeds vary widely depending on the number of documents, the overall load on the LLM, and other factors.

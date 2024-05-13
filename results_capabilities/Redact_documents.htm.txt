@@ -1,0 +1,29 @@
+
+Redact documents
+PI Detect uses a combination of rules and machine learning models to identify the context surrounding personal information. It understands the structure of the document to more accurately identify personal information and reduce false positives. Once PI Detect identifies personal information it leverages Redact to redact identified personal information, eliminating the need to draw redactions one-by-one.
+Note: PI Detect uses facade redactions to mark redactions on documents. The customer instance must have Facade Redactions turned on to leverage the redact capabilities offered with this product.
+ To redact documents:
+
+
+Navigate to the document list page and select documents to redact.
+
+
+Select the PI Detect Redact mass operation.
+
+
+Choose a Markup Set and Markup Type. If you select Text as the Markup type, enter Markup Text.
+Note: To adjust redaction settings for your markup set, see Markup sets.
+
+
+Select Redact Selected Documents.
+
+
+Within the PI Detect and Data Breach Response application, navigate to the Redact tab to view all redaction jobs.
+
+
+Click into a redaction job to view the job status.
+
+
+When redaction is complete, select a document to review redactions
+
+

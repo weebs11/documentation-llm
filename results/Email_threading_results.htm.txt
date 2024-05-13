@@ -1,0 +1,135 @@
+
+
+Email threading results
+After running an email threading operation, we recommend reviewing the available reports. See Viewing the Email Threading Summary. You can then create an Email Threading view in the Documents tab to inspect your email threading results. See Setting up an email threading view. If your email threading results  have errors, you can use a regular expression filter to format the extracted text. See Repeated content filters tab for more information.
+Note: Inclusive, non-duplicate emails have black square indentation squares in the Email Threading Display field. If the emails with black indentation squares aren't actually inclusive, your extracted text format doesn't meet the formatting requirements. See Supported email header formats. 
+See this related page for information about email thread visualization in the document viewer:
+
+Email thread visualization
+
+
+Viewing the Email Threading Summary
+After running the email threading operation on a structured data analytics set, you can quickly assess the validity of the results using the Email Threading Summary report. On the Structured Analytics Set console, click View Email Threading Summary to open the report. This report contains a graphical summary and tables that list a breakdown of all the emails analyzed. 
+
+
+
+The Email Threading Summary pie chart provides a graphical representation of the percentages of inclusive emails, inclusive duplicate emails, and non-inclusive emails.
+
+
+
+The Email Threading Summary table provides the following details of the operation's results:
+
+Total emails analyzed - total number of emails analyzed by the Email Threading operation.
+Inclusive emails - total count and percentage of all emails in the set that actually require review. This is the most important information in the table.
+Inclusive emails; duplicates - count and percentage of inclusive emails that contain duplicates in the set.
+Non-inclusive emails - total count and percentage of all emails in the set that do not contain inclusive content.
+
+The Email Threading Results Summary contains a breakdown by percentage and count of the following report data:
+
+Emails with attachments - number of email messages that contain attachments. 
+This tally is a count of parent emails where another document's Parent Document ID value matches the parent email’s document identifier exactly. 
+Emails with missing items - number of emails identified that are missing emails within their thread. This could be caused by missed emails in the collection.
+Email threads with no root - number of email threads with no root email identified.  Missing root emails may result from discrepancies within the extracted text.
+Duplicate emails - number of duplicate spares identified. Duplicate spare is a message that contains the exact same content as another message, such as a newsletter sent to a distribution list. The identification of duplicate spare emails does not consider the To, CC, or BCC fields in the email headers.
+Duplicate email thread groups - number of distinct threads that contain one or more duplicate spares. 
+Email action: forward - number of email messages with a forward action.
+Email action: reply - number of email messages with a reply action.
+Email action: reply all - number of email messages with a reply all action.
+
+The Inclusive Email Reasons Summary contains a breakdown by percentage and count of the following report data:
+
+Message - number of emails found to be inclusive due to unique content in the text of the email.
+Attachment - number of emails found to be inclusive because they contain a unique attachment that is not present in any other emails in the thread.
+Inferred Match - number of root emails found to be inclusive because their metadata matches the rest of a thread, but the message has discrepancies. See Email threading fields for information on inferred matches.
+Unanalyzed Attachment - the message contains attachments that could not be analyzed by the Analytics engine. In most cases this is due to the attachment being larger than 30 MB.
+
+Setting up an email threading view
+To view the results of a specific email threading structured analytics set, we recommend creating an Email Threading view  for the structured analytics set on the Documents tab. For more information on creating views, see Views. 
+To set up an email threading view, complete the following: 
+
+Create a new view on the Document object.
+Complete the fields on the Information tab specific to your view.
+On the Other tab, complete the following:Group Definition - select the relational field that is selected for the Destination Email Thread Group field  on the structured analytics set layout (such as Email Thread Group)
+ On the Fields tab, add the following fields to your view, as well as any additional fields you desire:
+
+<Structured Analytics Set prefix>::Email Threading Display
+<Structured Analytics Set prefix>::Email Thread Group
+<Structured Analytics Set prefix>::Email Threading ID
+<Structured Analytics Set prefix>::Inclusive Email  
+<Structured Analytics Set prefix>::Inclusive Reason
+
+On the Conditions tab, add the following condition:<Structured Analytics Set prefix>::Email Thread Group : is set
+On the Sort tab, sort the following fields in ascending order:<Structured Analytics Set prefix>::Email Thread Group<Structured Analytics Set prefix>::Indentation<Structured Analytics Set prefix>::Email Threading ID
+Click Save. 
+
+The blue line between rows  separates distinct threads of email messages. 
+
+
+Thread Groups in the related items pane
+To improve the review efficiency, the Email Threading Display field automatically appears when viewing the Thread Group in the related items pane. You can also add the Email Threading Display field to any other view in Relativity.
+
+
+
+In the related items pane, click the Thread Group icon  to display all messages in the same thread group as the selected document. You can also click the Email Duplicates icon  to show all of the messages identified as duplicates of the selected document, or click the Near Dup Groups icon  to show all items that are textual near duplicates of the selected document.
+After deploying the Analytics application, you can create fields that propagate coding choices to these structured analytics related groups. See Applying propagation to documents for more information.
+
+
+
+Note: Be very careful when using propagation. We recommend against turning propagation on for your responsiveness fields. For example, if you  mark an email within a group as not responsive, other potentially responsive emails within the group could be automatically coded as not responsive.
+Email Threading Display
+The Email Threading Display field provides the following visual information about email threading:
+Indentation squares
+The numbers within each square indentation icon indicate each email message's indentation level within the thread. For example, the first email in the chain would be "1," an email responding to the first email would be "2," and an email responding to the third email would have a "3." The indentation levels go up to 99. For messages with an indentation level over 99, the number within the square icon displays as "99+."
+The color of the indentation square indicates inclusiveness and duplicate spare status. Inclusive email messages (Inclusive Email = Yes) contain the most prior message content from all the emails within a particular email branch. A non-duplicate spare email (Email Duplicate Spare = No) is either the primary email within a group of duplicate spare emails, or a standalone email.
+
+A black square   denotes that the email is both inclusive and non-duplicate spare.
+A white square    denotes that the email is either one of the following:A non-inclusive emailAn inclusive email that is a duplicate spare.
+
+One possible workflow to apply is to batch out to reviewers only the inclusive emails that are non-duplicate spares, along with their attachments. This creates a more efficient review by eliminating the need to review non-inclusive and duplicate spare emails.
+
+
+Message and file type icons
+The Email Threading Display field includes the following file type icons:
+
+Send (or Other)  - represented by a simple indentation square (this the start of an email thread)
+Reply  - represented by an indentation square with a single left arrow (original file name begins with RE:)
+Reply All  - represented by an indentation square with a double left arrow (reply to all recipients)
+Forward  - represented by an indentation square with a single right arrow (original file name begins with FW:)
+Draft   - represented by a pencil on the left of the square indentation square (email is a draft and not sent)
+Email contains attachments  or - represented by an indentation square with a single paper icon on the right (file is an email containing a single attachment) or a double paper icon on the right (file is an email containing multiple attachments). Attachments are documents included in your emails in document set saved search. The following conditions apply to the icon display in the Relativity workspace:The document type determines the attachment's file type icon.The attachment’s file name that appears is based on the value in the attachment name field.
+Unknown  - represented by a paper icon (file type cannot be found). This will be displayed for attachments where the file type isn't found.
+
+Note: Do not add the Email Threading Display field to layouts. Because the Email Threading Display field uses HTML, it will not display anything if you add it to layouts you create. In addition, when a layout that contains the Email Threading Display field is edited and saved, the Email Threading Display field will be rendered blank for that document in the document list and related items views. .
+Working with email threading results
+After running an email threading operation and setting up your email threading view, use the following sample workflow to narrow down your documents to review.
+Identifying unique documents to review
+
+By reviewing only inclusive emails and skipping duplicates, your review process is most efficient. The Analytics engine derives the email threads and determines which subset of each conversation constitutes the minimal inclusive set. Non-inclusive emails are redundant because all non-inclusive content is also contained in inclusive emails. The inclusiveness analysis ensures that even small changes in content will not be missed by reviewers.
+To avoid redundant review, you should look at the Email Duplicate Spare field in conjunction with the Inclusive Email field. The Email Duplicate Spare field will be set to Yes for all but one duplicate in each group of duplicative emails.
+One highly suggested workflow is reviewing the inclusives and their attachments, while skipping the duplicate spares and their attachments. These fields may be used in Saved Searches and views to easily locate the desired documents. 
+To identify and view a list of only unique documents using your email threading results and email threading view, perform the following steps:
+
+Click the Documents tab in your workspace.
+Select your new email threading view from the drop-down menu on the view bar.
+In the drop-down menu to the right, select Include Family.
+Click   on the left to toggle on the search panel.
+Add the following search conditions with an AND operator:Field: <Structured Analytics Set prefix>::Email Duplicate SpareOperator: isValue: FalseField: <Structured Analytics Set prefix>::Inclusive EmailOperator: isValue: TrueField: <Structured Analytics Set prefix>::Email Thread GroupOperator: is set
+Click Search, if auto-run search is toggled off.
+
+To save this search, click . See Saving searches on the Documents tab for additional information.
+
+
+Identifying new responsive documents
+
+As new documents come in, you can see which ones are likely Responsive using email threading: 
+
+Click the Documents tab in your workspace.
+Click   on the left to toggle on the search panel.
+Create the following searches:Search 1: New DocumentsSearch 2: All Responsive documents, including Email ThreadSearch 3: In (Search 1) and (Search 2)
+
+
+
+Using the email thread visualization (ETV) tool
+You can use the email thread visualization tool in the Viewer to visually examine email threads and how they are coded. You can also easily perform mass editing from this tool. See Email thread visualization for more information on how to use this tool.
+Branched emails in thread
+When an email thread branches into a new conversation, the branched email thread is included in the original family and the last email in the branch is flagged as inclusive. For example, when someone starts a new email conversation by forwarding an email from an existing email thread, the new email thread is still included in the original email thread family. You identify emails in the new thread as inclusive using the Email Thread Group, Email Threading ID, and Inclusive Reason fields.

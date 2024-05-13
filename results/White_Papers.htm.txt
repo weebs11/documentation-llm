@@ -1,0 +1,87 @@
+
+
+Relativity White Papers
+These white papers explain various topics related to Relativity.
+
+
+
+
+
+
+Understanding Security in RelativityOne
+
+This whitepaper covers Relativity’s comprehensive security program so you can know how to keep your data safe.Download PDF >>
+
+
+
+
+A Focus on Security and Privacy in Relativity’s Approach to Generative AI
+
+This whitepaper demonstrates how we are working tirelessly to provide you with the most secure experience possible with Relativity aiR.Download PDF >>
+
+
+
+
+Sentiment Analysis: Relativity’s Approach to Developing Responsible AI Solutions for e-Discovery and Investigation
+
+This whitepaper outlines how we developed sentiment analysis, a new RelativityOne capability that leverages AI algorithms to detect positive and negative tones and other emotions within data.Download PDF >>
+
+
+
+
+AI vs Humans in the Field of Law: Three things every legal professional needs to know to survive and thrive in the age of AI
+
+This whitepaper to covers how legal teams can leverage powerful AI whilst retaining the skills and insights that are inherently human.Download PDF >>
+
+
+
+
+Courts Often Disfavor Full-Disk Imaging, But How Much is Too Much?
+
+This whitepaper examines the concept of proportionality in e-discovery. We’ll look at case law and commentary on proportionality—and possibly save you some money—because it turns out full-disk imaging is not required for most e-discovery collections.Download PDF >>
+
+
+
+
+AI for PI: Find and Redact Personal Information with AI-Powered Workflows
+
+This whitepaper provides an overview of how AI-based personal information identification is a game changer for large enterprises and law firms.Download PDF >>
+
+
+
+
+Transforming Your e-Discovery Practice by Moving to the Cloud
+
+This whitepaper covers why forward-thinking law firms are moving to the cloud to transform their e-discovery practices.Download PDF >>
+
+
+
+
+9 Questions Government Agencies Should Answer When Modernizing e-Discovery Technology
+
+This whitepaper covers the most important topics government agencies should consider when modernizing e-discovery, including avoiding the most common pitfalls, maximizing ROI, and future-proofing e-discovery technology.Download PDF >>
+
+
+
+
+Modernizing e-Discovery with AI and the Cloud for Government Agencies
+
+This whitepaper provides an overview of how government agencies and constituents benefit from new e-discovery technologies.Download PDF >>
+
+
+
+
+Understanding the Components of Computer-Assisted Review and the Workflow that Ties Them Together
+
+This paper defines each step in the computer-assisted review process—highlighting key elements and their importance—and provides an example of an effective workflow.Download PDF >>
+
+
+
+
+Active Learning in Technology-Assisted Review
+
+This paper explores the technology behind the active learning workflow as well as how it works from beginning to end.Download PDF >>
+
+
+
+

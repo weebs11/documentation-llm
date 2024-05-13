@@ -1,0 +1,45 @@
+
+
+Production console 
+Once you complete your production set and add your data sources, you can access the Production console to stage, run, and monitor your production. The production console also contains a progress bar which seamlessly updates the production statuses.
+To access the production console, click the name of the desired production set. 
+
+
+
+ The Production console contains the following sections:
+
+Manage Production
+
+Run Production
+
+Advanced Options 
+
+Manage Production
+The Manage Production section of the Production console displays the following options: 
+
+Preview Production - displays a sample image showing how the branding is applied to documents in the production.
+Stage Production - takes a snapshot of the data sources for the production. For more information, see Stage a production. 
+Stage and Run Production - takes a snapshot of the data sources and then automatically begins producing the staged documents. For more information, see Stage and run a production. Cancel - stops the stage and run job. 
+Cancel Staging - cancels a staging production. This is a dynamic button that appears once you click Stage Production.
+Note: Canceling a production is not an instant operation. Depending on the size of production or number of documents in scope, canceling may take some additional time.
+View Documents - displays a list of all documents included in the production set. You can use the drop-down list in the upper right corner to toggle between viewing produced documents and the individual pages of the documents. For more information, see View documents. 
+Note: You must have View Production and View Data Source permissions to view the list of documents included in the production set. The list of documents filters out documents you don't have access to. 
+View Staging Errors - displays problematic documents causing staging errors. 
+
+Run Production
+The Run Production section of the Production console displays the following options: 
+
+Check for Conflicts - determines whether the production set includes any documents that conflict with another pre-determined set of documents. For more information, see Check for production conflicts. 
+Run Production - proceeds with the production of staged documents. If documents with conflicts have not been removed from the production set, the Production Restrictions appears. Running a production automatically creates a saved search. If you're a system admin, you can resolve the message using the following options:Override and Continue - proceeds with the production without removing the conflicts based on the Override Production Restrictions permission.Cancel - stops the production from running. For more information, see Run a production. 
+Cancel Production - cancels a running production. This is a dynamic button that appears when you click Run Production.
+
+Rerun Errored Documents - proceeds with the production of previously errored documents after you make corrections. To ensure quality record processing, this button is not active until the production is complete. If any documents in the production set resulted in alerts, click the Rerun Errored Documents button to rerun these documents. 
+
+View Branding Errors - displays a pop-up with all documents and Branding error messages per document. You can click on a document within the pop-up to open the document and determine the cause of the error. This button only appears if branding errors occur during a production run.
+View Production Errors and Warnings - displays a pop-up that lists the validation and production error messages and warning that occurred. 
+
+Advanced Options
+The Advanced Options section of the Production console displays the following option: 
+
+Copy To Legacy Document Fields - launches the script window to  update Bates fields you create on the Document table with the Bates numbering information stored in the Production Information RDO of a  production you select. For more information, see Copy To Legacy Document Fields.
+

@@ -1,0 +1,202 @@
+
+Installation and configuration
+The PI Detect and Data Breach Response application will be installed into your instance by Relativity. Once the application has been installed at the instance level, you will need to install the application into any workspaces you want to use it in.
+Prerequisites
+Following are prerequisites for using the PI Detect application:
+
+There are four applications that must be installed in the Review workspace where the  PI Detect and Data Breach Response application is installed.
+
+
+
+
+
+Installed at the instance level
+Installed at the workspace level
+
+
+
+
+Hydro Review interface
+Relativity Review Services
+
+
+Redact
+NativeMarkupMetadata
+
+
+
+Note: PI Detect uses facade redactions to mark redactions on documents. The instance must have Facade Redactions turned on to leverage the redact capabilities offered with this product.
+PI Detect relies on the Control Number field. This field must be populated in the Document ID data settings field mapping before ingesting documents.
+For language identification, PI Detect uses the primary language identified by structured analytics. You must run the language identification operation in structured analytics before ingesting documents.
+
+We recommend creating dedicated groups for PI Detect users, for example, a PI Detect Lead or PI Detect First Level Reviewer group. Permissions can be assigned to these groups using the instructions below.
+
+
+Configuring permissions
+To access to the Privacy Workflow tab within the PI Detect and Data Breach Response application in Relativity, follow the instructions below:
+
+From your workspace, navigate to Workspace details.
+Click Manage Workspace Permissions.
+
+Assign group permissions for the workspace in the Object Security tab. There are four permission options, all of which are assigned at the workspace level. For more instructions on editing and deleting permissions, see Setting workspace permissions. 
+
+User roles and permissions
+Following is a list of user roles for the PI Detect and Data Breach Response application and the permissions available to them.
+
+
+
+
+
+Role
+Permissions
+
+
+
+
+PI Detect and Data Breach Response - Lead
+
+Users assigned a lead role have access to all features in PI Detect and Data Breach Response:
+
+Jobs
+Batches
+Data Settings
+Privacy Workflow
+
+Document Ingestion
+Incorporate Feedback
+Document Search
+Excel Reports
+Quality Control
+Report Generation
+Settings
+
+Error Codes
+Configuration
+Document Reports
+PI and Entity Search
+Reviewing documents in the Viewer
+
+PI Detection panel
+Linked Entities panel
+Table card
+
+
+
+
+
+PI Detect and Data Breach Response - Annotator
+
+Annotators can access the following features: 
+
+
+
+Reviewing documents in the Viewer 
+
+
+
+PI Detection panel 
+
+
+Linked Entities panel 
+
+
+Table card 
+
+
+
+
+
+PI Detect and Data Breach Response - FLR
+
+First level reviewers can access the following features:
+
+
+
+Reviewing documents in the Viewer 
+
+
+
+PI Detection panel 
+
+
+Linked Entities panel 
+
+
+Table card 
+
+
+
+
+
+PI Detect and Data Breach Response - QC
+
+ Quality control reviewers can access the following features:
+
+
+
+Reviewing documents in the Viewer 
+
+
+
+PI Detection panel 
+
+
+Linked Entities panel 
+
+
+Table card 
+
+
+
+
+
+
+Note: Users included in the workspace admin group must still be added to the PI Detect and Data Breach Response - Lead group.
+Click Save.
+The Privacy Workflow tab will appear in the workspace once ingestion is run for the first time. See Ingest documents for more information.
+
+Setting data settings in workspaces
+To set the application settings in a workspace:
+
+Navigate to the workspace containing the documents to send to PI Detect.
+Navigate to the  PI Detect and Data Breach Response tab.
+Select Data Settings.
+
+                Click New PI_Data Settings.
+Map the Relativity Workspace fields to PI Detect fields. Notes: If you are ingesting documents with non-English text, you must map the primary language produced from structured analytics to the PrimaryLanguage field. For languages supported by Data Breach Response, see Supported languages. 
+Click Save.
+
+Note: The  PI Detect and Data Breach Response application sends the text located in the Extracted Text field. If a record has no extracted text, it should be Imaged/OCRed and the results written to the Extracted Text field. The other mandatory property is that the native file must exist for the documents being sent.
+Note: DocID must be mapped to the Control Number field.
+Alternate method for setting data settings in workspaces
+
+
+Navigate to the Jobs tab.
+Click the Add button next to Data Settings Name.
+
+				Map Relativity Workspace fields to Privacy fields.
+ Click Save.
+
+
+
+Defaulting the PI Detect and Data Breach Response application tab
+Once the application is installed, you can set it as a default tab:
+
+Click on Workspace Setup and select Tabs.
+Find the PI Detect and Data Breach Response Application.
+Click the pencil icon to edit.
+Enable Visible under Tab Information.
+Enable Show in Sidebarunder Tab Location.
+Pick an icon.
+Click Save.
+
+				The  PI Detect and Data Breach Response Application should now be visible in the sidebar.
+
+Frequently asked questions
+Why is nothing appearing in the Privacy Workflow tab?
+
+
+
+The Privacy Workflow tab will not populate until an ingestion job is run. During the first ingestion job, the application backend will be prepared for the project and the Privacy Workflow tab can be accessed when the job is completed.
+
+

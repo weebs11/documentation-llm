@@ -1,0 +1,397 @@
+
+Defining criteria for saved searches
+
+You define the criteria used for saved searches in the Conditions section of the saved search form. You can build complex queries using a combination of fields and operators that are set to required values. This page provides information about the operators available for building these queries, as well as specific options for searching batches and developing combined searches. For information about building queries, see Creating or editing a saved search.
+Operators
+When defining search criteria in the Conditions section of a saved search form, you use operators to determine how a field is queried for the value that you selected or entered. The operators available for a search criterion depend upon the field type:
+
+Fixed-length, long, or extracted text operators
+
+Whole number, decimal, and currency operators
+
+User operators
+
+Date operators
+
+Yes or no operators
+
+Single and multiple choice field operators
+
+
+Fixed-length, long, or extracted text operators
+The following operators are available for fixed-length, long, and extracted text field types.
+
+
+
+
+
+Operator	
+Returns Documents Where...
+
+
+
+
+Begins with 
+The field begins with the entered term. 
+
+
+Does not begin with
+The field does not begin with the entered term. 
+
+
+Ends with
+The field ends with the entered term.
+
+
+Does not end with
+The field does not begin with the entered term.
+
+
+Is like
+
+The field contains the entered term. Blank values are filtered out, and search values can be enclosed in double quotation marks. A partial match does not require a wildcard (*).
+Relativity returns an OR operator between terms when a condition uses the "Is like" operator, and the terms are separated by a carriage return into multiple lines, or they are separated by a comma within a single line. For example, Relativity interprets a query as "Field is like Term 1 or Field is like Term 2 or Field is like Term 3".
+Note: For performance reasons, Relativity recommends using the "Contains" operator rather than building queries with single or multiple uses of the "Is like" operator. See FAQs for Contains and Is Like operators.
+
+
+
+Is not like
+
+The field does not contain the entered term. Wildcards (*) are already applied at the beginning and end of a term with this operator. The comments about the "Is like" operator also apply to "Is not like".
+Relativity returns an OR operator between terms when a condition uses the "Is not like" operator, and the terms are separated by a carriage return into multiple lines, or they are separated by a comma within a single line. For example, Relativity interprets a query as "Field is not like Term 1 or Field is not like Term 2 or Field is not like Term 3".
+
+
+
+Is	
+
+The field value equals any of the entered items. Multiple values can be separated by a comma or carriage return. Blank values are filtered out, and search values can be enclosed in double quotation marks.
+Relativity returns an OR operator between terms when a condition uses the "Is" operator, and the terms are separated by a carriage return into multiple lines, or they are separated by a comma within a single line. For example, Relativity interprets a query as "Field is Term 1 or Field is Term 2 or Field is Term 3".
+
+
+
+Is not
+
+The field value does not equal the entered term.
+Relativity returns an OR operator between terms when a condition uses the "Is not" operator, and the terms are separated by a carriage return into multiple lines, or they are separated by a comma within a single line. For example, Relativity interprets a query as "Field is not Term 1 or Field is not Term 2 or Field is not Term 3".
+
+
+
+Is set
+The field is not empty.
+
+
+Is not set	
+The field is empty.
+
+
+Is less than
+The field value is less than the entered term.
+
+
+Is less than or equal to
+
+The field value is less than or equal to the entered term. 
+Relativity returns an OR operator between terms when a condition uses the "Is less than or equal to" operator, and the terms are separated by a carriage return into multiple lines, or they are separated by a comma within a single line. For example, Relativity interprets a query as "Field is less than or equal to Term 1 or Field is less than or equal to Term 2 or Field is less than or equal to Term 3".
+
+
+
+Is greater than
+The field value is greater than the entered term.
+
+
+Is greater than or equal to
+
+The field value is greater than or equal to the entered term. 
+Relativity returns an OR operator between terms when a condition uses the "Is greater than or equal to" operator, and the terms are separated by a carriage return into multiple lines, or they are separated by a comma within a single line. For example, Relativity interprets a query as "Field is greater than or equal to Term 1 or Field is greater than or equal to Term 2 or Field is greater than or equal to Term 3".
+
+
+
+Contains
+The field includes the entered term. This operator is available for long text and fixed length text fields included in the full text index. Blank values are filtered out, and search values can be enclosed in double quotation marks. You can also use the AND/OR operators, and add wildcards (*) to the end of the search.Relativity returns an OR operator between terms when a condition uses the "Contains" operator, and the terms are separated by a comma. (You can also use the OR operator to separate search terms.) For example, Relativity interprets these queries as "Field contains Term 1 or Field contains Term 2 or Field contains Term 3", and "Field contains Term 1 or Term 2 or Term 3" respectively. Relativity returns an AND operator between terms when a condition uses the "Contains" operator, and the terms are separated by a carriage return into multiple lines, or if terms are separated by a space on a single line so "Field contains Term 1 Term 2 Term 3" is interpreted as "Field contains Term 1 AND Term 2 AND Term 3".Note: The “Contains” operator works identically to keyword search, except that it searches that specific field.
+
+
+Does not contain
+The field does not contain the entered term. This operator is available for long text and fixed length text fields included in the full text index. Blank values are filtered out, and search values can be enclosed in double quotation marks.
+
+
+
+FAQs for Contains and Is Like operators
+You can improve your searches by understanding the differences between the "Contains" and "Is like" operators.
+Why do searches using the "Is like" operator tend to run slowly?
+
+The "Is like" operator can slow the performance of your system because it queries every document for the field specified in the condition. For performance reasons, we don't recommend building queries with single or multiple uses of the "Is like" operator. Instead, you can use the "Contains" operator, which improves performance by querying only the fields in the full-text index.
+
+
+Are there any special requirements for using the "Contains" operator?
+
+Yes, the full text-index must include the field that you want to search with the "Contains" operator.
+
+
+How does query execution differ for searches with the "Contains" and "Is like" operators?
+
+The "Contains" operator queries the SQL full text catalog, while the "Is like" operator queries the database table inside the catalog. The "Is like" operator prevents other queries from editing the table until it completes, which can negatively affect performance.
+
+
+Why are different search results returned by queries using the "Contains" versus "Is like" operators?
+
+The difference in result sets is caused by the way SQL interprets queries using these operators. An "Is like" statement appends a wildcard to the front of each query, which sometimes causes it to return more items than a query with the "Contains" operator. You must evaluate these additional items to determine if they're actually part of your expected result set or if they represent false hits for the items that you want to return.
+
+
+Is there any way to enhance the performance of queries using the "Is like" operator?
+
+Yes, you can make queries that use the "Is like" operator more efficient by creating a SQL index on the table column referenced by the query. The query can point to this index, and avoid accessing the table. For more information, contact your system admin.
+
+
+How can I use the "Contains" operator to facilitate document reviews?
+
+You can use the "Contains" operator to search fields in email headers for email addresses and other pertinent header information. To perform these searches, the Author, TO, CC, and BCC fields in email headers must be added to the full text index.
+
+
+Special considerations for Data Grid-enabled fields
+You can use only these operators to search Data Grid-enabled text fields:
+
+is set
+is not set
+
+Note: IS SET condition operator excludes the Data Grid records where the field is null or has an empty string value.
+Whole number, decimal, and currency operators
+The following operators are available for whole number, decimal, and currency field types.
+
+
+
+
+
+Operator	
+Returns Documents Where...
+
+
+
+
+Is	
+The entered number is equal to the field value.
+
+
+Is not
+The entered number is not equal to the field value.
+
+
+Is set
+The field is not empty.
+
+
+Is not set	
+The field is empty.
+
+
+Is less than
+The field value is less than the entered number.
+
+
+Is greater than
+The field value is greater than the entered number.
+
+
+
+User operators
+The following operators are available for user field types.
+
+
+
+
+
+Operator	
+Returns Documents Where...
+
+
+
+
+Is logged in user
+The logged in user is equal to the field value.
+
+
+Any of these
+Any of the selected users match the field value.
+
+
+None of these
+The selected users do not match the field value.
+
+
+Is set
+The field is not empty.
+
+
+Is not set	
+The field is empty.
+
+
+
+Date operators
+The following operators are available for date field types. 
+You can search on date and time but time is not displayed by default when you select a date on the calendar pop-up. For example, you can search on 10/16/2001 3:57 PM by typing in the time after your selected the date. You can also search for 2/3/10 between 4/3/10 and both 2/3/10 and 4/3/10 return in the results.
+Note: When you search on a user-created date field using a relative date,  Last 7 Days for example, you may see different results between a saved search and a search from the search panel if you are not in the same timezone as your Relativity instance. 
+
+
+
+
+
+Operator	
+Returns Documents Where...
+
+
+
+
+Is	
+The entered date is equal to the field value.
+
+
+Is not
+The entered date is not equal to the field value.
+
+
+Is set
+The field is not empty.
+
+
+Is not set	
+The field is empty.
+
+
+Is before
+The field value is before the entered date.
+
+
+Is before or on	
+The field value is before or on the entered date.
+
+
+Is after
+The field value is after the entered date.
+
+
+Is after or on	
+The field value is on or after the entered date.
+
+
+Between
+The field value is between the two entered dates.
+
+
+Is in
+The field value is within the selected range.
+
+
+
+Yes or no operators
+The following operators are available for Yes/No field types.
+
+
+
+
+
+Operator	
+Returns Documents Where...
+
+
+
+
+Is	
+The selected value (Yes or No) is equal to the field value.
+
+
+Is not
+The selected value (Yes or No) is not equal to the field value.
+
+
+Is set
+The field is not empty.
+
+
+Is not set	
+The field is empty.
+
+
+
+Single and multiple choice field operators
+The following operators are available for single and multiple choice field types.
+
+
+
+
+
+Operator	
+Returns Documents Where...
+
+
+
+
+Any of these
+Any of the selected choices are present in the field.
+
+
+None of these
+None of the selected choices is present in the field.
+
+
+All of these
+All of the selected choices are present in the field.
+
+
+Not all of these
+The selected choices are not present in the field.
+
+
+Is set
+The field is not empty.
+
+
+Is not set	
+The field is empty.
+
+
+
+Batch fields as search conditions
+Relativity includes several fields related to batching that you can use as conditions for searching across batch sets. To use batch fields as search conditions, follow these steps:
+
+
+       Create a new saved search. See Creating or editing a saved search.
+Select Batch in the Fields drop-down menu in the Conditions section of the saved search form.
+Choose the operator  you want to use.
+Click Add Condition to display a modal.
+Select one of the following batch related fields:BatchBatch::Batch SetBatch::Assigned ToBatch::StatusYou can use the Assigned To field to search for batches set to a specific user.See Operators for more information.
+
+Using saved searches as conditions (combined searches)
+You can combine searches by selecting previously created saved searches as Field conditions. To use a saved search as a search condition, follow these steps:
+
+Create a new saved search. See Creating or editing a saved search.
+Select (Saved Search) from the top of this list in the Field drop-down menu in the Conditions section of the saved search form.
+Select an option in the Operator drop-down menu.
+Click Add Condition to display a modal.
+Select a saved search and click OK. 
+
+Preventing circular references
+Relativity prevents you from creating recursive searches when you combine multiple searches as conditions in a query. For example, you might create a combined search using Saved Searches 1, 2, and 3 as follows:
+
+Saved Search 2 uses Saved Search 1 as a Field condition.
+Saved Search 3 uses Saved Search 2 as a Field condition.
+
+When you edit Saved Search 1, you can't select Saved Search 2 or Saved Search 3 as Field conditions. Relativity prevents you from creating a circular reference by not listing these searches in the Value pop-up window.
+Including related items in combined searches
+You can combine saved searches to check for conflicts within related item groups. For example, a review manager may use a combined search for quality control when preparing to produce responsive documents for a case.
+Use the following steps to confirm that a search for responsive documents doesn't include any privileged documents.
+
+Create a saved search called Responsive Check that uses the Includes Family option and sets a condition on a field, such as Designation to Responsive. This search specifies production criteria that return only responsive documents.
+Create a second saved search called Privilege Check that uses the Includes Family option and sets a condition on a field, such as Privilege Description to Privileged, Attorney Client, and so on. This search is used for evaluation purposes.
+Create a combined search called Conflict Check that uses the Includes Family option and sets conditions for the Responsive Check and Privilege Check searches. This quality control search determines if any privileged documents are included in the production-eligible saved search.
+
+Lists as search conditions
+If you've created saved lists using the Lists feature, you can add lists as criteria in a saved search. See Lists.
+Follow these steps to create a new saved search using a saved list of documents as the search criteria:
+
+On the Documents tab, click  to open the Saved Searches browser.
+Click Create New Search.
+Type a name for the saved search in the Name field.
+Add a condition with the following column settings:Field - select Lists.Operator - select these conditions.Value - select the following value criteria:Field - select Lists.Operator - select any of these.Value - select one or more saved lists to include in the search criteria.
+In the Fields category, select the fields you want to include when viewing your saved search results. Select the Lists field to show the list(s) with which an object is associated.
+Click Save to save the search. Or, click Save & Search to save and execute the search.
+

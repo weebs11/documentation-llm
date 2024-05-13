@@ -1,0 +1,29 @@
+
+
+Imaging jobs in the Processing and Imaging Queue
+The Imaging Queue displays all current imaging jobs running in your environment. You can view the queue if you have system admin rights to see the tab. Select the Queue Management tab, and click Processing and Imaging Queue.
+
+
+
+The Imaging Queue view displays the following fields:
+
+Workspace- indicates the workspace associated with the imaging set, Mass Image, or Image-on-the-fly job.
+Imaging Set Name- indicates the imaging set, Mass Image, or Image-on-the-fly operation used for the job. Mass Image and Image-on-the-fly jobs are named and auto-incremented when they are added to the queue.
+Set Name- indicates the imaging set, Mass Image, or Image-on-the-fly operation used for the job. Mass Image and Image-on-the-fly jobs are named and auto-incremented when they are added to the queue.
+Data Source - only populated for processing jobs.
+Job Type- indicates the job being run, will say "Imaging" for all types of Imaging jobs.
+Imaging Set Artifact ID- is unique identifier for the imaging set. The artifact ID will be set to blank for Image-on-the-fly or Mass Image jobs because these operations do not have imaging sets.
+Imaging Profile - lists the name of profile used to create the document images.
+Documents Remaining- lists the number of documents waiting to be imaged. the "Submitting" status indicates the number of Documents remaining for submission to the Worker Manager Server. The status "Imaging" indicates the number of Documents remaining for the Worker Manager Server to image.
+Status- displays the current stage of the imaging job. Image-on-the-fly or Mass Image operations have only Waiting and Processing statuses. When it is "Submitting," the Imaging Request Agent is submitting Documents to the Worker Manager Server. When it is "Imaging," all Documents have been received by the Worker Manager Server and are waiting to be imaged.
+Priority- indicates the order in which the imaging job will be run. Jobs initiated through image sets or Mass Image operations have default values of 100, while jobs initiated by Image-on-the-fly have default values of 1 (which means they will be worked on before mass image operations).
+Submitted Date- indicates the date and time when an imaging job was submitted, or an attempt was made to resolve errors in a job through the Imaging Set Console.
+Submitted By- lists the name of the user who initiated the imaging job.
+
+Relativity sends jobs to the imaging engine by priority, and then orders them by submitted date. To change the priority of a job, click Change Priority  at the bottom of the view. Enter a new integer value in the Priority field, and then click Update. Jobs assigned a lower value have a higher priority.
+
+
+
+To cancel imaging jobs, select one or more jobs, and click Cancel Imaging Job. You can only cancel jobs that are in a Status of 'Imaging.' Requests to cancel during 'Submitting' will be ignored.
+Note: If you cancel an imaging job or delete an imaging set during an imaging job, all images from imaged documents within that set remain in the database.
+Note: To change the priority of a job where Customer lockbox is enabled, you must be in a permission group having access to the workspace where the job originated, along with the System Administrator's group. For more information, see Customer lockbox.

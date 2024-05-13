@@ -1,0 +1,152 @@
+
+Data Breach Response
+Data Breach Response is an AI-powered solution used to reduce the time, cost, and risk to produce an entity notification list.
+Data Breach Response workflows have integrated PI identification that leverage pre-built AI and ML models to find pre-determined PI types, such as SSN, date of birth, credit card information, PHI, and more. PI is automatically linked for structured documents, which speeds up the review and quality control (QC) process. Data Breach Response also leverages AI to deduplicate entities across documents to produce a notification list, allowing you to respond within the mandated timeline.
+This product is available as a Relativity application (RAP) called PI Detect and Data Breach Response. The application can be installed into a RelativityOne Review workspace that runs within a RelativityOne production environment. The data used for analysis never leaves the RelativityOne workspace, which aligns with security and compliance requirements defined in RelativityOne contracts.
+You can create a saved search with documents for Data Breach Response to analyze. A document report will be published to the RelativityOne workspace as an overlay.
+
+Input: Saved Search with documents to be analyzed by Data Breach Response
+Output: A notification report containing impacted individuals and their associated personal information
+
+Conceptual workflow
+The steps below illustrate high level workflow steps for the Data Breach Response product
+
+Upload documents into your RelativityOne environment using existing data transfer tools.
+Configure the PI Detect and Data Breach Response application into your environment.
+Start a new Data Breach – Ingestion job and select the saved search of documents for review.
+Use the Privacy workflow tab within the application to select the personal information detectors to use and add any custom detectors.
+Run the AI pipeline across the document set by going to the Incorporate feedback icon within the Privacy workflow tab. Personal information identifications are automatically highlighted and a Document Report is generated.
+Access the Document Report tab in the application to view the personal information identified across the document set.
+Run entity normalization and create a notification report.
+
+Document requirements
+File limitations for Data Breach Response are as follows:
+
+
+Data Breach Response supports up to 200GB of native data per workspace.
+
+
+Extracted text files  should be provided for all document types. For PDFs, predictions cannot be accurately made without a proper extracted text file.
+Note: Customers can OCR in RelativityOne. See OCR for instructions.
+
+
+
+
+The following document types are not supported:
+
+
+Password protected documents
+
+
+Documents that open with an error or warning
+
+
+Excel files older than Excel 95 (v 7.0)
+
+
+Native spreadsheets greater than 40MB
+
+
+Native non-spreadsheets greater than 75MB
+
+
+
+
+Supported file types
+
+
+
+
+
+Supported extension
+Limitations and notes
+
+
+
+
+csv 
+CSVs must be delimited by comma, no other delimiter is supported. 
+
+
+tsv 
+TSVs must be delimited by tab, no other delimiter is supported. 
+
+
+Xls, xlsx, xlsm 
+pivot tables converted to fixed tables 
+
+
+xlsb 
+output only as xlsx 
+
+pivot tables converted to fixed tables 
+
+
+Ppt, pptx, pptm, doc, docx 
+Embedded documents are not supported. 
+
+
+txt 
+ 
+
+
+Eml, msg, pst 
+Leverages extracted text so formatting may be lost.
+
+
+mht, svg, pdf, fdf, xfdf, Pub, dwg, dxf, dgn, rvt, dwf, odt, ods, odp, rtf, wpf, bmp, jpg, jpeg, png, wmf, emf, gif, hdp, jp2, jpc, tif, tiff, xps, oxps, xml, xod, xaml, vcf 
+ 
+
+
+
+Limitations
+The following are limitations to consider when using Data Breach Response:
+
+Data Breach Response cannot be run in a repository workspace
+A Data Breach Response project and a PI Detect project cannot be run in the same workspace.
+
+Getting started
+Within Data Breach Response, there are two main roles a person may have. The product documentation for Data Breach Response is  divided into two major sections based on your role. 
+
+One section is for Reviewers who check documents to ensure the machine is accurately predicting what documents contain PII. They correct the machine's predictions when necessary and make sure all PII types are detected. 
+The other section is for Project Leads who work hands-on with the client to obtain a final work product that meets all their needs. Data Breach Response projects are largely customizable and require regular communication between a project lead and the client through e-mail, phone, and video calls. Project leads also work "behind the scenes" to organize batches of documents for reviewers, generate reports, and ensure quality control measures are in place.
+
+Together, project leads and reviewers ensure the client obtains an accurate list of entities involved in data breach projects.
+
+I am a Reviewer
+
+I am a Project Lead
+
+
+IncludeFiles
+Frequently asked questions
+Is there a job size limit for the PI Detect and Data Breach Response application? 
+
+Data Breach Response supports up to 200GB of native data per workspace.
+
+
+
+What is the transfer rate? 
+
+Regardless of dataset size, the application transfers documents in batches of 1000.
+
+
+
+Can I run multiple jobs simultaneously in the same workspace? 
+
+No. One job must complete prior to a subsequent job starting. If more than one job is submitted, the later-submitted job will be queued.
+
+
+
+What values are acceptable for FamilyRange? 
+
+FamilyRange can be either the range (REL-00000000-0001 - REL-00000000-0005), or a GroupID or GroupIdentifier.
+
+
+
+Custodian is a single-entry field. What do I do if I have multiple Custodian values? 
+
+Custodian should be mapped to the Primary Custodian. Should additional custodians be required, please use a Text field to list all non-Primary Custodians, and notify Data Breach Response of the field name.
+
+
+

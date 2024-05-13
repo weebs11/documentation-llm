@@ -1,0 +1,715 @@
+
+RelativityOne technical overview
+Welcome to RelativityOne. Before you can set up your Relativity instance for case workflow, you will want to configure your organization's infrastructure and network access, and implement necessary security, in addition to reviewing the following system-level tools RelativityOne provides . 
+If you are an IT or network admin that is charged with preparing your organization for RelativityOne, review the following system-level technical overview.
+RelativityOne government (FedRAMP)
+The following functionality is not currently available for FedRAMP customers/government entities:
+
+Utility server
+Customer-managed keys (CMK)
+Sandbox environments
+Preview environment
+
+S2S VPN requests - Global Protect VPN client is the only supported VPN connectivity for FedRAMP customers / government entities
+
+
+As a security measure, Relativity blocks all outbound connections to the internet for FedRAMP government entities by default. This may prevent the loading of linked images or interfere with the functionality of custom applications that require internet access. FedRAMP customers can request that these outbound internet connections be allowed by reaching out to Relativity Support.
+RelativityOne workstation configuration
+Across your organization you should assess workstations to ensure that they meet Relativity minimum system requirements and have all required software installed.
+
+Check your browser compatibility.
+Perform workstation configuration.
+
+RelativityOne network access
+The following diagram depicts user and admin access to the RelativityOne network in a RelativityOne instance. 
+
+
+
+Refer to the following sections for further description of the considerations for network access:
+
+Port considerations
+
+Firewall privacy considerations
+
+
+Port considerations
+Ensure your port settings are configured correctly for the following:
+
+RelativityOne VPN ports
+
+Migrate ports
+
+Import/Export ports
+
+
+Click to view port considerations
+
+RelativityOne VPN ports
+The following ports must be opened on user machines and/or firewalls for the  GlobalProtect VPN to use when accessing file data in RelativityOne.
+
+
+
+
+
+
+Destination Port
+Protocol
+Description
+
+
+
+
+443
+TCP
+Used for communication between GlobalProtect agents and portals, or GlobalProtect agents and gateways and for SSL tunnel connections. GlobalProtect gateways also use this port to collect host information from GlobalProtect agents and perform host information profile (HIP) checks.
+
+
+4501
+UDP
+Used for IPSec tunnel connections between GlobalProtect agents and gateways.
+
+
+
+To ensure that concurrent transfers can occur, you must make firewall changes to allow outbound connections to the server on the following ports:
+
+TCP port 443—required to be opened to the [customerinstance].relativity.one endpoint for login.
+
+The opening of the required ports for the Windows firewall are typically handled on the end-user's machine. However, if you use any third party firewalls, you must manually open the ports referenced above. Improperly configured ports and/or a lack of UDP port ranges result in transfer failures. 
+For more information, contact Relativity Support.
+
+You can test the TCP port connection by running the following commands in Windows Powershell:
+
+Test-NetConnection -ComputerName [FQDN] -Port 33001
+
+For more information on FQDN, refer to the list of FQDN in the Firewall privacy considerations section.
+Migrate ports
+Migrate has specific port requirements. For more information, see Migrate network setup.
+Import/Export ports
+Import/Export has specific port requirements. For more information, see Installing Import Export.
+
+
+Firewall privacy considerations
+You will need to allow the following:
+
+Fully qualified domain names (FQDN) and VPN portal URL
+
+Additional firewall considerations
+
+
+Click to view firewall considerations
+
+You will need to allow connections to the following:
+
+IP address ranges and VPN portal URL
+
+Additional firewall considerations
+
+
+IP address ranges and VPN portal URL
+The IP addresses listed below are for both VPN and regular, non-VPN, access.
+All VPN portal URL are formatted as vpn.[regional domain].relativity.one
+Note: VPN portal URL are only accessed when connecting to your Utility Server or Direct SQL via the VPN. See Accessing the RelativityOne backend (custom reporting, application dev, data manipulation).
+Primary  Azure data center IP address ranges for the VPN portal URL:
+
+
+
+
+
+
+Primary Azure/Entra ID region
+Primary IP Range
+VPN Portal URL
+
+
+
+
+US-Central (CTUS)
+52.189.66.32/27
+vpn.ctus.relativity.one
+
+
+US-East (ESUS)
+40.88.50.160/27
+vpn.esus.relativity.one
+
+
+Canada-Central (CACT)
+52.228.98.0/27
+vpn.cact.relativity.one
+
+
+UK-South (UKSO)
+51.145.60.64/27
+vpn.ukso.relativity.one
+
+
+Asia-East (ESAS)
+52.184.89.64/27
+vpn.esas.relativity.one
+
+
+Brazil-South (BRSO)
+191.233.244.160/27
+vpn.brso.relativity.one
+
+
+Europe-West (WSEU)
+51.105.222.96/27
+vpn.wseu.relativity.one
+
+
+France - Central (FRCT)
+20.199.57.128/27
+vpn.frct.relativity.one
+
+
+Germany-West Central (DECT)
+51.116.134.160/27
+vpn.dect.relativity.one
+
+
+Switzerland North (CHNO)
+51.107.46.128/27
+vpn.chno.relativity.one
+
+
+Australia-East (AUEA)
+20.40.190.160/27
+vpn.auea.relativity.one
+
+
+Korea-Central (KRCT)
+20.194.51.192/27
+vpn.krct.relativity.one
+
+
+United Arab Emirates (AENO)
+20.203.41.32/27
+vpn.aeno.relativity.one
+
+
+India (INCT)
+20.204.36.0/27
+vpn.inct.relativity.one
+
+
+Ireland (NOEU)
+20.93.29.128/27
+vpn.noeu.relativity.one
+
+
+South Africa (ZANO)
+20.87.64.160/27
+vpn.zano.relativity.one
+
+
+Southeast Asia (SEAS)
+52.230.48.0/27
+vpn.seas.relativity.one
+
+
+Japan (JPES)
+20.78.107.96/27
+vpn.jpes.relativity.one
+
+
+Legacy Sandboxes
+**
+vpn.ctussbx.relativity.one
+
+
+
+** For Sandboxes, you may continue to use the FQDN listed in the dropdown below
+For customers that have signed with RelativityOne previous to 3/9/2020, you may continue using the FQDN below until otherwise notified:
+
+All VPN portal URL are formatted as vpn.[regional domain].relativity.one
+Note: VPN portal URL are only accessed when connecting to your Utility Server or Direct SQL via the VPN. See Accessing the RelativityOne backend (custom reporting, application dev, data manipulation).
+
+
+
+
+
+Azure Region
+VPN Portal URL
+
+
+
+
+US-Central
+vpn.ctus.relativity.one
+
+
+US-East
+vpn.esus.relativity.one
+
+
+Canada-Central
+vpn.cact.relativity.one
+
+
+UK-South
+vpn.ukso.relativity.one
+
+
+Asia-East
+vpn.esas.relativity.one
+
+
+Brazil-South
+vpn.brso.relativity.one
+
+
+Europe-West
+vpn.wseu.relativity.one
+
+
+Germany-West Central
+vpn.dect.relativity.one
+
+
+Switzerland North
+vpn.chno.relativity.one
+
+
+Australia-East
+vpn.auea.relativity.one
+
+
+Sandboxes  (optional)
+
+vpn.ctussbx.relativity.one
+
+
+
+
+
+
+Additional firewall considerations
+You should also allow connections to the following URL:
+
+If your firewall restricts all internet traffic, you may need to specifically allow list the WebAPI URL (i.e., https://[customername].relativity.one/relativitywebapi).
+
+
+
+Accessing the RelativityOne backend (custom reporting, application dev, data manipulation)
+To access RelativityOne backend resources, you must first connect to your VPN, and then connect to your desired resource (e.g., Utility Server or Direct SQL).
+
+Step 1 – Connecting to your VPN network
+
+Step 2a - Connecting to Utility Server
+
+Step 2b – Connecting to Direct SQL
+
+
+Step 1 – Connecting to your VPN network
+The first step in accessing the RelativityOne data directly is connecting to RelativityOne via your GlobalProtect VPN connection. Your GlobalProtect VPN is used to access back-end components of your RelativityOne environment.
+Your VPN enables a secure connection between your computer and resources on your Relativity instance's network. The following resources are available when you connect to the GlobalProtect VPN client:
+
+Utility Server VM via Windows Remote Desktop Connection (RDP)
+Direct access to SQL
+
+
+For Sandbox environments, you can access the following back end resources via the VPN:
+
+Direct access to SQL
+
+
+For more information on how to connect to your VPN client, see GlobalProtect VPN client.
+Once connected to the VPN, you can connect to the RelativityOne technical overview or Step 2a - Connecting to Utility Server.
+Step 2a - Connecting to Utility Server
+Note: This functionality is not currently available for FedRAMP customers / government entities.
+The Utility Server is a virtual machine that can optionally be connected to your RelativityOne instance. It contains additional support tools to help you work with data in your RelativityOne staging area before editing and loading it into your RelativityOne instance.  You access your Utility server through a remote desktop connection, using an issued set of credentials and a custom IP address.  
+Once you are connected to your Utility Server, you can perform the following actions:
+
+Access a mapped drive for the file share (TenantUser accounts) - access your uploaded files to edit in the staging area before you add them to your RelativityOne workspaces or save them to a RelativityOne file storage location. You can also access and verify any production sets before you download them locally.
+Install applications  - if you have TenantAdmin access you can install applications
+Manage user administration - if you have TenantAdmin access and have Terminal Services licensed on the computer you can manage user administration yourself.
+
+Note: It's not recommended to store files on your Utility Server. If your Utility Server becomes inaccessible, you will lose the files you stored.
+Note: Direct SQL Access on the Utility Server is not supported.
+Click to view details on how to connect to your Utility Server
+
+Complete the following actions to connect:
+
+If you haven't already, connect to the Global Protect VPN using the credentials provided. 
+After you have connected to the VPN client, open the  ZIP file you downloaded, and then open the Credentials text file to view your provided Utility Server credentials.
+Launch the Windows Remote Desktop Connection tool.
+When the Windows Remote Desktop Connection window appears, enter the IP address provided via the Credentials file in the Computer field.
+Click Connect.
+Enter the Username and Password (provided in the Credentials text file) when prompted, and then click OK.
+When prompted again, enter your TenantUser, TenantUser2, or TenantAdmin (by request only)   Utility Server credentials, and then click OK.
+
+Note: For added security, change your password after you log in. We recommend changing the password every 90 days.
+You have successfully logged into the RelativityOne Utility Server.
+
+
+Click to view information on tools the Utility Server comes pre-loaded with
+
+The Utility Server comes pre-loaded with the following tools:
+
+Notepad++—to correct any errors in load files or other data editing needs.
+
+Notes: 
+You can install Microsoft Office using your own license to correct any errors in load files or other, more robust data editing needs.
+You can add other minor third-party tools to perform file manipulations. If your Utility Server becomes inaccessible, we will issue you a new Utility Server. 
+
+Note: Relativity does not install any third party or custom applications on customer utility servers. You must re-install any custom applications if you're issued a new Utility Server.
+
+
+See Utility Server for more information.
+Step 2b – Connecting to Direct SQL
+Note: Direct SQL access is not included automatically with your RelativityOne subscription, and must be requested by contacting your customer success manager or implementation specialist.
+In addition to querying and manipulating data through Relativity's suite of API's, administrators and developers can extend the power of the Platform even further by directly querying the SQL database. This is an important aspect of the Platform that you may be accustomed to using in your Relativity Server deployment, and something you can also take advantage of in RelativityOne. You can run Relativity Scripts in your RelativityOne instance, and you can also run SQL scripts in SQL Server Management Studio (SSMS) directly against your Relativity databases. Direct SQL can be used for situations that require running custom reports, Relativity scripts, or running commands directly in SQL Server Management Studio against your RelativityOne database.
+You will be provided with one TenantAdmin account that you can use to create additional accounts with the limited permissions that you specify.
+Note: You do not receive access to the physical server, you are only able to access SQL via the SQL Management Studio. No additional infrastructure components (certificates, etc.) are required for the access - only the VPN connection and SQL Server Management Studio.
+Click to view details on connecting to Direct SQL using SQL Server Management Studio:
+
+To connect to Direct SQL using SQL Server Management Studio:
+
+Download the latest version of SQL Server Management Studio version (see Microsoft's SSMS download page) to the local machine or server that has the VPN connection.
+Connect to the GlobalProtect VPN. 
+Use the server name and credentials received from Support to connect to the primary SQL server using SQL Server Management Studio from your local machine. When connecting via SQL Server Management Studio, add the the following additional connection string parameters on the Additional Connection Parameters tab:multisubnetfailover=true;trustservercertificate=trueNote that the values are all lower case without spaces, and are separated by a semicolon.
+To access RelativityOne databases, refer to the SQL server coding considerations section in the RelativityOne developer considerations page on the Platform site. This page contains information on the following:Access to SQL servers and databasesSQL Server query resiliencyDirect SQL access and location considerations, including how to return a list of SQL instances and instance values
+
+Note: You are required to change the password on the first connection to your EDDS SQL Server instance and must manage these passwords internally. See SQL tenant admin operations overview on the Platform site.
+
+
+See Direct SQL access.
+RelativityOne system downtime windows
+The advantage to RelativityOne is that we maintain and upgrade your software to ensure that your business operations in RelativityOne run smoothly and that you always have access to the latest features and defect fixes. We require regular downtime windows to do this, typically during non-business hours. 
+Please refer to RelativityOne maintenance downtime windows for more information on this schedule.
+RelativityOne resource scaling
+Scaling in terms of software products refers to increasing server infrastructure resources or re-prioritizing system processes to increase a system's workload capacity on demand. Increasing a system's workload capacity either entails finishing one unit of work in a smaller amount of time, for example speed, or finishing more units of work in the same time interval, for example concurrency. Scaling is typically used for large batch operations or when there is a large volume of jobs that may take a long time.
+The advantage to RelativityOne is that we maintain and upgrade your software to ensure that your business operations in RelativityOne run smoothly and that you always have access to the latest features and defect fixes.
+However, we want customers to notify the RelativityOne team proactively when they know they will be bringing a large matter into the instance so that RelativityOne can be at its most powerful when handling large amounts of information ingestion and processing such as with Imaging, OCR, Branding,  and Productions.
+Automated RelativityOne resource scaling
+RelativityOne monitors system activity and automatically makes decisions about the following:
+
+System resource scaling—increasing workers and server resources
+Resource prioritization—which processes should receive resources given jobs that are competing for the same resources
+
+System resource scaling
+Automatic scaling in RelativityOne detects large jobs and automatically increases system resources to a higher performance capacity. Currently, RelativityOne automatically scales resources in the following product areas:
+
+Processing. For example ingestion and imaging)
+Mass PDF
+OCR
+Branding
+Productions
+Indexing. For example. analytics.
+
+Informing support of a large incoming RelativityOne project
+When you have a large or complex incoming RelativityOne project, it's recommended that you inform Relativity's teams so that we have enough detail to provide the guidance and resources to ensure your success. To do this, use the Incoming Project Details: RelativityOne Community form to let us know.
+
+Log in to the Community and click Open a Support Ticket.
+            
+Click Submit or resume a RelativityOne request.
+            
+Select Incoming Project Details: RelativityOne as the request type. 
+
+To complete the request, you'll be asked to provide the following information:
+
+
+            RelativityOne instance or  web name
+Description of the project
+The number of documents you expect to be in the workspace
+Workspace artifact ID or name
+Functionality in which you expect increased usage/volume (Analytics, Imaging, Processing, etc.)
+Start and end dates of project
+
+Security
+At Relativity, no topic is more important than security. With preventative defense, automated processes, and transparent operations, we keep your most sensitive data protected.
+
+Security
+
+Client domains
+
+Customer lockbox
+
+User authentication
+
+RelativityOne system access privileges
+
+
+Security white paper
+RelativityOne runs on Microsoft Azure and is built on Microsoft’s foundational investment in security technology, operational processes, and expertise. Relativity Security utilizes logs, telemetry, and configuration data generated from the Relativity Application, underlying infrastructure, and Azure to monitor and secure the environment.  No customer data or any Personal Identification Information (PII) leave the environment for this purpose.
+Refer to the Security white paper for comprehensive information regarding the security built into RelativityOne.
+RelativityOne Security Center
+As organizations workforces are increasingly dispersed, you want to be sure you’re keeping your data secure. Security Center provides a single-threaded view into the most pressing areas of concern for securing your data. 
+These areas include:
+
+User 2-factor Authentication -  2-factor authentication (2FA) provides an additional layer of protection in the event that passwords are compromised. In Security Center, admins have the ability to track two-factor authentication usage and send users notifications to enable 2FA to make sure user endpoints are secure.
+Login Map - the Login Map provides you with insight into where your users are accessing data from. You will be able to see logins across geographies and identify calls to action, such as logins that do not currently have 2-factor authentication set up. 
+User Activity—Security Center provides insight into the status of active and inactive users and allows you to disable or delete them to ensure your data is secure.
+Lockbox access - transparency and trust are two core tenants of the security program at Relativity. Lockbox in RelativityOne ensures that Relativity support staff only have access to your workspaces when you give it to them. In Security Center, you can do real-time access audits of Lockbox/Relativity support and revoke access if needed.
+Relativity employee workspace access - this report provides transparency and real time insight into Relativity Support activity in your Relativity instance to help you work  with our Support teams. It offers a list of easy-to-read audits of Relativity staff activity that can be exported to CSV format for external review.
+Threat Intel - the Threat Landscape Update (TLU) report is a review of the threat actors, malware, techniques, campaigns, and other threat information currently active that has an impact on the legal services industry. This report is published weekly.
+
+Note: Only RelativityOne System Administrators have access to the Security Center dashboard.
+See RelativityOne Security Center.
+Hash value instance settings for billing metrics
+The following instance settings determine whether the billing telemetry data we collect from your RelativityOne instance is anonymized or not.
+Examples of billing telemetry data would be Workspace sizes, client and matter values, or usernames. We collect this data to accurately report your RelativityOne billing metrics. Configure these instance settings according to your organizations' security standards to choose whether we collect them in an anonymized way.
+Modifying these settings will have a downstream impact on your Billing API. For more information see, Billing APIs. 
+These settings will affect what data is displayed on your Cost Explorer. 
+
+
+
+
+
+
+Instance Setting
+Section
+Description
+
+
+
+
+ReplaceCaseNameWithHashValue
+
+kCura.Billing
+Controls whether the Case Name in the billing metrics is replaced with the Case ArtifactID. If set to True, the Case Name in the billing metrics is replaced with the Application ArtifactID. By default, the value is set to False, and the Case Name is displayed.
+
+
+ReplaceClientNameWithHashValue
+
+kCura.Billing
+ Controls whether the Client Name in the billing metrics is replaced with a unique hash value. If set to True, the Client Name in the billing metrics is replaced with a unique hash value. By default, the value is set to False, and the Client Name is displayed.
+
+
+ReplaceClientNumberWithHashValue
+
+kCura.Billing
+Controls whether the Client Number in the billing metrics is replaced with a unique hash value. If set to True, the Client Number in the billing metrics is replaced with a unique hash value. By default, the value is set to False, and the Client Number is displayed.
+
+
+ReplaceMatterNameWithHashValue
+
+kCura.Billing
+Controls whether the Matter Name in the billing metrics is replaced with a unique hash value. If set to True, the Matter Name in the billing metrics is replaced with a unique hash value. By default, the value is set to False, and the Matter Name is displayed.
+
+
+ReplaceMatterNumberWithHashValue
+
+kCura.Billing
+Controls whether the Matter Number in the billing report is replaced with a unique hash value. If set to True, the Matter Number in the billing metrics is replaced with a unique hash value. By default, the value is set to False, and the Matter Number is displayed.
+
+
+ReplaceUserNameWithHashValue
+
+kCura.Billing
+Controls whether Relativity replaces the username portions of user email addresses with hash values in billing information sent manually or sent automatically through the SMTP server. If set to True, Relativity replaces all text preceding the @ symbol in each user email address with a unique hash value. Domains remain unencrypted. If set to False, the entire user email address appears.
+
+
+
+Client domains
+The client domains feature enables Relativity to deliver more powerful managed service offerings for enterprise customers in a single RelativityOne instance by providing an easier way to securely isolate users, workspaces, groups, and matters by client. 
+Using client domains, system admins can empower a user group that is not part of the System Administrator group (client domain admins) to perform common administrative tasks within their own client domain while limiting their visibility into the Relativity environment as a whole. The client domain admins can customize the permission settings to various objects according to their preferences within their own domain, but cannot access any permissions outside of that. This resource isolation functionality grants your enterprise clients more administrative control over their own portions of the environment while preventing back-end visibility and unauthorized changes to your RelativityOne instance as a whole.
+Note: Client Domains are targeted for the above use case only and it is important to consider all the limitations outlined in Client domain limitations and considerations. 
+Implementing client domains requires an additional license from Relativity ODA LLC. Each client domain license is unique, and client domains can have different terms encoded on their license keys. The license for a client domain is unrelated to any other license for Relativity (e.g., number of seats). Client domain licenses are not transferable from one client to another. To request a new client domain, you must submit a RelativityOne request via the Community site as detailed in the following knowledge article.
+See Client domains.
+Customer lockbox
+RelativityOne’s Lockbox feature provides you with greater control over your workspace data and access. It helps protect sensitive information from unauthorized access by Relativity System Admins, while still allowing authorized users to access data for legitimate purposes. Lockbox is designed to protect your workspace data by preventing access by Relativity support and operations teams, even if they have administrative privileges. By default, this feature is enabled, which means that any system administrator, including those on the Relativity team, cannot see your workspace data without explicit permission.
+Consider the following:
+
+
+RelativityOne Lockbox has granular control that is managed through separate EnableRelativityLockbox and EnableCustomerLockbox instance settings. This allows for a precise configuration based on your specific needs.
+
+
+
+
+
+
+
+
+
+Instance setting name
+
+Description
+
+Value
+Impact
+
+
+
+
+
+EnableRelativityLockbox
+
+
+
+Controls access to workspaces for all Relativity employees, except those explicitly granted access by the customer. 
+
+
+True
+
+Prevents all Relativity employees from accessing workspaces unless they are added to workspace groups. This requires manual intervention by the customer to grant access to Relativity employees. 
+
+
+EnableCustomerLockbox
+
+
+Controls access to workspaces for Client System Administrators. 
+
+
+True
+
+Prevents Client System Administrators from accessing workspaces unless they are added to workspace groups. This requires Client System Administrators to disable Lockbox to access workspaces, which triggers alerts to be generated. 
+
+
+
+
+You can view and manage security permissions for Relativity Support team users on the security permissions page unless you choose to lock them out entirely.
+If you want to monitor workspace actions taken by Relativity employees, you can use the Security Center's Relativity employee workspace access feature. Additionally, you can use the Lockbox access feature of the Security Center to remove Relativity employee access from your workspaces if desired.
+When the EnableCustomerLockbox instance setting is enabled or disabled, a Security Alert is automatically generated. This helps you keep track of any changes to your workspace's security settings. 
+
+______________________________________________________________________________________________________
+
+
+To enable Lockbox for Relativity employees and prevent them from adding themselves to workspace groups, set the EnableRelativityLockbox instance setting to "True".
+
+
+
+
+To allow your System Administrator to access workspaces, set the EnableCustomerLockbox instance setting to "False". 
+
+
+
+
+To grant Relativity support temporary access to a workspace, you can either add Relativity support to a group that belongs to the workspace, or set the EnableRelativityLockbox instance setting to "False". 
+
+
+Click to view the high-level steps that are performed by Support if Relativity access to one of your workspaces is required
+
+When you contact Relativity Support for troubleshooting, the following high-level steps are performed if access to customer workspace is required to resolve an issue:
+
+Support is requested through the usual means.
+The Relativity Customer Support technician will request that you add a RelativityOne Support group to the workspace in question.
+The Relativity Customer Support technician will troubleshoot your case per standard protocol.
+Upon resolution, the Relativity Customer Support technician will advise you that the issue is resolved.
+You should then remove the RelativityOne Support group from the workspace you added them to.
+
+
+
+See Customer lockbox.
+Customer-managed keys (CMK)
+Note: This functionality is not currently available for FedRAMP customers / government entities.
+Note: CMK is not currently offered as part of the Relativity PayGo model.
+Customer Managed Keys (CMK) give you control over the keys that encrypt data at rest in RelativityOne by enabling you to own and control your own keys through third-party key management solutions for persistent data in RelativityOne.
+The scope of the feature covers RelativityOne services that retain persistent data, which includes:
+
+File
+SQL 
+Audit
+Analytics
+Secret Store
+
+Note: If you have any issues, please contact Relativity Support with “R1 – CMK – ” in the subject.
+See Customer-managed keys (CMK) for more details.
+User authentication
+RelativityOne uses several industry-standard technologies, enabling versatile authentication options. It supports local (such as password related) or external (such as external identification providers) authentication methods. You can add and enable each type individually, as well as assigning at least one, and in some instances multiple methods, for each user.
+Click to view supported user authentication mechanisms in RelativityOne
+
+RelativityOne supports the following authentication mechanisms.
+
+Password—a method that includes a username (the user's email address) and a password.
+OpenID Connect—a protocol for an external identity provider, authenticating against an external identity provider using the OpenID Connect protocol. OpenID Connect is a modern authentication protocol can be used to connect to providers such as Azure Active Directory. See OpenID Connect for more information.
+SAML 2.0—a method that authenticates against an external identity provider using the SAML 2.0 protocol. SAML 2.0 is an older authentication protocol that is still in widespread use. See SAML 2.0 for more information.
+
+Notes: 
+When implementing single sign-on (SSO) across Relativity instances,  the following scenarios are supported:Identity Provider-initiated SSO using SAML 2.0ID provider and service provider-initiated SSO with OpenID Connect
+
+In addition to the above protocols, Relativity has the following additional authentication features:
+
+Two-factor Authentication – when logging in with the Password method, you can require the user to pass an additional two-factor check based on an email or message sent to the user's phone (through a mobile email gateway). Mode—always required or require only for non-trusted IPsMethod—Authenticator App or email. For more information, see the authenticator app's documentation.
+Trusted IP Range—limit access to the Relativity application based on the user's source IP address.
+
+
+
+See Authentication.
+RelativityOne system access privileges
+Relativity initially issues the credentials for the items below. However, after credentials are sent, you will directly manage the following access credentials:
+
+VPN—password is active for 90 days. When it expires and you must reset it as the customer. You will need your original password in order to complete the password reset or you will need to contact Support for a new temporary password.
+Direct SQL—does not expire
+Utility Server—does not expire
+
+Note: When someone leaves your organization who has been issued one of these access credentials, you should open a Support ticket to have that person's user access removed. We recommend that you track who in your organization has access to these credentials, and make submitting a Support ticket part of the employee exit process.
+Setting up a hybrid environment (Relativity Server and RelativityOne)
+With the introduction of RelativityOne, hybrid environments (combining cloud and on-premises instances) are becoming a common deployment scenario. The Relativity hybrid model provides a compelling alternative to on-premises hosting of cases. 
+Hybrid environment business scenarios:
+
+Your organization decided to start migrating older cases to RelativityOne
+Your firm’s IT department then no longer has to provision more hardware for new cases
+Simply migrate old cases to RelativityOne to free up infrastructure in your local data center
+
+Relativity hybrid model allows you to start new cases in the RelativityOne instance with benefits such as:
+
+Avoiding the hassle of provisioning hardware to support those cases
+Viewing/accessing cases in a different instance
+Single sign on across instances (when using OpenID Connect protocol)
+
+Despite the benefits of this hybrid model, RelativityOne is a separate instance with a separate user store and separate credentials. You must manage user credentials across two different systems - a task that can be time consuming and prone to errors.
+Refer to the following topics for more information:
+
+Setting up the Relativity hybrid model
+
+Workspace portal
+
+User synchronization
+
+Workspaces tab
+
+
+Personalization
+Consider the following regarding personalization in RelativityOne:
+
+Custom logo—customers can request a custom logo that will display on the login screen and optionally in the upper right corner of the instance next to the "Hi, User!" drop down from their Relativity implementation specialist or customer success manager. The logo submitted should be a maximum height of 50 pixels; width may vary dependent on the style of the logo
+Custom URL—Relativity does not provide unique URLs for customers. Your RelativityOne URL will always be formatted as: https://<organization name>.relativity.one.
+
+If you have questions on personalization, contact Support.
+Regional date settings
+Relativity now supports the modification of the default regional date format setting for customer Relativity instances. For example,  setting the regional date format to DD/MM/YYYY for an instance in Australia vs. the current default US date format MM/DD/YYYY. When completing your RelativityOne onboarding questionnaire, discuss considerations for changing regional date setting in your instance with your Relativity Implementation Specialist. If you are already a customer and want to make this change, please contact your CSM.
+Once this change is made by Relativity for your instance, the following will be true:
+
+Email regional date considerations:
+
+Emails processed prior to a regional date format change will have a different date format in the header text than those processed after the change. For email chains with different date formats in the email (e.g., emails sent from other regions) the extracted text does not change and it’s retained simply as extracted text.
+Email threading dates will still be impacted if the Use Email header fields setting is set to No.
+
+
+
+
+Imaging / Save as PDF regional date considerations:
+
+Images created before a regional date format change will have a different date format than images after the change.
+DATE fields used for branding images (with designations) will always be in US date format.
+When imaging a document, if you select “replace field codes” (which replaces auto-filled dates), and you choose a DATE field in Relativity, it will always replace the date in US format.
+	When branding during a Save As PDF action, if you select a DATE field, it will always be in US date format.
+
+
+
+Note: Consideration should be given when importing workspaces from instances with different regional date setting as there may be inconsistent date formats with Processing or when using Save as PDF/Imaging features. Additionally, pre-Foxglove RelativityOne release, deduplication output will be inconsistent if different regional date formats were used. The hashing algorithm changed in the Foxglove RelativityOne release to ensure deduplication is not impacted when a workspace with non-US date format is restored, however manual corrective steps, including executing a script, will be required before additional data can be processed into the workspace. Please reach out to Support for information on these manual steps.
+Custom application development in RelativityOne
+RelativityOne platform API
+The RelativityOne platform provides a rich set of APIs that enable you to enhance the functionality of the Relativity system by creating customized applications that meet the specific e-discovery needs of your business.
+Refer to RelativityOne developer considerations on the RelativityOne Platform site for more information.
+Sandbox
+RelativityOne Sandbox refers to reusable RelativityOne environments that allow you to test SQL scripts, event handlers, API based applications, custom pages, and custom agents.
+Note: Sandbox is a service that you must subscribe to. Please contact your Account Manager for more details. Sandboxes are free with 10TB and up subscriptions. Subscriptions less than 10 TB can opt to purchase Sandboxes.
+See Sandbox.
+Preview
+Note: As of July 2022, the Preview environment is no longer available for new RelativityOne instances. This content is intended for customers who had procured Preview before July 2022.
+Preview refers to a free RelativityOne instance that gives you early access one month ahead of your RelativityOne upgrade. This enables you to identify feature changes that impact your workflows and adjust accordingly. The Relativity Preview feature, lets you try out the new version of Relativity prior to release in an environment that has the same Security and feature functionality of a RelativityOne instance. 
+Relativity Preview offers you the the following benefits:
+
+The ability to preview workflow changes in the UI prior to a production release.
+Seamless integration with RelativityOne production instance via User Sync and Federated Instances.
+Preview is pre-loaded with dummy data that effectively demonstrates new Relativity features.
+
+Note: This functionality is not currently available for FedRAMP customers / government entities.
+System logging in RelativityOne
+RelativityOne does not provide external access to logs except in Sandbox test environments; if a log is needed, we encourage you to contact Support in order to troubleshoot these sorts of issues.
+RelativityOne SMTP services (e-mail)
+Customers have access to an SMTP server that will send password reset / invitation emails, and other system notifications such as job notifications. These settings are not configurable in RelativityOne and the email will come from a generic relativity.one address.
+ 

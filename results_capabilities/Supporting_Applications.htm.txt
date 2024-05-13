@@ -1,0 +1,386 @@
+
+Supporting applications
+RelativityOne provides you with additional tools to customize your e-discovery platform needs from beginning to end. Follow the links below to learn more about RelativityOne's supporting applications.
+
+
+
+
+
+ARM
+
+
+
+
+ARM
+
+Archive, restore, and move Relativity workspaces between Relativity installations or SQL Servers. 
+
+
+
+
+
+
+
+
+Auditing
+
+
+
+
+Track document by field edits by reviewer
+
+ Tracks changes to a specified field and populates a Reviewed By (User) field and a Reviewed On (Date) field with information about those changes.
+
+
+
+
+
+
+
+
+Automated Workflows
+
+
+
+
+Automated Workflows
+
+Automate tasks in workspaces that previously required manual actions to complete.
+
+
+
+
+
+
+
+
+Batching
+
+
+
+
+Batch Set Cleanup
+
+Removes all documents from the saved searches of all specified batch sets. This application replaces Remove documents from batch sets.
+
+
+
+
+
+
+
+
+Case Dynamics
+
+
+
+
+
+Case Dynamics
+
+
+
+Relativity Case Dynamics, formerly Fact Manager, assists in organizing and analyzing case details such as facts, issues, organizations, people, interview questions, and documents. This analysis helps identify strengths and weaknesses in litigation strategy and leads to better preparation for depositions, interviews, and trial.
+
+
+
+
+
+
+
+
+
+Case Metrics
+
+
+
+
+
+Case Metrics
+
+
+The Case Metrics application is a bundle of three reports: Reviewer Choices, Reviewer Overturns, and Reviewer Statistics. These reports help system admins track user, group, and workspace-level performance during document review across multiple or a single workspaces at the instance level. 
+
+
+
+
+
+
+
+
+Data Grid Text Migration
+
+
+
+
+
+Data Grid Text Migration
+
+
+The Data Grid Text Migration application is an application you can use to migrate your long text fields from SQL to Data Grid.
+
+
+
+
+
+
+
+
+Direct SQL access
+
+
+
+
+Direct SQL access in RelativityOne
+
+In addition to querying and manipulating data through Relativity's suite of API's, administrators and developers can extend the power of the Platform even further by directly querying the SQL database. This is an important aspect of the Platform that you may be used to using in your on-premises Relativity deployment, and something you can also take advantage of in RelativityOne. You can run Relativity Scripts in your RelativityOne instance, and you can also run SQL scripts in SQL Server Management Studio (SSMS) directly against your Relativity databases. 
+
+
+
+
+
+
+
+
+Document Utilities
+
+
+
+
+Document unitization
+
+Split imaged documents into multiple child documents.
+
+
+
+Move to folder path
+
+
+This mass operation can be used to move documents to a new folder that you specify in a text field on the document object.
+
+
+
+
+
+
+
+
+Fields
+
+
+
+
+Auto increment field on object
+ Calculates and adds an incremental value to a field automatically each time a user creates a new record for an object.
+
+
+Populate Parent ID and Child ID
+
+Populates Parent ID and Child ID fields with the correct value for each document that is in a relational group and a specified saved search.
+
+
+Set native time zone offset with DST
+
+Updates the Relativity Native Time Zone Offset field for new documents to account for Daylight Saving Time (DST) and sets the Time Zone field to use for imaging profiles.
+
+
+
+
+
+
+
+
+Cost Explorer
+
+
+
+
+
+RelativityOne Cost Explorer
+
+
+The Cost Explorer in RelativityOne allows you to view, monitor, and manage your billing and usage data. 
+
+
+
+
+
+
+
+
+Propagation
+
+
+
+
+Propagate coding post-import
+
+Propagates the value of one or more fields to documents that are part of the same relational group and reports any coding variances within those groups.
+
+
+
+
+
+
+
+
+Relativity Event Handler Express
+
+
+
+
+
+Relativity Event Handler Express
+
+
+The Event Handler Express application facilitates the creation of simple event handlers by providing a user-friendly interface. It provides the ability to define validation rules for fields available in Relativity layouts. With this application, you create Pre Save event handlers that perform validation when the user clicks the Save button on a layout. This validation occurs before Relativity writes any data to the database.
+
+
+
+
+
+
+
+
+Relativity Hybrid Model
+
+
+
+
+User and Group Synchronization
+
+You can use the Relativity User and Group Synchronization application to synchronize groups, users, and clients from a designated primary instance to a connected duplicate instance.
+
+
+
+
+
+
+
+
+Repository workspace
+
+
+
+
+RelativityOne repository workspace application
+
+ The RelativityOne repository workspace application converts the workspace into a more streamlined version for performing early case assessment on processed data. This limited workspace is equipped with  Relativity functionality you need for early case assessment while providing more cost-effective pricing for storing data that may not be actively used in a case.
+
+
+
+
+
+
+
+
+Redactions
+
+
+
+
+Change redaction type
+
+Changes black, white, or text redactions that were applied to a specific set of documents by using a specific markup set to a different redaction type.
+
+
+Copy redactions across markup sets
+
+Copies redactions from one markup set to another.
+
+
+Copy redactions across workspaces
+
+Copies redactions from a specified markup set in one workspace to a destination markup set in another workspace.
+
+
+Normalize redactions across relational group
+
+Applies redactions in one document to all other documents that are in the same relational group and do not have those redactions.
+
+
+Reproduce a redaction to document universe
+
+Reproduces a redaction to a primary document in a source markup set to all pages of all documents that are in a specified saved search and destination markup set.
+
+
+
+
+
+
+
+
+Reporting
+
+
+
+
+Environment-level user login and workspace access
+
+Reports data about login and access actions that individual users performed in a Relativity instance during a specified time period.
+
+
+User counts per workspace
+
+Calculates the number of system admins and other users who had access to a workspace for a specified month and year.
+
+
+User workspace access and last login
+
+Displays a list of current users and, for each user, the date when they last logged in to Relativity and the workspaces that they have access to.
+
+
+Workspace folder group security
+
+Reports the permission settings for each folder in a workspace.
+
+
+
+
+
+
+
+
+Transcripts Application
+
+
+
+
+
+Transcripts application
+
+
+The Transcripts application gives users the ability to upload, review, code, and annotate Transcript files in Relativity. This application is available for download in the Relativity Community. 
+
+
+
+
+
+
+
+
+System
+
+
+
+
+
+File validation agent
+
+
+Searches for document files on a file server, updates a field to indicate whether any files are missing from the server, and provides a report of any files that are missing. 
+
+
+Log Extractor
+
+ Accesses logs for a custom application and displays a JSON representation of them in the browser.
+
+
+
+User Import Application
+
+
+Use the Relativity User Import Application to import multiple users into Relativity from a CSV file by defining the users and their Relativity settings. You can also export a list of users from your environment along with their Relativity settings. 
+
+
+

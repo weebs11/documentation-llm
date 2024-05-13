@@ -1,0 +1,1685 @@
+
+
+Mapping processing fields
+To pull in all of your desired processing data, use the Field Catalog to map your document fields to Relativity's processing data.
+
+System fields versus optional fields
+When mapping processing fields, you will encounter Relativity system fields and optional fields. The following describes the differences between the two field types and how you might work with them.
+
+Relativity system fields refer to Relativity-specific fields that are automatically mapped and published by Relativity. Some examples include the Container ID, Custodian, and Extracted Text. You cannot modify Relativity system fields, and you will not see them in the Field Catalog.
+Optional file fields include fields not considered a Relativity system field and vary from file to file. There are two types of optional file fields:File system metadata that comprises a file's properties, such as the file name, file size, date created, and file type.Application metadata stored inside the file itself, such as the author, message heading, and comments. You can only access this data if you have the ability to open the file and extract the content.
+
+Sometimes, you will see a field stored in both Relativity system fields and optional fields, such as Date Created. In this case, Relativity determines which field to keep and which to ignore.
+
+Mapping fields
+To map processing fields, perform the following steps:
+
+Open the Fields tab.
+Click New Field or Edit on an existing field.
+Provide a name in the Name field. We recommend that you give the field an identical name to the one you are mapping to.
+In the Object Type field, select Document. Only Relativity document fields are eligible to map to a value in the Source field. Selecting any other object type disables the Source field.
+In the Field Type field, select the type of field to set what type of data can be entered into the field.
+When the Field Type is selected, you will see the menu for Field Settings and Advanced Settings appear. Click  the Advanced Settings tab. 
+
+Click Select on the Source field to display the processing fields to which the Relativity field can be mapped.
+From the available processing fields, select the one to which you want to map, and click Set.
+Confirm that the field you just mapped appears in the Source field, complete the remaining required fields and click Save.
+
+Note: If the Processing application is not installed, you can still map fields as long as you have added the worker manager server to the resource pool. 
+Relativity system field considerations
+Note the following regarding Relativity system fields:
+
+Relativity system fields are mapped by default and cannot be modified. 
+Relativity system fields are not listed in the Field Catalog.
+
+A word on Field Catalog source fields
+
+While processing data in an instance, Relativity discovers metadata fields and records them as source fields in the Field Catalog. You can map source fields in the Document object, where the field is then populated when a document is published. 
+Note: This occurs instance-wide. If one workspace processes a field with a unique metadata name, all other workspaces will see the source field as available for mapping, even if the workspace has never, and possibly will never, process a file with the same field name.
+Example
+
+Workspace 1 - processes a file with a unique metadata name, UniqueData. The field becomes part of the Field Catalog and is available to all other workspaces in the instance.
+Workspace 2 - sees UniqueData in the Field Catalog, even though Workspace 2 has never processed a file with the metadata name.
+
+
+Field mapping validations
+When mapping fields, you will receive an error if:
+
+
+You attempt to map fields of mismatching types. For example, if you map a whole number field in Processing to a Relativity date field, you will receive an error upon saving the field.
+
+You attempt to map a fixed-length text field to a catalog field of a longer length. 
+You do not have Edit permissions for the Field object. This is because mapping through the Source field is considered an edit to a field. If you only have Add permissions for the Field object and not Edit, and you attempt to map a field, you will receive an error stating, “Error saving field mapping."
+
+System-mapped fields
+The following system-created metadata fields are always populated when data is processed. These fields are automatically mapped and are not available for manual mapping through the Source field on the Field layout: 
+
+
+
+
+
+
+
+
+Processing Field Name
+Source view
+Field Type
+Description
+
+
+
+
+Container Extension
+
+						Other Fields
+Fixed-Length Text
+Document extension of the container file in which the document originated.
+
+
+Container ID
+
+						Other Fields
+Fixed-Length Text 
+Unique identifier of the container file in which the document originated. This is used to identify or group files that came from the same container.
+
+
+Container Name
+
+						Other Fields
+Fixed-Length Text
+Name of the container file in which the document originated.
+
+
+Control Number
+
+
+Fixed-Length Text
+The identifier of the document.
+
+
+Custodian
+
+
+Single Object
+Custodian associated with, or assigned to, the processing set during processing.
+
+
+Extracted Text
+
+						Other Fields
+Long Text
+
+Complete text extracted from content of electronic files or OCR data field. This field holds the hidden comments of Microsoft Office files.
+Extracted Text Size in KB is also an available mappable field outside of the standard fields.  This field indicates the size of the extracted text field in kilobytes.  To map this field, edit the corresponding Relativity field, open the Other Fields view via the Source control, and select Extracted Text Size in KB.
+
+
+
+Last Published On
+
+
+Date
+Date on which the document was last updated via re-publish.
+
+
+Level
+
+						Other Fields
+Whole Number
+Numeric value indicating how deeply nested the document is within the family. The higher the number, the deeper the document is nested.
+
+
+Originating Processing Set
+
+
+Single Object
+The processing set in which the document was processed.
+
+
+Originating Processing Data Source
+
+
+Single Object
+A single object field that refers to the processing data source.
+
+
+Processing File ID
+
+						Other Fields
+Fixed-Length Text
+Unique identifier of the document in the processing engine database.
+
+
+Processing Folder Path
+
+						Other Fields
+Long Text
+The folder structure and path to the file from the original location, which is used to generate the Relativity folder browser for your documents.
+
+							This field is populated every time you process documents. See Processing folder path for more information.
+						
+
+
+Relativity Attachment ID
+
+						Other Fields
+Fixed-Length Text
+A system field that the Short Message Viewer uses to provide enhanced support for attachments and avatars. See the Relativity Short Message Format guide for more information.
+
+
+Relativity Native Time Zone Offset
+
+						Other Fields
+Decimal
+
+A numeric field that offsets how header dates and times appear in the viewer for processed emails. This field will be populated with the UTC offset value of the time zone chosen in the processing profile. For example, documents processed to Central Standard Time (CST), would be populated with a value of "-6" because CST is UTC-6. For more details on this field, see Relativity Native Time Zone Offset.
+
+
+
+Time Zone Field
+
+
+Single Object
+Indicates which time zone is used to display dates and times on a document image.
+
+
+Virtual Path
+
+						Other Fields
+Long Text
+Folder structure and path to file from the original location identified during processing. See Virtual path for more information.
+
+
+
+
+Optional fields
+The following, optional, metadata fields can be mapped through the Field Catalog. The Field Catalog contains a list of all available fields to map regardless of discovered data.
+If you are setting up Processing prior to Discovery and Publish, you have the following options available in the Source field modal:
+		Standard Fields—contains a collection of fields from both the Metadata Fields and Other Fields options.Metadata Fields—contains fields extracted from the actual file or file system.Other Fields—contains static, or Relativity system fields such as control number, processing set name, custodian, and so forth.
+Please note: 
+
+You can map one processing field to multiple Document object fields.
+You can only map a processing field to a Unicode-enabled field. 
+The following metadata fields can be mapped to similar field types in the Field Catalog. To map different field types outside of the 135 metadata fields to one another, select All Fields from the drop-down menu in the Source field modal. 
+Consider the following data compatible field types with valid mapping:You can map long text document fields to fixed-length text processing fields. However, Relativity does not support mapping fixed-length text document fields to long text processing fields.You can map single choice Catalog fields to destination fields of fixed-length text, long text, choice, or single object fields.  You can map a DateTime field to a Date field if the source field is DateTime and the type of destination field is Date.
+
+Caution: Use caution when mapping to multiple-choice fields. Mapping multiple-choice fields creates a unique value for each choice option. Depending on the multiple-choice fields mapped, you could have hundreds of unique choices, impacting performance.
+
+
+
+
+
+
+
+
+
+Processing field/source name
+Source view
+Field type
+Description
+Example value
+
+
+
+
+All Custodians
+
+						Standard Fields
+Multiple Object
+
+All custodians, de-duped and primary, associated with a file. The All Custodians field is mapped to a document and is updated  only when Global or Custodial de-duplication is enabled on the set and the field has been mapped, even if no duplicates exist for the document that was published in the workspace.
+
+Lay, Kenneth; Doe, John
+
+
+All Paths/Locations
+
+						Standard Fields
+Long Text
+
+This is the same as DeDuped Paths except that the virtual path of the current document is appended to the end of the list. The All Paths/Locations field is populated only when Global or Custodial de-duplication is enabled on the set and the field has been mapped, even if no duplicates exist for the document that was published in the workspace.
+
+Lay, Kenneth|\Lay, Kenneth\kenneth_lay_000_1_2_1.pst\lay-k\Kenneth_Lay_Dec2000\Notes Folders\Notes inbox;Doe, John|\Doe, John\John_Doe_000_1_2_1.pst\Doe-J\John_Doe_Dec2000\Notes Folders\Discussion threads
+
+
+Attachment Document IDs
+
+						Standard Fields
+Long Text
+Attachment document IDs of all child items in family group, delimited by semicolon, only present on parent items.
+KL0000000031.0001;KL000000↪0031.0002
+
+
+Attachment List
+
+						Standard Fields
+Long Text
+Attachment file names of all child items in a family group, delimited by semicolon, only present on parent items.
+EC PRC Meeting Agenda.doc;Map to The St.Regis.doc
+
+
+Author
+
+						Standard Fields
+Fixed-Length Text (50)
+Original composer of document or sender of email message. This field has a maximum length of 50 alpha-numeric characters.
+Jane Doe
+
+
+BCC
+
+						Standard Fields
+Long Text
+The names, when available, and email addresses of the Blind Carbon Copy recipients of an email message.
+Capellas Michael D. [Michael.Capellas@COMPAQ.com]
+
+
+BCC (SMTP Address)
+
+						Standard Fields
+Long Text
+The full SMTP value for the email address entered as a recipient of the Blind Carbon Copy of an email message.
+Michael.Capellas@COMPAQ.com
+
+
+CC
+
+
+Long Text
+The names, when available, and email addresses of the Carbon Copy recipients of an email message.
+Capellas Michael D. [Michael.Capellas@COMPAQ.com]
+
+
+CC (SMTP Address)
+
+						Standard Fields
+Long Text
+The full SMTP value for the email address entered as a recipient of the Carbon Copy of an email message.
+Michael.Capellas@COMPAQ.com
+
+
+Child Container Errors
+Standard Fields
+Long Text
+Contains the Processing File IDs and category of child containers in parent documents that have errors associated with them.
+1 - Password Protected Container; 2 - Corrupt Container; 3 - Configuration Error
+
+
+Child MD5 Hash Values
+
+						Standard Fields
+Long Text
+
+Attachment MD5 hash value of all child items in a family group, only present on parent items. 
+Relativity cannot calculate this value if you have FIPS (Federal Information Processing Standards cryptography) enabled for the worker manager server.
+
+BA8F37866F59F269AE1D6↪2D962B887B65DE7474D1↪3679D9388B75C95EE7780FE
+
+
+Child SHA1 Hash Values
+
+						Standard Fields
+Long Text
+Attachment SHA1 hash value of all child items in a family group, only present on parent items.
+1989C1E539B5AE9818↪20648623954872BEE3E483;58D9E4B4A3068DA6E9↪BCDD969523288CF38F9FB3
+
+
+Child SHA256 Hash Values
+
+						Standard Fields
+Long Text
+Attachment SHA256 hash value of all child items in a family group, only present on parent items.
+7848EEFC40C40F86892960↪0BF033617642E0D37C2F5↪FA444C7EF83350AE19883;628B6233DD6E↪0C89F32D6EFF2885F26917F14↪4B19F3678265BEBAC7E9ACAAF5B
+
+
+Comments
+
+						Standard Fields
+Long Text
+Comments extracted from the metadata of the native file. For more information, see Comments considerations.
+Oracle 8i ODBC QueryFix Applied
+
+
+Company
+
+						Standard Fields
+Fixed-Length Text (255)
+The internal value entered for the company associated with a Microsoft Office document. This field has a maximum length of 255 alpha-numeric characters.
+Oracle Corporation
+
+
+Contains Embedded Files
+
+						Standard Fields
+Yes/No
+The yes/no indicator of whether a file such as a Microsoft Word document has additional files embedded in it.
+Yes
+
+
+Control Number Beg Attach
+
+						Standard Fields
+Fixed-Length Text (50)
+The identifier of the first document in a family group. This field is also populated for documents with no family members. This field has a maximum length of 50 alpha-numeric characters.
+KL0000000001
+
+
+Control Number End Attach
+
+						Standard Fields
+Fixed-Length Text (50)
+The identifier of the last document in a family group. This field is also populated for documents with no family members. This field has a maximum length of 50 alpha-numeric characters.
+KL0000000001.0002
+
+
+Conversation
+
+						Standard Fields
+Long Text
+Normalized subject of email messages. This is the subject line of the email after removing the RE and FW that are added by the system when emails are forwarded or replied to.
+Sigaba Secure Internet Communication
+
+
+Conversation Family
+
+						Standard Fields
+Fixed-Length Text (44)
+Relational field for conversation threads.  This is a maximum 44-character string of numbers and letters that is created in the initial email.
+01C9D1FD002240FB633CEC8↪94C1985845049B1886B67
+
+
+Conversation Index
+
+						Standard Fields
+Long Text
+Email thread created by the email system. This is a maximum 44-character string of numbers and letters that is created in the initial email and has 10 characters added for each reply or forward of an email.
+01C9D1FD002240FB633CEC8↪94C1985845049B1886B67
+
+
+Created Date
+
+						Standard Fields
+Long Text
+The date on which a file was created.
+12/24/2015
+
+
+Created Date/Time
+
+						Standard Fields
+Date
+
+The date and time from the Date Created property extracted from the original file or email message.
+This field will display the filesystem date created for the document if that is the only date created value available.
+If a document has both a filesystem date created value and a document metadata date created value, this field will display the document metadata date created value.
+
+"12/24/2015 11:59 PM"
+
+
+Created Time
+
+						Standard Fields
+Long Text
+The time at which a file was created.
+11:59 PM
+
+
+DeDuped Count
+
+						Standard Fields
+Whole Number
+The number of duplicate files related to a primary file. This is present only when Global or Custodial Deduplication is enabled and duplicates are present. If you discovered and published your set before Relativity Foxglove, you cannot map this field and re-publish the set.
+							This is populated on the primary document. You are not able to retroactively populate this field with custodian information.
+						
+2
+
+
+DeDuped Custodians
+
+						Standard Fields
+Multiple Object
+
+The custodians associated with the de-duped records of a file. The DeDuped Custodians file is mapped to a document and is present only when Global or Custodial Deduplication is enabled and duplicates are present. 
+This is populated on the primary document. You are not able to retroactively populate this field with custodian information.
+The All Custodians field is mapped to a document and is updated only.
+
+Lay, Kenneth;Doe, John
+
+
+DeDuped Paths
+
+						Standard Fields
+Long Text
+
+The virtual paths of duplicates of a file. This is present only when Global or Custodial Deduplication is enabled and duplicates are present. Each path contains the associated custodian. 
+This is populated on the primary document. You are not able to retroactively populate this field with path information. 
+
+
+Lay, Kenneth|\Lay, Kenneth\kenneth_lay_000_1_2_1.pst\lay-k\Kenneth_Lay_Dec2000\Notes Folders\Notes inbox|Doe, John|\Doe, John\John_Doe_000_1_2_1.pst\Doe-J\John_Doe_Dec2000\Notes Folders\Discussion threads
+
+
+
+Delivery Receipt Requested 
+
+						Standard Fields
+Yes/No
+Indicates whether a delivery receipt was requested for an email.
+No
+
+
+Document Subject
+
+
+Long Text
+Subject of the document extracted from the properties of the native file.
+RE: Our trip to Washington
+
+
+Document Title
+
+						Standard Fields
+Long Text
+The title of a non-email document. This is blank if there is no value available.
+Manual of Standard Procedures
+
+
+Email Categories
+
+						Standard Fields
+Long Text
+Categories assigned to an email message.
+Personal
+
+
+Email Created Date/Time
+
+						Standard Fields
+Date
+The date and time at which an email was created.
+						
+"12/24/2015 11:59 PM"
+
+
+Email Entry ID
+
+						Standard Fields
+Long Text
+The unique Identifier of an email in an mail store.
+						
+000000005B77B2A7467F564↪68D820375BC3DC58244002000
+
+
+Email Folder Path
+
+						Standard Fields
+Long Text
+The folder path in which a custodian stored an email.
+						See Email folder path for more information.
+Inbox\New Business
+
+
+Email Format
+
+						Standard Fields
+Single Choice
+The indicator of whether an email is HTML, Rich Text, or Plain Text.
+						
+HTML
+
+
+Email Has Attachments
+
+						Standard Fields
+Yes/No
+The yes/no indicator of whether an email has children, attachments.
+						
+Yes
+
+
+Email In Reply To ID
+
+						Standard Fields
+Long Text
+The internal metadata value within an email for the reply-to ID.
+<F9B1A278195DF640A4CC6E↪C973DFF0C85FBBEDEB↪@Prod-EX-MB-01.company.corp>
+
+
+Email Last Modified Date/Time
+
+						Standard Fields
+Date
+The date and time at which an email was last modified.
+						
+"12/24/2015 11:59 PM"
+
+
+Email Modified Flag
+
+
+Yes/No
+The yes/no indicator of whether an email was modified.
+						
+Yes
+
+
+Email Sensitivity
+
+						Standard Fields
+Single Choice
+The indicator of the privacy level of an email.
+Company Confidential
+
+
+Email Sent Flag
+
+						Standard Fields
+Yes/No
+The yes/no indicator of whether an email was sent, versus saved as a draft.
+						
+Yes
+
+
+Email Store Name
+
+						Standard Fields
+Fixed-Length Text (255)
+
+Any email, contact, appointment, or other data that is extracted from an email container, .pst, .ost, .nsf, .mbox, and other files, will have this field populated with the name of that email container. 
+Any children of those extracted emails, contacts, and appointments will not have anything populated in this field. For more information on this field, see Email Store Name field. This field has a maximum length of 255 alpha-numeric characters.
+
+kenneth_lay_000_1_1_1_1.pst
+
+
+Email Unread
+
+						Standard Fields
+Yes/No
+The yes/no indicator of whether an email was not read.
+Yes
+
+
+Error Category
+
+						Standard Fields
+Fixed-Length Text (50)
+The category assigned by the system to a processing error.
+Password Protected Container
+
+
+Error Message
+
+						Standard Fields
+Long Text
+The message that details the error, cause, and suggested resolution of the error prioritized by processing phase—discovery, text extraction, publish, file deletion.
+There was an error during extraction of an email from this Notes container. It may be password protected. Consider adding the User.ID file and password(s) to Password Bank and retrying.
+
+
+Error Phase
+
+						Standard Fields
+Fixed-Length Text (50)
+The phase of processing in which the error occurred—discovery, text extraction, publish, file deletion.
+Discovery
+
+
+Error Status
+
+						Standard Fields
+Fixed-Length Text (200)
+The status of the error—undetermined, ready to retry, retried, submitted, unresolvable.
+Ready to retry.
+
+
+Excel Hidden Columns
+
+						Standard Fields
+Yes/No
+The yes/no indicator of whether an Excel file contains one or more hidden columns.
+						
+No
+
+
+Excel Hidden Rows
+
+						Standard Fields
+Yes/No
+The yes/no indicator of whether an Excel file contains one or more hidden rows.
+Yes
+
+
+Excel Hidden Worksheets
+
+						Standard Fields
+Yes/No
+The yes/no indicator of whether an Excel file contains one or more hidden worksheets.
+						
+No
+
+
+Excel Pivot Tables
+
+						Standard Fields
+Yes/No
+The yes/no indicator of whether an Excel file contains pivot tables.
+						
+Yes
+
+
+Extracted Text Size in KB
+Other Fields
+Decimal
+This field indicates the size of the extracted text field in kilobytes. 
+6.7
+
+
+Family Group (formerly "Group Identifier")
+
+						Standard Fields
+Fixed-Length Text (40)
+Group the file belongs to, used to identify the group if attachment fields are not used. This field has a maximum length of 40 alpha-numeric characters.
+KL0000000002
+
+
+File Extension
+
+						Standard Fields
+Fixed-Length Text (25)
+
+The extension of the file, as assigned by the processing engine after it reads the header information from the original file. This may differ from the value for the Original File Extension field.
+If you publish processing sets without mapping the File Extension processing field, the Text Extraction report does not accurately report document counts by file type. This field has a maximum length of 25 alpha-numeric characters.
+
+MSG
+
+
+File Name
+
+						Standard Fields
+Fixed-Length Text (255)
+The original name of the file. This field has a maximum length of 255 alpha-numeric characters.
+enron corp budget.xls
+
+
+File Size
+
+						Standard Fields
+Decimal
+Generally a decimal number indicating the size in bytes of a file.
+15896
+
+
+File Type
+
+						Standard Fields
+Fixed-Length Text (255)
+Description that represents the file type to the Windows Operating System.  Examples are Adobe Portable Document Format, Microsoft Word 97 - 2003 Document, or Microsoft Office Word Open XML Format. This field has a maximum length of 255 alpha-numeric characters.
+Microsoft Excel 97-2003 Worksheet
+
+
+From
+
+						Standard Fields
+Fixed-Length Text (255)
+The name, when available, and email address of the sender of an email message. This field has a maximum length of 255 alpha-numeric characters.
+Capellas Michael D. [Michael.Capellas@COMPAQ.com]
+
+
+From (SMTP Address)
+
+						Standard Fields
+Fixed-Length Text (255)
+The full SMTP value for the sender of an email message. This field has a maximum length of 255 alpha-numeric characters.
+Michael.Capellas@COMPAQ.com
+
+
+Has Hidden Data
+
+						Standard Fields
+Yes/No
+
+Indication of the existence of hidden document data such as hidden text in a Word document, hidden columns, rows, or worksheets in Excel, or slide notes in PowerPoint. 
+If a document contains hidden data that was found during processing, this field displays a value of Yes. If no hidden data was found, this field is blank. Note that this field does not display a value of No if no hidden data was found. 
+This is because Relativity cannot definitively state that a document contained no hidden data just because the system could not detect it.
+
+Yes
+
+
+Has OCR Text
+
+						Standard Fields
+Yes/No
+The yes/no indicator of whether the extracted text field contains OCR text.
+						
+Yes
+
+
+HiddenAttachment
+
+
+Yes/No
+The yes/no indicator of whether or not the record is an Email inline image.
+Yes
+
+
+Image Taken Date/Time
+
+						Standard Fields
+Date
+The date and time at which an original image, for example a document scan or .jpg, was taken.
+"12/24/2015 11:59 PM"
+
+
+Importance
+
+						Standard Fields
+Single Choice
+Notation created for email messages to note a higher level of importance than other email messages added by the email originator.
+Low
+
+
+Is Embedded
+
+						Standard Fields
+Yes/No
+The yes/no indicator of whether a file is embedded in a Microsoft Office document.
+No
+
+
+Is Parent
+
+						Standard Fields
+Yes/No
+The yes/no indicator of whether a file is a parent with children or a child/loose record with no children. If this reads Yes, it is a top-level parent with children. If this reads No, it is an attachment or a loose record such as a standalone email or an Edoc.
+No
+
+
+Keywords
+
+						Standard Fields
+Long Text
+ The internal value entered for keywords associated with a Microsoft Office document.
+Enron, Security Agreement
+
+
+Last Accessed Date
+
+						Standard Fields
+Long Text
+The date on which a loose file was last accessed.
+12/24/2015
+
+
+Last Accessed Date/Time
+
+						Standard Fields
+Date
+The date and time at which the loose file was last accessed.
+"12/24/2015 11:59 PM"
+
+
+Last Accessed Time
+
+						Standard Fields
+Long Text
+The time at which the loose file was last accessed.
+						
+11:59 PM
+
+
+Last Modified Date
+
+						Standard Fields
+Long Text
+The date on which changes to a file were last saved. 
+12/24/2015
+
+
+Last Modified Date/Time
+
+						Standard Fields
+Date
+The date and time at which changes to a file were last saved. 
+"12/24/2015 11:59 PM"
+
+
+Last Modified Time
+
+						Standard Fields
+Long Text
+The time at which changes to a file were last saved.
+						
+11:59 PM
+
+
+Last Printed Date
+
+						Standard Fields
+Long Text
+The date on which a file was last printed.
+						
+12/24/2015
+
+
+Last Printed Date/Time
+
+						Standard Fields
+Date
+The date and time at which a file was last printed.
+"12/24/2015 11:59 PM"
+
+
+Last Printed Time
+
+						Standard Fields
+Long Text
+The time at which a file was last printed.
+						
+11:59 PM
+
+
+Last Saved By
+
+						Standard Fields
+Fixed-Length Text (255)
+The internal value indicating the last user to save a document. This field has a maximum length of 255 alpha-numeric characters.
+ymendez
+
+
+Last Saved Date
+
+						Standard Fields
+Long Text 
+The date on which a file was last saved.
+						
+12/24/2015
+
+
+Last Saved Date/Time
+
+						Standard Fields
+Date
+The internal value entered for the date and time at which a document was last saved.
+"12/24/2015 11:59 PM"
+
+
+Last Saved Time
+
+						Standard Fields
+Long Text
+The time at which a file was last saved.
+						
+11:59 PM
+
+
+Lotus Notes Other Folders
+
+						Standard Fields
+Long Text
+A semi-colon-delimited listing of all folders that a Lotus Notes message or document appeared in, except for the one indicated in the Email Folder Path. For example:
+						(Mail Threads);($All);($Drafts)
+(Mail Threads);($All);($Drafts)
+
+
+MD5 Hash
+
+						Standard Fields
+Fixed-Length Text (40)
+
+Identifying value of an electronic record that can be used for de-duplication and authentication generated using the MD5 hash algorithm. 
+Relativity cannot calculate this value if you have FIPS (Federal Information Processing Standards cryptography) enabled for the worker manager server. This field has a maximum length of 40 alpha-numeric characters.
+
+21A74B494A1BFC2FE217↪CC274980E915
+
+
+MS Office Document Manager
+
+						Standard Fields
+Fixed-Length Text (255)
+The internal value entered for the manager of a document. This field has a maximum length of 255 alpha-numeric characters.
+Fabienne Chanavat
+
+
+MS Office Revision Number
+
+						Standard Fields
+Fixed-Length Text (255)
+The internal value for the revision number within a Microsoft Office file. This field has a maximum length of 255 alpha-numeric characters.
+72
+
+
+Media Type
+
+						Standard Fields
+Single Choice
+A standard identifier used on the Internet to indicate the type of data that a file contains.
+application/msword
+
+
+Meeting End Date
+
+						Standard Fields
+Long Text
+The date on which a meeting item in Outlook or Lotus Notes ended.
+						
+12/24/2015
+
+
+Meeting End Date/Time
+
+						Standard Fields
+Date
+The date and time at which a meeting item in Outlook or Lotus Notes ended.
+"12/24/2015 11:59 PM"
+
+
+Meeting End Time
+
+						Standard Fields
+Long Text
+The time at which a meeting item in Outlook or Lotus Notes ended.
+						
+11:59 PM
+
+
+Meeting Start Date
+
+						Standard Fields
+Long Text
+The date on which a meeting item in Outlook or Lotus Notes started.
+						
+12/24/2015
+
+
+Meeting Start Date/Time
+
+						Standard Fields
+Date
+The date and time at which a meeting item in Outlook or Lotus Notes began.
+"12/24/2015 11:59 PM"
+
+
+Meeting Start Time
+
+						Standard Fields
+Long Text
+The time at which a meeting item in Outlook or Lotus Notes started.
+						
+11:59 PM
+
+
+Message Class
+
+						Standard Fields
+Single Choice
+The type of item from an email client. For example, email, contact, calendar, and others.
+						
+IPM.Note
+
+
+Message Header
+
+						Standard Fields
+Long Text
+The full string of values contained in an email message header.
+						
+date: Wed, 4 Oct 2000 18:45:00 -0700 (PDT) Wed, 4 Oct 2000 18:45:00 -0700 (PDT) Message-ID: MIME-Version: 1.0 Content-Type: text/plain; charset="us-ascii" Content-Transfer-Encoding: 7bit from: "Rosalee Fleming" to: "Telle Michael S." subject: Re: Referendum Campaign filename: klay.nsf folder: \Kenneth_Lay_Dec2000\Notes Folders\'sent
+
+
+Message ID
+
+						Standard Fields
+Fixed-Length Text (255)
+The message number created by an email application and extracted from the email’s metadata. For more information, see Message ID considerations. This field has a maximum length of 255 alpha-numeric characters.
+<PLSRGLMRNQWEDFYPJL5↪ZJFF41USDEIQHB@zlsvr22>
+
+
+Message Type
+
+						Standard Fields
+Single Choice
+Indicates the email system message type.  Possible values include Appointment, Contact, Distribution List, Delivery Report, Message, or Task.  The value may be appended with '(Encrypted)' or 'Digitally Signed' where appropriate.
+Message
+
+
+Native File
+
+						Standard Fields
+Long Text
+The path to a copy of a file for loading into Relativity.
+\\files2.T026.ctus014128.r1.company.com\↪T026\Files\EDDS2544753\Processing\↪1218799\INV2544753\SOURCE\0\982.MSG
+
+
+Number of Attachments
+
+						Standard Fields
+Whole Number
+Number of files attached to a parent document.
+2
+
+
+Original Author Name
+
+						Standard Fields
+Fixed-Length Text (50)
+The display name of the original author of an email.
+						This field has a maximum length of 50 alpha-numeric characters.
+Jane Doe
+
+
+Original Email Author
+
+						Standard Fields
+Fixed-Length Text (255)
+The email address of the original author of an email.
+						This field has a maximum length of 255 alpha-numeric characters.
+Jane.Doe@COMPAQ.com
+
+
+Original File Extension
+
+						Standard Fields
+Fixed-Length Text (25)
+The original extension of the file. This may differ from the value for the File Extension field, since that value is assigned based on the processing engine’s reading of the file’s header information. This field has a maximum length of 25 alpha-numeric characters.
+DOC
+
+
+Other Metadata
+
+						Standard Fields
+Long Text
+
+Metadata extracted during processing for additional fields beyond the list of processing fields available for mapping. This includes TrackChanges, HiddenText, HasOCR, and dates of calendar items. 
+Field names and their corresponding values are delimited by a semicolon.
+
+Excel/HasHiddenColumns=True;Office↪/Application=Microsoft Excel;↪InternalCreatedOn=7/25/1997↪9:14:12 PM;Office/Security=2;↪Office/PROPID_23=528490;Office/↪Scale=0;Office/LinksDirty=0;Office/↪PROPID_19=0;Office/PROPID_22=0;↪Office/Parts=sum,ENRON;Office/↪Headings=Worksheets,2;Office/↪_PID_GUID=UnknownPROPVARIANT ↪type 65;Excel/HasHiddenRows=True;↪LiteralFileExtension=XLS
+						
+
+
+Outlook Flag Status
+
+						Standard Fields
+Single Choice
+The indicator of which flag, if any, an Outlook item has assigned to it—NoFlag, FlagMarked, or FlagComplete.
+						
+NoFlag
+
+
+
+						Parent Document ID
+
+						Standard Fields
+
+						Fixed-Length Text
+
+Document ID of the parent document. This field is 
+							only available on child items.
+
+
+						EN11, 12345
+
+
+Password Protected
+
+						Standard Fields
+Single Choice
+
+The Password Protected field shows the decryption status of password-protected documents. The field displays Decrypted if a password is known, Encrypted if a password is not known, or no value if the file does not have a password.
+To track decrypted documents, map the Password field. To map this field, add or edit the corresponding Relativity field, then open the Source control. From the drop-down menu, select Other Fields. In the results list, select Password.
+
+Encrypted
+
+
+PowerPoint Hidden Slides
+
+						Standard Fields
+Yes/No
+The yes/no indicator of whether a PowerPoint file contains hidden slides.
+						
+Yes
+
+
+Primary Date/Time
+
+						Standard Fields
+Date
+
+Date taken from Sent Date, Received Date, or Last Modified Date in that order of precedence. 
+
+"12/24/2015 11:59 PM"
+
+
+Read Receipt Requested
+
+						Standard Fields
+Yes/No
+Indicates whether a read receipt was requested for an email.
+Yes
+
+
+Received Date
+
+						Standard Fields
+Long Text
+The date on which an email message was received.
+						
+12/24/2015
+
+
+Received Date/Time
+
+						Standard Fields
+Date
+The date and time at which an email message was received.
+						
+"12/24/2015 11:59 PM"
+
+
+Received Time
+
+						Standard Fields
+Long Text
+The time at which an email message was received.
+						
+11:59 PM
+
+
+Recipient Count
+
+						Standard Fields
+Whole Number
+The total count of recipients in an email which includes the To, CC, and BCC fields.
+1
+
+
+Recipient Domains (BCC)
+
+						Standard Fields
+Multiple Object
+
+The domains of the 'Blind Carbon Copy' recipients of an email. For information on domains and steps to create the Domains object and associative multiple object fields, see Relativity Objects.
+
+enron.com;bellatlantic.com
+
+
+Recipient Domains (CC)
+
+						Standard Fields
+Multiple Object
+
+The domains of the 'Carbon Copy' recipients of an email. For information on domains and steps to create the Domains object and associative multiple object fields, see Relativity Objects.
+
+enron.com;bellatlantic.com
+
+
+Recipient Domains (To)
+
+						Standard Fields
+Multiple Object
+
+The domains of the 'To' recipients of an email. For information on domains and steps to create the Domains object and associative multiple object fields, see Relativity Objects.
+
+enron.com;bellatlantic.com
+
+
+Recipient Name (To)
+
+						Standard Fields
+Long Text
+The names of the (To) field recipients of an email message.
+						
+Jane Doe
+
+
+Record Type
+
+
+Single Choice
+The single choice field that indicates that the file is an Email, Edoc, or Attach.
+Edoc
+
+
+Replaced Extracted Text
+
+						Standard Fields
+Yes/No
+This Yes/No field indicates if the document had its extracted text replaced with a placeholder due to its size exceeding 2GB. To locate this field, navigate to the All Fields view.
+Yes
+
+
+Rolled up image text
+
+						Standard Fields
+Fixed-Length Text (255)
+The comma (,) delimited list of child FileIDs that have had their text rolled into the parent document. This field is only set for parent files.
+Rolll Up Image Text
+
+
+
+Note: *You will not see RSMF fields in the catalog until you discover them. Any discovered RSMF fields are then available for mapping.
+
+Caution: Use caution when mapping to multiple-choice fields. Mapping multiple-choice fields creates a unique value for each choice option. Depending on the multiple-choice fields mapped, you could have hundreds of unique choices, impacting performance.
+
+
+
+*RSMF Application
+Mea Ftadatields
+Long Text
+
+						This is used to identify source of the data, which is intended to be ambiguous. For example, it could be the application of the data contained in the RSMF file.
+Slack
+
+
+*RSMF Attachment Count
+Metadata Fields
+Whole Number
+This field should be a number that is a sum of all of the attachments present in the RSMF.
+10
+
+
+*RSMF Begin Date
+Metadata Fields
+Date
+The time stamp (ISO8601) of the earliest short message event within the file.
+11:59 PM
+
+
+*RSMF Custodian
+Metadata Fields
+Long Text
+This field is used to identify from whom the data was 
+						collected from.
+John Doe
+
+
+*RSMF End Date
+Metadata Fields
+Date
+The time stamp (ISO8601) of the latest short message event within the file.
+11:59 PM
+
+
+*RSMF Event Collection Id
+Metadata Fields
+Long Text
+This field should be a unique ID that is to be used to help keep many RSMFs from a single conversation together.
+D4C4EB398980E82B4B3064
+
+
+*RSMF Event Count
+Metadata Fields
+Whole Number
+The number of short message events captured within the file.
+5
+
+
+*RSMF Generator
+Metadata Fields
+Long Text
+Identifies the author of the RSMF file.
+Relativity v2.4
+
+
+*RSMF Participants
+Metadata Fields
+Long Text
+This field can be used to choose from a string of names (comma delimited) that are present in the conversation in the RSMF file.Note: Relativity discovers the RSMF Participants field type as Multiple Choice. To maximize performance, map this field as Long Text.
+John Doe <john.doe@relativity.com>, Jane Doe <jane.doe@relativity.com>
+
+
+*RSMF Version
+Metadata Fields
+Long Text
+The version of the RSMF specification that the file adheres to.
+2.0.0
+
+
+SHA1 Hash
+
+						Standard Fields
+Fixed-Length Text (50)
+Identifying value of an electronic record that can be used for de-duplication and authentication generated using the SHA1 hash algorithm. This field has a maximum length of 50 alpha-numeric characters.
+D4C4EB398980E82B4B3064↪CC2005F04D04BBAAE6
+
+
+SHA256 Hash
+
+						Standard Fields
+Fixed-Length Text (70)
+Identifying value of an electronic record that can be used for de-duplication and authentication generated using the SHA256 hash algorithm. This field has a maximum length of 70 alpha-numeric characters.
+4F8CA841731A4A6F78B919↪806335C963EE039F33214A04↪1F0B403F3D156938BC
+
+
+Sender Domain
+
+						Standard Fields
+Multiple Object
+						
+The domain of the sender of an email.
+enron.com
+
+
+Sender Name
+
+						Standard Fields
+Fixed-Length Text (255)
+						
+The name of the sender of an email message. This field has a maximum length of 255 alpha-numeric characters.
+Kenneth Lay
+
+
+Sent Date
+
+						Standard Fields
+Long Text
+The date on which an email message was sent.
+12/24/2015
+
+
+Sent Date/Time
+
+						Standard Fields
+Date
+The date and time at which an email message was sent.
+"12/24/2015 11:59 PM"
+
+
+Sent Time
+
+						Standard Fields
+Long Text
+The time at which an email message was sent.
+11:59 PM
+
+
+Sort Date/Time
+
+						Standard Fields
+Date
+
+For parent documents, the field is populated with the Primary Date/Time value. For child documents, the field is populated with the Sort Date/Time of the parent document. All documents in a family will therefore have the same Sort Date/Time value, keeping family members together when sorting on this field.
+Note: When you filter for dates, you are filtering specifically on the Sort Date/Time field, which is taken from the file's Sent Date, Received Date, and Last Modified Date fields in that order of precedence. This happens on email messages repeated for the parent document and all child items to allow for date sorting.
+You have the following options for applying a date range filter:
+Note: When processing documents without an actual date, Relativity provides a null value for the following fields: Created Date, Created Date/Time, Created Time, Last Accessed Date, Last Accessed Date/Time, Last Accessed Time, Last Modified Date, Last Modified Date/Time, Last Modified Time, and Primary Date/Time. The null value is excluded and not represented in the filtered list. 
+
+"12/24/2015 11:59 PM"
+
+
+Source Path
+
+						Standard Fields
+Long Text
+
+The folder structure and path to the file from the original location identified during processing. For emails, this displays the subject rather than the email's entry ID. This provides you with better context of the origin of the email. 
+Previously, the Virtual Path field displayed the entry ID with the email file name, and if you followed this virtual path, it was difficult to tell by that entry ID where the email came from. See Source path for more information.
+
+Reports\User\Sample.pst\Inbox\Requested February report
+
+
+Speaker Notes
+
+						Standard Fields
+Yes/No
+The yes/no indicator of whether a PowerPoint file has speaker notes associated with its slides.
+Yes
+
+
+Subject
+
+						Standard Fields
+Long Text
+The subject of the email message.
+Blackmore Report - August
+
+
+Suspect File Extension
+
+						Standard Fields
+Yes/No
+The yes/no indicator if whether the extension of a file does not correspond to the actual type of the file. For example. XLS for a Word document.
+Yes
+
+
+Text Extraction Method
+
+						Standard Fields
+Single Choice
+The method used to run text extraction.
+Excel
+
+
+Title
+
+						Standard Fields
+Long Text
+The title of the file. For emails, this is the subject line. For non-emails, this is any available title.
+June Scrum Notes
+
+
+To
+
+						Standard Fields
+Long Text
+The names, when available, and email addresses of the recipients of an email message.
+Capellas Michael D. [Michael.Capellas@COMPAQ.com]
+
+
+To (SMTP Address)
+
+						Standard Fields
+Long Text
+The full SMTP value for the   recipient of an email message, for example, “bob@example.com.”
+Michael.Capellas@COMPAQ.com
+
+
+TrackChanges
+
+						Standard Fields
+Yes/No
+
+The yes/no indicator of whether the track changes metadata on an Office document is set to True. This does not necessarily indicate if tracked changes were made to the document or not.
+
+On Word documents, the track changes toggle may have been set to True, changes made to the document, then set back to False. In this situation, this field will still indicate ‘No’ because it is looking only at the setting and not for the actual existence of changes even though tracked changes still exist in the document.
+If the same situation is applied to Excel documents, the result is slightly different. Microsoft deletes tracked changes on Excel documents when the toggle is set back to False. The returned value will also indicate ‘No’ but there is no concern about missed tracked changes as none exist.
+For file types that cannot contain tracked changes, such as PDFs, email, and images, this field is blank.
+
+
+Yes
+
+
+Track Changes
+
+						Standard Fields
+Yes/No
+
+The yes/no indicator of whether the track changes toggle is set to True and/or there are tracked changes in the document. 
+This field maps to the TrackedChangesCombined Invariant field. This will be Yes if either of the following are true:
+
+
+The Track Changes button is enabled in the document.
+
+
+
+
+There is actual Tracked Change content in the document.
+
+
+
+ 
+
+
+Unified Title
+Standard Fields
+Long Text
+The subject of the file. For emails, this is the subject line. For non-emails, this is the file name.Note that in short message (RSMF) conversion, Relativity may use the conversation name as the subject, and therefore the Unified Title.
+Company Memo
+
+
+Unprocessable
+
+						Standard Fields
+Yes/No
+
+The yes/no value indicating if a file was able to be processed. If the file could not be processed, this field is set to Yes. 
+
+Even if a file is flagged as Unprocessable, it may still be visible in the native file viewer if Oracle is able to render the file.
+The Unprocessable field is set to Yes on any file for which Relativity does not have an Invariant plugin that is capable of extracting text or imaging/OCRing that document type. For example, it is not set for a corrupt file for which we cannot extract text, such as a corrupt Word document that logs an error during data extraction. 
+Unprocessable documents do not have errors associated with them because they never reach a point at which they can register a processing error.
+
+
+No
+
+
+
+
+Note: You can track which passwords successfully decrypted published documents by mapping the Password field found in the All Fields view. Specifically, you can find this Password field by clicking Source on the field layout, selecting the All Fields view, and locating the source field name of Password with a field type of Long Text.
+Email Store Name field
+To better understanding how the Email Store Name field works, consider the following examples:
+
+When an email comes from .pst file, the .pst is listed in the Email Store Name field. When a child Word document comes from a .rar archive and is attached to the email, the Email Store Name field is blank for the Word document.The RAR/ZIP information for the Word documents mentioned above is found in the Container Name field.
+In the following example, email 00011 comes from a .pst file named PSTContainingEmbeddedPSTInFolders.pst, which is the value for the Email Store Name field for that email. The other emails, 00011.001 and 00011.002, come from a .pst file attached to the 00011 email. This .PST file is named PSTWithEmails.pst. In this case, the Email Store Name field for those child messages is PSTWithEmails.pst, not the top-level .pst file named PSTContainingEmbeddedPSTInFolders.pst.
+
+
+
+
+For an email taken from a zip folder, the Email Store Name field is blank.
+
+
+
+Virtual path
+The virtual path is the complete folder structure and path from the original folder or file chosen for processing to the file. This path includes any containers that the file may be in and, in the case of attached or embedded items, includes the file name of the parent document.  
+This path does not include the name of the file itself.  If a file is selected for import instead of a folder, the virtual path for that file is blank. 
+
+
+
+
+The following are examples of virtual paths created from the folders, per the above images:
+
+\Maude Lebowski\Loose Docs
+\Walter Sobchak\Walter.pst\Inbox\Unimportant\Fest Junk\Walter
+test.pst\My Test Box 	In the case of a container or loose file being directly selected for processing, the virtual path does not have a leading backslash.
+test.pst\My Test Box\000000009B90A00DCC4229468A243C71810F71BC24002000.MSG
+Revisions.doc	This is the virtual path of a file embedded in the Revisions.doc file.
+
+Processing folder path
+The processing folder path is the folder structure created in the folder browser of the Documents tab. Relativity creates this path by keeping any folders or container names in the virtual path and discarding any file names that a file may be attached to or embedded in. 
+Files without a virtual path and items embedded within them do not have a processing folder path. If a container is embedded in a loose file, the items in that container have a processing folder path that matches the name of the container. 
+The following are examples of virtual paths and corresponding processing folder paths.
+
+
+
+
+
+Virtual Path
+Processing Folder Path
+
+
+
+
+test.pst\Inbox
+
+test.pst\Inbox
+
+
+
+test.pst\Inbox\000000009B90A00DCC4229468A243C71810F71BC24002000.MSG
+
+test.pst\Inbox
+
+
+
+
+test.pst\Inbox\000000009B90A00DCC4229468A243C71810F71BC24002000.MSG\Pics.zip
+
+
+test.pst\Inbox\Pics.zip
+
+
+
+
+Email folder path
+The email folder path is the folder path within the email container file in which an email was stored. All attachments to emails have no value for this field. 
+For example, an email stored in the Escalations folder in the following image below would have a value of “Inbox\Tickets\Escalations."
+
+
+
+Source path
+The source path is a modified display of the virtual path. In the case of attachments to emails, any entry IDs of emails appearing in the virtual path are replaced by the subject of that email instead. In all other cases the source path value is identical to the virtual path. 
+For example, an attachment to an email could have the following virtual path and source path values:
+
+
+
+
+
+Virtual Path
+Source Path
+
+
+
+
+Sample.pst\Inbox\000000009B90A00DCC4229468A243C71810F71BC24002000.MSG
+
+
+Sample.pst\Inbox\Requested February reports
+
+
+
+
+Note: This source path field is not to be confused with the Source Path field found on the Processing Data Source layout on the saved processing set.
+Message ID considerations
+Note the following details regarding the Message ID field:
+
+Message ID is an identifier applied to an email by the program that created the email, such as Outlook, Eudora, or another.   
+Email programs can use whatever they want for a message ID, or they can leave it off entirely.  The mail server is free to assign an identifier even if an email client did not.  
+There is no guarantee that every message ID is unique because every email client and mail server uses a different algorithm to create one.
+Message ID is unique only in the fact Relativity does not know what tool generated the identifier or what algorithm generated it. In addition, Relativity cannot assume that the identifier will even exist in an email.
+Relativity cannot validate the message ID because it is made up of opaque data associated with an email.
+It is possible that two entirely different emails might share the same message ID.
+Using the Message ID is not a reliable alternative to SHA256 de-duplication. For the purposes of de-duplication, we recommend that you use the Processing Duplicate Hash.  If you processed the information in another tool, it is recommended that you use the Hash Algorithm you selected in that tool.
+
+Comments considerations
+There are two kinds of comments that are possible in all Office documents: metadata and inline. The following table breaks down which optional processing fields are populated by each type of comment.
+
+
+
+
+
+
+
+Comment type
+Location in file
+Hidden Data value
+Comments value
+
+
+
+
+Metadata
+Details tab of the Properties window (when you right-click on file name)
+Null (blank)
+Contents of comments property on the file
+
+
+Inline
+ In the body of the document
+"Yes"
+Null (blank)
+
+
+Both
+Details tab of file and body of document
+"Yes"
+Contents of comments property on the file
+
+
+
+Note: There are a number of reasons why a document could contain hidden text. A returned value of Yes for the Hidden Data field doesn’t automatically mean that the document has inline comments.
+De-duped custodian and path considerations
+If you run de-duplication as part of your processing job, you may want to know where the documents that eventually get de-duplicated came from, the path, as well as which custodian those documents were associated with.
+The DeDuped Custodians and DeDuped Paths optional fields allow you to track this information. When a document is de-duplicated, these fields are populated upon publish, or republish.
+
+DeDuped Custodians—a multiple object field with object type Document and associated object type Entity. You should only associate this field with the Entity object. If this field is associated with any other object type, you will not be able to publish documents to your workspace.
+DeDuped Paths—a long text document field that provides the location of the de-duplicated document.
+
+To use these fields, simply add them to a document view and refer to that view after your publish job has completed. You can then export the results to an Excel file, if necessary.
+
+
+
+Note: When Relativity populates the Deduped Custodians and Deduped Paths fields during republish, it performs an overlay. Because of this, if you modify a document's identifier field in Relativity, your information could become out of sync. For this reason, we recommend that you do not modify the identifier field.

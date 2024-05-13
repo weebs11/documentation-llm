@@ -1,0 +1,270 @@
+
+Error overview
+You may encounter errors from time to time while running processing jobs. Errors can occur during any processing phase, affecting single files or the entire job. This topic provides a high-level overview of the types of errors you may encounter and where to find information on errors in Relativity.
+For information on resolving processing errors, see Processing error resolution.
+
+This page details the following:
+
+Types of processing errors
+
+Processing phases where errors may occur
+
+Processing error tabs
+
+Files
+
+File error fields
+
+Viewing file error details
+
+
+
+Job Errors
+
+Job error fields
+
+Viewing job error details
+
+
+
+
+
+Viewing errors from a processing set
+
+Required security permissions
+
+
+
+Types of processing errors
+There are two types of processing errors: file errors and job errors.
+
+
+File errors—affect a single file. Overall, the processing job continues, even if file errors exist. File errors are resolvable and have a status of Not Resolved in the Files tab. An example of a file error might include a password-protected file where Relativity cannot find the password.
+
+Job errors—affect the entire processing job and block publishing. You must resolve job errors before you can continue processing.
+
+Processing phases where errors may occur
+Errors can occur during any processing phase, such as Inventory, Discover, and Publish.
+
+Inventory—all Inventory errors are unresolvable, and you cannot retry them. To address inventory errors, rerun Inventory from the same processing set.
+Discover—the Discover phase covers file discovery and text extraction.Discover—job errors that occur during discovery are unresolvable, and you cannot retry them. You should always address unresolvable discover job errors. Not addressing unresolvable errors may result in incomplete metadata in published documents. Address these errors by creating a new processing set (or sets) and rediscovering the data. Text-extraction—job errors that are resolvable have an error status of Ready to retry. Retry the error from the same processing set.
+Publish—job errors during the publishing phase that are resolvable have an error status of Ready to retry. Retry the error from the same processing set.
+
+Processing error tabs
+Use the Files tab and Job Errors tab  to view errors that occurred during processing. Relativity notifies you of errors on the processing set page when the job completes. 
+Files tab
+The Files tab displays a list of all documents within your workspace. The Files tab has two views related specifically to file errors:
+
+ Current Errored Files—displays all outstanding errors from processing jobs. This is the primary location for workflows like error retry, ignore, and file replacement.
+All Errored Files—displays a historical report of errors from all processing sets, regardless of error resolution.
+
+
+
+For more information on the Files tab, see the Files topic.
+File error fields
+The Current Errored Files and All Errored Files views display the following fields:
+
+Details—click this icon to open a dialog containing information on the file properties and error. See Viewing file error details for more detailed information.
+File ID—the unique identifier assigned to an instance of a file.
+Storage ID—the unique identifier assigned to a file.
+Note: Differentiating between the File ID and the Storage ID. Every file is assigned a unique Storage ID. Every instance of a file is assigned a unique File ID. For example, you may have a Word document with a unique Storage ID. If that document is attached to two different emails, then each instance of the document attachments is assigned a unique File ID. Therefore, a single file with a Storage ID, may have multiple instances, each with their own unique File ID.
+File Name—the original name of the file.
+Error Message—displays a message about the error, along with possible resolution.
+
+
+Error Phase—displays the processing phase in which the error occurred. Processing phases include Inventory, Discover, and Publish.
+
+
+Error Category—displays the error category such as a password protected file where Relativity cannot find the password. See the table below the image for a complete list of error categories.
+
+
+The following table provides a listing of values for the Error Category field, along with a description of the issues associated with the error.
+
+
+
+
+
+Category name
+Description
+
+
+
+
+Corrupt Container
+
+These errors are exclusive to container files that have encountered corruption when attempting to open and locate files within the container itself. When containers have these errors associated to them, you will not see any extracted loose files. The errors are either ignored or downloaded offline for you to investigate whether the corruption is fixable, then subsequently replaced and retried.
+
+
+
+Corrupt File
+These errors are exclusive to non-container files that have found elements of corruption during Processing. The errors are either ignored or downloaded offline for you to investigate whether the corruption is fixable, then subsequently replaced and retried.
+
+
+Could Not Identify                    
+Relativity Processing could not identify the file during discovery. The file may be corrupt, but an exact cause was not known at the time of discovery.
+
+
+Environmental
+Environmental errors are a result of issues in the Relativity Processing environment. Retry and resolve these errors when encountered.					
+
+
+File Read 
+						/ Write Error
+These errors are a subset of Environmental issues specifically caused by file system issues. Retry and resolve these errors when encountered.
+
+
+Missing Attachment
+
+Relativity could not extract an attachment from a document or email from its file.
+							
+
+
+
+Missing 
+						File Metadata
+A file is missing a piece of metadata. 
+						
+
+
+Missing Extracted Text
+These errors represent issues that occurred during Text Extraction jobs that have caused a file to be missing some or all associated text. Relativity could not identify a root cause. Retry and resolve the errors where possible.
+
+
+Partially Corrupted Container
+						
+These errors are exclusive to container files that have encountered corruption during extraction of specific records. When containers have these errors associated to them, you may see some files extracted, but not all. The errors are either ignored or downloaded offline for you to investigate whether the corruption is fixable, then subsequently replaced and retried.					
+
+
+Password Protected Container
+
+These errors are exclusive to container files that have encountered some form of password protection or encryption security measures. You must add the password or encryption key to the Password Bank to resolve the error. For more information, see Password Bank.
+							
+Note: When investigating publish errors, if you see five password protected errors associated with an .msg file, but the email and all its contents opens and displays correctly in the viewer, the email had a password-protected container attached.							
+
+
+
+Password Protected File
+These errors are exclusive to non-container files that have encountered some form of password protection or encryption security measures. You must add the password or encryption key to the Password Bank to resolve the error. For more information, see Password Bank.
+						
+
+
+Relativity Field Configuration
+						
+These errors represent issues with Field Mapping during publish jobs. They are usually associated to a specific setting like length or an Associative Object Type. Resolve the field settings errors according to the error message.
+
+
+
+						Unsupported
+Relativity Processing cannot obtain metadata or text from unsupported files. You can publish the files to your workspace, but they may not be accessible from the viewer.
+
+
+
+Error Status—provides information on where the file is in error remediation. 
+
+
+The error status value helps in determining if you need to take action on a file, or to see if the file had previous errors. When a file has all its errors resolved, the Error Message, Error Category, and Error Phase fields no longer display any content. However, the Error Status field displays Resolved to indicate that the file had issues that are now resolved. Error status values include:
+
+Not Resolved—the error is still outstanding.
+				
+Resolving—the error is in the process of being retried.
+				
+Resolved—error resolved.
+				
+Ignored—error ignored.				
+
+Note: In some cases, the Error Status field on the Files tab may not be in sync with the Error Status field on the Documents tab. The mismatch occurs when you resolve an error but do not republish the file. For example, after discovery, you notice a file error due to a missing password. The error status fields on the Files and Documents tabs show the same error status. At some point, you fix the password and retry the error. The error status on the Files tab now shows resolved, while the Documents tab still shows an error. Republishing syncs the fields once again.
+
+Viewing file error details
+You can view file details by clicking the Show details for this file icon (  .) Details include file data, file metadata, and content metadata.
+
+
+Click the Processing Errors tab to view a summary of errors, and the error history.
+
+
+
+
+The Error History section represents all errors that have ever occurred on a file. This acts as a timeline of the record’s errors, showing when they occurred, what they were about, and if any are still active. This includes errors resulting from retries of previous errors and contains category, phase, date/time, and message information. All times are kept in UTC format.
+
+
+
+The Error Summary section displays a count of all active errors along with their associated category and phase. This is especially important when investigating errors relating to container files, as there can be many associated to the parent container during file extraction. This helps determine the level of impact the issue has as it may affect many files originating from it.
+
+
+Job Errors tab
+The Job Errors tab displays a list of job errors that occurred on processing sets run in your workspace. These errors are usually not associated with any specific files within a processing set, but rather the entire set itself. The Job Errors tab has two views:
+
+Current Job Errors—displays all unresolved job errors.
+All Job Errors—displays job errors that occurred throughout the lifecycle of the matter.
+
+
+
+Job error fields
+The Current Job Errors and All Job Errors views display the following fields:
+
+Error Identifier—the unique identifier of the error as it occurs in the database. When you click this message, you are taken to the error details layout, where you can view the stack trace for detailed error information. Note that for Unresolvable errors, the console is disabled because you cannot take any actions on that error from inside Relativity.
+Error status—provides the status of the error. 
+
+
+The most common error status values include:Unresolvable—errors that you cannot retry.
+					Ready to Retry—resolvable errors that you can retry.
+					Retried—errors that have been retried
+and are unresolvable.					In Progress—the error is currently being retried.					
+Message—displays an overview of the error.
+
+
+Custodian—the custodian associated with the data source containing the file on which the error occurred.
+Processing Set—the name of the processing set in which the error occurred.
+Data Source—the data source containing the file on which the error occurred.
+Error Created On—the date and time at which the error occurred during the processing job.
+Republish Required—the error must be retried in order to be successfully published.
+Notes—any manually added notes associated with the error.
+
+Viewing job error details
+Click the Error Identifier to open the Job Error Details dialog.
+Note that the Error Actions console is not available for unresolvable job errors, since you cannot retry or ignore job errors as you can with document errors.
+
+
+To see the job error stack trace, click the Advanced tab. Here, you can parse through even more detailed information about the error, including timestamps, messages, and error phase.
+
+
+Viewing errors from a processing set
+From within your processing set, use the links in the Process Files console to view job errors and file errors. Click the File Errors link to open the Files tab > Current Errored Files view. Click the Job Errors link to open the Job Errors > Current Job Errors view.
+
+
+Required security permissions
+The following security permissions are required to perform actions on file errors:
+
+
+
+
+
+Object Security
+Tab Visibility
+
+
+
+
+
+
+
+Discovered File - View, Edit
+
+
+Download and Replace files with processing errors
+
+
+
+
+
+
+Processing
+
+
+Files
+
+
+
+
+
+
+For more information on permissions, see Workspace permissions.

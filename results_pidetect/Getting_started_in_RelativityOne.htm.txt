@@ -1,0 +1,105 @@
+
+Getting started in RelativityOne
+Welcome to RelativityOne. Before you start reviewing documents, RelativityOne requires you to complete setup tasks. If you're a RelativityOne system admin, review the information below and follow the required procedures to get started.
+See these related pages:
+
+
+Technical aspects and requirements
+
+
+
+Navigating
+
+
+
+Managing data
+
+
+
+Managing workspaces
+
+
+
+Managing users and groups
+
+
+
+Managing security and permissions
+
+
+
+RelativityOne guided tour
+Take an interactive, guided tour of RelativityOne through our training site. For more information, see RelativityOne guided tour.
+ 
+Take a guided tour of RelativityOne.
+Technical readiness
+Before getting started in your RelativityOne instance, review the RelativityOne technical overview. Ensure the necessary configuration and setup for both network access and workstation configuration is correct.
+Setting up RelativityOne
+Review the following areas when setting up your RelativityOne environment.
+
+Logging into RelativityOneLogging into RelativityOneConfigure your users and their permissions with security settings.
+Create a client which you will link with users and the matter.
+Define your case by creating a matter.
+Add Workspace security.
+Create your workspace to begin working with case documents. 
+Select one of the following built-in template workspaces: RelativityOne blank templateRelativityOne ECA templateRelativityOne Investigations templateRelativityOne Review template
+
+You and your team can now use RelativityOne.
+Transferring data to RelativityOne
+Before transferring data to RelativityOne,
+
+Review the Data migration topic to understand the various options for data migration to the cloud that exist for our new RelativityOne customers.
+Review the Data transfer topic for an overview of the Data Transfer tools you have access to. 
+
+Navigating RelativityOne
+Reviewers generally work within workspaces, while system admins usually work both within workspaces and from within the admin area, Home button. 
+The following will help familiarize you with the Review Interface.
+
+User Options
+
+Review Interface
+
+
+For system admins, you can use these landing pages to explore different applications within RelativityOne.
+
+Analytics
+
+Assisted Review
+
+Legal Hold
+
+Processing
+
+Production
+
+Integration Points
+
+Review
+
+Supporting applications
+
+
+RelativityOne downtime windows
+The advantage to RelativityOne is that we maintain and upgrade your software to ensure that your business operations in RelativityOne run smoothly and that you always have access to the latest features and defect fixes. We require regular downtime windows to do this, typically during non-business hours. 
+Please refer to RelativityOne maintenance downtime windows for more information on this schedule.
+RelativityOne repository workspace
+When installed to an existing workspace, the RelativityOne repository workspace application converts the workspace into a more streamlined version for performing early case assessment (ECA) on processed data. This limited workspace is equipped with  Relativity functionality you need for early case assessment  while providing more cost-effective pricing for storing data that may not be actively used in a case.
+Note: You cannot use a repository workspace for review or production purposes.
+See RelativityOne repository workspace.
+Custom application development in RelativityOne
+Refer to RelativityOne custom application development in the RelativityOne technical overview for more information.
+Solutions
+Customize and optimize your Relativity environments using these white papers, solutions, and custom recipes.
+
+Solutions—Solutions provide targeted  training that helps you solve a business challenge you are facing using Relativity.
+Knowledge base articles—the Community knowledge base contains workflow-based solutions for common tasks in Relativity. Our Solutions team writes and maintains these articles. The pages lists key articles  by feature set, and more are available on the Community site.
+White Papers—these white papers created by the Relativity Marketing team explain various e-discovery topics related to Relativity.
+
+Other resources
+Use the following items to learn more about RelativityOne or troubleshoot issues:
+
+Watch  tutorials—Relativity provides video tutorials to teach you the basics of Relativity and its features. You can find the tutorials on Relativity's website.
+Relativity Community—the Relativity Community  is a collection of ideas, discussions, documentation, reports, articles and support tickets that Relativity clients can use to improve their knowledge of the application. Log in to the Relativity Community to search through the numerous resources available to you. 
+Relativity Support team—if you need technical assistance or help troubleshooting an issue you are having, please contact our Support team through our Support page.
+Note: Relativity treats all customer data as sensitive and confidential. Relativity Support does not accept any customer data from clients for use in Relativity software troubleshooting or software development without explicit permissions from the client. In the rare case where customer data is necessary to troubleshoot the issue, we will contain the document troubleshooting  in the RelativityOne environment on secure region-specific RelativityOne Jumpboxes.
+

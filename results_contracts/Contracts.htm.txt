@@ -1,0 +1,191 @@
+
+Contracts
+Contracts is Relativity’s integrated solution for contract review. Contracts helps legal teams transform existing executed agreements into structured data to address a variety of use cases ranging from corporate transactions to regulatory responses.
+Instead of legal teams dividing agreements to manually enter contract data from PDFs into spreadsheets, you can centralize this process in Contracts.
+With Contracts, you can:
+
+Build a foundation of structured contract data to better manage risk, minimize cost, and maximize revenue.
+Automatically identify key data by using AI to classify contract types and sections and extract data points into Relativity fields.
+Streamline review by allowing reviewers to navigate key sections in your contracts using a viewer purpose-built for contract review.
+Compare contracts using the compare mass action to identify textual difference across sections or full agreements within your data set.
+Automate amendment or notice generation across all your agreements based on the structured data you extract during review.
+
+Watch the Contracts overview video for more information.
+
+
+Requirements
+Contracts is a separate application that must be installed into your instance and desired workspaces. You must have an enabled RelativityOne license to use Contracts.
+Installing the Contracts application
+ 
+
+Once you install the Contracts application in your instance, you can install it to any workspace.
+ To install Contracts to a workspace: 
+
+
+
+Navigate to the Relativity Applications tab in your workspace. 
+
+
+Click Select from Application Library.
+ 
+
+Click on the Select icon. 
+ 
+The Select Library Application pop-up will appear.
+ 
+
+Filter the applications as desired and select the Contracts application. 
+
+
+Click OK. 
+
+
+Click Import. 
+
+
+The Contracts application is installed and ready for use in the workspace. 
+Considerations
+Part of the contract review workflow includes working with layouts and coding documents. For more information on these permissions, see Coding permissions and Layout permissions.
+In the Contracts Viewer, you have the ability to create new sections. For more information, see Creating Sections. To create sections you will need View, Edit, Delete, and Add rights on the Document Object. You must set the instance setting called “RestrictReferentialFileLinksOnImport” to False.
+For documents that would normally open in the Contracts Viewer when clicked, you can override this and have them open in Relativity’s default Review Interface. To do this, add users to a group that has the Relativity Default Viewer checkbox selected under the Contracts Viewer in Object Security. You can also clear the Contracts Document Type field value for a document.
+Data points in the Contracts Viewer are either Contracts Regular Expressions or Relativity Persistent Highlight Sets. To view these data points, Users will need View rights on Contracts Regular Expression and Persistent Highlight Set in Object Security.
+Permissions
+The following permissions are needed to access Contracts functionality: 
+
+
+
+
+
+
+Object security
+Tab visibility
+Other settings
+
+
+
+
+
+
+
+Contracts Analysis Document – View, Edit, Delete, Add 
+
+
+
+Contracts Analysis Profile – View, Edit, Delete, Add 
+
+
+
+Contracts Analysis Set – View, Edit, Delete, Add 
+
+
+
+Contracts Annotation – View, Edit, Delete, Add 
+
+
+
+Contracts Assembly Template – View, Edit, Delete, Add 
+
+
+
+Contracts Authentication Header – View, Edit, Delete, Add 
+
+
+
+Contracts Bookmark – View, Edit, Delete, Add 
+
+
+
+Contracts Data Point Filter – View, Edit, Delete, Add 
+
+
+
+Contracts Definition – View, Edit, Delete, Add 
+
+
+
+Contracts Document Type Mapping – View, Edit, Delete, Add 
+
+
+
+Contracts Image Results – View, Edit, Delete, Add 
+
+
+
+Contracts Link – View, Edit, Delete, Add 
+
+
+
+Contracts Model – View, Edit, Delete, Add 
+
+
+
+Contracts Model Status – View, Edit, Delete, Add
+
+
+
+Contracts Contracts OCR Set – View, Edit, Delete, Add 
+
+
+
+Contracts Regular Expression – View, Edit, Delete, Add 
+
+
+
+Contracts Setting – View, Edit, Delete, Add 
+
+
+
+Contracts Token Mapping – View, Edit, Delete, Add 
+
+
+
+Contracts Training Result – View, Edit, Delete, Add 
+
+
+
+Contracts Unitization Field – View, Edit, Delete, Add 
+
+
+
+
+
+Contracts Viewer 
+
+
+
+Link Data Points To Fields 
+
+
+
+
+
+Contracts 
+Contracts OCR Sets 
+Contracts Analysis Sets 
+Contracts Analysis Profiles 
+Contracts Models 
+Contracts Regular Expressions
+Contracts Data Point Filters 
+Contracts Definitions 
+Contracts Assembly Templates 
+Contracts Settings 
+Contracts Data Points 
+Contracts Bookmarks  
+Contracts Links 
+Contracts Unitization Fields  
+Contracts Annotations 
+Model Status 
+
+
+
+
+Mass Operations 
+
+Compare
+
+
+
+
+
+Job cost estimates
+You have the ability to estimate job costs before running OCR or analysis. When you save an OCR set or Analysis set, Contracts shows an alert at the top of the page to access information on the estimated number of Contracts Units. 1 Contract Unit equals 25MB of native file size. A 26MB contract, for example, would be 2 Contracts Units. You can compare the estimated number of Contracts Units to the unit price in your data tier to determine exactly how much you're going to spend on each job. You can also access Contracts billing information in Management Console.

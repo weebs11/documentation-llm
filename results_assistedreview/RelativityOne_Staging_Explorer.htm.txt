@@ -1,0 +1,37 @@
+
+
+Staging Explorer
+Staging Explorer  enables you to rapidly transfer large amounts of data to and from RelativityOne to jump-start and sustain the data pipeline for critical projects. Use it to upload files to a staging area for RelativityOne or to download files from your RelativityOne storage location to a local computer.
+Below are the top-level directories included in the Staging Area within each tenant or client domain storage area:
+
+ARM—a folder for archiving workspaces and for staging restores via the ARM application.
+StructuredData—a folder for importing and exporting workspace data using Import/Export  and Integration Points. Refer to  Import/Export and Integration Points documentation for more information.
+
+
+Note: Relativity is deprecating the existing Export folder in September 2024 and is providing a new StructuredData folder in May 2024 to allow you to import and export data from the folder for easier integration with Import/Export and Integration Points. Begin using the StructuredData folder once it's available. This folder will be included in your Staging threshold and will be calculated and billed the same as the existing Staging folders (ProcessingSource, ARM, and TenantVM). The Export folder will be removed in September 2024 and will no longer be billable.
+
+
+ProcessingSource—a folder for storing files you want to process into your RelativityOne workspace.
+TenantVM—a folder to temporarily store Utility Server virtual machine (UVM) workflows. Refer to Utility Server documentation for more information.
+
+Note: Starting in September 2024, RelativityOne will be streamlining its staging boundaries to bolster platform security and accelerate the delivery of innovation to your environment. With this change, you will no longer be able to write to or access data outside of the defined staging area folders listed above, and the FTA, Temp, Export, and dtSearch folders will be deprecated. It is strongly recommended that you begin utilizing the ProcessingSource, StructuredData, and ARM folders as soon as possible and be sure to transfer any data you would like to retain access to that is currently housed outside of the designated staging area to an appropriate folder by September 1, 2024. After that date, the folders and data will not be accessible. For more information, see the Staging FAQ article in Community. 
+You can view data for a new matter, quickly load newly discovered data, or quickly download produced documents. This makes accessing data in the cloud as quick and seamless as if it was contained within your own environment.
+Read a  Staging Explorer scenario
+
+
+Using the Staging Explorer
+You set up a new case and need to begin review quickly. Opposing counsel gives you a hard disk drive with 10 GB of files you need to add to RelativityOne. You decide to use the Staging Explorer to upload files from the hard disk drive to RelativityOne. After you finish review of the case, you need to create productions for opposing counsel. When you produce these files to your RelativityOne storage location, you use the Staging Explorer to download the production to your local drive. You then ship the productions to opposing counsel.
+
+
+
+Refer to these sections to set up Staging Explorer:
+
+Permissions        
+
+Installing, launching, and updating Staging Explorer
+
+Navigation
+
+Best practices, limitations, and data transfer performance considerations
+
+ 

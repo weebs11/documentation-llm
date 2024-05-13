@@ -1,0 +1,143 @@
+
+Documents
+Focus on viewing and coding documents in RelativityOne's mobile app for iOS. Viewing the document list and viewing a single document is similar to a web instance of RelativityOne. You can navigate the document list by filtering and searching documents. You can also change the viewer mode with the document viewer options. 
+
+
+
+Note: This functionality is not available in RelativityOne Government environments.
+Document list
+You can perform the following actions to find a document in your document list:
+
+Filtering – tap the filter icon to filter the document list based on date fields, yes/no fields, choice fields, object fields, and user field types. For more information, see Filtering.
+Searching – tap the search icon to run an index search of the document list. For more information, see Searching.
+Switch your view –  tap the icon to expand the View drop-down menu, and then select the view that you want. 
+
+(Click to expand)
+
+
+In the document list, documents are listed with the control number as the identifier. Beneath the control number is the next field listed in the view. For example, if the next field is Responsive, the option selected displays. The field displays if it is populated or not.
+Filtering
+Use available fields in the view to narrow the document list based on date, yes/no fields, choice fields.object fields, user field types, numbers, and text fields. In the top right corner of the document list, tap the filter icon.  Tap on a field to add a filter.
+Each field type has a different way of selection. Filters for text will be a tap and type filter. For other fields such as choice, object, and user fields, tap on the option to select. Check boxes appear next to the selected options. 
+To remove a filter settings, swipe on the filter option. Once swiped, a Remove option appears. Tap Remove to clear the filter setting from the current filter. After making your selections, tap Add on the top right of the screen. Once all filters are set, tap Run Filter. The document list is then filtered based on your selections.
+(Click to expand)
+
+
+Remove a filter from the documents list by tapping Clear. 
+Filter operators
+Change your operators when adding a filter by tapping Change.The following operators are available for textbox filters and choice filters:
+Textbox filters
+
+Is not
+Is set
+Is not set
+Is less than
+Is greater than
+Is like
+Is not like
+Contains
+Does not contain
+
+
+
+           Choice filters
+
+Any of these
+None of these
+Is set
+Is not set
+        
+
+
+Quick filtering
+To open the quick filter bar to narrow your document list, pull down on the document list. Swiping, or pulling, down opens a search box. Enter in a partial or complete Control Number into the search box to filter the document list. The document list then automatically filters. 
+(Click to expand)
+
+
+Searching
+Use available search indexes to narrow the document list based on a search. In the top right corner of the document list, tap the search icon. Select an index, enter in search terms, and modify any available options. Once your search is set, tap Search.
+RelativityOne's mobile app has   dtSearch index and keyword index search functionality enabled providing advanced search functionality within the app. Search through documents by using the index searches available in the document list view.
+Selecting a search index
+You can select the keyword search index by default or the dtSearch index you built by opening up the index search menu by tapping the search icon. Once you tap the search icon, a menu appears. In the menu, tap on any of the search indexes available to begin searching. If a search index isn't available in RelativityOne's mobile app, you will need to build the search indexes in a web instance of RelativityOne. Once the index is built, it's available in RelativityOne’s mobile app. To learn how to build a dtSearch index, see Creating a dtSearch index.
+Using keyword index
+Keyword search (or SQL index search) is Relativity's default search engine and will be available in RelativityOne's mobile app by default. You can use a keyword search to query a full text index. The long text and fixed-length text fields included in this index vary by workspace. To use the keyword index, follow the steps below:
+
+Tap  to open a list of search indexes and recent searches.
+Tap a keyword search index.
+Enter your keywords or phrase using the keyboard.Notes: Separate search terms or phrases with a new line.
+(Optional) Tap the Sort by Rank check box.
+(Optional) Increase or decrease the fuzziness level.
+Tap the Search button.
+
+Within the document list, you will see all of the documents that include the terms or phrases that you searched for. To clear the search, you can tap on the Clear Search button on the bottom of the search panel. For more information on search strings, operators, and noise words, see Keyword search
+(Click to expand)
+
+
+Using dtSearch index
+ To start using search within your mobile workspace, a dtSearch index will need to be created on a web instance of Relativity. For more information on creating a search index, see  dtSearch. Once the dtSearch index is built, it is available in RelativityOne's mobile app. 
+After a dtSearch index is built in your RelativityOne workspace, you can begin to use it in RelativityOne's mobile app. To use this feature, follow the steps below:
+
+Tap  to open a list of search indexes and recent searches.
+Tap the dtSearch you wish to use.
+Enter in your keywords by using the keyboard.Note: Separate search terms or phrases with a new line.
+(Optional) Tap Enable Stemming.
+(Optional) Tap Sort by Rank.
+(Optional) Increase or decrease the fuzziness level.
+Tap the Search button. To stop a long running search, click Cancel.
+
+After running the a dtSearch, RelativityOne's mobile app will display the documents that include the terms in the document list. Click into any of those documents to see the contents of those documents. 
+(Click to expand)
+
+
+Sort by Rank
+Tap the Sort by Rank toggle to sort the results in order of the most relevance to your search terms. The most relevant documents are listed at the top of the results set, with the least relevant documents, or the documents with t he smallest number of keywords, at the end of the list. 
+Stemming
+Note: Stemming toggle is only available within dtSearches.
+Tap the Enable Stemming toggle while using a dtSearch index will return documents containing grammatical variations of a root word. For example, a search on "apply~" returns documents containing the words "apply," "applying," "applies," and "applied." Because stemming only works with the root word, it generally doesn't return irregular variations of a verb. For example, a stemming search on "run~" would not return "ran."  Stemming is limited to English only. 
+After you perform a stemming search, grammatical variations of the root word aren't highlighted in the document result set. For example, the words "applied" or "applying" aren't automatically highlighted in the viewer. You can enter "applied" in the text box, and then click the Search icon to locate hits or grammatical variations. For more information on stemming, see Using dtSearch syntax options.
+Fuzziness
+Tap the plus (+) or minus (-) icons in the Fuzziness Level section to perform searches that return documents containing spelling variations of a specified term. You may want to use fuzzy searching when querying documents that contain misspelled terms, typographical errors, or have been scanned with Optical Character Recognition (OCR).
+In the Fuzziness Level menu, you can select a value from 1 to 10 by tapping the plus (+) or minus (-) icons, which applies to all terms in the text box. Larger numbers return terms with more variation. We recommend using values between 1 and 3 for moderate error tolerance. The following table describes the expected results for sample settings.
+
+
+
+
+
+Fuzziness level
+Description of search results
+
+
+
+
+Blank	
+ Only returns the entered term.
+
+
+1
+	Returns slight variations of the entered term.
+
+
+4
+
+Returns multiple variations of the entered term.
+
+
+
+
+For more information on fuzzy searches, see Using dtSearch syntax options.
+Recent searches
+Your most recent searches in the workspace are available when searching documents. These searches update when a search is run on RelativityOne's mobile app or on web. 
+Document viewer
+RelativityOne's mobile app document viewer displays workspace documents. In the document viewer, code a document, or load different formats of the documents. For more information on coding a document in RelativityOne's mobile app, see Coding documents .
+(Click to expand)
+
+
+Note: If you don't see a document in the viewer, it either hasn't been loaded to the workspace, its conversion failed, or you don't have permission to see it.
+Navigate document to document by tapping the arrow icons at the bottom of the document viewer.
+If you are using a smart keyboard that connects to your device, you have the ability to use keyboard shortcuts to navigate documents and the document viewer. For more information, see Apple keyboard shortcuts.
+Changing viewers
+When viewing a document, tap the drop-down menu to view the document view options and to share a link. Tap Switch Viewer and then tap Image or Productions. 
+The document view options relate to the viewer modes in a web instance of Relativity. For example, you will automatically have the Viewer mode. If the document has been imaged and produced, there is an Image and a Production view. If the document is included in multiple production sets, each set is available by tapping through the Productions button. For more information on coding documents, see Coding documents . 
+(Click to expand)
+
+

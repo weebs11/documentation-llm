@@ -1,0 +1,50 @@
+
+
+
+Best practices for Active Learning review
+This article is intended as a reference for reviewers in an Active Learning project. We’ve included best practices and overall considerations for working with computer-assisted review.
+
+For more in-depth information on Active Learning, see Assisted Review.
+General coding tips
+We recommend the following guidelines when reviewing documents:
+
+Consistency is crucial - consult fellow reviewers on difficult coding decisions to make sure your team is coding consistently.
+
+
+Double check - always check the extracted text of a document to be sure it matches the content in other views. Whenever possible, review from the Extracted Text viewer.
+
+
+When in doubt, ask - if something confuses you, don't guess. Ask a system admin or project manager about the right course of action.
+
+Coding according to the "four corners" rule
+Active Learning predicts which documents will be responsive or nonresponsive based on the contents of the document itself. Family members, date range, custodian identity, and other outside factors do not affect the rankings. Because of this, the Active Learning engine learns best when documents are coded based only on text within the four corners of the document.
+When you code documents as positive or negative in the Active Learning queue, you are both coding the document and teaching the engine what a responsive document looks like. Therefore, your positive or negative coding decisions should follow the "four corners" rule: code only based on text within the body of the document, not based on surrounding factors.
+Having one or two documents that fail this rule will not harm the overall accuracy of Active Learning's predictions. However, if you want to track large numbers of documents which are responsive for reasons outside of the four corners, we recommend talking to the project manager about either setting up a third, neutral choice on the coding field for those, or adding a secondary coding field. Neutral choices and other coding fields are not used to train the Active Learning engine.
+Common scenarios which fail the "four corners" rule
+The following scenarios violate the "four corners" rule, and will not train the Active Learning engine well:
+
+The document is a family member of another document which is responsive.
+The document comes from a custodian whose documents are presumptively responsive.
+The document was created within a date range which is presumptively responsive.
+The document comes from a location or repository where documents are typically responsive.
+
+For example, the following email has a responsive attachment. However, the body of the email—the text within the four corners—is only a signature and a privacy disclaimer. Because the body of this email is not responsive, this document does not pass the "four corners" rule.
+
+
+(Click to expand)
+Factors which affect Active Learning predictions
+Not all responsive documents will inform the Active Learning engine equally. The following factors affect how much the engine will learn from each document:
+
+
+Sufficient text - if there are only a few words or short phrases in a document, the engine will not learn very much from it.
+
+
+Email headers and signatures - these are filtered out automatically by Active Learning. They are still visible, but they are not considered for Active Learning's predictions.
+
+
+Images  - text contained only in images, such as a photograph of a contract, cannot be read by Active Learning. The system works only with the extracted text of a document.
+
+
+Numbers - numbers are not considered by the Active Learning engine.
+
+

@@ -1,0 +1,119 @@
+
+
+Analytics categorization sets
+Note: As of September 2022, the process for adding example documents to categorization sets has been streamlined. For help adjusting old workflows, see the related Knowledgebase article or submit a request through the Customer Support form.
+Using categorization, you can create a set of example documents that Analytics uses as the basis for identifying and grouping other conceptually similar documents. Categorization is useful early in a review project when you understand key concepts of a case and can identify documents that are representative examples of these concepts. After you review documents in the Relativity viewer, you can designate examples and add them to various categories. You can then use these examples to apply categories to the rest of the documents in your workspace.
+
+
+
+Unlike clustering, categorization can be used to place documents  into multiple categories if a document is a conceptual match with more than one category. Many documents deal with more than one concept or subject, so forcing a document to be classified according to its predominant topic may obscure other important conceptual content within it. When running categorization, you can designate up to five categories for a single document to belong to. If a document is placed into multiple categories, it is assigned a unique rank for each.
+When documents are categorized, Analytics maps the examples submitted to the concept space, as if they were a document query, and pulls in any documents that fall within the set threshold. However, when you have multiple examples, the categorized documents consist of the combined hits on all of those queries. These results return with a rank, representing how conceptually similar the document is to the category.
+Categorization is most effective for classifying documents  under the following conditions:
+
+You have identified the categories or issues of interest.
+You know how you want to title the categories.
+You have one or more focused example documents to represent the conceptual topic of each category.
+You have one or more large sets of data that you want to categorize rapidly without any user input after setting up the category scheme.
+
+Read an Analytics categorization sets scenario
+
+
+Using Analytics categorization sets
+You're a system admin at a law firm and one of your clients, a construction company, just became involved in litigation regarding the use of materials that they weren’t informed were potentially environmentally damaging when they purchased them from a major supplier.
+The case started with over 10 million documents. Using keywords, you get the document set down to around 3 million files. You decide that you have a thorough enough understanding of the key concepts involved that you can provide Relativity Analytics with a set of example documents that it can use to identify and group other conceptually similar files.
+To begin, you will create a categorization set so that you can get files into categories and assign them conceptual rank.
+You call your categorization set "Hazardous Materials" since the goal of the set is to group files based on the four building materials most prevalent to the case. You've already created a saved search that includes all the documents you were left with after applying keywords to the original data set. You select this saved search for the Documents To Be Categorized field. You've also created an Analytics index specifically for this set, and you select this for the Analytics Index field. You leave all the other fields at their default values and save the set.
+Once you save the set, you need to specify categories and example documents against which you'll run the set. While researching and applying keywords to the data set, you identified four commonly-referred to substances that might be present in the building materials your client purchased. You want to make these into categories, under which you want Analytics to place all the files it deems are relevant to that substance. Under the Analytics Category object you create the following:
+
+Lead - found in paint, plumbing pipes, solder, and connectors
+Asbestos - found in insulation and pipe coverings
+Asphalt - found in sealant and adhesives
+Radioactive isotopes - found in fluorescent lamps and smoke detectors
+
+Having already identified at least one document that mentions each substance, you add the corresponding document to each category you just created under the Analytics Example object. Now you're ready to Categorize All Documents through the console.
+Once categorization is complete, you can view your results in the field tree.
+
+
+
+Creating a categorization set
+Note: You must have an Analytics conceptual index set up before you can create a categorization set.
+To create a categorization set:
+
+Create a saved search with the documents you want to categorize. See Searching for details. 
+Under Indexing & Analytics, click the Analytics Categorization Set tab.
+Click New Analytics Categorization Set. The Analytics Categorization Set Layout appears.
+Complete the fields on the Analytics Categorization Set Layout to create the set. See Fields. Fields with an orange asterisk are required.
+Click Save to save the categorization set. 
+
+Fields
+The following fields are included on the Analytics Categorization Set Layout.
+
+Name is the name of the set. If you attempt to save a set with a name that is either reserved by the system or already in use by another set in the workspace, you will be prompted to provide a different name.
+Documents To Be Categorized - the saved search containing the documents you want to categorize. Click Select to select a saved search.
+Analytics Index - the conceptual index to use for defining the space in which documents are categorized. Click Select to select an index.
+Minimum Coherence Score - the minimum conceptual similarity rank a document must have to the example document in order to be categorized. This document ranking is based on proximity of documents within the concept space. The default value is 50. If you enter 100, Relativity will only return and categorize exact conceptual matches for your examples.
+Maximum Categories Per Document - determines how many categories a single document can appear in concurrently. This can be set to a maximum of five. In some workspaces, a document may meet the criteria to be included in more than the maximum number of categories. If that maximum is exceeded, the document is categorized in the most conceptually relevant categories. The default value is 1. Keeping this value at 1 creates a single object relationship and lets you sort documents based on the Category Rank field in the Analytics Categorization Result object list or any view where the rank field is included. Raising this value above 1 creates a multi-object relationship and eliminates the ability to sort on documents by the rank field.
+Email notification recipients - send email notifications when categorization is complete. Enter the email address(es) of the recipient(s) and separate them with a semicolon.
+Categories and Examples Source - the single- or multiple-choice field used as a source for categories and examples. Relativity creates categories for all choices associated with the specified field and creates example records out of any documents where this field is set.  Click Select to display a picker containing all single and multiple choice fields in the workspace, then select a field to use as the source.
+Example Indicator Field - used to create new examples in conjunction with the Categories and Examples Source field. Click Select to display a picker containing all Yes/No fields in the workspace. Examples are created for only those documents marked with a “Yes” value in the field you select as the indicator.
+
+
+            Job information
+The following information is displayed in the Job Information section of the Analytics Categorization Set Layout:
+        
+
+Categorization Status - the current state of the categorization job.
+Categorization Last Run Error - the last error encountered in the categorization job.
+Synchronization Status - the current state of the synchronization process.
+Synchronization Last Run Error - the last error encountered during the synchronization process.
+
+
+
+Identifying effective example documents
+Each example document conceptually defines a category, so you need to know what your categories are before you can find the most appropriate example documents. Keep in mind that a category doesn't have to be focused around a single concept. For example, a category might deal with fraud, but different example documents for the category might reflect different aspects of fraud, such as fraudulent marketing claims, fraudulent accounting, and fraudulent corporate communications. 
+Example documents define the concepts that characterize a category, so properly defining example documents is one of the most important steps in categorization. In general, example documents should be:
+
+Focused on a single concept - the document should represent a single concept relevant to the category. 
+Descriptive - the document should fully represent the single concept it is defining. Single terms, phrases, and sentences don't convey enough conceptual content for Analytics to learn anything meaningful. Aim for at least one to two fully developed paragraphs.
+Free of distracting text - example documents are most effective if they do not contain headers, footers, repeated text, or garbage text such as OCR errors. When creating or locating example documents, aim to include ones that are free of this type of verbiage.
+
+Notes: 
+We do not recommend that you run categorization with more than 50,000 example documents. Having more examples than this will cause performance issues when running categorization.
+A document excluded by the Optimize training set feature can still be used as an example of categorization. 
+
+Best practices for adding example documents
+
+The Relativity Analytics engine learns from concepts, not individual words or short phrases. Therefore, an example document should be at least a few paragraphs long.
+Never add a document as an example based on metadata (for example, privileged documents might be privileged because of who sent them).  Relativity Analytics will only consider the authored content of the document and not any outside metadata.
+Email headers and other types of repeated content are often filtered out of the data set based on your index settings, and they provide poor training even when they are included. Data from headers or repeated content should not be considered when determining whether a document is a good example.
+Numbers are not considered when training the system; spreadsheets consisting largely of numbers do not make good examples.
+We don't recommend adding nearly duplicate documents as an example of a category as they will map to nearly the same (or possibly exactly the same) location in the concept space and categorize nearly the same documents. 
+An example document should never be used as an example in more than one category in a single categorization set.
+Note: We recommend at least 5-20 examples per category to provide good coverage of the topic. It's not unusual in a workspace of several million documents to need a couple of thousand examples. Furthermore, we strongly recommend you limit the number of examples you have per category to 15,000 documents. There is no system limitation to how many examples you can have, but the more examples you have, the longer it will take the system to run categorization.
+Some documents may be highly responsive but undesirable as examples. For example, the responsive text found in an image of a document may not be available when the reviewer switches to Extracted Text mode. Because the system only works with a document's extracted text, that document would be responsive but not a good example.
+The following scenarios do not yield good examples:The document is a family member of another document that is responsive.The document comes from a custodian whose documents are presumed responsive.The document was created within a date range which is presumed responsive.The document comes from a location or repository where documents are typically responsive.
+
+Categorizing documents
+Clicking the Categorize All Documents button  kicks off a categorization job based on the settings specified when you created the set. When you run a new categorization job, all results of the previous categorization job are deleted.
+Note: When you click Categorize All Documents, Relativity clears all existing categories and examples and generates new ones.  Categories are created for each choice in the Categories and Examples source field. If an Example Indicator Field is selected on the categorization set, examples are created for every document with a designation of Yes for the Example Indicator Field.  The category is assigned to the example document based upon the value of Categories and Examples source field.  If an Example Indicator Field is not selected on the categorization set, examples are created for every document with a value in the Categories and Examples source field.  The category is assigned to the example document based upon the choice selected in the Categories and Examples source field. 
+To begin categorizing, click Categorize All Documents. When the confirmation message appears, asking you if you want to run categorization, click OK.
+Note:  We recommend running a maximum of  two categorization sets at once for optimal performance. 
+Once the categorization has been kicked off, the following option is enabled in the Categorization Set console:
+
+Retry Errors - reprocesses any errors encountered during the categorization process.
+
+When you run a categorization set, the system creates the Categories - <name of categorization set> and Category Rank fields. Use Categories - <name of categorization set> to view the search results. Use Category Rank to see how closely related documents are to the category. 
+Note: The Pivot On and Group By fields are set to Yes by default for all Categories - <name of categorization set> and Category Rank fields. For Categories - <name of categorization set>, you can change the Pivot On and Group By to No; however, you can't change the Category Rank fields to No. When you run a categorization set, all previously created Pivot On and Group By fields for Category Rank change to Yes. 
+After a categorization job is completed, you can view the results in the field tree. All category set names are appended with the word "Categories" in the format Categories - <name of categorization set>. Click + to display a list of categories in the set.
+Note: Documents that appear in the [Not Set] tag in the field tree were either not close enough to an example to get categorized, not in the data source of the conceptual index, or not submitted for categorization.
+Searching on categorization results
+The fields created by your categorization set are available as conditions when you create a saved search. You can search on them and review the results.
+To create a saved search to see your categorization results, perform the following steps:
+
+Launch the Saved Search form. See Searching. 
+In the Conditions section, select Categories – <name of categorization set> from the Field drop-down menu.
+Select these conditions from the Operator drop-down menu.
+Click  in the Value field. Select the value(s) you want to review. See Searching. 
+Click Save & Search.
+Review the results of the search. The saved search displays the same number of documents that you would see by filtering in the field tree.
+

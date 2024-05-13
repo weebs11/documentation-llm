@@ -1,0 +1,307 @@
+
+RelativityOne data migration 
+When it comes to going cloud with e-discovery, one of the first challenges that comes to mind is data migration. You probably have a lot of questions:
+
+What’s the process for moving your data from its current location to the cloud?
+How can you minimize downtime and cost?
+What tools can you use to migrate your data?
+How long will the process take?
+Do I need to upgrade my Relativity Server environment before I can migrate?
+
+At Relativity, we’ve helped many law firms, service providers, and corporations through this process and have developed expertise that you can rely on to make the right data migration choice for your business. 
+There are two primary options:
+
+Self-service data migration - using RelativityOne’s comprehensive suite of data transfer tools and managing the process yourself with our guidance. See Self-service data migration.
+Working with a partner who has earned the Data Migration Competency - we have carefully and extensively vetted partners that can consult, guide, and execute on the process for you. See Third-party data migration partners.
+
+Before deciding which pathway is right for you, we recommend familiarizing yourself with how to choose the right data migration pathway and the organizational factors that can extend your timeline.
+Choosing the right data migration pathway
+The first step in the process is determining the right data migration pathway for your business is gaining an understanding of your current setup and implications that might have on your selection. Relativity will assign a dedicated Technical Enablement Specialist to consult with you on which approach is best for your organization since the choice between a self-service data migration and use of a consulting partner is a nuanced decision. Allowing your Relativity Technical Enablement Specialist to assist you in coming to a decision will result in the best experience for you and your team. 
+Refer to the sections below for high-level recommendations based on your specific business scenario(s) and the migrations tasks you may need to perform. 
+
+I need to migrate my entire Relativity Server instance to RelativityOne
+
+I need to migrate specific workspaces to RelativityOne while maintaining a Relativity Server environment
+
+I need to migrate non-Relativity case data to RelativityOne
+
+
+I need to migrate my entire Relativity Server instance to RelativityOne
+
+
+
+
+
+Consider self-service data migration if ...
+Consider a data migration partner if ...
+
+
+
+
+
+
+Your organization  manages Relativity and has full admin access to Relativity 
+Your organization  has available resources (staff) for data migration including nights and/or weekends
+Your data migration timeline can be adjusted based on your staff availability
+
+
+
+
+There is complexity and unique considerations or variances with your workspaces
+Your organization  does not have available resources  (staff)  for data migration including nights and/or weekends
+Your organization has  a strict timeline (e.g.,  migrate as fast as possible to avoid managing two Relativity environments)
+
+
+
+
+
+I need to migrate specific workspaces to RelativityOne while maintaining a Relativity Server environment
+
+
+
+
+
+Consider self-service data migration if ...
+Consider a data migration partner if ...
+
+
+
+
+
+
+The targeted workspaces are a specific team or region that can be reasonably scheduled
+The targeted case workspaces overall are mostly inactive (e.g., not undergoing active review)
+
+
+
+
+The targeted workspaces have complexity that may require additional customized solutions to migrate
+The targeted case workspaces are very active (e.g., undergoing active review)
+
+
+
+
+
+I need to migrate non-Relativity case data to RelativityOne
+
+
+
+
+
+Consider self-service data migration if ...
+Consider a data migration partner if ...
+
+
+
+
+
+
+Your organization has  strong experience administering both the non-Relativity and Relativity systems
+
+Note:  See  Non-Relativity case data considerations for more information on how self-service data migration will work for non-Relativity case data.
+
+
+
+Your organization does not have strong experience in administering the non-Relativity and/or Relativity systems
+
+
+
+
+
+We are aware the flexibility is important to our customers. You can choose self-service for some of your data and work with a data migration partner for other data. You may also want to take advantage of the cost-effective storage options solutions Relativity offers for your migration (e.g., Cold Storage or Repository workspaces). A variety of factors will come into play.  Your Relativity Technical Enablement Specialist will be able to advise you in  these situations. 
+Please submit a request via the Customer Support form for more information.
+Complicating factors that can extend your data migration timeline
+The following factors can require additional planning and will increase the amount of time this process will take for your organization
+
+Staffing availability factors
+
+Downtime availability factors
+
+Bandwidth ISP availability factors
+
+Workspace size and activity factors
+
+Other complicating factors
+
+
+Staffing availability factors
+
+
+
+
+
+Complicating factors
+Timeline impacts
+
+
+
+
+
+Staff that are not available extended hours during migration, particularly nights/weekends
+
+
+Due to downtime limitations, most migrations occur over weekends or during off-peak hours. If a team cannot work evenings or weekends or have limited hours, this can impact how many waves of migration you can have and increase the length of your overall timeline.
+
+
+
+
+Unable to assign a lead staff member throughout entire process
+
+
+Continuity is important for the data migration to keep things running smoothly. Having a staff member that cannot be the acting lead for the entire process can increase the length of your timeline.
+
+
+
+
+Limited staff experience with Relativity data migration tools
+
+
+Having staff that are familiar with Relativity data migration tools is helpful for speeding up a data migration. If your staff are not familiar with these tools, it's not a roadblock, but it will add to how much lead time is needed before beginning the actual migration of workspaces.
+
+
+
+
+Downtime availability factors
+
+
+
+
+
+Complicating factors
+Timeline impacts
+
+
+
+
+
+Having environment / case downtime limited to a single scheduled weekend
+
+
+When your organization is limited to having environment or case downtime scheduled for a single schedule weekend, it can impact your timeline negatively. Having multiple weekends available (enabling multiple waves of migrations) can help minimize the downtime for groups of workspaces if you have active case review going on.  Your Relativity Technical Enablement Specialist or an Approved Data Migration Partner can help advise you on considerations for this.
+
+
+
+
+Not having flexibility for extended workspace downtime
+
+
+When you can't have extended workspace downtime for a case workspace, this can limit your options and extend the timeline. While extended downtime is not required, having flexibility or a downtime window longer than a single weekend can allow for larger waves of migrations to occur simultaneously.
+
+
+
+
+Bandwidth ISP availability factors
+
+
+
+
+
+Complicating factors
+Timeline impacts
+
+
+
+
+
+Having a shared ISP (versus a dedicated ISP)
+
+
+Speeds for data transfer can be variant and thus lengthen the time estimated for a data migration. Having dedicated ISP bandwidth can help promote more reliable transfer speeds.
+Note: Please note that these considerations only apply to the transfer of the archive into the RelativityOne environment.
+
+
+
+
+Bandwidth that cannot be adjusted to allow data migration tools to utilize maximum network speeds
+
+
+Allowing data migration tools to take advantage of your available network bandwidth will significantly help not only to improve transfer speed but also be more reliable. Not allowing this can increase the time it takes to transfer your data.
+
+
+
+
+Low data transfer or data restoration speeds within your network environment
+
+
+Data transfer  - Having data transfer speeds that are low can negatively impact your data migration timeline. Typically we see speeds of 20-40 GB/hr (highly dependent on available bandwidth). Actual metrics should be obtained by running a sample data transfer of archived workspaces.
+Data restoration  -  Having data restoration speeds that are low can negatively impact your data migration timeline.  Typically we see speeds of 60-90 GB/hr (can vary based on nuanced differences with workspaces).  Actual metrics should be attained through running a sample data restoration of archived workspaces in RelativityOne.
+
+
+
+
+Workspace size and activity factors
+
+
+
+
+
+Complicating factors
+Timeline impacts
+
+
+
+
+
+Having very large Relativity/non-Relativity workspaces, databases, and file shares(MDF, File Size, DB size, text size, native / image file size)
+
+
+Large databases and file shares may have special considerations that may lengthen the timeline of data migration.  Your Relativity Technical Enablement Specialist or an Approved Data Migration Partner can help advise you of what constitutes a large workspace (multiple variables) and what to be aware of with larger workspaces or file shares.
+
+
+
+
+Having a large number of workspaces to migrate
+
+
+Relativity migrations are performed by individual workspace. Each workspace has individual steps in the archive, transfer and restoration phases.  Workspace count is one of the most important time factors after size that can increase the length of the migration process.
+
+
+
+
+Having extremely active workspaces that need to be migrated 
+
+
+Having an active case workspace with frequently updated coding entries or operations being performed (including data load or export) can create issues during data migration that can impact your data migration timeline. It's important to be aware of these workspaces so that special considerations can be taken.
+
+
+
+
+Other complicating factors
+
+
+
+
+
+Complicating factors
+Timeline impacts
+
+
+
+
+Using a version of Relativity previous to 9.6 
+
+If you plan to migrate Relativity Server workspaces with Processing and you are currently using a version of Relativity previous to Relativity 9.6, you will need to upgrade to the latest supported server version before migrating this data. This could take extra time and impact your timeline. 
+Note: For workspaces without Processing data, an upgrade should not be required.
+
+
+
+
+Using a version of Relativity previous to 9.2
+
+
+The ARM application is unavailable before Relativity 9.2 and other options for restoring workspaces are not available in RelativityOne. 
+We recommend upgrading to the most recent supported version of Relativity before migrating.
+
+
+
+
+Archiving workspaces from a version of Relativity previous to 9.5.196.102
+
+
+ Beginning in Relativity Indigo, workspaces that were archived using a version previous to Relativity 9.5.196.102 will not restore any Analytics data. 
+Note: If you attempt restoring an old workspace archive with Analytics data, the job will be successful, but Analytics data will not be restored. You will need to rebuild any Analytics indexes and re-populate any structured sets manually.
+
+
+
+
+ 

@@ -1,0 +1,57 @@
+
+
+Production data source 
+The production data source attaches saved searches to your production set. With the production data source you can specify the type of production and select placeholders from your placeholder library to customize your production. By setting the placeholder on the data source you can include multiple placeholders within a single production. The placeholder is based on the saved search attached to the production data source. 
+Note: You must have view, add, and edit permissions for the Production Data Source object in order to successfully create a data set. We also recommend the delete permission.
+Adding a production data source
+To add a production data source to your production:
+
+Navigate to the Production tab.
+Select the Production Sets tab.
+Click the name of the production where you want to add a data source.
+Scroll down to the Production Data Source card.
+Click New. The Add Production Data Source window opens.
+
+
+Complete the following fields. 
+
+
+
+
+Name—the name of the production data source.
+Production Type—select images, natives, or PDFs. Note: The PDF option is for rendered PDFs i.e., natives which were converted to PDFs and stored.
+Document Source—the available saved searches to use as a data source for the production.
+Note: You must create public saved searches in order for your searches to populate another Relativity user's Available Items list.
+
+Use Image Placeholder—a single-choice field to add image placeholders to the data source. Documents without images receive a placeholder (slip-sheet) in their place. The placeholder receives the same branding as the rest of the produced images. This option is only available if you produce images. 
+
+When No Image Exists—inserts a placeholder only when no image exists for a document.
+
+
+Always Use Image Placeholder—always inserts an image placeholder even when an image exists for a document.
+Never Use Image Placeholder—this is the default option. Never inserts an image placeholder for any document.
+
+
+Placeholder—the placeholder used for the data source. Click  to view a list of available placeholders from your placeholder library. Click Add to add a placeholder on-the-fly. This field automatically appears when you select Always Use Image Placeholder or When No Image Exists.
+Burn Redactions—indicates that redactions are applied to the documents when this field is enabled. Toggle On to apply redactions to documents. Toggle Off to not apply redactions. If you select to burn native redactions with the Burn Native Redactions field, this automatically displays a value of No.
+Burn Native Redactions—toggle on to include redacted natives as part of the production set. This automatically sets to No if you've enabled the Burn PDF Redactions field. Toggling this field on makes the Markup Set and Native Redaction Text Field settings required below.
+Burn PDF Redactions—toggle on to include redacted PDFs as part of the production set. This automatically sets to No if you've enabled the Burn Native Redactions field. Toggling this field on makes the Markup Set and Native Redaction Text Field settings required.
+Markup Set—indicates which markup set is used to apply standard or native redactions to the production images. This field is only visible if you toggled on burn redactions or native redactions.
+
+Notes: 
+You cannot have the same document in more than one production data source. 
+The Native Time Zone Offset field controls the date and time displayed on redacted and highlighted images. If necessary, you may want to review and adjust the UTC value to avoid incorrect time designations on documents and inaccurate productions.
+
+You cannot use Always Use Image Placeholder when a burn redactions option is selected
+
+
+You cannot select more than one Burn Redaction option in a single data source
+
+
+
+Native Redaction Text Field—select the field you want to use when burning native redactions. This field is only visible if you enabled the Burn Native Redactions field.
+Note: There is an expected delay between a Production Set being marked as completed, and the designated Native Redaction Text field being populated.
+
+
+Click Save.
+

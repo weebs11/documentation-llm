@@ -1,0 +1,48 @@
+
+
+Keyword expansion
+Analytics can position any term, block of text, or document into its spatial index and return the closest documents. It can also return the closest terms. Submitting a single term provides you with a list of highly correlated terms, synonyms, or strongly related terms in your document set. When you submit a block of text, you get a list of single terms that are strongly related to that content. Therefore, because the terms returned are based on the concepts that comprise the search index's training space, any term that isn't included in the training data source won't produce any results.
+Relativity limits the threshold of this function to 50. Only words with a coherence score greater than 50 will be returned.
+You can use keyword expansion to see how different language is used to express the same or similar concepts. Keyword expansion can also be used on a word to identify other conceptually related terms and words in your index that you didn't expect. You can use these results in a dtSearch or search terms report. 
+Special considerations
+Note the following special considerations about running conceptual analytics operations:
+
+The following security permissions are required to run the operations:Object SecurityTab VisibilityDocument - ViewAnalytics Index - ViewAnalytics Categorization Set - View, Edit, AddAnalytics Categorization Category - View, Edit, AddAnalytics Example - View, Edit, AddDocuments
+In order to run an operation from the viewer, the document must be in the data set of an active Analytics index. 
+You can only run operations in the Native Viewer and Extracted Text Viewer. 
+
+Running keyword expansion from the viewer
+To run keyword expansion, perform the following steps:
+
+Select a document from the document list and open it in the Native Viewer or Extracted Text Viewer. This is your primary document.
+Select a section of text, and then right-click the text.
+Select Keyword Expansion from the right-click menu. 
+
+Once the operation is executed, the Documents list pane opens and displays the Keyword Expansion tab, which contains keywords that represent concepts similar to the search terms. This tab  contains the following information about the results:
+
+Rank - the conceptual similarity of the document to the primary document. The higher the rank, the higher the relevance to the query. A rank of 100 represents the closest possible distance. The rank doesn't indicate the percentage of shared terms or the percentage of the document that isn't relevant.
+Keyword - the keyword that represents similar concepts to your search text. 
+
+The search text is automatically added to a textbox, which you can edit and then click Search  to update your results. 
+Navigating results
+Once the conceptual analytics operation is executed, the following takes place: 
+
+The breadcrumb navigation includes Conceptual Analytics if you have run a concept search, find similar documents, or keyword expansion. If you navigate back to the Documents tab, this breadcrumb is removed.
+The Keyword Expansion card updates to display the results of the operation and the number of documents returned by the operation.
+Optionally, you can click on the Filters icon to enable filtering. Enter the desired terms in a column and press Enter on your keyboard to filter the results.
+Optionally, click the Export to CSV icon to download a .csv file that contains the results in the Keyword Expansion card. 
+
+
+
+If you have more than one active index, the Select Index icon displays in the upper-right of the card. The oldest active index (lowest Artifact ID) is chosen by default. To change indexes, click on the Select Index icon and select a different active index from the drop-down menu. 
+Running keyword expansion from the Documents tab
+To run keyword expansion from the Documents tab, perform the following steps:
+
+Navigate to the search panel.
+Click Add Condition.
+Select (Index Search) from the Add Condition drop-down menu. 
+The (Index Search) window opens.
+Select an Analytics index.
+Click Expand.
+Enter one or more search terms in the text box. Click Expand to display a list of keywords and their rank. The result set contains keywords that represent concepts similar to the search terms.Note: You can expand a keyword in the results set. Click on the keyword link to add the term to the textbox. The new results display in the grid.
+

@@ -1,0 +1,55 @@
+
+Applying propagation to documents
+
+The propagation function can help enhance your document review workflow to save time spent coding documents. For example, you can tag a document as Responsive and have the value propagate to that document’s family members.
+To enable propagation, toggle Propagation on. 
+
+
+Click the  icon in the Propagate To row. 
+The available options depend on the relational fields set for the workspace.
+
+
+When  you code a document in a field on which propagation is enabled, the propagation function automatically codes related documents with the same value. Click Save or Save & Next in the layout to apply the field propagation rules.
+Note: Propagation works on all document object field types. Associative Object Lists do not work with propagation.
+Propagation doesn't cascade or cause chain reactions, meaning that only the documents in the saved document’s groups receive the propagated values. For example, if you create a responsiveness field to propagate both family and duplicates, and you code a parent email as Responsive, these actions occur:
+
+Family propagation - codes child email attachments as responsive
+Duplicate propagation - codes duplicate emails of the parent as responsive
+
+Duplicates of the child attachments aren't coded as responsive. This action would be a duplicate propagation triggered by family propagation.
+Propagating to documents in multiple groups
+When you code a document that's a member of multiple related groups – for example, Duplicates and Email Families – it's important to understand how coding decisions propagate  in specific scenarios.
+The following scenarios illustrate how propagation applies to a set of documents. Assume that propagation is active for both email families and duplicates.
+There are two email families:
+
+AS000001 – AS000005
+TS000007 – TS000011
+
+Within these families, two documents are duplicates:
+
+AS000003
+TS000009
+
+
+
+
+Coding AS000001 as Responsive  tags only the family, shown in blue.
+
+
+
+Coding AS000003 as Responsive tags the family, and the duplicate, shown in blue.
+
+
+
+Mass editing AS0000001 and AS000002 as Responsive tags only the family, shown in blue.
+
+
+
+Mass editing AS000002 and AS000003 as Responsive tags the family and the duplicate, shown in blue.
+
+
+
+Mass editing AS000003 and TS000009 as Responsive tags all of the listed documents.
+
+
+

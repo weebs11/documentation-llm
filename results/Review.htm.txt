@@ -1,0 +1,124 @@
+
+Review 
+Relativity helps make your review  process fast and easy by creating custom workflows to meet the needs of each unique case. 
+
+
+
+
+
+
+Setting up your instance
+Building dynamic objects
+
+Clients
+
+Event Handler Express
+
+Groups
+
+Instance details
+
+Keyboard shortcuts
+
+Layouts
+
+Matters
+
+Queue management
+
+Relativity Scripts Library
+
+Script groups
+
+Scripts
+
+Tabs
+
+Users
+
+Views
+
+Importing and exporting
+Command line import
+
+Import/Export
+
+Integration Points
+
+Simple File Upload
+
+Searching
+dtSearch
+
+Filters
+
+Keyword search
+
+Regular expressions
+
+Saved search
+
+Search Terms Reports
+
+Search conditions
+
+
+
+Reviewing documents in Relativity
+Reviewing documents in Relativity
+
+Batches
+
+Batch Set Cleanup
+
+Choices
+
+Fields
+
+Field categories
+
+Lists
+
+Markup sets
+
+Mass operations
+
+Persistent highlight sets
+
+Pivot
+
+Redact
+
+Reports
+
+Review Center
+
+Sampling
+
+Short Message Viewer
+
+Translate
+
+Viewer
+
+Workspaces
+
+Security and permissions
+Instance security
+
+Setting admin permissions
+
+Workspace security
+
+Setting workspace permissions
+
+Relativity object security
+
+Preview security
+
+Client domains
+
+
+
+
+

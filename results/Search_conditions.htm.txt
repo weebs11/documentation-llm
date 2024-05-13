@@ -1,0 +1,143 @@
+
+Search conditions
+You can use the search conditions option to build complex queries by selecting fields, operators, and values. While this feature has the same functionality as the search condition section of the saved search form, it's conveniently available from the Documents tab and Relativity Dynamic Object tabs. This option displays up to five rows, with each row representing a separate criterion. Depending on the type of field you select, different operators appear. You can use this option alone or in conjunction with keyword searches, dtSearches, Analytics, or Cluster visualization. When you use search options in conjunction with another search feature, documents must both meet the search criteria and also the conditions specified.
+Note: To use the search conditions option, you must have add or edit permissions for Search and access to the Saved Searches Browser assigned to you through the Security page. See Workspace security.
+This page contains the following sections:
+
+Setting up search conditions
+
+Canceling queries
+
+Frequently asked searching questions
+
+
+Setting up search conditions
+Setting up search conditions in the Search panel
+To set up search conditions in the Search panel follow these steps:
+
+Navigate to the Search Builder.
+Click Add Condition and select the fields  to which you want to apply conditions. 
+A pop-up window opens for each condition field you select.
+Set the required conditions in the relevant field pop-up window by selecting the desired field or by choosing a field category and then selecting the desired field. To learn more, visit Field categories.
+Click Apply.
+(Optional) Click Add Logic Group to add a logic group. Logic groups are evaluated first, and then connected to other filter conditions or logic groups using AND / OR operators.
+(Optional) Drag and drop conditions together to create logic groups.
+(Optional) Add the AND or OR operators to connect the criterion.
+Click Apply.
+
+If you need to edit the condition, click on the condition card. The pop-up reopens so you can make changes.
+Setting up search conditions in the Search browser
+To set up search conditions in the Search browser, follow these steps:
+
+Click to navigate to the Search Browser.
+Click New Search.
+Click Add Condition and select the fields to which you want to apply conditions. 
+A pop-up window opens for each condition field you select.
+
+
+Set the required conditions in the relevant field pop-up window.
+Click Apply.
+(Optional) Click Add Logic Group to add a logic group and drag and drop your conditions into the frames. Logic groups are evaluated first and then connected to other filter conditions or logic groups using AND / OR operators.
+(Optional) Add the AND or OR operators to connect the criterion.
+Enter all required Fields.
+Click Save or Save As.
+
+If you need to edit the condition, click on the condition card. The pop-up reopens so you can make changes.
+Using the multiple object condition builder 
+You can set  conditions for multiple object fields from a single pop-up window. The following example uses Batch as a multiple object field condition.
+ To use the multi-object condition builder, follow these steps:
+
+Click Add Condition from the Search browser or Search panel.
+Enter or select Batch. 
+The Condition: Batch window opens.
+
+
+Select the desired operator from the Operator drop-down list. For example, these conditions.
+Click Add Condition.
+Select the condition from the Add Condition drop-down list. For example, Batch:: Batch Set.
+Click the available fields from the Available column and move them to the Selected column as desired.
+Click Apply.
+(Optional) Click Add Logic Group to add a logic group. Logic groups are evaluated first and then connected to other filter conditions or logic groups using AND / OR operators.
+(Optional) Drag and drop conditions into logic groups as desired.
+Click Apply on the Condition: Batch window. 
+Relativity applies your search conditions.
+
+For more information about multiple object searching logic, see Multiple object searching.
+Canceling queries
+You can cancel a long-running search or view by clicking the Cancel button. This link appears when you perform a keyword search, dtSearch, Analytics search, or use Pivot. It also appears when you filter or sort a document or Dynamic Object list. It also appears when you perform other actions on item lists containing documents or Dynamic Objects that initiate a query in the background.
+When you click Cancel Request, Relativity stops the background query used to populate documents in an item list. If you edit a search and click this link, your changes save, but the item list doesn't load. For example, your changes save when you perform a mass edit on a list of documents in a search and then click Cancel Request when the query is running to redisplay the updated list.
+Note: Relativity creates an audit record in the History tab for canceled queries. The query description displays the running time of the query and indicates that it was canceled. You must have the appropriate permissions to view this tab.
+The following table explains different scenarios in which you might cancel a running query and whether the query actually cancels.
+
+
+
+
+
+Scenario
+Result
+
+
+
+
+You start a query and click Cancel Request or Cancel.
+The query is canceled.
+
+
+You start a query and close the browser.
+The query is canceled.
+
+
+You start a query and an system admin resets the IIS on the server.
+The query is not canceled.
+
+
+You start a query and leave your browser idle for longer than the session timeout specified in Relativity web.config, regardless of whether you clicked OK or Cancel on the message from the webpage pop-up.
+The query is not canceled.
+
+
+You start a query and click Cancel on the message from the webpage pop-up within the session timeout specified in Relativity web.config.
+The query is canceled.
+
+
+You start a query and click OK on the message from webpage pop-up within the session timeout specified in Relativity web.config.
+The query continues to run. Relativity returns you back to the waiting screen (see the first row of this table).
+
+
+You start a query and paste a different URL into your browser, or you refresh the page. 
+The query is canceled. 
+
+
+
+Frequently asked searching questions
+This section includes frequently asked questions from Relativity users. 
+Multiple terms in dtSearch queries
+Why would I receive an error message saying my query is too complex?
+
+Relativity can't return precise results when a query includes search conditions that are too complex due to the use of multiple search terms. To avoid this error message, simplify your search criteria. For example, search for 10 instead of 50 terms in your query. You can save and tag your search results from each simpler query. With this approach you can search on the required terms, while providing better results.
+
+
+Proximity searches in dtSearch queries
+Why are terms in my proximity search highlighted even when they don't match my defined W/N criteria?
+
+Relativity highlights terms that meet the requirements of your proximity search as well as the individual search terms. This behavior doesn't affect the results of your proximity search, which returns the appropriate documents. For example, the results of a proximity search for instances of law within three words of order (that is "law W/3 order") includes highlighted terms of "law" and "order" when they aren't within three words of each other. To accommodate this behavior, focus only on the results that match the proximity search criteria, and disregard the other highlighted terms.
+
+
+Using reserved characters in dtSearch queries
+Can I use a reserved character such as ampersand (&) in my dtSearch queries?
+
+The following characters have special meaning in dtSearch, and must be treated with care when they appear in your queries: ?, *, %, ~, #, =, :, &, (). Use the dictionary to explore syntax options if necessary.
+If you want to make any of these characters searchable, you must add them to the alphabet file and, in some cases, use Regular Expressions in your search. For more information, see Searching for symbols.
+
+
+Multiple conditions
+Why do my searches run slowly when I use multiple conditions?
+
+When you add multiple search conditions to a query, Relativity searches on these conditions relative to each other, which slows down the return of your results. For example, you experience slow performance when running a query on all email messages received "after June 1" and "before June 30" of the same year. You can improve performance by using as few conditions as possible, such as excluding the condition "before June 30". Run the query with only the condition "after June 1", and then sort or filter your results to display messages received between the desired dates.
+
+
+Nesting searches
+Can I nest multiple searches in a saved search?
+
+For performance reasons, we don't recommend nesting multiple searches in a saved search. You can select a search as a condition, but using multiple searches as conditions slows down the return of your results. See Using saved searches as conditions (combined searches).
+
+

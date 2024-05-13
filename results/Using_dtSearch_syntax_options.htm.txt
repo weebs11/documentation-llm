@@ -1,0 +1,663 @@
+
+Using dtSearch syntax options
+dtSearch includes special characters and other operators used to define search criteria. The following table lists the syntax options available for queries that run against a dtSearch index. Click the search functionality name for more details on the syntax use.
+
+
+
+
+
+
+
+
+					Search functionality
+
+					Special characters or operators
+
+
+
+
+Auto-recognition of dates, emails, credit cards
+
+date(), mail(), creditcard()
+
+
+Boolean operators
+
+AND, OR, NOT
+
+
+Built-in search words
+
+xfirstword, xlastword
+
+
+Connector words
+
+and, or, not, to, contains
+
+
+Exact phrase - double quotes
+
+" "
+
+
+Operator precedence
+
+
+					()
+
+
+Exact phrase - no double quotes
+
+ 
+
+
+Fuzzy searching
+
+%
+
+
+Noise words and the alphabet file
+
+Noise Words, Alphabet
+
+
+Numerical patterns
+
+=
+
+
+Phonic searching
+
+#
+
+
+Regular expressions (Redirects to another topic.)
+					
+"##"
+
+
+Stemming
+
+~
+
+
+Wildcards
+
+?, *
+
+
+W/N operator
+
+
+					W/N
+
+
+Proximity with terms order
+
+PRE
+
+
+Words and phrases
+
+ 
+
+
+
+For the list of the special characters recognized as spaces that cause word breaks, see Noise words and the alphabet file.
+Auto-recognition
+Auto-recognition provides you with the ability to search for various date formats, email addresses, and credit card numbers. However, it can dramatically affect indexing and searching performance. You must activate auto-recognition before you can use it in your workspace. Contact your system administrator for more information.
+Date recognition
+Date recognition searches for strings that appear to be dates. It uses English-language months, including common abbreviations, and numerical formats. For example, dtSearch recognized the following  date formats:
+
+January 15, 2006
+2006/01/15
+1/15/06
+1-15-06
+The fifteenth of January, two thousand six
+
+Note: The short month format, Jan, Feb, and so forth, can be problematic, and is occasionally rejected by Relativity. The recommendation is to stick with the full name of the month to avoid any errors. For example January, February, and so forth.
+Note the following date and date range search strings:
+
+To search for a date, enter a date expression between the parentheses in the string date(); for example, date(january 10 2006).
+To search for range of dates, enter a date range between the parentheses in the string date(); for example, date(january 10 2006 to january 20 2006).
+To search for a range of dates near the word apple, enter date(january 10 2006 to january 20 2006) w/10 apple.
+dtSearch does not support unterminated date ranges. To search for any date after or before a particular date, enter a bounded range with a maximal or minimal value for the bounds. The maximum value for a year is 2900, and the minimum value is 1000. For example, date(january 10 2006 to january 1 2900).
+
+dtSearch recognizes numeric strings as dates, as long as it interpretes as a valid date. This includes formats common in the US and UK, including:
+
+MM/DD/YY or MM-DD-YY
+MM/DD/YYYY or MM-DD-YYYY
+DD/MM/YY or DD-MM-YY
+DD/MM/YYYY or DD-MM-YYYY
+
+In the case of ambiguous dates, such as 01/05/10, dtSearch defaults to MM/DD/YY. If the date contains words dtSearch converts the words to a numeric value to help interpret the date. For example, 30 must be a day and not a month, and 2015 must be a year, not a day or month.
+Email address recognition
+Email address recognition searches for text with the syntax of a valid email address, such as sales@example.com. With this feature, you can search for a specific email address regardless of the alphabet settings for "@", ".", or other punctuation in the email address.
+You can also use the word listing functions in dtSearch to enumerate all email addresses in a document collection. You must include either the * or ? wildcard expression to enumerate all email addresses in a document collection. 
+
+mail(sales@example.com) returns the exact email address: sales@example.com.
+mail(sa*@example.com) returns variations of the email address: sal@example.com; sales.sa@example.com.
+
+Credit card number recognition
+Credit card number recognition searches for any sequence of numbers that matches the syntax for a valid credit card number issued by a major company, such as Visa and MasterCard. dtSearch recognizes a credit card number regardless of the pattern of spaces or punctuation embedded in the number:
+
+1234-5678-1234-5678
+1234567812345678
+1234 5678 1234 5678
+
+Credit card issuers use numerical tests to exclude sequences of numbers that are not valid credit card numbers. Since these tests do not detect all invalid numbers, the feature for credit card number recognition may find additional invalid numbers.
+To search for a credit card number, enter a credit card number between the parentheses in creditcard() as exemplified in creditcard(1234*).
+Boolean operators
+The dtSearch engine supports Boolean operators, including AND, OR, and NOT. You can use these operators to connect multiple phrases or terms in a single search expression.
+Note: When using Boolean operators in a proximity search, dtSearch includes noise words. Although not searchable, a proximity searches still counts noise words.
+AND operator
+Note: For details on parsing proximity and Boolean strings in search conditions, see dtSearch - How are Proximity and Boolean (AND/OR) parsed in search conditions? knowledge base article on the Relativity Community site.
+When you use the AND operator to connect expressions, only documents that contain all the expressions in the search string  return in the result set. The following search strings illustrate how to use this operator:
+
+apple pie AND poached pear retrieves any documents that contain both phrases.
+(apple or banana) AND (pear w/5 grape) retrieves any documents that contain apple or banana AND contain pear within five words of grape.
+
+See an AND operator diagram
+
+
+
+
+
+
+Built-in search words
+dtSearch includes the following built-in search words:
+You can use these terms to limit a search to the beginning or end of a file. For example, apple W/10 xlastword searches for apple within 11 words of the end of a document.
+
+xfirstword—marks the beginning of a file. 
+
+See an xfirstword operator diagram
+
+
+
+
+
+
+
+xlastword—marks the end of a file.
+
+See an xlastword operator diagram
+
+
+
+
+
+
+Connector words
+The dtSearch connector words include: 
+
+and
+or
+not
+to
+contains
+
+To search for a phrase that contains one of the dtSearch connector words, quote a connector word or the phrase it is in, or put a tilde after the connector. The following search strings work in returning phrases that contain connector words:
+
+"clear and convincing evidence"
+not~ relevant
+"whether or not John wants to"
+
+Note the following:
+
+Adding a ~ after a connector word prevents dtSearch from recognizing the word as a connector but does not otherwise affect the search. The ~ character after a word tells dtSearch to apply the stemming rules to it. Because the stemming rules included with dtSearch do not modify short words, the ~ does not change the outcome of a search for and, or, not, or to.
+The noise word list includes connector words such as and and not by default. All these words are noise words and you must remove these words from the list to make dtSearch index these files.  See Creating a dtSearch index for details.
+
+Exact phrase - double quotes
+You must use double quotes when searching for exact phrases that contain dtSearch operator reserved words, such as the Boolean connectors AND, OR. For example:
+Note: Connector words such as and and not are in the noise word list by default. All these words are noise words and you must remove these words from the list to make dtSearch index these files
+Search string: clear and present danger
+
+Returns documents that contain both the word clear and the phrase present danger.
+If you need to return documents that contain the exact phrase clear and present danger, you must: Remove the word and from the dtSearch noise words list. Surround the search string with "double quotes" so that the word AND is not treated as a Boolean connector.
+
+Search string: "clear and present danger"
+
+Returns the exact phrase clear and present danger.
+
+Note: Do not confuse the parentheses function for order of preference with the double quotes function. 
+See an exact phrase diagram
+
+
+
+
+
+
+AndAny operator
+You can combine a search for required search terms with other optional terms. The words before the AndAny connector constitute required search terms, and the words after the AndAny connector are optional. A document  only returns if it contains at least the required search terms. For example, (apple and pear) AndAny (grape or banana) would find any document that contains apple and pear, with grape and banana also counts as hits only if apple and  pear are also present in the document. 
+The following example further explains the AndAny operator:
+You have three documents, each containing the terms specified below:
+
+Document 1: Apple
+Document 2: Apple, Grape, Pear
+Document 3: Grape, Pear
+
+Note the following behavior:
+
+When you search for the term apple, documents 1 and 2  return.
+When you search for the string apple AND pear, only document 2 returns.
+When you search for the string apple AndAny pear, documents 1 and 2 return.
+
+See an AndAny operator diagram
+
+
+
+
+
+
+OR operator
+When you use the OR operator to connect expressions in a search string, documents that contain one or more of these expressions  return in the result set. For example, the search string apple pie or poached pear  returns documents that contain apple pie, poached pear, or both phrases.
+See an OR operator diagram
+
+
+
+
+
+
+NOT operator
+In a dtSearch, you can use the NOT operator at the beginning of a search expression to negate its meaning and exclude documents from a result set. For example, the search expression applesauce and NOT pear returns documents that contain the word applesauce, but not those documents that contain both the words applesauce and pear.
+
+NOT operator as a standalone—you can use the NOT operator by itself at the beginning of a search expression. For example, the search expression NOT pear returns all the documents that do not contain the word pear. The search expression NOT (apple w/5 pear) returns all the documents that do not contain the word apple within five words of pear. Other examples: NOT (apple or pear) returns every document that does not have apple or pear in it.NOT (apple and pear) returns documents where apple and pear do not appear together in the same document. It returns all other documents including documents with the word apple and documents with the word pear. It does not return documents that include both terms. 
+NOT operator as a connector—when the NOT operator appears in the middle of a search expression, you must also use either AND or OR. For example, the search expression apple OR NOT pear returns all the documents that contain the word apple and those that do not contain the word pear.Note: You can also use NOT in a proximity search as illustrated by the NOT W/N, NOT Within N words, operator. See W/N operator.
+AND NOT operator—you can use the AND NOT operator to develop queries for documents that include the first expression but not the second expression. For example, you may want to query for email messages that have Ryan as the author, but do not have Will as the recipient. The following record illustrates these conditions:
+			Document OCRRecipientAuthorAS00001From: Ryan To: WillWillRyanYou can perform a dtSearch using the search string Ryan AND NOT Will and return results that do not include document AS00001.The dtSearch engine combines into a single pool the text for all fields identified for inclusion in an index. A search string using the AND NOT operator queries the index that includes the combine text from all indexed fields, rather than querying the content of individual fields. This behavior ensures consistent result sets when querying with the AND NOT operator.Note: A keyword search is an SQL full text search, which queries individual fields. Keyword searches do not return the same results as dtSearch when using the NOT operator  to query across multiple fields. See NOT operator.
+
+See a NOT operator diagram
+
+
+
+
+
+
+Operator precedence - no parentheses
+The precedence, or order of evaluation, determines how a group of expressions evaluates in a query. 
+Note: By default, dtSearch evaluates OR expressions before AND expressions: A AND (B OR C). Unlike dtSearch, the order of precedence for a keyword search evaluates AND expressions before OR expressions: (A AND B) OR C. See Keyword search. 
+Evaluation order for the search string: apple AND pear OR grape
+
+	pear OR grape evaluates first
+	AND apple evaluates second
+
+Documents containing the following terms  return:
+
+pear, grape, apple
+pear, apple
+grape, apple
+
+Operator precedence - with parentheses
+Parentheses allow you to group expressions and control the order of query string execution where the query string contains both AND and OR operators. dtSearch requires both AND and OR operators for the parentheses to affect query results and ignores parentheses when the query string does not contain both operators.
+For query strings containing both AND and OR operators, dtSearch evaluates OR first before AND. However, expressions contained within parentheses take precedence. If you want AND evaluated before OR, place the AND expression within parentheses.
+Evaluation order for the search string: grape OR (apple AND pear)
+
+apple AND pear evaluated first as they reside within the parentheses
+OR grape evaluated second
+
+dtSearch returns documents containing the following terms:
+
+apple, pear, grape
+apple, pear
+grape
+
+Workaround for expressions containing only AND or OR operators
+Use a proximity operator to separate query expressions. For example, insert a PRE proximity operator between each expression of the search string.
+Evaluation of the search phrase: (grape OR apple) PRE/1 (banana OR pear)
+dtSearch returns documents containing the following terms:
+
+grape banana
+grape pear
+apple banana
+apple pear
+
+Evaluation of the search phrase: (grape OR apple) (banana OR pear)
+dtSearch ignores the parentheses and analyzes the query as grape OR apple banana OR pear and returns documents with the following terms:
+
+grape
+apple banana
+pear
+grape, apple banana, pear
+
+Exact phrase - no double quotes
+Searching for words next to each other with no operator between them constitutes an exact phrase in dtSearch. For example, if you search for apple pear, dtSearch returns documents that contain the exact phrase apple pear. There is no rule that requires double quotes around a phrase of any number of words. You only need to use double quotes when searching for a word that is a dtSearch operator. For more details, see Exact phrase - double quotes. 
+ Search string: pear orange
+
+Returns the exact phrase: pear orange
+Does not return standalone word: pear
+Does not return standalone word: orange
+
+Search string: apple grape banana
+
+
+Returns the exact phrase: apple grape banana
+
+
+Does not return partial phrase: apple grape
+
+
+Does not return standalone word: grape banana
+
+
+Fuzzy searching
+Using the dtSearch engine, you can perform fuzzy searches, which return documents containing spelling variations of a specified term. You may want to use fuzzy searching when querying documents that contain misspelled terms, typographical errors, or you have scanned with Optical Character Recognition (OCR).
+Note: Fuzzy searching is not supported in Search Terms Reports (STR). You must use the Dictionary function to perform fuzzy searching. You would then add the desired terms to the STR. For information on how to use the Dictionary, see Running a Dictionary search.
+The percent sign (%) is the character used for fuzzy searches. The number of % used indicates how many characters in the search term   dtSearch engine ignores when it runs the query. The position of the % indicates the number of characters from the beginning of the term that must match exactly with words in the result set. The following search strings illustrate how to use this character:
+
+app%ly indicates that a matching word must begin with app and differ from apply by only one character.
+a%%pply indicates that a matching word must begin with a and differ from apply by only two characters.
+
+Using the fuzziness operator and fuzziness level option
+In Relativity, you can use the fuzziness character (%) or the Fuzziness Level menu to perform fuzzy searches. The availability of these search options depends on the location where you are running a dtSearch:
+
+Documents tab—when you select a dtSearch in the Search With option, you can use the fuzziness character (%). See Running a dtSearch.
+Dictionary Search—when you click the Dictionary link, you can use the fuzziness character (%) and the Fuzziness Level menu on the Dictionary Search dialog. See Running a Dictionary search.In the Fuzziness Level menu, you can select a value from 1 to 10, which applies to all terms in the text box. Larger numbers return terms with more variation. We recommend using values between 1-3 for moderate error tolerance. The following table describes the expected results for sample settings.Fuzziness levelDescription of  search resultsBlankOnly returns the entered term.1Returns slight variations of the entered term.4Returns multiple variations of the entered term.
+Saved Search—when you create a saved search, you can use the fuzziness operator (%) and the Fuzziness Level menu when you add a dtSearch index condition or by clicking the  Dictionary link. The Fuzziness Level menu in a saved search uses the same settings as described above. See Saved search.Note: The Fuzziness Level menu is independent of the fuzziness (%) character that you can enter in the text box. A search for appl% without a Fuzziness Level setting may return documents containing apple or apply, since these terms have the stem appl and differ by one character.
+
+Fuzzy searching uses term length and fuzziness level to decide how many % characters to add. This is not a straight level to character match. This means a level seven fuzziness search does not necessarily mean up to seven additional characters return.
+Noise words and the alphabet file
+The dtSearch engine references a default list of noise words and an alphabet file when it creates a new index. The dtSearch index excludes the noise words to improve query performance and prevent unnecessary index growth. When you run a query, dtSearch ignores words such as AND, THE, and WILL. The alphabet file determines how queries handle characters and spaces. 
+Note: If your dtSearches do not return expected results, you may want to contact your system administrator to adjust the noise word list or alphabet file.
+Alphabet file
+The dtSearch engine uses an alphabet file to define which characters to treat as text, cause word breaks, and ignore. System administrators can modify the default alphabet file when they create or edit a dtSearch index. See Making a special character searchable.
+The alphabet file determines which characters to treat as text, which cause spaces, which cause word breaks, and which to ignore. The categories of items in the alphabet file include:
+
+Letters—all searchable characters, which should include all alphabet characters, a-z and A-Z, and all digits, 0-9.
+Hyphens—characters removed during index creation. For example First-Level becomes two separate words in a dtSearch index.
+Spaces—characters that cause a word break. For example,  the period indexes as a space character by default. Thus, dtSearch processes U.S.A. as three separate words: U, S, and A. Values listed as \## are Unicode characters. Their definitions are:\09—horizontal tab\0a—line feed\0c—form feed\0d—carriage return\5c—backslash (\)Note: Do not remove these Unicode characters from your alphabet file. 
+Ignore—characters that dtSearch should disregard in processing text. For example, if you classify the period as ignore instead of space, then dtSearch would process U.S.A. as one word, USA.
+
+Note: dtSearch does not the underscore (_) as a space by default. Verify that the [Spaces] section defines a given character before treating it as a word break in a dtSearch.
+Default noise word list
+The following table shows the default noise words list. System administrators can modify this list when they create or edit a dtSearch index. Thus, if you  search for a phrase that contains a term in the noise words list, you need to remove the term from the list and rebuild your index. See Creating a dtSearch index.
+
+
+
+
+
+
+
+Begins with...
+Noise words
+
+
+
+
+A
+a, about, after, all, also, an, and, another, any, are, as, at
+
+
+B
+be, because, been, before, being, between, both, but, by
+
+
+C
+came, can, come, could
+
+
+D
+did, do
+
+
+E
+each, even
+
+
+F
+for, from, further, furthermore
+
+
+G
+get, got
+
+
+H
+had, has, have, he, her, here, hi, him, himself, his, how, however
+
+
+I
+i, if, in, indeed, into, is, it, its
+
+
+J
+just
+
+
+L
+like
+
+
+M
+made, many, me, might, more, moreover, most, much, must, my
+
+
+N
+never, not, now
+
+
+O
+of, on, only, or, other, our, out, over
+
+
+S
+said, same, see, she, should, since, some, still, such
+
+
+T
+take, than, that, the, their, them, then, there, therefore, these, they, this, those, through, thus, to, too
+
+
+U
+under, up
+
+
+V
+very
+
+
+W
+was, way, we, well, were, what, when, where, which, while, who, will, with, would
+
+
+Y
+you, your
+
+
+
+See a noise words diagram
+
+
+
+
+
+
+Making a special character searchable
+Note: You can make special characters searchable in a dtSearch index. However, you must escape some characters when using regular expressions. For more information, see Searching for symbols. 
+
+Navigate to the dtSearch index.
+Click Edit, and then scroll down to the Alphabet section.
+Delete the character from the current category, such as hyphen or spaces. Do not delete the category heading.
+Enter the character you want to make searchable four times, separated by spaces under the section [Letters] // Original letter, lower case, upper case, unaccented.Note: You must also begin with a space.
+Perform a full build on the dtSearch index. The search now adds the characters you included.
+
+Note: If you make any symbol a searchable character in your dtSearch index and then build an index on a long, uninterrupted search string, such as a file path, dtSearch truncates the string after the 32nd character. For more information, see Searching for words longer than 32 characters.
+Numerical patterns
+To search for other numerical patterns such as social security numbers, you can use the = wildcard, which matches any single digit. For example, if you include hyphens as spaces, then the following search request would find U.S. social security numbers:
+=== == ====
+This searching pattern can return false hits. For example, no valid social security number begins with nine. However, this is the only way to get social security numbers with spaces instead of dashes. 
+Note: dtSearch support notes that the === == ==== notation is higher performing than a regular expression for the same pattern, assuming you are comfortable with getting some false hits.
+Phonic searching
+Using the dtSearch engine, you can perform phonic searching, which returns documents containing words that sound like the word you are searching for and begins with the same letter. The pound sign (#) is the character used for phonic searches when added to the front of a word. For example, a phonic search for pear also finds pair and pare.
+You can also use phonic searching in Dictionary searches.
+Stemming
+Using the dtSearch engine, you can perform stemming searches, which return documents containing grammatical variations of a root word. Stemming limits to English only. The tilde (~) is the character used for stemming searches when added at the end of the root word. For example, a search on apply~ returns documents containing the words apply, applying, applies, and applied. After you perform a stemming search, you can enter applied in the Find Next box, and then click the Find Next icon  to locate hits or grammatical variations.
+Because stemming only works with the root word, it generally does not return irregular variations of a verb. For example, a search on run~ would not return ran. The dtSearch engine only supports stemming for the English language.
+Using the stemming operator and enable stemming checkbox
+In Relativity, you can use the stemming character (~) or the Enable Stemming checkbox to perform stemming searches. The availability of these search options depends where you are running a dtSearch:
+
+Documents tab—when you select a dtSearch in the Search With option, you can use the stemming character (~). See Running a dtSearch.
+Dictionary Search—when you click the Dictionary link, you can use the stemming character (~) and the Enable Stemming checkbox on the Dictionary Search dialog. See Running a Dictionary search.
+Saved Search—when you create a saved search, you can use the stemming character (~) and the Enable Stemming checkbox in the Search Conditions section of the form. See Saved search.
+
+The Enable Stemming checkbox is independent of the stemming (~) character that you can enter in the Search Terms box or Dictionary Search text box. A search for apply~ with Enable Stemming checkbox unselected returns apply, applied, applies, or applying. A search for apply with Enable Stemming checkbox selected returns the same results.
+Using fuzzy searching and stemming together
+With fuzzy searching and stemming enabled, it  checks for a fuzzy match twice, once on the original term, and once comparing the stemmed word with the stemmed word in the index. A match on either counts as a hit.
+Wildcards
+The dtSearch engine supports special characters that you can use as wildcards. It also supports the use of leading wildcards, or those added to the beginning of a word. The following characters represent wildcards in dtSearches:
+
+
+
+
+
+
+
+Specialcharacter
+Function
+
+
+
+
+?
+Matches any single character.
+
+
+*
+Matches any number of characters. Note: This character slows searches when used near the beginning or middle of a word.
+
+
+~
+Matches words containing grammatical variations of a root word. The tilde (~) is the stemming character available in dtSearches. See Stemming.
+
+
+=
+Matches any numerical character (ex. === == ==== for Social Security Numbers). See Numerical Patterns.
+
+
+
+As illustrated in the following table, you can add wildcards to the root of any word to return matching terms from a dtSearch.
+
+
+
+
+
+
+
+Sample search string
+Description of  search results
+
+
+
+
+appl*
+Matches apple, application.
+
+
+*cipl*
+Matches principle, participle.
+
+
+appl?
+Matches apply and apple, but not apples.
+
+
+ap*ed
+Matches applied, approved.
+
+
+apply~
+Matches apply, applied, applies.
+
+
+=th
+Matches 4th, 5th, 6th, 7th, 8th.
+
+
+
+See a * wildcard diagram
+
+
+
+
+
+
+See a ? wildcard diagram
+
+
+
+
+
+
+W/N operator
+You can use the  W/N, within N words, operator to return documents with two words or phrases occur within a certain proximity of each other. When using Boolean operators in a proximity search with the W/N operator, dtSearch includes noise words. The N value represents the number of intervening words. For example, the search expression apple W/5 pear returns documents that contain apple only when it occurs within five words of pear. The documents returned by the search must contain the terms within the required proximity, such as five words.
+The W/N operator is symmetrical. The search expression apple W/5 pear returns the exact same document as pear W/5 apple.
+Note: dtSearch treats Single characters as full words when using this operator. For instance, if you search for Harry W/2 Truman, your search retrieves documents that include Harry S Truman or Harry S. Truman.
+Note: Relativity does not support the WI operator. Use the W/N syntax to search for documents having words or phrases within a certain proximity of each other.
+See a W/N operator diagram
+
+
+
+
+
+
+NOT W/N
+You can use the NOT W/N, not within N words, operator to exclude documents from a result set when two words or phrases are within a certain proximity of each other. 
+For example, the search expression apple NOT W/20 pear returns documents that contain apple when separated from pear by at least 20 words. It also returns documents that do not contain pear. Documents that contain apple separated from pear multiple times with varying proximity return as long as there is at least one concurrence where apple separates from pear by at least 20 words.
+The NOT W/N is not symmetrical. The search expression apple NOT W/20 pear does not return the same documents as pear NOT W/20 apple.
+See a NOT W/N operator diagram
+
+
+
+
+
+
+Complex expressions
+You can create complex expressions with the W/N operator by connecting words or phrases. At least one of these expressions must be a single word, phrase, or group of words and phrases connected by an OR operator as illustrated by the following:
+
+(apple AND banana) W/10 (pear OR grape)
+(apple AND banana) W/10 (orange tree)
+
+Note: You can break up complex expressions with OR connectors into separate searches. Search apple w/10 "orange tree" OR banana w/10 "orange tree" to return the same results as (apple OR banana) W/10 "orange tree".
+Avoid creating complex expressions that produce ambiguous results as illustrated in the following examples:
+
+(apple AND banana) W/10 (pear AND grape)
+(apple w/10 banana) w/10 (pear and grape)
+
+Note: dtSearch displays a warning message when you enter an ambiguous search request.
+You can also use the Boolean operators AND and OR to connect proximity expressions as illustrated in the following examples: 
+
+(apple w/10 banana) AND (pear w/5 grape)
+(apple or banana) OR (pear w/5 grape)
+
+Note: When connecting proximity expressions using Boolean operators, you must use parentheses.
+Proximity with terms order
+		
+You can use the PRE operator to search for a word that appears within a certain number of words before another word.
+For example, the search string apple PRE/5 pear returns documents where apple appears within five words before pear.
+Note: Relativity does not use the POST operator. However, you can mimic this functionality by reversing the order of the terms, and using the PRE operator.
+See a PRE operator diagram
+
+
+
+
+
+
+Words and phrases
+With a dtSearch, you can use double quotes to search for a phrase. For example, the phrase fruit salad in the search string apple w/5 "fruit salad". The following list outlines how dtSearch queries on words or phrases with noise words or punctuation:
+
+Phrases with Noise Words—dtSearch skips any noise words in a phrase. For example, it skips of in the search string Statue of Liberty and retrieves any documents that contains statue an intervening word, and liberty.
+Words with Punctuation—punctuation treated as a space when inside a word. For example, dtSearch treats the search term can't as two words, can and t.
+Numbers and Characters in Parenthesis—you may see unexpected results when you use numbers or characters in parenthesis in a dtSearch. For example, the search term 1843 (c)(8)(ii) returns as four words.
+
+Other considerations
+
+dtSearch does not recognize an underscore (_) by default. Verify you define a given character as causing a word break before using it as a space in a dtSearch.
+Relativity does not use the colon (:) or ampersand (&), even though 
+				considered a syntax term by the dtSearch index. If you want to use these symbols, the following applies:
+				To include either symbol in the dtSearch index, you must add it to the alphabet 
+					file. For more information, see Searching for symbols.To search for either symbol within file content, you must use a regular 
+						expression to define the character. Searching for special characters on their 
+			own produces incorrect results.
+dtSearch indexes are case insensitive by default. All characters in a dtSearch index  normalize to lowercase. For example, if your exact phrase search is an acronym like ACT, you must build a case-sensitive dtSearch index.
+For more information on making noise words and alphabet lists searchable, see Making the dtSearch noise word and alphabet list searchable.
+

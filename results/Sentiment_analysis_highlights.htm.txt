@@ -1,0 +1,50 @@
+
+Sentiment analysis highlights
+Sentiment analysis highlights allow you to use artificial intelligence to identify emotionally charged statements in the Native and Extracted Text Viewer, including the Document preview panel. Sentiment analysis identifies documents that contain negativity, anger, desire, or other emotions and highlights the emotional statements in the Viewer. To begin using this feature, you must first run the Detect Sentiment mass operation. For more information, see Running sentiment analysis.
+Note: Sentiment analysis highlights is not compatible with the Native Short Message Viewer. We recommend using the Extracted Text Short Message Viewer for this feature instead.
+See these related pages:
+
+Viewer
+
+Sentiment analysis
+
+
+Permissions
+The following permission is needed to see sentiment analysis highlights in the Viewer:
+
+
+
+
+
+
+Object Security
+Tab Visibility
+Mass Operations
+
+
+
+
+
+
+
+Sentiment Result - View
+
+
+
+
+ 
+
+
+ 
+
+
+
+
+Utilizing sentiment analysis highlights
+You can expand or collapse the Sentiment Analysis panel at any time and it will remain open or closed as you navigate from document-to-document. The highlight results display in the Sentiment Analysis panel and are ordered chronologically based on the document. Each result contains the emotional sentiment, the document page number where that sentiment is located, and a score assessing the strength of that emotion. You can click on a highlight result in the Sentiment Analysis panel to navigate to that page of the document. The highlight that you selected will also display a colored box around it in the Viewer to help you locate it. Sentiment analysis can be toggled on or off in the Sentiment Analysis panel.
+
+
+
+Each emotion identified by sentiment analysis has an assigned highlight color that is unique from persistent highlights. This helps you use both kinds of highlights simultaneously.
+
+

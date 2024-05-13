@@ -1,0 +1,164 @@
+
+
+Collect
+Collect is an easy-to-use application for collecting your custodian's Bloomberg, Box, Google Workspace, iManage, Microsoft 365, Refinitiv Eikon, Slack messages, and X1 data. For Box, Google Workspace, Microsoft 365, and Slack, you will need to set Collect as an application in each system. For information on registering an app, see Box application setup, Google Workspace account setup, Microsoft 365 setup, and Slack data source. Once ready, start adding custodians, data sources, and targets to Collect. Once connected, start the collect job and begin collecting data from custodians.
+
+Bloomberg—collect short message data from Bloomberg Chat and Email sources. For information on short messages, see The Relativity Short Message Format . 
+Box—collect data from Box cloud storage sources. You can also collect files from Box directly into RelativityOne Government. This data source requires application setup before you can add it as a data source in Collect. For more information, see Box application setup.
+Google Workspace—collect documents from Chat, Drive, Gmail, and Groups. You can also collect files directly into RelativityOne Government. A license for Vault is required to collect data from Google Workspace. For more information, see Google's Vault Help documentation. Google Chat is collected as RSMF files. For information on short messages, see The Relativity Short Message Format . This data source requires application setup before you can add it as a data source in Collect. For more information, see Google Workspace account setup.
+iManage—collect document and email data from the iManage  application. You can collect files and emails directly into RelativityOne Government from iManage’s private cloud, Cloud Classic.
+Microsoft 365—collect documents from a custodian's OneDrive account, a custodian's Outlook mailbox, archived mailbox, calendar, and contacts list,  a custodian's Team account, and SharePoint sites. You can collect chats from Teams directly into RelativityOne Government. Teams is collect as RSMF files. For information on short messages, see The Relativity Short Message Format .  This data source requires application setup before you can add it as a data source in Collect. For more information, see Microsoft 365 setup.Notes: Depending on your RelativityOne license, your Microsoft tenant might be Microsoft 365 or Microsoft 365 Government. When using Microsoft 365 Government, all fields, workflows, and processes will be the same. The only difference will be the Microsoft 365 source icon you select when setting up a data source or creating a collection.
+Refinitiv Eikon—collect short messages from within your organizations Refinitiv Eikon chats. For information on short messages, see The Relativity Short Message Format . 
+Slack—collect short messages from within an organization's or custodian's Slack Enterprise application. You can also collect chats from Slack Enterprise Grid directly into RelativityOne Government.For information on short messages, see The Relativity Short Message Format . This data source requires application setup before you can add it as a data source in Collect. For more information, see Slack data source. 
+X1—collect documents from within the X1 file system or emails and attachments from within a custodian's email that is a part of the X1 system. You can inspect file names and other metadata, as well as collect files for this data source. You can also configure collection parameters and specify a date range for email messages that you want to discover. 
+
+
+
+
+
+
+
+
+
+Data source
+Commercial
+Government
+
+
+
+
+Bloomberg chat
+√
+ 
+
+
+Bloomberg mail
+√
+ 
+
+
+Box
+√
+√
+
+
+Google Chat
+√
+√
+
+
+Google Drive
+√
+√
+
+
+Google Gmail
+√
+√
+
+
+Google Groups
+√
+√
+
+
+iManage
+√
+√
+
+
+Microsoft OneDrive
+√
+√
+
+
+Microsoft Outlook Calendar
+√
+√
+
+
+Microsoft Outlook Email
+√
+√*
+
+
+Microsoft SharePoint
+√
+√
+
+
+Microsoft Teams
+√
+√
+
+
+Refinitiv Eikon
+√
+ 
+
+
+Slack
+√
+√
+
+
+X1 emails
+√
+ 
+
+
+X1 files
+√
+ 
+
+
+
+Note: Microsoft 365 archived mailboxes are not collected in Government instances.
+See these related pages:
+
+Installing Collect
+
+Matters
+
+Custodian targets 
+
+Collection
+
+Data sources
+
+
+For data source-specific PDFs, click the links below:
+
+
+Collect - Bloomberg
+
+
+
+Collect - Box
+
+
+
+Collect - Google Workspace
+
+
+
+Collect - iManage
+
+
+
+Collect - Microsoft 365
+
+
+
+Collect - Refinitiv Eikon
+
+
+
+Collect - Slack
+
+
+
+Collect - X1
+
+
+

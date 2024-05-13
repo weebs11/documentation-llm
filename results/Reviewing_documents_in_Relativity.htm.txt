@@ -1,0 +1,157 @@
+
+
+Reviewing documents in Relativity
+This  guide walks you through a generic workflow  for a first-pass review.  To start your first-pass review, log in to Relativity by browsing to your Relativity website. The login screen appears and you can enter your email address and password. After logging in to Relativity, a list of workspaces you have access to appears. To access workspace documents, click on the name of the relevant workspace. The workspace opens with a list of available documents and you can begin your review. 
+This page contains the following content: 
+
+Accessing documents
+
+Coding documents
+
+Coding permissions
+
+Working with layouts
+
+Using the Viewer
+
+
+See these related pages:
+
+
+Review interface quick reference
+
+
+
+Accessing documents
+Depending on how your project manager has set up the workspace, you might access documents through the Documents tab, the Review Queues tab, or the Review Batches tab. To access a document, click on its identifier link. The document opens in the Viewer, part of the Review Interface.
+For instructions on accessing a Review Center queue, see Reviewing documents using Review Center.
+View how to access a batch
+
+To check out a batch, perform the following steps: 
+
+Navigate to the Review Batches tab. 
+Click Edit next to the batch you want to check out. The Batch Edit pop-up displays. 
+Select your name from the drop-down menu. 
+Click Check Out.
+
+To check in a batch after you’re finished working, perform the following steps: 
+
+Navigate to the Review Batches tab. 
+Click Edit next to your batch. The Batch Edit pop-up displays.
+ Select one of the options on the Batch Edit pop-up:Check In As Pending – Check in the batch as pending. Check in As Completed – Check in the batch as completed.
+
+
+
+Coding documents
+During a first-pass review, initial coding decisions are made about a document's relevancy to issues related to a particular matter. Most of your time during review is spent working in the Review Interface and interacting with layouts to store your coding decisions. 
+Coding permissions
+A user must have the following permission to be able to code documents:
+
+
+
+
+
+Object security
+Tab Visibility
+
+
+
+
+Documents - View, Edit
+Documents
+
+
+
+Working with layouts
+Layouts can consist of read-only fields, single-choice fields, and multi-choice fields. Read-only fields give static information about the current document. Single-choice fields are denoted by radio buttons or a drop-down menu, depending on what your project manager has set up. You can only select one coding value for a single choice field. Multi-choice fields are denoted by check boxes. You can select more than one coding value with check boxes.
+To make your coding decisions about a document, click Edit on the layout. Required fields appear with an orange asterisk next to their name.
+Once you make your coding decision, click Save to return to read-only mode, or click Save & Next to save your coding decisions and move to the next document for review. If you click Save & Next without a coding decision being made, This field is required will display near any required fields.
+Note: If your project manager enabled Copy from Previous, you can use this function to copy your coding decisions from the previous document to the current document.
+Using the Viewer
+When you open a document from the document list for the first time, Relativity loads that document in the Native Viewer. The Native Viewer provides options for navigating through a single document and between documents in a document set for text searching, highlighting, zooming, arranging, and saving pages you review.
+The Review Interface screen consists of the following areas:
+
+Viewer tabs
+Viewer
+Navigation
+Coding card
+Related items and History cards
+Persistent Highlight card 
+Documents card
+
+
+
+View document viewing options
+
+You can move through a set of documents by using the navigation menu located in the upper-right corner of the Review Interface.
+
+
+
+You can type a number into the textbox and press Enter on your keyboard to move to that document. You can also use the navigation arrows:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Top of first page
+Previous page
+Next page
+Last page
+
+
+
+
+
+View Native Viewer icons
+
+
+
+
+
+Zoom Out/In  - zooms out and in on the current document in increments of 10%  within a range of 10% to 500%. If you attempt to zoom out to a percentage lower than 10%, the Viewer automatically sets the display to 10%. If you attempt to zoom in to a percentage higher than 500%, the Viewer automatically sets the display to 500%. Your zoom setting persists as you navigate through a document set. This means that if you've set one document to 150% and you go to the next document, the next document defaults to 150% zoom. 
+To specify a zoom percentage without using the zoom out/in toolbar buttons, type the number in the percentage field and press the Enter key.
+Reset Zoom 
+ - resets the zoom to 100%. 
+Fit Width 
+ - increases the size of the document to fit the maximum width of the Viewer. This setting persists when you re-size the window.
+Fit Page 
+ - fits the entire document into the total size of the page. Clicking this zooms out the document and reduces the font size.
+Fit Actual 
+ - fits the document display to the actual size it was in its native application. By default, this resets the zoom percentage to 100%.
+Layout Mode 
+ - select one of the following options to determine how documents that are more than one page long display in the Viewer.Single  - One page of a document will display at a time. Use the page navigation options at the bottom of the Viewer to adjust which page you view.Single Continuous  - Displays the pages in the document stacked vertically so you can scroll up and down to view them.Facing Continuous  - Displays the pages in the document in a row horizontally so you can scroll left and right to view them.
+Draft Mode - click to begin Draft Mode which automatically contrasts text from the background, help you identify poorly drawn redactions, and identify corrupt OCR text. This option is only available on the Native Viewer and with rendered documents.
+Go To Next/Previous Highlight 
+ - moves through previous and next highlighted terms in the document.
+Rotate All Pages 
+ - rotates all pages in a document clockwise 90 degrees. This option is only available for documents that have been paginated.
+Redact Markup Visibility 
+ - this option determines how markups display in the Viewer. It only displays if you have the Redact application installed and open a PDF or spreadsheet document in the Native Viewer. For more information on which file types are compatible, see Redact supported file types. Click the Redact Markup Visibility icon to toggle between the following modes:Solid - Markups in the document are fully visible and cover text underneath.Transparent - Markups in the document are partially visible so that you can still see the text underneath.Hidden - Markups in the document are not visible.
+Create PDF 
+ - gives  you the option of saving the current native document as a PDF file. 
+Search Bar 
+ - searches for terms in the current document and navigates through the hits.Entering a term and either clicking the left or right arrow button or pressing Enter in this text box scrolls to and highlights the text of the next instance of the term (from the placement of the cursor).Searching in this text box is not case sensitive.The Search Bar supports dtSearch and so proximity, fuzziness, and stemming can be used. To learn more about this search functionality, visit dtSearch.
+
+
+
+Note: Relativity automatically hides toolbar buttons and controls that are not applicable to the currently loaded document type so that your toolbar is not cluttered while you are reviewing documents.
+
+
+
+

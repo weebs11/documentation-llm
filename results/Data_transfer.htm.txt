@@ -1,0 +1,51 @@
+
+Data transfer
+Data transfer refers to moving your case data from one environment to another environment. This can be transferring your data between Relativity instances or from a legacy system. Relativity provides you with a suite of tools that can help you with this.
+Data transfer considerations
+
+
+Before you can begin working in your RelativityOne environment, you may need to get your legacy data into Microsoft Azure. If you are a new RelativityOne customer or considering RelativityOne, we recommend that you first review RelativityOne data migration .
+
+
+RelativityOne also offers a variety of tools for managing your data. For more information on the methods in which data can be stored within your RelativityOne environment, refer to RelativityOne data management.
+
+
+Changing root folder permissions during a mass import is not a supported workflow.
+
+
+Data transfer network considerations
+Before anyone in your organization can transfer data, you should ensure that your network and firewall settings have been configured correctly. See RelativityOne network access in the RelativityOne technical overview. 
+Data transfer workflows in RelativityOne
+For RelativityOne, you have two major options for data transfer:
+
+Loading data directly into RelativityOne using Import/Export with Express Transfer—you can import raw (unstructured) data files that require processing, document load files, image load files, production files, and Relativity Dynamic Objects (RDO) files into RelativityOne.
+Transferring data to the designated RelativityOne staging area—you can upload files to your RelativityOne staging directory using the Staging Explore.Note: The   staging directory is a cloud folder where you can view and edit data using the Utility Server before loading it into RelativityOne. The Utility Server is a virtual machine that can be connected to your RelativityOne instance that contains additional support tools to help you edit and view the data in your designated staging directory before loading it into RelativityOne. For example, you may want to access your uploaded files to edit in the staging directory before you add them to your RelativityOne workspaces or save them to a RelativityOne file storage location. You can also access and verify any production sets before you download them locally.
+Once you use the GlobalProtect VPN client to connect to the RelativityOne network, and then use the Utility Server, you have access to viewing the staging area. 
+
+Refer to the following topics to assist you in choosing your preferred method of data transfer.
+Workflow 1: Loading processed and unprocessed data directly into RelativityOne using Import/Export with Express Transfer (recommended)
+You can use Import/Export with Express Transfer locally to import raw (unstructured) data files that require processing, document load files, image load files, production files, and Relativity Dynamic Object (RDO) files into RelativityOne. For more information, see Import/Export overview and Express Transfer overview.
+Workflow 2: Loading processed and unprocessed data directly into RelativityOne using Import/Export with Express Transfer from the Utility Server
+You can use Import/Export to import document load files, image load files, and production files into your RelativityOne environment from  the  staging directory. Import/Export is accessible via the web browser on Utility Server. For more information see Utility Server, Import/Export overview and Express Transfer overview.
+Workflow 3: Loading processed data to the staging directory and then into RelativityOne
+If you need to edit or rename processed data, you can do so on your local machine prior to uploading or you can upload the processed data to the  staging directory in the cloud and then ingest it into RelativityOne.
+Note: Relativity ended support for and access to the Relativity Desktop Client (RDC) for RelativityOne commercial customers on December 31, 2023. Import/Export is being used for all importing and exporting workflows. For RelativityOne Government customers, beginning March 31, 2024, RDC will only operate in web transfer mode, which will result in significantly slower transfer speeds. It is highly recommended that Government customers begin using Import/Export in RelativityOne as soon as possible to prepare for the deprecation of RDC on June 30, 2024. Starting July 1, 2024, RDC will no longer be operational.  See the Community article RDC Deprecation FAQ for additional information.
+
+Upload local files to your RelativityOne  the  staging directory using the RelativityOne Staging Explorer.
+
+
+After you upload the files to your staging directory you can then ingest those files from your staging directory into RelativityOne using one of these options:Integration Points —Integration Points provides you with the ability to import data directly into your workspace through the same functionality that the RDC provides for importing the document object. This includes importing a CSV file, LDAP, or load file directly into your workspace, and scheduling future or recurrent import jobs. Relativity Desktop Client (RDC) —The RDC provides the functionality for importing document load, image, and production files into your RelativityOne environment from your staging directory. The RDC is accessible from your Utility Server.
+
+Workflow 4: Loading unprocessed data to your RelativityOne staging directory for processing
+If you have unprocessed raw data, you can upload the raw data to the Processing folder in  the  staging directory in the cloud and then ingest it into RelativityOne using the Relativity Processing application.
+
+Upload local files to the Processing Source folder in your RelativityOne staging directory using the RelativityOne Staging Explorer.
+Using the Relativity Processing application, ingest your raw data directly into your RelativityOne workspace for eventual search, review, and production without the need for an external tool. You can use the various processing objects to create custom processing jobs that handle a wide array of information.
+
+Workflow 5: Migrating case data to the staging directory into RelativityOne
+If you have case/workspace data you need to migrate, you can upload the workspace archives to the ARM folder in  the  staging directory in the cloud and then ingest them into RelativityOne using the ARM application. The ARM application is used to archive and restore Relativity workspaces between Relativity installations and RelativityOne. You can also use this application to convert a DBMT archive into an ARM archive.
+
+Use the ARM tool to archive a workspace to the directory of your choosing. See Performance considerations for RelativityOne for more information on considerations for creating the archive file.
+Use RelativityOne Staging Explorer to upload the ARM archive to the ARM folder in your RelativityOne staging directory in the cloud.
+Execute an ARM Restore job to restore the ARM archive into your RelativityOne instance. ARM restore will recognize the ARM archive on the Utility Server and make it easily available for restoring.
+

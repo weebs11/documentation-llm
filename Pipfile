@@ -8,8 +8,12 @@ requests = "*"
 openai = "*"
 python-dotenv = "*"
 beautifulsoup4 = "*"
+langchain = "*"
+langchain-openai = "*"
+streamlit = "*"
 
 [dev-packages]
+ipykernel = "*"
 
 [requires]
 python_version = "3.12"

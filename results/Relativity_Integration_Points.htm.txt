@@ -1,0 +1,42 @@
+
+
+Integration Points
+Integration Points offers a solution to configure integrations from third party systems to Relativity objects and between Relativity workspaces. For more information, see Promoting data between workspaces through Integration Points.
+Interested developers can create a separate ADS application to pull data from a third party system source provider. Integration Points ingests that application to handle the scheduling, setup, field mapping, and actual import into Relativity. By using the Integration Points platform, developers can reduce the amount of time needed to create these custom integrations while end users receive a consistent and easy setup approach.
+In addition to supporting developer-built custom integrations, Integration Points also provides a built-in integration to Lightweight Directory Access Protocol (LDAP) enabled HR servers such as Microsoft Active Directory. Built on the Integration Points platform, the LDAP integration can filter and schedule imports from Active Directory data into a Relativity workspace. For example, the workstations, employee names, and data shares, among others.
+Since the Integration Points does not offer Full Name field calculation for Custodian/Entity object, the field is not available as an option for mapping. If you need to update the Entity object, please use the LDAP provider, which allows new records to be added with a field other than Full Name as the identifier. Alternatively, you may consider using Relativity Desktop Client for Custodians/Entities updates.
+See these related pages:
+
+Integration point profiles
+
+Promoting data between workspaces with Integration Points
+
+Importing data through an integration point
+
+Exporting data through an integration point
+
+Monitoring job history and errors
+
+Viewing destination workspaces
+
+
+Note: You can locate an application's version number by navigating to Applications & Scripts > Application Library tab. You must be a system admin to access this tab.
+Using Integration Points scenarios
+Read an Integration Points developer scenario
+
+
+Using Integration Points as a developer
+You are the lead developer of an organization responsible for building Relativity customizations. One of your clients started tracking all of their litigation-related information outside of Relativity in a new product called Whazootie. They mention to you that they would love to have this same information available in their Relativity workspaces to tie their document review to specific case information.
+You use Whazootie's APIs to build a simple Relativity application  to connect to a Whazootie website without building any import or setup steps. You give the application to your client along with Integration Points for them to install in a workspace. They can use all the security, scheduling, setup, and import options available in Integration Points along with the Whazootie connection to set up multiple imports that bring Whazootie data into their Relativity workspace.
+
+
+
+Read an Integration Points end user scenario
+
+
+Using Integration Points as an end user
+You are the litigation support professional responsible for setting up workflows and templates to help manage your company’s legal hold procedure using Relativity Legal Hold. You want to ensure that all custodian information is kept up-to-date so that holds always go to the correct email address and that the litigation team is aware of custodians who have changed departments or left the company. Unfortunately, all of the custodian information is scattered across multiple company HR servers containing unnecessary computer and network data.
+To solve this problem, you use the  Integration Points setup wizard to configure new integrations to each HR server, mapping items to specific Relativity fields. You work with your team to configure a filter in each setup so that only the appropriate employees are brought in as Custodians and schedule the import to occur automatically each night during off-hours. As a result, your custodian address book is always up-to-date, ensuring that proper litigation workflows are followed with every custodian.
+
+
+

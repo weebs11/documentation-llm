@@ -1,0 +1,103 @@
+
+Reviewing documents using Review Center
+The Review Queues tab is the starting point for reviewers. Every Review Center queue that a reviewer is assigned to shows up here.
+This topic provides step-by-step instructions for accessing a queue and reviewing documents.
+Reviewing documents in the queue
+To review documents in a queue:
+
+
+Navigate to the Review Queues tab.
+
+
+Each queue you are assigned to has a separate card. Locate the card with the same name as the queue you want.
+
+
+
+
+
+Click Start Review.
+This opens the document viewer.
+
+
+Review the document as specified by your admin, then enter your coding choice.
+
+
+Click Save and Next.
+The next document will appear for review.
+
+
+If you do not see a Start Review button, either the queue is paused, or the admin has not started the queue. Talk to your administrator to find out when the queue will be ready.
+For more information on using the document viewer, see Viewer.
+Finding previously viewed documents
+As you work through the queue, you can see documents you already reviewed in the queue by clicking on Documents in the left-hand navigation bar. This opens the Documents panel.
+
+
+
+To view a document, click on its control number in the panel.
+
+
+
+To return to your current document, click on the Navigate Last  button in the upper right corner of the document viewer.
+
+
+
+Note: When you filter columns in the Documents panel, the filters only apply to documents on the current page of the panel. For a comprehensive list of results, filter within the Documents tab of Relativity or run a search from the saved search browser or field tree.
+Queue card statistics
+If your admin has enabled it, you may see some statistics displayed on the queue cards.
+The statistics you may see are:
+
+
+Total docs in queue—the total number of documents in this queue, across all reviewers.
+
+
+Total remaining uncoded docs—the total number of uncoded documents in this queue, across all reviewers.
+
+
+My docs reviewed total—how many documents you have reviewed total in this queue.
+
+
+My docs reviewed today—how many documents you have reviewed today in this queue. These are counted starting at midnight in your local time.
+
+
+Viewing the dashboard
+Your admin may give you access to the Review Center dashboard. The dashboard shows how the review is progressing, including statistics and visualizations.
+For more information on the Review Center dashboard, see Monitoring a Review Center queue.
+Best practices for Review Center review
+When reviewing documents in a Review Center queue, we recommend the following guidelines:
+
+Double check—always check the extracted text of a document to be sure it matches the content in other views. Whenever possible, review from the Extracted Text viewer.
+
+Stay consistent—check with fellow reviewers to make sure your team has a consistent definition of relevance. The AI classifier can handle occasional inconsistencies, but you’ll get the best results with coordinated, consistent coding.
+
+
+
+When in doubt, ask—if something confuses you, don't guess. Ask a system admin or project manager about the right course of action.
+
+Coding according to the "four corners" rule
+Review Center's AI classifier predicts which documents will be responsive or non-responsive based on the contents of the document itself. Family members, date range, custodian identity, and other outside factors do not affect the rankings. Because of this, the AI classifier learns best when documents are coded based only on text within the four corners of the document.
+When you code documents as positive or negative in a Review Center queue, you are both coding the document and teaching the AI classifier what a responsive document looks like. Therefore, your positive or negative coding decisions should follow the "four corners" rule: code only based on text within the body of the document, not based on surrounding factors.
+Having one or two documents that fail this rule will not harm the overall accuracy of Review Center's predictions. However, if you want to track large numbers of documents that are responsive for reasons outside of the four corners, we recommend talking to the project manager about either setting up a third, neutral choice on the coding field for those, or adding a secondary coding field. Neutral choices and other coding fields are not used to train the AI classifier.
+Common scenarios that fail the "four corners" rule
+The following scenarios violate the "four corners" rule and do not train the AI classifier  well:
+
+The document is a family member of another document which is responsive.
+The document comes from a custodian whose documents are presumptively responsive.
+The document was created within a date range which is presumptively responsive.
+The document comes from a location or repository where documents are typically responsive.
+
+For example, the following email has a responsive attachment. However, the body of the email—the text within the four corners—is only a signature and a privacy disclaimer. Because the body of this email is not responsive, this document does not pass the "four corners" rule.
+
+
+Factors that affect Review Center's predictions
+Not all responsive documents inform Review Center equally. The following factors affect how much the AI classifier learns from each document:
+
+
+Sufficient text—if there are only a few words or short phrases in a document, the engine will not learn very much from it.
+
+
+Images—text contained only in images, such as a photograph of a contract, cannot be read by Review Center. The system works only with the extracted text of a document.
+
+
+Numbers—numbers are not considered by Review Center.
+
+

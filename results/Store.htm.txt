@@ -1,0 +1,24 @@
+
+RelativityOne Store
+Store is a RelativityOne storage option available for purchase that enables you to cost-effectively preserve large volumes of collected data or archive inactive workspaces for longer term storage. Once purchased, Relativity deploys an additional 50 TB file server to your environment. The server has the same functionality and workflows as staging, and can be used as a processing source for collected data or an ARM destination for archives.
+Requesting Store
+Existing customers can purchase this product with an amendment and new customers can include it with their contract. Please contact your CSM or Sales Account Manager for more information on how to add this to your contract.
+Note: This new storage offering will not be available with client domains.
+Store workflow and usage
+Store is simply another fileshare server that you will have access to. You will be provided with an identifier for your purchased store fileshare to differentiate it from your other fileshares (e.g., store.t025 in the screenshot below for Staging Explorer).
+Store will typically be used to:
+
+Preserve large volumes of raw collected evidence
+Archive inactive cases for retention
+
+Preservation workflow
+Using Staging Explorer, you can bulk transfer data into Store as shown by selecting the Store fileshare in Staging. 
+
+
+You can also select your store as a Processing source location to process data directly into RelativityOne.
+
+
+Archival workflow
+Store can be also be selected just like other fileshares as an ARM archive destination.
+
+

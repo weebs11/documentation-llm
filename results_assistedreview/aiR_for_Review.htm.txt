@@ -1,0 +1,121 @@
+
+aiR for Review
+aiR for Review harnesses the power of large language models, or LLMs, to review documents. aiR for Review goes far beyond existing classifiers by using generative AI to both predict coding decisions and to support those predictions with descriptive text and document excerpts which explain the decisions.
+Some benefits of aiR for Review include:
+
+
+Highly efficient, low-cost document analysis
+
+
+Quick discovery of important issues and criteria
+
+
+Consistent, cohesive analysis across all documents
+
+
+Note: aiR for Review is currently in limited release. For information about the general release, contact your account representative.
+See these related pages:
+
+Running aiR for Review
+
+Monitoring aiR for Review jobs
+
+aiR for Review results
+
+aiR for Review security permissions
+
+
+aiR for Review overview
+aiR for Review uses generative AI to simulate the actions of a human reviewer, finding and describing relevant documents according to the review instructions that you provide. It identifies the documents, describes why they are relevant using natural language, and demonstrates relevance using citations from the document.
+aiR for Review has three different analysis types:
+
+
+Relevance review—predict documents responsive to a request for production.
+
+
+Issues review—locate material relating to different legal issues.
+
+
+Key documents—find hot documents important to a case or investigation.
+
+
+Some use cases for aiR for Review include:
+
+
+Kickstarting the review process—prioritize the most important documents to give to reviewers.
+
+
+First-pass review—determine what you need to produce and discover essential insights.
+
+
+Gaining early case insights—learn more about your matter right from the start.
+
+
+Internal investigations—find documents and insights that help you understand the story hidden in your data.
+
+
+Analyzing productions from other parties—reduce the effort to find important material and get it into the hands of decision makers.
+
+
+Quality control for traditional review—compare aiR for Review's coding predictions to decisions made by reviewers to accelerate QC and improve results.
+
+
+aiR for Review workflow
+aiR for Review's process is similar to training a human reviewer: explain the case and its relevance criteria, hand over the documents, and check the results. If aiR misunderstood any part of the relevance criteria, explain that part in more detail, then try again.
+Within Relativity, the main steps are:
+
+
+Select the documents to review
+
+
+Choose the aiR for Review mass action
+
+
+Write and submit the review instructions, called Prompt Criteria
+
+
+Review the results
+
+
+When setting up the first analysis, we recommend running it on a sample set of documents that was already coded by human reviewers. If aiR's predictions are different from the human coding, revise the Prompt Criteria and try again. This could include rewriting unclear instructions, defining an acronym or a code word, or adding more detail to an issue definition.
+Overall, the workflow has three phases:
+
+
+Develop—write the Prompt Criteria, test, and tweak until the results match human review.
+
+
+Verify—run the Prompt Criteria on a slightly larger set of documents and compare to results from senior reviewers.
+
+
+Run—use the verified Prompt Criteria on a much larger set of documents.
+
+
+For more details, see Running aiR for Review. For additional workflow help and examples, see Workflows for Applying aiR for Review on the Community site.
+How aiR for Review works
+aiR for Review's analysis is powered by Azure OpenAI's GPT-4 large language model, or LLM. The LLM is designed to understand and generate human language, and it is trained on billions of documents from open datasets and the web.
+When you submit Prompt Criteria and a set of documents to aiR for Review, Relativity sends the first document to Azure OpenAI and asks it to review the document according to the Prompt Criteria. After Azure OpenAI returns its results, Relativity sends the next document. The LLM reviews each document independently, and it does not learn from previous documents. Unlike Review Center, which makes its predictions based on learning from the document set, the LLM makes its predictions based on the Prompt Criteria and its preexisting training.
+Azure OpenAI does not retain any data from the documents being analyzed. Data you submit for processing by Azure OpenAI is not retained beyond your organization’s instance, nor is it used to train any other generative AI models from Relativity, Microsoft, or any other third party. For more information, see the white paper A Focus on Security and Privacy in Relativity’s Approach to Generative AI.
+For more information on using generative AI for document review, we recommend:
+
+
+Relativity Webinar - AI Advantage: How to Accelerate Review with Generative AI
+
+
+
+MIT's Generative AI for Law resources
+
+
+
+The State Bar of California's drafted recommendations for the use of generative AI
+
+
+
+Using aiR for Review with non-English languages
+aiR for Review currently supports English-language Prompt Criteria and analyzing English text. It has not been tested for use with other languages, and doing so may result in unexpected or unverifiable results. However, Relativity will continue to do additional testing and analysis on non-English language scenarios.
+Using aiR for Review with emojis
+aiR for Review has not been specifically tested for analyzing emojis. However, the underlying LLM does understand Unicode emojis. It also understands other formats that could normally be understood by a human reviewer. For example, an emoji that is extracted to text as :smile: would be understood as smiling.
+Archiving and restoring workspaces with aiR for Review
+Workspaces with aiR for Review installed can be archived and restored using the ARM application.
+When archiving, check Include Extended Workspace Data under Extended Workspace Data Options. If this option was not checked during the archive process, the aiR for Review features in the restored workspace will not be fully functional.  If this happens, you will need to manually reinstall aiR for Review in the restored workspace.
+For more information on using ARM, see ARM.
+ 

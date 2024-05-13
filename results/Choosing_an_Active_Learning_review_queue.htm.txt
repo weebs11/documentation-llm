@@ -1,0 +1,25 @@
+
+Choosing an Active Learning review queue
+Once you've created an Active Learning project, you're redirected to the Project Home tab. From here, you can view a dashboard with information about your project and select an Active Learning review queue to start your review. For more information about the Project Home dashboard, see Monitoring an Active Learning project.
+There are two types of review queues in Active Learning: Prioritized Review and Coverage Review. An Active Learning workflow starts in either the Prioritized Review or Coverage Review queue, moving to the Project Validation queue when the project is nearing completion. See below for a description of the review queues. 
+Prioritized Review
+The Prioritized Review queue serves the highest ranking documents, in other words, documents that are most likely to be coded on the positive choice (ex. Responsive).  The goal of Prioritized Review is to quickly identify and review the most relevant documents in your set. If you are unsure which queue to select, we recommend using the Prioritized Review queue.
+When coding documents in the Prioritized Review queue, a small set of documents are included for index health. The documents included for index health are system-selected to help the model develop a better range of training.
+Use the Prioritized Review queue if:
+
+You need to quickly locate and review the most relevant (responsive) documents in your set.For example, a standard request for production with a need to do redaction and/or privilege review.
+You want to review relevant documents and their family together.
+You have a document set with lower richness. For information on estimating richness, see Creating an Active Learning project. 
+You are unsure which queue to select.
+
+For more information, see Running Prioritized Review.
+Coverage Review
+Coverage Review serves up documents that are optimal for training the model. The goal of Coverage Review is to quickly separate your documents into the positive choice and negative choice categories. Unlike Prioritized Review, which serves up the highest ranking documents, Coverage Review is intended for quick production use cases where you want to train the model as fast as possible.
+The documents that are served during Coverage Review can be either relevant or non-relevant and are chosen by the engine solely to train the model. Coverage Review serves up the documents the model is most unsure about. Coverage Review continues serving up documents until there are no longer any documents to review. However, you should stop reviewing documents much earlier, once the model has stabilized.
+Use the Coverage Review queue if:
+
+You need to quickly classify your documents into relevant/not relevant sets. For example, to respond to HSR second request or if you have an incoming production.
+You have a large case and don't necessarily need to review and code every relevant document. For example:A government production request with a tight timeline.An internal investigation where you are mining for information for your own benefit.
+
+Note: Coverage Review works best with document sets with greater richness (>2%). 
+For more information, see Running Coverage Review.

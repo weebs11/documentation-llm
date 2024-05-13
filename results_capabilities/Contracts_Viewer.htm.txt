@@ -1,0 +1,240 @@
+
+Contracts Viewer
+While Relativity has its own document viewer for e-discovery, the Contracts  Viewer is a review interface made for contract review that makes the review process easier.
+
+
+When you've imported a document into Relativity, but haven't run Contracts  OCR, clicking on that document will display the  viewer. 
+
+Clicking on any document you've run through Contracts  OCR will display the Contracts  Viewer. You must run Contracts  OCR to enable the Contracts  Viewer. You don't need to run any other type of contracts  analysis. 
+
+The Contracts  Viewer lets reviewers easily pinpoint key clauses, data points, and contract metadata.
+Navigating the Contracts Viewer
+Following are details on navigating the Contracts Viewer and all of its functions.
+Definitions
+This section provides an overview of how you can navigate definitions in the Contracts Viewer after  extracting definitions from contracts.
+You can navigate to where terms are defined in the contract using the definitions pane in the viewer or the definitions object list.
+Definitions pane
+To navigate to where terms are defined in the contract via the Definitions pane:
+
+Click on the definitions section in the left pane of the Contracts  Viewer.
+Click on a definition name. They are sorted alphabetically from top to bottom.
+
+The contract will navigate to where that term is defined and underline the definition in orange.
+Definitions object list
+To navigate to where terms are defined in the contract via the Definitions object list:
+
+Click into the layout drop-down menu in the top right side of the viewer.
+Click the edit icon next to a layout you'd like to add the definitions object list to.
+Under Layout Options, click the Add Category drop-down menu and select the Add Object List option.
+Under Layout Options, select the Contracts  Definition object.
+Click Save and Close.
+
+Adding definitions
+To add definitions to the list:
+
+To add a new definition to the list, expand the Contracts Definition pane on the right side of the viewer and click Add.To update an existing definition, click the Edit button on the inline object list. 
+Once you have definitions in your list you can filter the definition name to find the text of the definition you're looking for.
+Click the edit button in the row for that definition and then click the Text field  to navigate the contract text to that definition.Note: If the Text field does not have a green dot, that means that when you clicked the Add New button on the object list, you did not use send-to-field when capturing the Text of the definition. This is a best practice so that Contracts knows the location of the definition. 
+
+Sections
+The sections that  analysis create are listed beneath the Table of Contents on the left side of the Contracts  Viewer.
+Each section displays a section heading, which is extracted verbatim from the contract. Below the heading is the section type, provided by Contracts  Analysis or manual entry.
+When you click a section in the left pane, you're navigated to that section in the extracted text. The section is also marked with a blue highlight to the left of the text.
+Context menu for sections
+Right-clicking on a section in the left pane will display the following options:
+
+Merge Above—combines the section with the one above it creating one larger section that will inherit the section heading and section type of the top section.
+Merge Below—combines the section with the one below it creating one larger section that will inherit the section heading and section type of the top section.
+Edit Section Heading and Type—opens a modal for you to update the section heading and section type.
+View in Relativity—opens the Relativity Viewer in a new tab displaying your section document.
+Code Section—enters section-coding mode where you can code this individual section document.
+Delete—deletes your section and the Relativity document for this section. You'll have the option to Undo this at the bottom of the screen. If you choose not to Undo, any coding you've done on the section will be lost.
+
+Document list navigation
+Reviewers require the flexibility to freely navigate to contracts across their batch.  This can help spot patterns and similarities for faster review and augment coding decisions using similar contracts. 
+	To access the document list directly from the Contracts  Viewer, select List View beneath the Contract Navigation Pane. 
+                The document list appears in place of the Section Navigation Pane.  You can sort, filter, and click to access contracts from the document list.
+ 
+            Open the detailed list view in its own tab or window and arrange side by side for dual coding power.
+            Related documents and their sectionsThe first item located at the top of the navigation pane is always the Master Agreement. The second item that appears is the Related Documents tab, which displays all related documents including amendments, exhibits, addendums, etc. Administrators can configure this using the Contracts  Related Documents field.Click the Related Documents button to expand and view all related documents. Click a related document to view its sections. When you click on a section, you're redirected to its location in the extracted text, marked with a blue highlight to the left of the text.Data pointsThe Data Points pane helps reviewers locate and quickly navigate to key data in contracts. For more information on setting up data points, see Create and edit regular expressions and Set up data points in the viewer.To navigate data points:
+                View regular expression or persistent highlight results by opening the Data Points pane in the Contracts  Viewer.  To see all the data points, including ones without hits in the document, click Show All. 
+Note:  There is a Filters drop-down menu above the list of data points. You can select a filter from the drop-down menu to only show the data points associated with that filter. Learn more about setting up data point filters in Set up data points in the viewer.
+                The data point group name is the name of the regular expression or persistent highlight set created for this review project. When you click a data point group, it expands to show all results. If a result is repeated throughout the contract, it includes a badge indicating the number of individual hits. You can expand this result group to see all results. Click the dot to the left of the data point group name to toggle the highlights on and off. 
+
+                Each result displays the section type where it is located. Click a result to go to its location in the contract. Even if you toggle the highlights off, you can click results and navigate to them in the contract.
+            
+                Data points are also visible on the Highlights Minimap, and respect all colors from regular expressions or persistent highlight sets.
+            Highlights minimapWhether you're in the first pass review or the final QC stage, the Highlights Minimap provides a visual snapshot of important data points and reviewer actions across a document.Clicking on the Highlights Minimap navigates to search results, coded fields, data points, or comments. Each action is categorized by a different color, providing a visual overview of key contract data across the document.Highlights minimap color keyBelow are descriptions of each of the colors that appear in the highlights minimap:
+Green—indicates send to field action in contract.Red A—activated only when a coded field is clicked in a layout. Underlines the associated text in the document.
+Red B—indicates locations of search results. Text is highlighted by clicking up and down arrows.
+Gray—default color to indicate text found by regular expressions, or persistent highlight sets, listed in Data Points. When clicked from the Data Points pane, indication on minimap turns fire red.
+Yellow—indicates location of inline comments.Contracts toolbarThe Contracts toolbar appears at the top of the Contracts viewer. This section explains how to use various functions in the Contracts toolbar.Search for documentsThe Contracts  Viewer's search functionality offers reviewers flexible options and intuitive navigation controls to quickly arrive at desired results. There are four main search options in Contracts :Default—displays real-time results with each key stroke using partial words, whole words, multiple words, and symbols.Enabled when no other search option icons are highlighted in orange.
+Whole Word—finds case insensitive results for single and multiple words.
+                Select the "ab" icon to use Whole Word search  
+                                         
+                        Searching for "termination" avoids "determination" in results.
+                    
+                        Symbols are not supported.
+                    
+Case Sensitive—finds case sensitive results for single and multiple words. Select the Ab icon
+to use Case Sensitive search.               
+                        Searching for "Chief Executive Officer" avoids "chief executive officer" in results.
+                    
+                       Can be used on its own or with Whole Word search.
+                    
+                        Symbols are not supported.
+                    
+Regular Expressions—signified by the .* icon. For information on regular expressions, see Create and edit regular expressions.When the auto-run toggle is on, Contracts  will run your search and return results as you type.When the auto-run toggle is off Contracts  will only run your search and return results after you press the Enter key.Viewing search resultsAfter running a search, results will appear below the search bar in the results list. The results list helps reviewers understand the location of a result in the contract.Results appear in order of which section of the contract they appear in, with results Not in a Section appearing first.The section heading appears in bold, with the section type noted in parentheses.The number of the result you're currently viewing and the total number of results found is displayed in the search bar. You can use the arrows in the search bar to navigate to result locations in the contract. Clicking on a result in the result list will also navigate you to it's place in the contract.To expand or collapse your search results, click the three dots below the search bar.View documentsThe Contracts  Viewer allows reviewers to open the current document in Relativity's review interface.Click the Relativity icon to open a new browser tab that shows the same document in Relativity. Working in multiple tabsBy keeping both tabs open, you can switch back and forth between the Contracts  and Relativity Viewers. Or, you can separate tabs into their individual windows, allowing a side-by-side view.When both tabs are open the action of navigating from document to document in the Contracts  Viewer will duplicate in the Relativity Viewer. For instance, if you click to the next document in the Contracts  Viewer, the Relativity Viewer will replicate that action and proceed to the next document.This can save time by removing additional or redundant clicks and opening new tabs or windows. Image viewerYou can click the Show PDF button to view the original PDF of the contract in Contracts Image Viewer.Navigating section, data point, and send-to-field highlightsWhether clicking on a section, data point, or field, the Image Viewer will navigate to your highlight and display it in an active state, as the Text Viewer does.As you toggle between the text and PDF, Contracts  will maintain your location in the document based on last-clicked highlight.Context menu optionsIf you right click on the document in the image viewer, a context menu with an option to Go To Text appears. Selecting Go To Text will take you to that exact location in the Text Viewer. If you select text in the Image Viewer,  a context menu that includes the option to Go To Text and the option to Send to Field appears. If you select Send to Field, you can click on a field on a layout to populate it. For more information see Coding contracts via send-to-fieldAdjust text sizeTo adjust text size of the contract you're viewing in the Contracts Viewer:
+                Click the plus (+) or minus (-) icons in the Contracts  Toolbar  to increase or decrease the text size of the document you are viewing.
+            
+                Clicking the magnifying glass icon will reset the text back to 100%.
+                
+            Context menuThe Context menu is the main review interface of the Contracts  Viewer. This section describes functions available in the Context menu.Send text to the section heading fieldIf segmentation did not properly extract the section heading and you'd like to correct it, you can send text to the section heading field. You can select text in the viewer and, if it's within a section, send that text to the Section Heading field.To send text to the section heading field:Select text within a section in the text or image viewer.Right click and select the Send to Section Heading button.The section with text you selected will go into a loading state on the left pane and the new section heading will appear.Create sectionsCreating sections from the viewer context menu allows for a more intuitive workflow for reviewers to add sections in the course of their review.
+            
+                You can take advantage of the left pane navigation and search to find the section you'd like to create.
+            To create sections from the Contracts Viewer:
+                Select the text of the section that you would like to create.
+            
+                Click Create New Section.
+            
+                A modal with the text of your section will appear on the right. A section information form will appear on the left.
+            
+                Contracts  will try to auto-populate the section heading and the section type. If it cannot, add that information manually. For section heading, you can select text and Send to Section Heading.
+                
+            
+                Once you enter your section heading and type, click the Save button.
+            
+        The left pane of the viewer will re-load with your newly created section. This section is now a new document in Relativity and is grouped with the parent contract via the Document Parts field.Note: If the text you select to create new section is part of an existing section, Contracts  will auto-adjust the offsets and highlights associated with that existing section so that it will be smaller. If the text you select to create a new section covers an entire existing section, that section will be deleted and replaced with your new section.Remove text from sectionsIf text is at the beginning or end of a section, you can select it in the viewer and remove it from the section. This can be helpful if segmentation mistakenly lumped a page number or footer at the end of a section.To remove text from sections:
+                Select text at the beginning or end of a section in the text or image viewer.
+            
+                Click Remove Text from Section.
+            
+              The section you removed text from will go into a loading state on the left pane.
+            Create definitionsYou can create new definitions that you can later navigate to in the Contracts  Viewer. You can create a new definition that will show up in the Contracts  Definition object list and in the definitions pane of the viewer by selecting text in the viewer and clicking Create New Definition, or by adding a new definition to the definitions object list on a layout.To create definitions by selecting text in the viewer:
+                Select your definition in the contract text and click Create New Definition .
+            
+                Contracts  will try to auto-populate the definition name. If it cannot, you can enter the text of the name manually or select text on the right and click Send to Name.
+ 
+                Click Save and your new definition will appear in the definitions pane to the left. If you refresh the page, it will also show up in the definitions object list on your layout.
+            To create definitions via the definitions object list:Add the Definitions object list to your layout.
+
+                Click Add on the top right of the object list.
+            
+                Type the name of the definition in the Name field.
+            
+                Select the full definition text in the contract and send to field for the Text field.
+            
+                Click Save in the top right of the object list.
+            Create bookmarks and linksYou can create bookmarks in documents and link other text in the document to those bookmarks.For example, you might see text in a contract that says “as referenced in Section 6.2.” You could go to Section 6.2, create a bookmark for it, and then create a link for the “as referenced in Section 6.2” text that will point to your bookmark.You can also link text to sections that Contracts  has found using Segmentation or that you created manually using Section Edit Mode.Add a bookmarkTo add a new bookmark:
+                Select any text in the Contracts  Viewer.
+            
+                Choose the context menu option to Add Bookmark.
+            
+                A bookmark icon will show up in the left margin. Hovering over it will underline your bookmarked text. 
+            Link to a bookmarkTo link text to a bookmark:
+                Select any text in the Contracts  Viewer.
+            
+                Choose the context menu option to Link to Bookmark.
+            
+                A list of all bookmarks will appear.
+            
+                Sort or filter on fields to find your bookmark and click anywhere in the row to select it.
+            
+                Click Save.
+            
+                The text you selected  will appear as a hyperlink. Clicking it will navigate you to the bookmark you selected.
+            Link to a sectionTo link text to a section:
+                Select text.
+            
+                Choose the context menu option to Link to Section.
+            
+                A list of all sections will appear, pre-filtered by the contract you are viewing.
+            
+                Sort or filter on fields to find your section and click anywhere in the row to select it.
+            
+                Click Save.
+            
+                The text you selected will appear as a hyperlink. Clicking it will navigate you to the section you selected.
+				Deleting bookmarks or linksTo delete a bookmark or link:
+                Right click on a bookmark icon or a link.
+            
+                Choose the context menu option to Delete Bookmark or Delete Link.Linking to bookmarks or sections in other documentsUsing the steps above for linking to a bookmark or section, you can link to bookmarks or sections that are in other documents. After doing so, clicking on the link will open a new browser tab and navigate you to the appropriate bookmark or section in the other document.Navigate to exact lines between image and textWhen viewing a document in the Contracts  Viewer, you can navigate between the same line of text in the image and text viewers.From the image viewer:To navigate to text in the text viewer from the image viewer:
+                Right-click any word of text that you're reading.
+            
+                The option to switch to the Text Viewer will appear.
+            
+                Click Go to Text.
+                
+            
+  This will navigate you to the same line in the Text Viewer.
+            From the text viewer:To navigate to text in the image viewer from the text viewer:
+                Right-click any word of text that you're reading.
+            
+                The option to switch to the Image Viewer will appear.
+            
+                Click Go to Image.
+                
+            
+                This will navigate you to the same line in the Image Viewer.
+            Context menu searchContext menu search allows reviewers to use text found in a contract to activate the full search functionality found in the Viewer Toolbar. To enable Context menu search, use one of the following:
+                Highlight your text to activate the Context Menu and click Search.
+            
+                Highlight your text and use your keyboard to hit Ctrl + / B on Windows devices, or Command + F on Apple devices.
+            Coding contractsCoding refers to capturing and storing metadata about a contract or its clauses. You can code a contract by clicking into fields, from send-to-field, or via data point suggestions.Relativity is flexible in creating custom fields with varying format options, so the sky is the limit in terms of the type of data you can extract. Examples of use cases include extracting a lease's renewal date, or determining the risk level of a change-in-control provision from an employment agreement.Supported field types:
+                Fixed Length
+            
+                Long Text
+            
+                Date
+            
+                Whole Number
+            
+                Decimal
+            
+                Currency
+            
+                Yes/No
+            
+                Single Choice
+            
+                Multi Choice
+            
+                Single Object
+            
+                Multiple Object
+            Unsupported field types:FileUserCoding by clicking into fieldsIn the Contracts  Viewer, you can code contracts by clicking into fields. Fields are organized by field type.For all field types populated with any value, hovering over the field will show an X button to the right of the field for clearing out the value.All drop-downs support dynamic searching to find choices.If you select a child field in a nested list, Contracts  will automatically select all its parent fields as well.For information on field types in Relativity, see Fields.Field types and their coding limitationsFieldCoding limitationsFixed-LengthLong TextYou can configure fixed-length text fields with length up to 4,999 characters and long text fields can exceed this. The technical limitation of a long text field is 2 GB. If you attempt to code a text field and you exceed these limitations, you'll receive an error.Date
+                        After selecting a date using the date picker, it will always display in the format of "March 14, 2011". When you save, it will be stored in a format friendly to your SQL server's regional settings.
+                    CurrencyWhole NumberDecimalEnter a whole number or decimal number.Yes/NoSelect Yes or No from the drop-down menu.Single ChoiceEnter a choice, or select from the drop-down menu. The list results will update as you type.Multiple ChoiceEnter a choice, or select from the drop-down menu. The results will update as you type. Coding contracts via send to fieldSend to field is a way to quickly and accurately send text found in a document to a field on a layout via the context menu of the Contracts  Viewer.You intuitively select text and populate a field. Contracts saves the location of your text and links it to the field so that when you click that field in the future, you'll be navigated to the correct location in the document. This is powerful for QC workflows where the QCer would like to know why a reviewer made a certain coding decision.Supported field typesSend to field works for all field types that Contracts  supports for coding documents. For each field type listed in Group 1, the contract text you select to send to field is used to populate the field value and will create a link between the text in the contract and the field.Group 1Fixed-length textLong textDateWhole numberDecimalCurrencyNote: You can configure fixed-length text fields with length up to 4,999 characters. Long text fields can exceed this. The technical limitation of a long text field is 2 GB. If you attempt to code a text field and you exceed these limitations, you'll receive an error.For the field types in Group 2, sending to field will create the link between the text in contract and the field but you must select your values to finish coding the field.Group 2Single/multiple objectSingle/multiple choiceYes/noSend to field from the text viewerTo send text to field from the text viewer:Select text in your document and right click to choose the Send to Field option in the context menu. A confirmation window will appear  where you can edit the selection before sending it to a field. This is helpful if you need to make an adjustment due to an OCR mistake.You can remove hard returns from the text by clicking the Remove Hard Returns toggle. This automatically removes all hard returns in the text so that you don't need to do this manually within the text field.Click on a field on a layout in the right pane of the viewer.If you select a Group 1 field type, you are done and can Save.If you select a Group 2 field type, select a value and Save.After saving, a green underline will appear under your text and a green dot will appear near the field. If you click the field, it will navigate you to the text and the underline will turn orange.Note: Send to field highlights are represented as green blocks in the Highlights minimap.Send to field from the image viewerTo send to field from the image viewer, follow the steps for sending to field from the text viewer. The slide out at the top of the page will include the cropped image of your selection to compare against the extracted text below it. As with the text viewer, you can edit the text before sending to field.Sending to long text fields multiple timesFor long text fields, you can send to one field many times from different locations. For example, if you have an All Assignment Language field and assignment language is scattered throughout the contract, you can send each location to the field.When a long text field already contains text and you send to field again, you'll see a modal to append, prepend, or replace.Prepend—will place your new text before the existing text.Append—will place your new text after the existing text.Replace—will replace existing text with your new text.If you choose to Prepend or Append, hover over the field after you Save to see how many highlight locations are associated with that field. If you click the field multiple times, it will cycle through all highlights.Coding contracts with data point suggestionsAdministrators can configure data point suggestions, which use regular expressions and persistent highlights results to suggest possible values to help reviewers make a coding decision.For an explanation on how to configure data point suggestions, see Set up data points in the viewer.Using data point suggestions, reviewers can expand a field to show suggested values, and send them to the field. This can guide reviewers in the direction of highly relevant data and increase the speed and accuracy of review projects.To code documents using fields linked by data point suggestions:
+                Click the link icon to the right of the field name.
+ 
+                Click on the data point group to expand and view all individual results. The number at the far right of the group name represents the total number of results found.
+ 
+                Clicking a result takes you to its location in the contract. From here, you can assess the relevance to the field.
+            
+                Hover over a result and click the check mark to populate the field with that value. This functions the same as using Send to Field.
+            Coding at the section levelWhen you are coding a document in the Contracts  Viewer, your coding decisions will save on the parent master agreement by default . If you would like a coding decision to save on a section document instead:
+                Right click on a section in the left pane of the Contracts  Viewer and click Code Section.
+            
+                The layout on the right will reload and a header bar will appear above the layout notifying you that you are coding a section. The coding values are now reflected for the section document, not the main document. Make coding decisions on the layout as you normally would. Send-to-field and all other coding capabilities are supported.
+            
+                Once you make your coding decisions, click Save .
+                Note: Saving does not exit section coding mode. In order to exit this mode and begin coding the main document again, click the Exit button in the header bar above the layout.Regular expressionsYou can create and save a new regular expression in the Contracts  Viewer via the data points plane or via the search button and regular expression toggle.To create and save a new regex via the search bar:
+                Click the Search Button in the tool bar of the viewer 
+              
+            
+               and select the Regular Expression toggle on the  search bar. You can also click the + button in the Data Points pane. This will open the search bar with the regular expression toggle activated and Regular Expression Details expanded.Click to expand the Regular Expression Details section.  Enter your regex in the search bar.
+Name your regular expression by entering a Friendly Name.
+            Filter your regular expression's hits by choosing a Saved Search Filter.
+Change the background color of the highlight for your regular expression hits.
+            
+                            
+                Hide the regular expression from the data points pane in the viewer by toggling off Visible in Contracts  Viewer.
+            
+                You can choose to Preview Results on Other Documents.
+            
+Preview Segmentation if you want to use the regular expression to segment documents.
+            
+                If you want the regular expression to be case sensitive, select the Ab icon on the search bar to enable case sensitive search.
+                
+            
+                Click Save. Your regular expression will show up in the data points pane in the left navigation of the viewer.

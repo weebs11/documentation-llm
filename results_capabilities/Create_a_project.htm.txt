@@ -1,0 +1,101 @@
+
+Create a  project
+An aiR for Privilege project defines the documents you want to analyze. Each project has a dedicated set of pipeline steps that when completed will generate document results. Only a single aiR for Privilege project within a workspace can be In Progress at any given time. Complete any in progress projects before starting another project in the same workspace.
+Pre project checklist
+Before creating a project, reference this checklist to make sure you’ve completed all the requirements:
+
+Review all aiR for Privilege Requirements and Considerations.
+ Complete all the required fields under General Settings: Client Brain General field mappings
+Populate all known items:Known Attorneys Known Law Firms 
+Create a saved search containing the documents you want to analyze. See Saved search requirements.
+
+Saved search requirements
+Following are requirements for creating a saved search of documents to analyze:
+
+Make sure none of the documents you’ve selected have already been run through a previous aiR for Privilege project. You can exclude these documents by adding a condition to the saved search of “Privilege Project” is NOT SET.
+The number of documents included in the saved search must not exceed the 500,000 limit.
+			Note:  An increase to the document limit is coming soon.
+No documents included in the saved search should have an “Extracted Text Size in KB” field value greater than the 170KB limit.
+			Note:  An increase to the extracted text size limit is coming soon.
+All documents included in the saved search must have a value in the “Record Type” field. You can exclude documents missing values in this field by adding a condition to the saved search of “Record Type” is SET.
+All documents included in the saved search must contain Extracted Text.
+All the documents included in the saved search must have a value in the “Extracted Text Size in KB” field. You can exclude documents missing values in this field by adding a condition to the saved search of "Extracted Text Size in KB" is SET.
+
+Note: If any of the conditions listed above are not met, Prepare Project Run will fail. Check the Prepare Project Errors to find the relevant solution.
+Saved search considerations
+Consider the following when creating a saved search:
+
+Do you want to include only Responsive documents? 
+Do you want to only include Inclusive documents as defined by email threading? 
+Do you want to only include documents that contain English? See Considerations.
+Do you want to include attachments (Family) or just propagate decisions down to attachments after results populate?
+
+Make sure that the Priv Project document field is not set for documents included in your saved search. Documents ran through earlier projects will cause an error.
+
+
+Creating a project
+To create a new project:
+
+
+Hover over the aiR for Privilege icon on the navigation bar.
+
+
+Select Projects (Priv).
+
+
+Click New Privilege Project.
+
+
+Complete the Privilege Project form.
+
+
+Click Save.
+
+
+Project form fields
+The following fields appear on the Privilege Project form:
+
+
+
+
+
+
+
+
+Field
+Field type
+Required field
+Description
+Notes
+
+
+
+
+
+Name
+
+
+
+Fixed-length text
+Y
+The name of the project connected to the documents included in the project and other artifacts created by the project.
+
+Should be unique to limit confusion. 
+You can change this later if necessary.
+
+
+
+
+Saved Search 
+
+Saved search object
+Y
+This setting determines the documents included in the project upon the running of the Prepare Project pipeline step.
+
+See Saved search requirements.
+
+
+
+
+Note: Documents in the saved search are linked to the project at the start of the Prepare Project pipeline step. Changes made to the saved search after this point are not respected. You can view the documents included in a project using the Privilege Project field on the document object.
+Note: Although you can create a project when another project is In Progress in the same workspace, you will not be able to start it until you complete the other project. Only a single aiR for Privilege project within a workspace can be In Progress at any given time.

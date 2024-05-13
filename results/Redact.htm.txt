@@ -1,0 +1,446 @@
+
+Redact
+With Redact, you can apply markups to imaged documents, spreadsheet files, and PDF files either manually or automatically as part of a project. You determine how a project applies markups by creating rules that establish what words, terms, or regular expressions will receive markups. Once a project has been run, Redact also provides tools to make reviewing markups easy. 
+Finally, running the production preparation project not only prepares spreadsheet and PDF files for production, but you can also retain a copy of each document in the project to make it easy to edit the produced documents in the future.
+Example workflow
+Note: The following workflow has been updated to reflect the current facade redactions release. If you are a RelativityOne Government user, facade redactions has not been released yet and so this workflow is not applicable. To see the classic, Redact workflow that still applies to Government users, visit Classic example workflow.
+While Redact is flexible enough to support different workflows, the following is a typical workflow:
+
+
+Identify a set of spreadsheet or PDF files that require markups.
+
+
+Do any of the following to apply markups to the set of documents:
+
+
+
+Apply markups manually to the documents. To learn more, visit Manual markups with spreadsheet files, Manual markups with PDF files, and Redacting PDF annotations and attachments. 
+
+
+Search for terms in spreadsheet files and apply markups to them. To learn more, visit Using Find and Redact.
+
+
+Apply markups automatically using project automation. To learn more, visit Automated spreadsheet markup project, Automated spreadsheet propagation project, Automated PDF markup project, Automated image markup project, and Automated image template project.
+
+
+
+Review the markups to ensure quality control before production. To learn more, visit Reviewing markups to ensure accuracy.
+
+
+Create a saved search of marked-up documents to assist you in producing them. To learn more, visit Searching for documents with Redact fields.
+
+
+Installing Redact to a workspace
+Optionally, you can create the following Redact fields before beginning the application installation process:
+
+
+Redact Document Warnings—Multiple choice
+
+
+Redact Has Unresolved Markups—Yes/No
+
+
+Redact Needs Quality Review—Yes/No
+
+
+Redact Production Lock—Yes/No
+
+
+To install the Redact application to a workspace of your choice:
+
+
+In the workspace, navigate to the Relativity Applications tab.
+
+
+Select the Select from Application Library option.
+
+
+Click on the Select icon.The Select Library application pop-up displays.
+
+
+Filter the applications and select the RelativityOne Redact application.
+
+
+Click Ok.
+
+
+Optionally, map the application fields to fields in the workspace as desired.
+
+
+Click Import.
+
+
+The Redact application is installed and ready for use in the workspace.
+Note: All Redact permissions, including Redact mass operations, are granted to system and workspace administrators upon the initial workspace install. After installation, it is up to the system and workspace administrators to grant additional Redact permissions to user groups per workspace.
+Before you begin
+If you are going to use Redact with spreadsheet files, we recommend running the Unhide Excel Content mass operation on all Excel documents beforehand to ensure they are prepared for Redact. Otherwise, Excel documents might take longer than normal to have markups applied by Redact projects.
+Note: Workspaces using Blackout 4.7 or above that migrate from Server to RelativityOne are not supported by Redact.
+Redact supported file types
+While occasionally files can be become corrupted and not work in Redact, the following file types are supported:
+
+
+.pdf—any standard
+
+
+.csv
+
+
+
+.xls—Excel 95/5.0 - 2003 workbook.
+
+
+.xlsb—Excel binary workbook.
+
+
+.xlsx—Office Open XML spreadsheet, ML workbook or template file, with or without macros.
+
+
+.xlsm—Excel macro-enabled workbook.
+
+
+.xltx—Excel template.
+
+
+.xltm—Excel macro-enabled template.
+
+
+.xlam—An Excel macro-enabled add-In file that’s used to add new functions to Excel.
+
+
+Permissions
+Redact has permissions that you can give users that determine the actions they can take using this feature. To understand what permissions do and what permissions you may want to assign to users, read thelist of all Redact permissions below and then groups of permissions that you may want to assign to allow a user to perform specific types of workflows. You can navigate to these sections by using the links below:
+
+
+All Redact permissions
+
+
+
+Native PDF Redactions permissions
+
+
+
+Native Excel Redactions permissions
+
+
+
+Image Redactions permissions
+
+
+
+Redact Production Preparation permissions
+
+
+
+Redact Mass Operations permissions
+
+
+
+Markup set permissions
+
+
+
+Permissions for redacting documents outside of Relativity
+
+
+
+When assigning Redact permissions, it is important to note that the Native PDF Redactions​, Native Excel Redactions, and​ Image Redactions permissions let you apply markups across a set of documents or apply markups manually in the Viewer for their respective file types. 
+To understand what happens if these permissions are not granted to a user, a description of what a user cannot do without each permission is included. Without:
+
+
+Native PDF Redactions​—users will not see PDF markup projects or Redact Markup Navigator features in the Viewer for native PDFs without this permission. Additionally, users will not be able to automatically or manually apply markups on native PDF documents.​
+
+
+Native Excel Redactions—users will not see spreadsheet markup projects or spreadsheet propagation projects without this permission. Additionally, users will not see Redact Markup Navigator features in the Viewer for native spreadsheet documents without this permission. They will also not be able to automatically or manually apply markups on native spreadsheet documents.
+
+
+Image Redactions—users will not see the image markup project or image template projects without this permission. Additionally users will not see Redact cards in the Viewer for images without this permission. They ​will also not be able to apply redactions and/or highlights on the Document object.
+
+
+All Redact permissions
+The following permissions are needed to use each part of Redact:
+
+
+
+
+
+
+Object Security
+Tab Visibility
+Mass Operations
+
+
+
+
+
+
+Redact - View, Edit, Delete, AddPlace/Edit Manual RedactionPlace/Edit Manual HighlightClear MarkupsUnhide Excel ContentView Quality Control EntriesAccept/Reject Quality Control EntriesInput Custom Redaction TextNative PDF RedactionsNative Excel RedactionsImage Redactions
+Redact Produced Document - Add, Edit, Delete
+Redact Redacted File - Add, Edit, Delete
+
+
+
+
+RedactRedact ProjectsRedact External MarkupsRedact AuditsRedact ReportsRedact SettingsRedact Redacted File
+
+
+
+
+
+Convert Spreadsheets Markup
+
+
+Revert Native Redactions
+
+
+Unhide Excel Content
+
+
+
+
+
+
+Native PDF Redactions permissions
+To enable a user to complete the following tasks:
+
+
+Create and run PDF markup projects.
+
+
+Manually apply markups on native PDF documents in the Viewer.
+
+
+​QC markups that were applied automatically by Redact projects.
+
+
+Edit the redaction text that has been applied to native PDF documents.
+
+
+Create and run production preparation projects for native PDF documents.
+
+
+Assign them the following permissions:
+
+
+Native PDF Redactions
+
+
+Place/Edit Manual Redaction
+
+
+Place/Edit Manual Highlight
+
+
+Clear Markups
+
+
+Accept/Reject Quality Control Entries
+
+
+Input Custom Redaction Text
+
+
+Redact Produced Document
+
+
+Native Excel Redactions permissions
+To enable a user to complete the following tasks:
+
+
+Create and run spreadsheet markup projects and automated spreadsheet propagation projects.
+
+
+Manually apply markups to native spreadsheet documents in the Viewer.
+
+
+QC markups that were applied automatically by Redact projects.
+
+
+Edit the redaction text that has been applied to native spreadsheet documents.
+
+
+Create and run production preparation projects for native PDF documents.​​
+
+
+Assign them the following permissions:
+
+
+Native Excel Redactions​
+
+
+Place/Edit Manual Redaction​
+
+
+Place/Edit Manual Highlight​
+
+
+Clear Markups​
+
+
+Unhide Excel Content​
+
+
+View Quality Control Panel​
+
+
+Accept/Reject Quality Control Entries​
+
+
+Input Custom Redaction Text​
+
+
+Redact Produced Document
+
+
+Image Redactions permissions
+To enable a user to complete the following tasks:
+
+
+Create and run image markup projects and image template projects.
+
+
+Manually apply markups to imaged documents in the Viewer.
+
+
+QC markups that were applied automatically by Redact projects.
+
+
+Edit the redaction text that has been applied to native imaged documents.
+
+
+Create and run production preparation projects for imaged documents.​
+
+
+Assign them the following permissions:
+
+
+Redact permissions
+
+
+Image Redactions​
+
+
+Place/Edit Manual Redaction​
+
+
+Place/Edit Manual Highlight​
+
+
+View Quality Control Panel​
+
+
+Accept/Reject Quality Control Entries​
+
+
+Input Custom Redaction Text​
+
+
+Redact Produced Document​
+
+
+
+
+Document object permissions
+
+
+Redact Document​
+
+
+Highlight Document​
+
+
+
+
+Redact Production Preparation permissions
+If enabled, the production preparation permissions allow a user to do the following:
+
+
+Redact Produced Document—this permission is required to see the corresponding field when creating and running a production preparation project
+
+
+Redact Redacted File—this permission is assumed, and removing this permission does not impact a user's access to Redact. All RDOs have a corresponding permission by default
+
+
+Redact Mass Operations permissions
+If enabled, the mass operations permissions allow a user to do the following:
+
+
+Convert Spreadsheet Markups—view and use the Convert Spreadsheet Markups mass operation. To learn more, visit Convert Spreadsheet Markups.​
+
+
+
+
+Revert Native Redactions —view and use the Revert Native Redactions mass operation.​
+
+
+
+
+Unhide Excel Content—view and use the Unhide Excel Content mass operation.​
+
+
+Markup set permissions
+Individual markups are securable using permissions. Therefore, a user will be able to take the following actions with each permission that has been enabled for them:
+
+
+View—the ability to view a given markup set.
+
+
+Edit—the ability to edit a given markup set's properties. This does not allow a user to edit an actual markup.​
+
+
+Delete—the ability to delete a given markup set. This does not allow a user to edit an actual markup.
+
+
+Add—the ability to create a new markup set. This does not allow a user to edit an actual markup.
+
+
+Edit Security—the ability to change the permissions for a given markup set.
+
+
+Permissions for redacting documents outside of Relativity
+The following Document object permissions are needed to redact documents outside of Relativity:
+
+
+Upload/Add/Delete Image—a user should be granted these permissions if they are redacting images outside of Relativity.​
+
+
+Replace Document—a user should be granted this permission if they are redacting native documents outside of Relativity. This permission allows users to replace native documents.​
+
+
+Create PDF—a user should be granted this permission if they have a workflow to redact a PDF of a native document.​
+
+
+Local Access (Download, Copy Text)—a user should be granted this permission if they want to download the native document, redact the copied native document, and then re-upload that document to Relativity.
+
+
+Classic example workflow
+Note: The following workflow is only applicable to RelativityOne Government users as the production preparation project has been deprecated in RelativityOne.
+While Redact is flexible enough to support different workflows, the following is a typical workflow:
+
+
+Identify a set of spreadsheet or PDF files that require markups.
+
+
+Do any of the following to apply markups to the set of documents:
+
+
+
+Apply markups manually to the documents. To learn more, visit Manual markups with spreadsheet files, Manual markups with PDF files, and Redacting PDF annotations and attachments. 
+
+
+Search for terms in spreadsheet files and apply markups to them. To learn more, visit Using Find and Redact.
+
+
+Apply markups automatically using project automation. To learn more, visit Automated spreadsheet markup project, Automated spreadsheet propagation project, Automated PDF markup project, Automated image markup project, and Automated image template project.
+
+
+
+Review the markups to ensure quality control before production. To learn more, visit Reviewing markups to ensure accuracy.
+
+
+Create a saved search of marked-up documents to assist you in producing them. To learn more, visit Searching for documents with Redact fields.
+
+
+Create and run a production preparation project to produce the spreadsheet and PDF files. To learn more, visit Automated production preparation project.
+
+
+​​

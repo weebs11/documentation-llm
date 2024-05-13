@@ -1,0 +1,66 @@
+
+
+Processing
+Use Relativity’s processing feature  to ingest raw data directly into your workspace for eventual search, review, and production without the need for an external tool. You can use the various processing objects to create custom processing jobs that handle a wide array of information.
+Note: Your environment has been enabled to dynamically scale your Invariant worker servers dependent on load. Sustained activity is automatically detected by the system, and Relativity will add workers to handle this work. Once the work is done, they will automatically scale back down. This feature is continually being improved to be smarter about when we add workers and how many we add.
+Some of the primary goals of processing are to:
+
+Discern, at an item level, exactly what data is found in a certain source.
+Record all item-level metadata as it existed prior to processing.
+Enable defensible reduction of data by selecting only items that are appropriate to move forward to review.
+
+Note: There are no specific security requirements, but if a user needs to be restricted from running processing, then permissions need to be revoked to all processing objects.
+See these related sections:
+
+
+Supported file types
+
+Entities
+
+Password bank
+
+Processing profiles
+
+Processing sets
+
+Inventory
+
+Discovering files
+
+Publishing files
+
+Processing error overview
+
+Processing error resolution
+
+Reports
+
+Deduplication considerations
+
+Processing duplication workflow
+
+
+
+
+For a list of changes made to processing per monthly product update, see the Release Notes.
+Read a processing scenario
+
+
+Using processing
+You are a litigation support specialist, and the lead attorney hands you a CD containing data on a key custodian. There are about 200,000 files on the disc, and he is only looking for files from an 18-month period.
+You use Relativity's processing feature to bring in that custodian’s data to Relativity and then to filter it based on what the lead attorney is looking for in this case. To do this, you first save the files into a folder and create a new custodian, Joe Smith. 
+Then you create a new processing set, to which you add a data source that has only Joe Smith associated with it. This data source includes a source path that is the folder in which you saved the custodian's files. 
+Once you save the processing set, you can inventory that custodian's data and eliminate all the files that fall outside of the 18-month period you are dealing with. Once you narrow down the data set to the most relevant files, you can discover them and give the lead attorney a reviewable set of documents.
+
+
+
+Basic processing workflow
+The following  steps depict a typical processing workflow that uses all available processing objects and phases. Note that each user's workflow may vary. You may not be required to follow all of these steps for every processing job you run.
+
+Create a Processing Set Entities can be created on the fly, in advance, or automatically through imports or connections to HR systems.Processing Profiles carry over from template workspaces.If necessary, create new Password Bank Entries with passwords for any password-protected files to be processed.
+(Optional) Inventory filesInventoried files can be filtered down based on several metadata attributes prior to publish.Reports can be run to understand and communicate the files culled from publish.
+
+
+Discover files and PublishPost publish – view, ignore, or retry any errors that occurred during any phase of the processing job. If needed, republish the files.
+                    
+

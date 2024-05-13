@@ -1,0 +1,91 @@
+
+Running Prioritized Review
+The Prioritized Review queue serves documents that are most likely to be coded on the positive choice (such as Relevant) with a small set of documents included for index health. The documents included for index health are selected by the system to give the model a broader range of training documents. Prioritized Review also has the option of turning on family review, which lets you leverage the efficiency of Active Learning while letting you review and code all documents in a family together.
+Note: Family-based review is optimized for email and attachments. Textual near duplicates and threads aren't supported. 
+Documents served in Prioritized Review
+The Prioritized Review queue serves up a mixture of documents: 10% of documents are randomly selected; 20% of documents are chosen for scores "in the middle" of the review (in the 40 to 60 range) for index health; and the final 70% are the highest-ranking uncoded documents remaining in the project. This means for every 200 documents, around 140 (70%) are chosen for being highly ranked. If you wanted to calculate the relevance rate manually, you would take Number of Highest Ranked Coded [Positive Choice] / Number of Highest Ranked. You can view these values in the Prioritized Review queue review summary on the Review Statistics tab. For more information, see Review Statistics.
+For information on excluding index health documents and reviewing only high-ranked documents, see Turning off index health documents.
+Note: If you start the Prioritized Review queue before a model build occurs, the queue initially serves up random documents because no scores are available for documents until a model build has completed. 
+Family-based review considerations
+Prioritized Review gives you the option to review family documents (optimized for email and attachments) together. When you enable Include Family, Active Learning serves documents with their family documents to reviewers. All family documents included in the index are served to the reviewer, including documents that were previously coded. 
+  There are several special considerations to keep in mind as this setting is not needed for every case. Review the following special considerations prior to starting your review.
+Project setup considerations 
+In order for family documents to be served together in Prioritized Review, the parent documents and their family must all be added to the classification index. This includes documents without text.
+Note: Textually empty documents will receive a rank at 50 (visible on the histogram), but they must be included in order to be served up to reviewers.
+Prioritized Review considerations
+
+Family-based review is only available for new projects or Prioritized Review queues that have never been started.
+Once you click Start Review, you can't edit the Include Family settings. This means you can't turn family-based review on or off mid-project.
+
+If you have any families with more than 100 documents, we recommend removing those families from the classification index and reviewing them manually. Large families can slow down the review process.
+
+
+Reviewer considerations
+
+Family review is optimized for email and attachments, and documents are sorted in the queue by control number. Using a relational field other than the family group relational field, such as the email thread group or textual near duplicate identification group fields can cause undesirable results. 
+ When family-based review is enabled and the document  served to a reviewer is part of a family, the documents are presented to the reviewer in ascending control number order.Upon requesting a document, the document with the lowest control number is served first, which is typically the parent document of the family When a reviewer clicks Save and Next, the next document in the family is served, letting the reviewer review family documents in an intuitive order.This means the first document you see may not necessarily be the document most likely to be relevant; you could see a family document first.Note that index health and randomly selected documents are also served with their families when family-based review is enabled. 
+
+Reviewers must code documents based on the so-called "four corners" rule. This means that a document should be judged relevant or not relevant based solely on the extracted text of that document only.  Documents that are relevant based on family members should not be coded relevant on the Active Learning review field. Although individual anomalies will not hurt the algorithm, too many in aggregate could cause the model to perform worse. For more information on reviewer protocol and best practices, see Best practices for Active Learning review.
+
+A document and its family are assigned to a single reviewer. If a reviewer is removed from the project after a set of family documents have been assigned and reviewed, you may need to manually find those unreviewed "abandoned" family documents.  Use the following saved searches to find all unreviewed "abandoned" family documents:
+Search 1Conditions: <Project Name> Reviewed On is setRelated items: + FamilyFields:<Review field><Project Name>::Prioritized Review<Project Name> Reviewed On<Project Name> Reviewers::User<Family Field>Search 2Conditions: (Saved Search) document is in <Saved Search 1>AND<Project Name> Reviewed On is not setNote: To find unreviewed documents for a specific user, <Project Name> Reviewers::User equals <specific user> in place of <Project Name> Reviewed On is not set. Fields:<Family Field>
+
+Starting the Prioritized Review queue
+To start the Prioritized Review queue:
+
+Add reviewers to the queue.Note: We recommend no more than 150 concurrent reviewers per project. Concurrent reviewers are defined as reviewers making coding decisions in an Active Learning queue at the same time. There is no limit to how many reviewers you can add to a queue as long as the number of concurrent reviewers remains at 150 or fewer.Click Add Reviewers in the queue modal.Find and select an individual reviewer, or type to enter a reviewer name. You can also click All Users to select every user in the group. Click the green check mark to save your changes.Click the red X to cancel reviewer changes.
+If you want to review family documents, toggle the Include Family field. For more information, see Family-based review considerations. Note: Once you click Start Review, you can't change your family review selection. Next to Family Field, select the relational field you want to review from the drop-down. This drop-down includes the friendly name of all relational fields in the workspace. Note that family review is optimized for email and attachments, which is typically called Group Identifier or Family Identifier.
+Click Start Prioritized Review.
+
+The next time an active reviewer accesses the view for the Active Learning project, they see a blue banner which indicates they have access to the queue. For more information, see Reviewer access.
+You can see the following items in the Prioritized Review queue modal:
+
+Coded - the number of documents coded and skipped in the Prioritized Review queue. 
+Active Reviewers - the number of reviewers added to the project. 
+
+Admins can  pause the review at any point in the project by clicking the Pause Prioritized Review button on the queue modal. Once the review is paused, the access point on the document view is disabled. You can restart the review at any time. Documents coded on the  review field while the review is paused are included the next time the model rebuilds.
+Adding new documents
+If you want to add or remove documents from your Active Learning project after review has begun, complete the following:
+
+Click Pause Review to stop the review queue.
+Add or remove documents to the saved search used as the data source for the classification index. Be sure to return only the extracted text in your saved search.
+Navigate to the Analytics indexes tab, and then click the classification index used to create your Active Learning project.
+On the index console, click Run, then Incremental.
+Once the index finishes populating, return to your review queue and click Start Review.
+
+Notes: 
+ All documents, including the newly added documents, are given a rank score after the incremental population.
+The following explains the way Active Learning handles documents removed from the project:Documents in a queue that have been coded and then deleted from the workspace are marked as skipped.  If the document was manually coded, then deleted, the manually coded statistics update to the correct values.When the index is repopulated, deleted documents and documents removed from the search are removed from the model. After repopulation, the Project Size statistics and the count of coded documents are updated.If Project Validation is in progress when an index is repopulated, the Project Validation is canceled.
+
+If one of the new documents is part of a group of family documents that was already reviewed in Active Learning, the document can be reviewed by any reviewer. The other previously reviewed family documents won't be served again with this new document.
+Turning off index health documents
+For large projects and projects with high richness, the Active Learning engine may stabilize and identify consistently relevant documents long before the project has finished. To speed up the later part of these projects, you can exclude index health documents from appearing in the review queue.
+Pros and cons of excluding index health documents
+Choosing to turn off index health documents has the following effects:
+
+
+It raises the percentage of highly ranked documents served to your reviewers to 100%, instead of 70%.
+
+
+It removes documents that would have been served to your reviewers for the purpose of improving predictions (the 10% random documents and 20% with mid-range scores).
+
+
+This means that reviewers will go through the highly ranked documents more quickly, but the engine's relevance predictions will not improve as much as they would with the index health documents turned on. The Active Learning engine will focus on topics that have already been identified as relevant.
+We recommend keeping index health documents turned on for the early stages of a project. This allows the predictions to stabilize and identify a broader range of relevant topics, which prevents the engine from focusing only on a limited subject area.
+Changing the index health documents setting
+To turn index health documents off, navigate to the Project Home tab and do the following:
+
+
+Click the Project Settings gear  icon  in the top-right corner.
+
+
+Click the edit  icon next to the header.
+
+
+Change Include Index Health in Prioritized Review to No.
+
+
+Click Save. This change takes effect immediately, and you do not need to pause or restart the queue.
+
+
+This setting is set to Yes (Include) by default. You can change this setting at any point in the project. For more information, see Viewing project settings and errors.

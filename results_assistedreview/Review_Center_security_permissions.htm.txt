@@ -1,0 +1,162 @@
+
+Review Center security permissions
+This page contains information on the security permissions required for creating and interacting with the Review Center application. For more information on setting permissions, see Workspace security.
+Creating a Review Center template or queue
+To create a Review Center template or queue, you need the following permissions: 
+
+
+
+
+
+Object Security
+Tab Visibility 
+
+
+
+
+
+
+Queue Refresh Trigger - View, Edit, Add
+Review Center Queue - View, Edit, Add
+Workspace - Edit Security
+
+
+
+
+Review Library
+Review Center
+
+
+
+
+
+Editing and controlling Review Center queues
+To edit an existing Review Center queue and use dashboard controls such as Prepare or Start, you need the following permissions: 
+
+
+
+
+
+Object Security
+Tab Visibility 
+
+
+
+
+
+
+Queue Refresh Trigger - View, Edit, Add
+Review Center Queue - View, Edit
+Workspace - Edit Security
+
+
+
+
+Review Center
+
+
+
+
+
+Note: The Workspace - Edit Security permission is only required to edit the assigned reviewer group.
+Deleting a Review Center template or queue
+To delete a Review Center template or queue, you need the following permissions: 
+
+
+
+
+
+
+Object Security
+Tab Visibility 
+Mass Operation
+
+
+
+
+
+
+Queue Refresh Trigger - View, Edit, Add
+Review Center Queue - View, Edit, Delete
+
+
+
+
+Review Library
+
+
+
+
+
+Delete
+
+
+
+
+
+
+Viewing the Review Center dashboard
+To view the Review Center dashboard, you need the following permissions: 
+
+
+
+
+
+Object Security
+Tab Visibility 
+
+
+
+
+
+
+Review Center Queue - View
+
+
+
+
+Review Center
+
+
+
+
+
+If you want a user group to only see specific queues on the dashboard, you can restrict a queue using item-level security on the Review Library tab. For more information, see Levels of Security in Relativity.
+Reviewer permissions
+A reviewer group accessing a Review Center queue and coding documents must have the following permissions: 
+
+
+
+
+
+Object Security
+Tab Visibility 
+
+
+
+
+
+
+Document - View, Edit 
+Review Center Queue - View
+
+
+
+
+Review Queues
+
+
+
+
+
+For more information on assigning reviewer groups to a queue, see:
+
+
+Setting up the reviewer group
+
+
+
+Creating a new queue from a template
+
+
+

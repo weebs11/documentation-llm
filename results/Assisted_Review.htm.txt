@@ -1,0 +1,153 @@
+
+
+Assisted Review
+ Relativity's assisted review tools help you categorize your documents and automate the review process while minimizing the time your review team would otherwise spend coding irrelevant documents in your document set.
+Review Center gives you the option of using customizable saved searches to serve up documents to reviewers, or using AI-powered queues that predict which documents are most relevant.
+Sample Review Center scenario:
+
+
+You’re a litigation support specialist at a Relativity service provider, and the legal department of a large financial services company reaches out to you. The federal government is demanding that documents belonging to three key custodians be turned over quickly as part of an ongoing investigation.
+
+
+This company is in a serious time crunch because the government agency’s attorneys have unexpectedly requested documents from a fourth custodian, whom they believe is crucial to the case. This doubles the size of the data they’re required to review and produce, so they turn to you. You turn to Review Center.
+
+
+You create a saved search that includes the data of all four custodians, then use that as the basis for a prioritized review queue. The queue includes documents that were previously coded as relevant or non-relevant. Review Center’s AI classifier analyzes the previous coding decisions, then serves up documents to reviewers based on its relevance predictions.
+ 
+
+As the review continues, the AI classifier grows better and better at predicting which documents are relevant. In the end, you find that reviewing less than 15% of the total documents still produced accurate results. The financial services company you’re assisting can now easily comply with the federal government and give them what they need, despite the limited time frame. 
+
+
+
+Note: Sample-based learning has been removed from Assisted Review and replaced with Review Center and Active Learning. To view reports for old sample-based learning projects in your workspace, see Report sample-based statistics.
+
+
+
+
+
+
+
+Review Center
+Review Center
+
+Creating a Review Center queue
+
+Monitoring a Review Center queue
+
+Reviewing documents using Review Center
+
+Review validation
+
+Review validation statistics
+
+Review Center security permissions
+
+
+
+ Active Learning
+Active Learning
+
+Creating an Active Learning project
+
+
+
+Security permissions
+
+
+
+Reviewer access
+
+
+
+Choosing an Active Learning review queue
+
+
+
+Running Prioritized Review
+
+
+
+Running Coverage Review
+
+
+
+Best practices for Active Learning review
+
+Monitoring an Active Learning project
+
+Project Validation and Elusion Testing
+
+
+
+Project Validation statistics
+
+
+
+Reusing trained models
+
+Review statistics
+
+Active Learning performance baselines
+
+ 
+
+
+aiR for Review
+aiR for Review
+
+Running aiR for Review
+
+Monitoring aiR for Review jobs
+
+aiR for Review results
+
+aiR for Review security permissions
+
+Note: aiR for Review is currently in limited release. For information about the general release, contact your account representative.
+
+
+
+
+On-demand training
+Getting Started with Review Center
+
+Active Learning: No Batches Required
+
+Project Validation Strategies in Active Learning
+
+Getting the Most out of Active Learning: Workflows and Use Cases
+
+Active Learning Ask the Expert: Expanding your Options with Family-Based Review
+
+Your Active Learning Questions Answered
+
+
+
+Knowledge base articles
+Review Center compared to Active Learning
+
+Review Center - Multiple queues powered by the same classifier
+
+How to control what fields appear on the Documents card in the Review Center Viewer
+
+Using Review Center for Batching
+
+Workflows for Applying aiR for Review
+
+aiR for Review example project
+
+aiR for Review Prompt Writing Best Practices
+
+
+
+White papers
+A Focus on Security and Privacy in Relativity’s Approach to Generative AI
+
+Active Learning in Technology-Assisted Review
+
+Understanding the Components of Assisted Review and the Workflow That Ties Them Together
+
+
+
+
+

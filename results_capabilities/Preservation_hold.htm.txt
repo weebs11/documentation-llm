@@ -1,0 +1,166 @@
+
+Preservation hold (Legacy)
+Use the new Preservation in-place application for any new preservation holds. For more information, see Preservation in-place.
+With the preserve-in-place feature, you can conserve Google Vault data and Microsoft 365 data including Exchange mailboxes, OneDrive files, Skype for business conversations, and SharePoint directories. A preservation hold ensures that original copies, prior to any edits or deletions, of emails and files are preserved in the Google Vault or a Microsoft 365 Preservation Library.  The Preservation Library ensures that there is no loss of data through accidental or willful deletion or editing of items under a preservation hold.
+A preservation hold preserves a custodian's data in:
+
+Exchange mailboxes
+OneDrive files
+Skype for business conversations
+SharePoint directories
+Google Vault
+
+ Preservation holds are transparent to custodians. For more information on the Microsoft Purview, see Microsoft's documentation for Microsoft Purview compliance portal.
+Note: A custodian can be active in multiple projects and can be on multiple preservation holds. If one preservation hold is removed, another could still be in place. When a preservation hold is removed in Relativity, only that one preservation hold is removed in Microsoft Purview compliance portal.  
+Watch the Legal Hold training video for more information.
+
+
+Permissions
+Enable the Preservation Hold security permission to add, edit, or remove  Preservation Holds within projects. For more information on security permissions, see Legal Hold Application Permissions.
+Prerequisites
+Before creating a Preservation Hold, add a Preservation Hold Setting. Fill out the information for the Preservation Hold Setting to create a data source in which preservation holds will be created. To learn more about Preservation Hold Settings, see Adding preservation hold settings.
+Licenses
+This licensing applies to individual custodian accounts. To preserve custodian data in Microsoft 365, users must meet one of the following licensing requirements. 
+
+
+Microsoft 365 E5/G5/A5/A3/A1
+
+
+Office 365 E5/A5/A3/A1
+
+
+Microsoft 365 E5/F5 Compliance
+
+
+Microsoft 365 E5/G5/A5 Insider Risk Management
+
+
+Microsoft 365 F5 Security + Compliance
+
+
+Office 365 E3 + Enterprise Mobility & Security E3 + E5 Compliance
+
+
+Office 365 E3 + Enterprise Mobility & Security E3 + Insider Risk Management
+
+
+Office 365 Advanced Compliance add-on (no longer available for new subscriptions)
+
+
+Considerations
+Before adding a preservation, consider the following list. If a data source is not listed, there are no considerations or limitations.
+Microsoft 365
+
+
+If you want to preserve data in multiple tenants, you must create two separate legal hold projects. One project for each tenant.
+You must have a user account with modern authentication to be able to preserve in Microsoft. 
+
+With modern authentication, you must have an Exchange Administrator to configure preservation holds.
+
+The service account, URL, and other items related to Relativity’s implementation of preservation cannot be made more secure than what is currently available.
+
+Microsoft OneDrive
+
+
+If you require multi-region preservation of OneDrive data, you will not be able to preserve SharePoint data in the same legal hold project
+
+Microsoft Outlook
+
+
+Legal Hold accepts one email for one employee at a time. Legal Hold does not set accept multiple email addresses for one employee.
+
+Microsoft SharePoint
+
+
+You will need to preserve SharePoint data in a different workspace if you require multi-region preservation of OneDrive data.
+The configuration on your SharePoint site can cause performance limitations. The larger the SharePoint footprint, the less performant preservation is.
+
+Microsoft Teams
+
+
+You can preserve data in one-on-one chats only. Teams Channels, group chats, are not preserved because channels are not tied to individual custodian mailboxes. Microsoft stores Teams Channel data in Sharepoint. They are stored in Group Mailboxes.
+
+
+You can preserve Teams Channel attachments if you know which SharePoint site they reside on.
+
+
+You must target OneDrive to collect all Teams data. Microsoft preserves Teams messages in a custodian’s Outlook mailbox. Microsoft preserves Teams message attachments  in a custodian’s OneDrive.
+
+Adding a preservation hold to a project
+In the Projects edit layout, there is a Preservation Case field. Enter the created Preservation Hold Setting to the Preservation Case. 
+To create a preservation case:
+
+Click the Add link next to Preservation Case.
+Enter a name into the Preservation Case Name field in the Preservation Case pop-up menu. Use alphanumeric characters only. For more information, see Adding a preservation case.
+Click the Preservation Sources button.In the Preservation Sources pop-up menu, click the check boxes next to the necessary Preservation Hold Settings.Click Add.Click Save.
+Fill out rest of the Preservation Case fields. For more information on the Preservation Case fields, see Adding a preservation case. 
+Click Save.
+
+Adding a preservation case
+Add a Preservation Case to the project to specify the data sources for the preservation holds.
+
+
+
+
+Name—the name of the Preservation Case. Use alphanumeric characters only.
+Preservation Source—the data sources created in Preservation Hold Settings for the Preservation Hold. For more information on Preservation Hold Settings, see Adding preservation hold settings using Modern Authentication (Legacy). 
+Retry Count—the number of times Legal Hold will retry to correct a failed Preservation Hold process.
+Retry Interval (Minutes)—the number of minutes between each retry.
+Monitoring Interval (Hours)—the number of hours between each time Legal Hold monitors Microsoft 365 for deletions/disabling or edits to filter criteria made within Microsoft Purview compliance portal. Default is 0 hours, which means no monitoring by default.
+Start Date—(optional) a preservation filter criteria that preserves data starting with this date. If no date is entered, all data will be preserved.
+End Date—(optional) a preservation filter criteria that preserves data ending with this date. If no date is entered, all data will be preserved.
+
+
+Auto-discover targets—the option to catalog all the SharePoint sites that custodians on the legal hold have access to in your Microsoft 365 environment. Once SharePoint sites are discovered, you will need to proactively select the sites to place on preservation hold using the Select Targets Project console button. 
+
+
+Note: If you do not know if you need to preserve SharePoint data immediately, do not enable this field as it can lead to throttling of Exchange Mailbox and OneDrive holds. You can manually start the process from the Project console. For more information, see Manage preservation targets.
+
+
+Re-discover wait window (hours)—the number of hours between each rediscovery process. 
+
+Preservation hold status
+After running a preservation hold, a status of the hold  available in the Preservation Hold section on the Projects tab.  Any changes made to the preservation is reflected within an hour. For a list of the statuses available, see below:
+
+Pending—Relativity is creating the preservation hold in Microsoft 365.
+Pending - Retry—Relativity encountered a problem creating the hold, now retrying.
+Pending - Error—all retries failed and Relativity is unable to create the preservation hold.
+On Hold—Relativity successfully placed the custodian data source on a preservation hold.
+Releasing—Relativity is in the process of deleting or disabling the hold in Microsoft 365.
+Releasing - Retry—Relativity encountered a problem deleting or disabling the hold and is retrying to create the preservation hold.
+Releasing - Error—all retries failed and Relativity is unable to delete or disable the preservation hold.
+Off Hold—the custodian data source is no longer on a preservation hold.
+Externally Modified—a user or some process outside of Relativity altered the filter criteria affecting the case or holds. For example, a user in Microsoft Purview compliance portal.
+Externally Removed—a user or some process outside of Relativity deleted or disabled the preservation hold. For example, a user in Microsoft Purview compliance portal.
+
+Preservation target status
+The Preservation Target Status tab shares the progress of the target discovery for each custodian. The discovery process is the inventorying of the sites each custodian has access to. This status indicates where in the discovery process the targets are. The statuses are:
+
+Scheduled To Be Discovered—the preservation targets will be discovered after other targets have completed.
+Discovered—the preservation targets have been discovered. Once complete each custodian assigned to the project, you can view a list of all SharePoint sites each custodian has access to and select the target you want to preserve by using the Project console. For more information, see Selecting SharePoint targets.
+Error—the preservation targets have not been discovered due to an error. For information on fixing preservation target errors, click the Discover Targets button in the Project Console. For information, see Project console. 
+
+Manage preservation targets
+Manage SharePoint preservation targets after they have been discovered. The following buttons are available in the Project console:
+
+Discover Targets—manually start the SharePoint preservation target discovery process for the project's custodians. Can use to retry errors. Refer to Setting up SharePoint Discovery for preservation holds (Legacy) for additional information.
+Select Targets—select Custodian's SharePoint target sites to be placed on a preservation hold. Access to the button  when the custodian discovery status is Discovered. To learn how to select targets, follow the steps in Selecting SharePoint targets.
+
+The length of the SharePoint targets discovery process in your environment depends on the size of your Microsoft 365 environment. Size depends on the number of users  and how many custodians are on hold.
+Selecting SharePoint targets
+After discovering SharePoint targets, you need to select targets based on SharePoint URLs associated to a custodian. 
+To select targets, follow the steps below.
+
+
+Click the Select Targets console button. 
+
+
+In the Select window, select the check boxes next to the custodian name and target URL you want to put on a preservation hold.
+
+
+Use the arrows to select the custodians.
+
+
+Click Select Targets.
+
+

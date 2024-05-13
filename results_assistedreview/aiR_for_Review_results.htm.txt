@@ -1,0 +1,591 @@
+
+aiR for Review results
+When aiR for Review analyzes documents, it makes predictions about the relevance of documents to different topics or issues. If it predicts that a document is relevant or relates to an issue, it includes a written justification of that prediction, as well as a counterargument and in-text citations. You can view these predictions, citations, and justifications either from the Viewer, or from a custom document view.
+Note: aiR for Review is currently in limited release. For information about the general release, contact your account representative.
+See these related pages:
+
+aiR for Review
+
+Running aiR for Review
+
+Monitoring aiR for Review jobs
+
+aiR for Review security permissions
+
+
+How aiR for Review results work
+When aiR for Review finishes its analysis, it returns a prediction about how each document should be categorized, as well as its reasons for that prediction. This analysis has several parts:
+
+
+Rank—a numerical rank that indicates how strongly relevant the document is or how well it matches the predicted issue.
+
+
+Prediction—the relevance, key, or issue label that aiR predicts should apply to the document.
+
+
+Rationale—an explanation of why aiR chose this rank and prediction.
+
+
+Considerations—a counterargument explaining why the rationale might possibly be wrong.
+
+
+Citations—excerpts from the document that support the prediction and rationale.
+
+
+In general, citations are left empty for non-relevant documents and documents that don't match an issue. However, aiR occasionally provides a citation for low-ranking documents if it helps to clarify why it was marked non-relevant. For example, if aiR is searching for changes of venue, it might cite an email that ends with "Hang on, gotta run, more later" as worth noting, even though it understands that’s not a true change of venue request.
+Predictions versus document coding
+Even though aiR refers to the relevance, key, and issue fields during its analysis, it does not actually write to these fields. All of aiR's results are stored in aiR-specific fields such as the Prediction field. We recommend using these aiR fields for reference and reserving the actual relevance, key, and issue fields for human coding.
+For ideas on how to integrate aiR for Review results into a larger review workflow, see Using aiR for Review with Review Center.
+Variability of results
+Because of how large language models work, results can vary slightly from run to run. aiR's results for an individual document can potentially change even when given the same set of inputs. However, this is relatively rare; from our testing, it happens about 4% of the time.
+Understanding document ranks
+aiR ranks documents from 0 to 4 according to how relevant they are or how well they match an issue. The higher the number, the more relevant the document is predicted to be. In addition, aiR assigns a rank of -1 to any errored documents. Because these were not properly analyzed, they cannot receive a normal rank.
+The aiR for Review ranks are:
+
+
+
+
+
+Rank
+Description
+
+
+
+
+-1
+The document either encountered an error or could not be analyzed. For more information, see How document errors are handled.
+
+
+0 
+The document is “junk” data such as system files or sets of random characters.
+
+
+1
+The document is predicted not relevant. aiR did not find any evidence that it relates to the case or issue.
+
+
+2
+The document is predicted borderline relevant. aiR found some content that might relate to the case or issue. It usually has citations.
+
+
+3
+The document is predicted relevant to the issue. Citations show the relevant text.
+
+
+4
+The document is predicted very relevant to the issue. aiR found direct, strong evidence that the content relates to the case or issue. Citations show the relevant text.
+
+
+
+Viewing results for individual documents
+From the Viewer, you can see the aiR for Review results for each individual document. Predictions show up in the left-hand pane, and all citations are automatically highlighted.
+To view a document's aiR for Review results, click on the aiR for Review Analysis icon () to expand the pane. The aiR for Review Analysis pane displays the following:
+
+
+Analysis Name
+
+
+Prediction
+
+
+Rationale and Considerations
+
+
+Citation
+
+
+Notes: 
+If you run a new job on documents that were part of a previous job, you may temporarily see both sets of results linked to those documents. The old results will be unlinked after the new job is complete.
+
+To avoid seeing doubled results, clear the previous result set using the aiR for Review Jobs tab.
+
+
+Citations and highlighting
+To jump to a specific citation, click the citation card. You can also toggle highlighting on or off by clicking the toggle at the top of the aiR for Review Analysis pane.
+The highlight colors depend on the type of citation:
+
+
+Relevance citation—orange.
+
+
+Key Document citation—purple.
+
+
+Issue citation—color set chosen in the Color Map application. For more information, see Changing the color associated with a coding choice.
+
+
+If the same passage is cited by two types of results, the highlight blends their colors.
+Adding aiR for Review fields to layouts
+Because of how aiR for Review results fields are structured, you cannot add them directly to layouts. If the highlighting is not enough, you can add an object list to the layout that shows all linked results. For more information, see Adding and editing an object list.
+Viewing results for groups of documents
+You can view and compare aiR for Review results for large groups of documents by adding their fields to document views and saved searches.
+Each field name is formatted as aiR <review type> Analysis::<fieldname>. For example, the Prediction field for a Relevance analysis is called aiR Relevance Analysis::Prediction.
+For a full field list, see aiR for Review results fields.
+Notes: 
+If you run a new job on documents that were part of a previous job, you may temporarily see both sets of results linked to those documents. The old results will be unlinked after the new job is complete.
+
+To avoid seeing doubled results, clear the previous result set using the aiR for Review Jobs tab.
+
+
+Creating an aiR for Review results view
+When creating a view for aiR for Review results, we recommend including these fields:
+
+
+Edit
+
+
+Control Number
+
+
+<Review Field>
+
+
+aiR <Review Type> Analysis::Rank
+
+
+aiR <Review Type> Analysis::Prediction
+
+
+Because the Rationale, Citation, and Considerations fields have larger blocks of text, those tend to be less helpful for comparing many documents. However, you can also add those if desired.
+For a full field list, see aiR for Review results fields.
+Filtering and sorting aiR for Review results
+Documents have a one-to-many relationship with the aiR for Review's results fields. For example, a single document might be linked to five Issue results. This creates some limitations when sorting and filtering results:
+
+
+Filter one column at a time in the Document list. Combining filters may include more results than you expect.
+
+
+If you need to filter by more than one field at a time, we recommend using search conditions instead.
+
+
+You can add these fields to views and widgets, but you cannot sort the view or the widget by these fields.
+
+
+aiR for Review results fields
+The results of every aiR for Review analysis are stored as part of an analysis object. Each of the three result types has its own object type to match:
+
+
+aiR Relevance Analysis
+
+
+aiR Key Analysis
+
+
+aiR Issue Analysis
+
+
+aiR also links the results to each of the documents that were analyzed. These linked fields, called reflected fields, update to link to the newest results every time the document is analyzed. However, aiR keeps a record of all previous job results, and you can link the documents to a different job at any time. For more information, see Managing jobs and document linking.
+The reflected fields are the most useful for reviewing analysis results. These are formatted as aiR <review type> Analysis::<fieldname>. For example, the Prediction field for a Relevance analysis is called aiR Relevance Analysis::Prediction.
+aiR Relevance Analysis fields
+The fields for aiR Relevance Analysis are:
+
+
+
+
+
+
+Field name
+Field type
+Description
+
+
+
+
+
+Name
+
+
+Fixed-length Text
+
+
+The name of this specific result. This formatted as <Document Artifact ID>_<Job ID>.
+
+
+
+
+Job ID
+
+
+Fixed-length Text
+
+
+The unique ID of the job this result came from.
+
+
+
+Rank
+Whole Number
+Numerical rank indicating how strongly relevant the document is. For more information, see Understanding document ranks.
+
+
+Document
+Multiple Object
+The Control Number of the document this result is linked to. If the result is not currently linked to any documents, this field is blank.
+
+
+Prediction
+Fixed-length Text
+aiR's prediction of whether this qualifies as a relevant document.
+
+
+Rationale
+Fixed-length Text
+An explanation of why aiR chose this rank and prediction.
+
+
+Considerations
+Fixed-length Text
+A counterargument explaining why the rationale might possibly be wrong.
+
+
+Citation 1
+Fixed-length Text
+Excerpt from the document that supports the prediction and rationale. This may be blank for some documents.
+
+
+Citation 2
+Fixed-length Text
+Second excerpt from the document that supports the prediction and rationale. This may be blank for some documents.
+
+
+Citation 3
+Fixed-length Text
+Third excerpt from the document that supports the prediction and rationale. This may be blank for some documents.
+
+
+Citation 4
+Fixed-length Text
+Fourth excerpt from the document that supports the prediction and rationale. This may be blank for some documents.
+
+
+Citation 5
+Fixed-length Text
+Fifth excerpt from the document that supports the prediction and rationale. This may be blank for some documents.
+
+
+Error Details
+Fixed-length Text
+If the document encountered an error, the error message displays here. For an error list, see How document errors are handled.
+
+
+
+aiR Issues Analysis fields
+The fields for aiR Issues Analysis are:
+
+
+
+
+
+
+Field name
+Field type
+Description
+
+
+
+
+
+Name
+
+
+Fixed-length Text
+
+
+The name of this specific result. This formatted as <Document ID>_<Job ID>.
+
+
+
+
+Job ID
+
+
+Fixed-length Text
+
+
+The unique ID of the job this result came from.
+
+
+
+
+Choice Analyzed
+
+
+Fixed Text
+
+
+The name of the issue choice being analyzed for this result.
+
+
+
+
+Choice Analyzed ID
+
+
+Whole Number
+
+
+The Artifact ID of the issue choice being analyzed for this
+ result.
+
+
+
+
+Document
+
+
+Multiple Object
+
+
+The Control Number of the document this result is linked to. If the result is not currently linked to any documents, this field is blank.
+
+
+
+
+Rank
+
+
+Whole Number
+
+
+Numerical rank indicating how well the document matches an issue. For more information, see Understanding document ranks.
+
+
+
+
+Prediction
+
+
+Fixed-length Text
+
+
+aiR's predicted issue choice for this document.
+
+
+
+Rationale
+Fixed-length Text
+An explanation of why aiR chose this rank and prediction.
+
+
+Considerations
+Fixed-length Text
+A counterargument explaining why the rationale might possibly be wrong.
+
+
+
+Citation
+
+
+Fixed-length Text
+
+
+Excerpt from the document that supports the prediction and rationale. This may be blank for some documents.
+
+
+
+
+Error Details
+
+
+Fixed-length Text
+
+
+If the document encountered an error, the error message displays here. For an error list, see How document errors are handled.
+
+
+
+
+aiR Key Analysis fields
+The fields for aiR Key Analysis are:
+
+
+
+
+
+
+Field name
+Field type
+Description
+
+
+
+
+
+Name
+
+
+Fixed-length Text
+
+
+The name of this specific result. This formatted as <Document ID>_<Job ID>.
+
+
+
+
+Job ID
+
+
+Fixed-length Text
+
+
+The unique ID of the job this result came from.
+
+
+
+
+Document
+
+
+Multiple Object
+
+
+The Control Number of the document this result is linked to. If the result is not currently linked to any documents, this field is blank.
+
+
+
+
+Rank
+
+
+Whole Number
+
+
+Numerical rank indicating how strongly relevant the document is. For more information, see Understanding document ranks.
+
+
+
+
+Prediction
+
+
+Fixed-length Text
+
+
+aiR's prediction of whether this qualifies as a key document.
+
+
+
+Rationale
+Fixed-length Text
+An explanation of why aiR chose this rank and prediction.
+
+
+Considerations
+Fixed-length Text
+A counterargument explaining why the rationale might possibly be wrong.
+
+
+Citation 1
+Fixed-length Text
+Excerpt from the document that supports the prediction and rationale. This may be blank for some documents.
+
+
+Citation 2
+Fixed-length Text
+Second excerpt from the document that supports the prediction and rationale. This may be blank for some documents.
+
+
+Citation 3
+Fixed-length Text
+Third excerpt from the document that supports the prediction and rationale. This may be blank for some documents.
+
+
+Citation 4
+Fixed-length Text
+Fourth excerpt from the document that supports the prediction and rationale. This may be blank for some documents.
+
+
+Citation 5
+Fixed-length Text
+Fifth excerpt from the document that supports the prediction and rationale. This may be blank for some documents.
+
+
+
+Error Details
+
+
+Fixed-length Text
+
+
+If the document encountered an error, the error message displays here. For an error list, see How document errors are handled.
+
+
+
+
+Using aiR for Review with Review Center
+One option for integrating aiR for Review into a larger review workflow is to combine it with Review Center. After analyzing the documents with aiR for Review, you can use aiR's predictions to prioritize which documents to include in a Review Center queue.
+For example, you may want to review all documents that aiR for Review ranked as borderline or above for relevance. To do that:
+
+
+Set up a saved search for documents where aiR Relevance Analysis::Rank is greater than 1. This returns all documents ranked 2 or higher.
+
+
+Create a Review Center queue using that saved search as the data source.
+
+
+Because of how the aiR for Review fields are structured, you cannot sort by them. However, you can either sort by another field, or use a prioritized review queue to dynamically serve up documents that may be most relevant.
+For more information, see Review Center.
+How document errors are handled
+If aiR encounters a problem when analyzing a document, it will not return results for that document. Instead, it ranks the document as -1 and returns an error message in the Error Details column. Your organization is not charged for any errored documents.
+The possible error messages are:
+
+
+
+
+
+Error message
+Description
+
+
+
+
+Failed to parse completion 
+The large language model (LLM) encountered an error. 
+
+
+Completion is not valid JSON 
+The large language model (LLM) encountered an error.
+
+
+Hallucination detected in completion 
+The results for this document may include a hallucination. For more information, see Hallucinations and conflations.
+
+
+Conflation detected in completion 
+The results for this document may include a conflation. For more information, see Hallucinations and conflations.
+
+
+Document text is empty 
+The extracted text of the document was empty.
+
+
+Document text is too short 
+There was not enough extracted text to analyze in the document.
+
+
+Document text is too long 
+The document's extracted text was too long to analyze.
+
+
+Model API error occurred 
+A communication error occurred between the large language model (LLM) and Relativity.
+
+
+Uncategorized error occurred 
+An unknown error occurred.
+
+
+
+Hallucinations and conflations
+Two types of errors deserve special mention:
+
+
+Hallucinations—these occur when the aiR results citation cannot be found anywhere in the prompt text. The large language model (LLM) appears to be citing sentences that don't exist in the prompt.
+
+
+Conflations—these occur when the aiR results citation comes from something other than the document itself, but which is still part of the full prompt. For example, it might cite text that was part of the Prompt Criteria instead of the document's extracted text.
+
+
+When aiR receives the analysis results from the LLM, it checks all citations against the prompt text. Any possible hallucinations or conflations are marked as errors, and they receive a rank of -1 instead of whatever rank they were originally assigned. We recommend manually reviewing errored documents.
+Hallucinations are typically rare. However, highly structured documents such as Excel spreadsheets and PDF forms have a higher hallucination rate than other document types.
+Note: Due to the way that columns of text are scanned in OCR, OCR’d documents are occasionally marked as hallucinations when the citations do actually exist in the original document.

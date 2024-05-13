@@ -1,0 +1,245 @@
+
+ Navigation
+Navigating RelativityOne's mobile app starts with having access to the mobile app, which is set up in your RelativityOne web instance. This topic explains the basics of navigation from logging in, pull to refresh, and defines icons you'll use throughout RelativityOne's mobile app.
+Note: This functionality is not available in RelativityOne Government environments.
+Opening the app
+RelativityOne's mobile app offers several login methods. The following methods are supported – Username and password, RSA, Active Directory authentication, Integrated Windows, and OpenID Connect. The SAML method of logging in isn't supported. For more information on these methods, see Logging in to Relativity.
+Creating a passcode
+On your first login, you need to create a 6 digit passcode. This passcode is needed to move to the next step of entering your Relativity credentials and instance URL. 
+(Click to expand)
+ 
+
+
+Logging in
+
+Tap on RelativityOne's mobile app icon.
+Enter your Relativity Instance URL. See  Navigation.
+Tap Next. 
+Enter your username and password
+Tap Login.
+
+The list of RelativityOne workspaces that you can access appear. Tap on a workspace to view the documents in it. If you are having trouble logging in, see Settings.
+Logging in with Touch ID
+Before using Touch ID to log into RelativityOne's mobile app, set up Touch ID on your device. For more information, see Apple Support. Once your device is set up for Touch ID, open the RelativityOne mobile app. The first time the app is opened, a pop up modal asks if you want to use Touch ID. Tap Yes. Once accepted, follow the steps below to log in with Touch ID:
+
+Tap RelativityOne's mobile app icon.
+Lightly touch the Home button when it says "Touch ID for 'Relativity.'"
+
+The mobile application for Relativity opens to the workspace list after you log in successfully.  
+Logging in with Face ID
+Before using Face ID to log into RelativityOne's mobile app, set up Face ID on your device. For more information, see Apple Support. Once your device is set up for Face ID, open the RelativityOne mobile app. The first time the app is opened, a pop up modal asks if you want to use Face ID. Tap Yes. Once accepted, follow the steps below to log in with Faceh ID:
+
+Tap RelativityOne's mobile app icon.
+Hold your device in portrait orientation in front of your face.
+Swipe up on screen after lock screen animation.
+
+The mobile application for Relativity opens to the workspace list after you log in successfully. 
+Instance URL
+The Instance URL that you need to enter into the text box is the same URL that you use for Relativity. By default, HTTPS is provided, but not necessary.
+When logging in, /Relativity will be added to the end of the Instance URL.
+Exceeding passcode limits
+If the login credentials are entered incorrectly three times, your app resets and you need to create a new passcode. For more information, see Creating a passcode.
+If you don't remember your passcode, enter an incorrect password three times. You are asked again if you want to reset your passcode. When you reset your passcode, all saved data and information on the device is wiped.
+After accepting, the next screen you will see is the resetting your password screen. Create a passcode that is over six characters. Enter the new passcode in the text box and click the Next button. Re-enter the same passcode to confirm. Finally, log back into RelativityOne's mobile app.
+Opening a workspace
+On the workspace list, you can perform the following actions to find the workspace you want:
+
+Search the workspace list by tapping the search bar and typing in the name of the workspace. 
+Select a workspace view tapping View at the top to change the displayed fields, criteria, or sorting for workspaces.
+
+Tap on the Name of any workspace to open it. The document list appears once the workspace is open.
+Note: 
+At any place in RelativityOne's mobile app, tap More to switch workspaces. For more information, see Switching workspaces
+Switching workspaces
+To switch workspaces while already in one, click More. In the More menu, tap the Switch Workspace and tap on the desired workspace to open. For more information, see Mobile support and settings. 
+General navigation and icons
+The following navigation and shortcut options are available:
+
+
+
+
+
+Icon
+Description
+
+
+
+
+Navigation icons
+
+
+
+
+
+This is the Documents icon. Tap this to view the documents list.
+
+
+
+
+
+This is the Saved Searches icon. Tap this to view saved search folders and recent searches.
+
+
+
+
+
+This is the Folders icon. Tap this to view the folders pane.
+
+
+
+
+
+This is the Offline icon. Tap this to download saved searches or folders for offline review.
+
+
+
+
+
+This is the More icon. Tap this to switch workspaces, view support options, change settings, and log out. 
+
+
+General icons
+
+
+
+
+
+This icon on the document list to filter by fields such as Control Number, Custodian, Responsive Designation. 
+
+
+
+
+
+This icon on the document list to use already created index searches and recent searches.
+
+
+
+
+
+This is the coding icon. Tap this to open the coding pane.
+
+
+
+
+
+This is the overflow icon. Tap this to change the document view options and share a document. 
+
+
+
+
+
+This is the Saved Search Folder icon. This represents a folder with a
+
+
+
+
+
+This is the Locked Folder icon. This icon represents a folder that can't be deleted.
+
+
+
+
+
+This icon is to open your mobile profile.
+
+
+
+
+
+This icon is to open the application's settings. 
+
+
+
+
+
+This icon is to share a document or saved search using a variety of methods.
+
+
+
+
+
+This icon is to toggle automatic navigation layout when coding documents.
+
+
+
+
+
+This icon is to copy the previous coding decisions to the current document.
+
+
+
+Apple keyboard shortcuts
+When using a smart keyboard that connects to your device, you have the ability to use keyboard shortcuts. The keyboard shortcuts include selecting any of the tabs when not in a document. When in a document, you can use keyboard shortcuts to close or open documents and layouts among other things.
+
+
+
+
+
+Shortcut
+Description
+
+
+
+
+Navigation shortcuts
+
+
+⌘ 1
+Go to Documents tab.
+
+
+⌘ 2
+Go to Saved Searches tab.
+
+
+
+⌘ 3
+
+
+Go to Folders tab.
+
+
+
+⌘ 4
+Go to Notifications tab.
+
+
+⌘ 5
+Go to More tab.
+
+
+Document shortcuts
+
+
+⌘ W
+Close document.
+
+
+⌘ L 
+Close layout.
+
+
+⌘ ←
+Go to previous document.
+
+
+⌘ →
+Go to next document.
+
+
+⌘ S
+Save layout.
+
+
+⌘ shift C
+Copy from Previous.
+
+
+⌘ N
+Save layout and move to next document.
+
+
+
+Pull to refresh
+Anytime you want to refresh the document list, place one finger anywhere in the list and pull down. Pull down far enough and take your finger off the screen. A loading icon appears and the document list updates. If the page isn't pulled down far enough, the loading icon will not appear and the document list will not be updated.
+Pull to refresh will not remove any filters or sorting selections that were made before refreshing the document list. 
